@@ -1,0 +1,543 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Arvut DE — Sondierungsbericht (vertraulich)</title>
+<!--
+  Arvut DE — internal sondierungsbericht (DE + RU). Confidential.
+  Source of truth: scratchpad Arvut-DE-Expansion-Recon-v1.md (2026-07-08).
+  Language toggle: CSS (body.lang-de / body.lang-ru) + hash (#de / #ru), external /doc-lang.js at site root — UNGATED: a relative toggle.js under /documents is blocked by the nginx gate (subresource request carries no ?k) and returns the access page instead of JS.
+  Mirror copy under /documents/arvut-de-expansion/ (gated ?k=0010). This copy at /k/ is ungated.
+-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%98%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#ffffff; --ink:#16211f; --ink-soft:#3b4a47; --muted:#657572; --faint:#8a9895;
+    --teal:#0e8a8a; --teal-d:#0a6a6a; --teal-bg:#eef7f6;
+    --amber-ink:#8a4b00; --amber-bg:#fdf2e2; --amber-line:#e8c58a;
+    --danger-ink:#a1152e; --danger-bg:#fdeef0; --danger-line:#f0c2ca;
+    --line:#e4e9e8; --line-soft:#eef2f1; --panel:#f7faf9; --panel-2:#f1f6f5;
+    --serif:Georgia,"Iowan Old Style",Palatino,"Palatino Linotype",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono","JetBrains Mono",ui-monospace,"Cascadia Code",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--panel-2)}
+  body{font-family:var(--sans);color:var(--ink);line-height:1.66;-webkit-font-smoothing:antialiased;font-size:16px}
+  .page{max-width:820px;margin:0 auto;background:var(--bg);box-shadow:0 1px 0 var(--line),0 18px 60px -30px rgba(20,40,38,.35)}
+  .pad{padding:0 clamp(20px,5.5vw,60px)}
+
+  .topbar{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);backdrop-filter:saturate(1.2) blur(6px);
+    border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:11px clamp(20px,5.5vw,60px)}
+  .wordmark{font-weight:800;letter-spacing:.24em;font-size:13px;color:var(--teal-d)}
+  .langbar{display:flex;gap:6px;align-items:center}
+  .langbar .lbl{font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--faint);margin-right:2px}
+  .langbar button{font:inherit;font-size:12px;font-weight:700;color:var(--teal-d);background:#fff;border:1px solid var(--line);
+    border-radius:999px;padding:4px 14px;cursor:pointer;transition:.15s}
+  .langbar button:hover{border-color:var(--teal)}
+  .langbar button.on{background:var(--teal);border-color:var(--teal);color:#fff}
+
+  body.lang-de .ru{display:none}
+  body.lang-ru .de{display:none}
+
+  .hero{padding-top:40px;padding-bottom:8px}
+  .chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--danger-ink);background:var(--danger-bg);border:1px solid var(--danger-line);border-radius:999px;padding:5px 13px}
+  h1.title{font-family:var(--serif);font-weight:400;font-size:clamp(30px,5.6vw,46px);line-height:1.06;letter-spacing:-.015em;margin:.55rem 0 0;color:var(--ink)}
+  .subtitle{font-size:clamp(15px,2.2vw,19px);color:var(--muted);margin:.6rem 0 0;line-height:1.4}
+
+  .meta{width:100%;border-collapse:collapse;margin:1.8rem 0 .4rem;font-size:13px}
+  .meta th{text-align:left;vertical-align:top;white-space:nowrap;color:var(--teal-d);font-weight:700;padding:7px 16px 7px 0;width:1%;border-top:1px solid var(--line-soft)}
+  .meta td{vertical-align:top;color:var(--ink-soft);padding:7px 0;border-top:1px solid var(--line-soft)}
+
+  .seclabel{font-family:var(--mono);font-size:12px;letter-spacing:.15em;text-transform:uppercase;color:var(--faint);display:flex;align-items:center;gap:14px;margin:3.2rem 0 1.3rem}
+  .seclabel::after{content:"";flex:1;height:1px;background:var(--line)}
+  .doc h2{font-family:var(--serif);font-weight:500;font-size:clamp(22px,3.2vw,28px);line-height:1.14;letter-spacing:-.01em;margin:0 0 .2rem;color:var(--ink)}
+  .doc h3{font-size:16px;font-weight:750;color:var(--teal-d);margin:1.9rem 0 .1rem;letter-spacing:.01em}
+  .doc p{margin:.85rem 0 0}
+  .doc strong{font-weight:700;color:var(--ink)}
+  .doc em{color:var(--ink-soft)}
+  code{font-family:var(--mono);font-size:.86em;background:var(--panel);border:1px solid var(--line);border-radius:5px;padding:1px 5px;color:var(--ink-soft)}
+
+  ul.clean{margin:.7rem 0 0;padding-left:1.15rem}
+  ul.clean li{margin:.42rem 0;padding-left:.15rem}
+  ul.clean li::marker{color:var(--teal)}
+  ol.steps{margin:.7rem 0 0;padding-left:1.25rem}
+  ol.steps li{margin:.6rem 0;padding-left:.2rem}
+  ol.steps li::marker{color:var(--teal-d);font-weight:700}
+
+  blockquote.note{margin:1.2rem 0 0;padding:.6rem 0 .6rem 1.1rem;border-left:3px solid var(--amber-line);background:var(--amber-bg);
+    border-radius:0 8px 8px 0;padding-right:1rem;color:var(--amber-ink);font-size:14px}
+  blockquote.pull{margin:1.6rem 0 .3rem;padding:1.05rem 1.25rem;background:var(--teal-bg);border-left:3px solid var(--teal);
+    border-radius:0 10px 10px 0;font-family:var(--serif);font-size:18px;line-height:1.4;color:var(--ink)}
+
+  table.grid{border-collapse:collapse;width:100%;margin:1.2rem 0 .2rem;font-size:13.2px;background:#fff;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.grid th{background:var(--panel-2);text-align:left;font-weight:750;color:var(--teal-d);padding:9px 12px;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.04em;text-transform:uppercase}
+  table.grid td{padding:9px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top;color:var(--ink-soft)}
+  table.grid tr:last-child td{border-bottom:0}
+  table.grid tr.sum td{background:var(--panel);font-weight:700;color:var(--ink)}
+  table.grid td.r,table.grid th.r{text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .tblwrap{overflow-x:auto;margin:0 -2px}
+
+  footer.docfoot{margin-top:3rem;padding:1.4rem 0 3rem;border-top:1px solid var(--line);font-size:12.5px;color:var(--faint);font-family:var(--mono)}
+
+  @media (max-width:560px){ body{font-size:15px} .meta th{white-space:normal} .pad{padding:0 18px} }
+</style>
+</head>
+<body class="lang-de">
+<div class="page">
+
+  <div class="topbar">
+    <span class="wordmark">ARVUT</span>
+    <div class="langbar">
+      <span class="lbl">Sprache</span>
+      <button type="button" data-lang="de">DE</button>
+      <button type="button" data-lang="ru">RU</button>
+    </div>
+  </div>
+
+  <div class="pad doc">
+
+    <!-- HERO -->
+    <div class="hero">
+      <span class="chip"><span class="de">Vertraulich</span><span class="ru">Конфиденциально</span></span>
+      <h1 class="title"><span class="de">Arvut DE — Sondierungsbericht: Was ABM für Deutschland braucht</span><span class="ru">Arvut DE — разведочный отчёт: что нужно, чтобы ABM работал в Германии</span></h1>
+      <p class="subtitle"><span class="de">Architektur, Arbeitsumfang und Investitionsszenarien für den Markteintritt in Deutschland.</span><span class="ru">Архитектура, объём работ и сценарии инвестиции для выхода в Германию.</span></p>
+
+      <table class="meta">
+        <tr><th><span class="de">Datum</span><span class="ru">Дата</span></th><td>8. Juli 2026</td></tr>
+        <tr><th><span class="de">Autor</span><span class="ru">Автор</span></th><td><span class="de">Arvut GmbH (technische Sondierung ABM)</span><span class="ru">Arvut GmbH (техническая разведка ABM)</span></td></tr>
+        <tr><th><span class="de">Status</span><span class="ru">Статус</span></th><td><span class="de">Vertraulich — intern / zur Investitionsbegründung</span><span class="ru">Конфиденциально — внутренний / для обоснования инвестиции</span></td></tr>
+        <tr><th><span class="de">Anlass</span><span class="ru">Повод</span></th><td><span class="de">Ein deutscher Partner hat gefragt, was nötig ist, damit Arvut/ABM Unternehmen in Deutschland betreut.</span><span class="ru">Немецкий партнёр спросил, что нужно, чтобы Arvut/ABM обслуживал компании в Германии.</span></td></tr>
+      </table>
+    </div>
+
+    <!-- 1. SUMMARY -->
+    <div class="seclabel">01 — <span class="de">Zusammenfassung</span><span class="ru">Резюме</span></div>
+    <h2><span class="de">Kurzfassung</span><span class="ru">Резюме (TL;DR)</span></h2>
+    <ul class="clean de">
+      <li>ABM ist heute zu <strong>~40 % in Deutschland einsatzbereit</strong>: Mehrwährungsfähigkeit, Mehrsprachigkeit (inkl. Deutsch), Mandanten-Pyramide, flexibler Kontenrahmen und serverseitige PDF-Generierung — werden unverändert übernommen.</li>
+      <li>Die übrigen <strong>~60 % sind fest schweizerisch</strong>: Kontenrahmen, USt-Engine, Rechnung mit QR-Bill, Firmensuche, Lohn.</li>
+      <li><strong>Der zentrale technische Blocker</strong> sind nicht neue Funktionen, sondern dass die Berechnungs-Engines (USt, DAP, Bilanz, Abschluss) <strong>fest verdrahtete Schweizer Kontonummern lesen</strong>. Solange das nicht entkoppelt ist, folgt der deutsche Kontenrahmen einer anderen Logik.</li>
+      <li><strong>Architektur: Wir empfehlen einen parallelen Arvut-DE-Kreis (EU-Hosting), keine Verschachtelung unter Arvut CH.</strong> Ausschlaggebend ist in erster Linie deutsches Recht (Datenresidenz AO §146, GoBD, DSGVO), nicht die Technik.</li>
+      <li><strong>Umfang (ohne Lohn):</strong> MVP ≈ <strong>300–500 Std.</strong>, bis zur breiten Parität ≈ <strong>500–870 Std.</strong></li>
+      <li><strong>Investition:</strong> ein realistischer, ausreichend ausgestatteter Start (MVP + Kern von Phase 2, ohne Lohn, mit rechtlicher Begleitung, EU-Infrastruktur und Reserve) — <strong>≈ CHF 110'000–165'000</strong>. Abgespeckter reiner MVP — <strong>≈ CHF 70'000–115'000</strong>.</li>
+      <li><strong>Mehr-Jurisdiktions-Fähigkeit:</strong> paralleler Kreis ≠ parallele Entwicklung. Eine einzige Codebasis; ein Land wird als „Jurisdiktions-Paket" angebunden. Die Investition in Deutschland baut eine <strong>wiederverwendbare Plattform</strong>; Frankreich und weitere Länder folgen zu einem Bruchteil der Kosten (Frankreich ≈ halb so teuer).</li>
+    </ul>
+    <ul class="clean ru">
+      <li>ABM сегодня <strong>работоспособен в Германии на ~40 %</strong>: мультивалюта, мультиязык (включая немецкий), мультитенант-пирамида, гибкий план счетов и серверная генерация PDF — переносятся as-is.</li>
+      <li>Остальные <strong>~60 % — жёстко швейцарские</strong>: план счетов, движок НДС, инвойс с QR-bill, поиск компаний, payroll.</li>
+      <li><strong>Главный инженерный блокер</strong> — не новые фичи, а то, что расчётные движки (НДС, DAP, баланс, закрытие) читают <strong>номера швейцарских счетов</strong>. Пока это не расцеплено, немецкий план счетов имеет другую логику.</li>
+      <li><strong>Архитектура: рекомендуем параллельный контур Arvut DE (EU-хостинг), а не вложенность под Arvut CH.</strong> Решает это в первую очередь немецкое право (резиденция данных AO §146, GoBD, GDPR), а не техника.</li>
+      <li><strong>Объём (без payroll):</strong> MVP ≈ <strong>300–500 ч</strong>, до широкого паритета ≈ <strong>500–870 ч</strong>.</li>
+      <li><strong>Инвестиция:</strong> реалистичный, ресурсно-обеспеченный запуск (MVP + ядро Phase 2, без payroll, с юр-сопровождением, EU-инфрой и резервом) — <strong>≈ CHF 110'000–165'000</strong>. Урезанный MVP-only — <strong>≈ CHF 70'000–115'000</strong>.</li>
+      <li><strong>Мультиюрисдикционность:</strong> параллельный контур ≠ параллельная разработка. Код — один, страна подключается как «пакет юрисдикции». Инвестиция в Германию строит <strong>переиспользуемую платформу</strong>; Франция и следующие страны подключаются за долю стоимости (Франция ≈ вдвое дешевле).</li>
+    </ul>
+
+    <!-- 2. CONTEXT -->
+    <div class="seclabel">02 — <span class="de">Kontext</span><span class="ru">Контекст</span></div>
+    <h2><span class="de">Kontext und Frage</span><span class="ru">Контекст и вопрос</span></h2>
+    <div class="de">
+      <p>Es gibt einen potenziellen Treuhand-Partner in Deutschland. Die Frage: <strong>Was ist nötig, damit Arvut in Deutschland arbeiten kann?</strong></p>
+      <p>Daraus ergeben sich zwei praktische Fragen, die dieser Bericht beantwortet:</p>
+      <ol class="steps">
+        <li><strong>Architektur:</strong> Arvut DE — unter Arvut CH oder parallel?</li>
+        <li><strong>Umfang und Kosten:</strong> wie viele Personenstunden und welche Investition.</li>
+      </ol>
+      <p>Der Bericht ist eine <strong>Sondierung</strong>, kein Pflichtenheft. Die Zahlen haben Planungsqualität (±30 %) und werden bei der Detailplanung präzisiert.</p>
+    </div>
+    <div class="ru">
+      <p>Появился потенциальный партнёр-фидуциарий в Германии. Вопрос: <strong>что нужно, чтобы Arvut работал в Германии?</strong></p>
+      <p>Отсюда два практических вопроса, на которые отвечает отчёт:</p>
+      <ol class="steps">
+        <li><strong>Архитектура:</strong> Arvut DE — под Arvut CH или параллельно?</li>
+        <li><strong>Объём и деньги:</strong> сколько человеко-часов и какая инвестиция.</li>
+      </ol>
+      <p>Отчёт — <strong>разведка</strong>, не техническое задание. Цифры — планировочного качества (±30 %), уточняются при детальном проектировании.</p>
+    </div>
+
+    <!-- 3. CURRENT STATE -->
+    <div class="seclabel">03 — <span class="de">Aktueller Stand</span><span class="ru">Текущее состояние</span></div>
+    <h2><span class="de">Aktueller Stand von ABM</span><span class="ru">Текущее состояние ABM</span></h2>
+
+    <h3><span class="de">3.1. Was bereits vorhanden ist und übernommen wird</span><span class="ru">3.1. Что уже готово и переносится</span></h3>
+    <div class="de"><div class="tblwrap"><table class="grid">
+      <tr><th>Fähigkeit</th><th>Status</th><th>Warum es hilft</th></tr>
+      <tr><td>Mehrwährungsfähigkeit</td><td>✅ produktiv (EUR/CHF)</td><td>EUR als funktionale Währung einer deutschen Gesellschaft — out of the box</td></tr>
+      <tr><td>Mehrsprachigkeit</td><td>✅ DE/FR/IT/EN (+RU)</td><td>Deutsche Oberfläche, Kontenbezeichnungen, Rechnungen, Berichte — bereits vorhanden</td></tr>
+      <tr><td>Mandanten-Pyramide</td><td>✅ RLS aktiv</td><td>Modell „Provider → Treuhänder → Mandant" ist übertragbar</td></tr>
+      <tr><td>Kontenrahmen je Gesellschaft</td><td>✅ Tabelle <code>coa_account</code>, aus CSV geladen</td><td>Deutscher SKR lässt sich als Daten anlegen</td></tr>
+      <tr><td>Serverseitige PDF-Generierung</td><td>✅ Chromium in Docker</td><td>Neue Formulare (UStVA, GuV) mit derselben Infrastruktur — kein neuer Server nötig</td></tr>
+    </table></div></div>
+    <div class="ru"><div class="tblwrap"><table class="grid">
+      <tr><th>Возможность</th><th>Статус</th><th>Почему помогает</th></tr>
+      <tr><td>Мультивалютность</td><td>✅ в проде (EUR/CHF)</td><td>EUR как functional-валюта немецкой компании — из коробки</td></tr>
+      <tr><td>Мультиязык</td><td>✅ DE/FR/IT/EN (+RU)</td><td>Немецкий UI, названия счетов, инвойсы, отчёты — уже есть</td></tr>
+      <tr><td>Мультитенант-пирамида</td><td>✅ RLS активна</td><td>Модель «провайдер → фидуциария → клиент» переносится на DE</td></tr>
+      <tr><td>План счетов по-компанийный</td><td>✅ таблица <code>coa_account</code>, грузится из CSV</td><td>Немецкий SKR можно завести как данные</td></tr>
+      <tr><td>Серверная генерация PDF</td><td>✅ Chromium в Docker</td><td>Новые формы (UStVA, GuV) рендерятся той же инфрой — сервер ставить не надо</td></tr>
+    </table></div></div>
+
+    <h3><span class="de">3.2. Was fest schweizerisch ist (muss gebaut/entkoppelt werden)</span><span class="ru">3.2. Что жёстко швейцарское (нужно строить/расцеплять)</span></h3>
+    <div class="de"><div class="tblwrap"><table class="grid">
+      <tr><th>Komponente</th><th>Wie es heute verdrahtet ist</th></tr>
+      <tr><td>USt-Engine liest Kontonummern</td><td><code>vat_account LIKE '220%'</code> → Umsatzsteuer, <code>LIKE '117%'</code> → Vorsteuer (Konten des Kontenrahmens KMU 2200/1170)</td></tr>
+      <tr><td>USt-Sätze / Formular</td><td>8.1 / 2.6 / 3.8, ESTV-Formular, XML eCH-0217, Einreichung über SuisseTax</td></tr>
+      <tr><td>Wir verwenden Schweizer Konten</td><td>1000 Kasse, 1100 Debitoren, 2000 Kreditoren, 2310 Löhne, 2979 Ergebnisvortrag, 3000 Ertrag — über 100 Vorkommen allein für 1000</td></tr>
+      <tr><td>Rechnung</td><td>Swiss QR-Bill (SPC v2.2)</td></tr>
+      <tr><td>Firmensuche</td><td>Zefix (lokale Tabelle)</td></tr>
+      <tr><td>Lohn</td><td>Schweizerische AHV/UVG/BVG</td></tr>
+    </table></div></div>
+    <div class="ru"><div class="tblwrap"><table class="grid">
+      <tr><th>Компонент</th><th>Как зашито сегодня</th></tr>
+      <tr><td>Движок НДС читает номера счетов</td><td><code>vat_account LIKE '220%'</code> → output VAT, <code>LIKE '117%'</code> → input VAT (счета Kontenrahmen KMU 2200/1170)</td></tr>
+      <tr><td>Ставки / форма НДС</td><td>8.1 / 2.6 / 3.8, форма ESTV, XML eCH-0217, подача SuisseTax</td></tr>
+      <tr><td>Мы используем швейц. счета</td><td>1000 Kasse, 1100 Debitoren, 2000 Kreditoren, 2310 зарплаты, 2979 перенос P&amp;L, 3000 выручка — 100+ вхождений только по 1000</td></tr>
+      <tr><td>Инвойс</td><td>Swiss QR-bill (SPC v2.2)</td></tr>
+      <tr><td>Поиск компаний</td><td>Zefix (локальная таблица)</td></tr>
+      <tr><td>Payroll</td><td>Швейцарские AVS/LAINF/LPP</td></tr>
+    </table></div></div>
+
+    <blockquote class="pull de">Fazit: Den deutschen Kontenrahmen einfach zu „klonen" reicht nicht. Es braucht eine Abstraktionsschicht „Kontenrolle" nach den in Deutschland geltenden Regeln.</blockquote>
+    <blockquote class="pull ru">Вывод: просто «клонировать немецкий план счетов» нельзя. Необходим слой абстракции «роль счёта» по правилам, установленным в Германии.</blockquote>
+
+    <!-- 4. ARCHITECTURE -->
+    <div class="seclabel">04 — <span class="de">Architektur</span><span class="ru">Архитектура</span></div>
+    <h2><span class="de">Architektur: Arvut DE unter Arvut CH oder parallel?</span><span class="ru">Архитектура: Arvut DE под Arvut CH или параллельно?</span></h2>
+
+    <h3><span class="de">4.1. Wie die Pyramide tatsächlich aufgebaut ist (laut Code)</span><span class="ru">4.1. Как пирамида устроена в реальности (по коду)</span></h3>
+    <div class="de">
+      <p>Es ist <strong>kein beliebig verschachtelter Baum</strong>, sondern ein flacher Mandanten-Raum mit einem Sichtbarkeitsmodell aus drei Rollen (RLS-Funktion <code>is_company_visible</code>):</p>
+      <ul class="clean">
+        <li><strong>root</strong> — eine einzige UUID <code>…0001</code> (= Provider) → sieht <strong>alles</strong>.</li>
+        <li><strong><code>service-provider</code></strong> → sieht <strong>ebenfalls alles</strong> (alle Gesellschaften aller Treuhänder).</li>
+        <li><strong><code>fiduciary</code></strong> → sich selbst + eigene Mandanten (<code>parent_fiduciary_id = self</code>).</li>
+        <li><strong><code>client</code></strong> → nur sich selbst.</li>
+      </ul>
+      <p>Es gibt genau eine Verschachtelungsebene: Provider → Treuhänder → Mandant, über einen einzigen Verweis <code>parent_fiduciary_id</code>.</p>
+      <blockquote class="note">⚠️ <strong>Kritisch:</strong> <code>service-provider</code> = „sieht alles", alles-oder-nichts. Ein Begriff „auf seine Region/Teilmenge beschränkter Provider" existiert im Modell <strong>nicht</strong>.</blockquote>
+    </div>
+    <div class="ru">
+      <p>Это <strong>не дерево произвольной вложенности</strong>, а плоское тенант-пространство с 3-ролевой моделью видимости (RLS-функция <code>is_company_visible</code>):</p>
+      <ul class="clean">
+        <li><strong>root</strong> — один UUID <code>…0001</code> (= provider) → видит <strong>всё</strong>.</li>
+        <li><strong><code>service-provider</code></strong> → тоже видит <strong>всё</strong> (все компании во всех фидуциариях).</li>
+        <li><strong><code>fiduciary</code></strong> → себя + своих клиентов (<code>parent_fiduciary_id = self</code>).</li>
+        <li><strong><code>client</code></strong> → только себя.</li>
+      </ul>
+      <p>Вложенность ровно одна: provider → fiduciary → client, через одну ссылку <code>parent_fiduciary_id</code>.</p>
+      <blockquote class="note">⚠️ <strong>Критично:</strong> <code>service-provider</code> = «видит всё», all-or-nothing. Понятия «провайдер, ограниченный своим регионом/подмножеством» в модели <strong>нет</strong>.</blockquote>
+    </div>
+
+    <h3><span class="de">4.2. Drei Varianten</span><span class="ru">4.2. Три варианта</span></h3>
+    <div class="de">
+      <p><strong>Variante A — Arvut DE als <code>service-provider</code> in derselben Datenbank.</strong> Technisch 5 Minuten. <strong>Aber</strong> der DE-Provider würde nach heutiger RLS Schweizer Mandanten sehen und der Schweizer die deutschen. Verletzung der Mandantenvertraulichkeit + DSGVO/nDSG. ❌ Ohne Modelländerung nicht möglich.</p>
+      <p><strong>Variante B — parallel, eigene Instanz (EU-Hosting).</strong> Arvut CH und Arvut DE sind Geschwister: je eigener root, eigene DB/Deployment, gemeinsamer Code. Saubere Trennung von Daten und Jurisdiktionen. ✅ <strong>Empfohlen.</strong></p>
+      <p><strong>Variante C — dieselbe Instanz + echter „Provider-Region-Scope".</strong> Modell erweitern: <code>service-provider</code> erhält einen Scope (eine Menge von Treuhändern), den <code>is_company_visible</code> respektiert. Ein Code / eine DB, Gruppen-Sicht inklusive — aber ein Eingriff in den RLS-Kern + vollständiger Re-Test der Mandantentrennung (Risiko für das CH-Prod).</p>
+    </div>
+    <div class="ru">
+      <p><strong>Вариант A — Arvut DE как <code>service-provider</code> в той же БД.</strong> Технически 5 минут. <strong>Но</strong> DE-провайдер по текущей RLS увидит швейцарских клиентов, а швейцарский — немецких. Нарушение конфиденциальности клиентов + GDPR/nDSG. ❌ Так нельзя без доработки модели.</p>
+      <p><strong>Вариант B — параллельно, отдельный инстанс (EU-хостинг).</strong> Arvut CH и Arvut DE — сиблинги: каждый свой root, своя БД/деплой, общий код. Чистая сегрегация данных и юрисдикций. ✅ <strong>Рекомендуется.</strong></p>
+      <p><strong>Вариант C — тот же инстанс + реальный «регион/скоуп провайдера».</strong> Доработать модель: у <code>service-provider</code> появляется скоуп (набор фидуциарий), и <code>is_company_visible</code> его уважает. Один код/БД, group-view из коробки — но это правка ядра RLS + полный перетест кросс-тенанта (риск задеть CH-прод).</p>
+    </div>
+
+    <h3><span class="de">4.3. Empfehlung — Variante B (parallel). Entscheidend ist das Recht, nicht die Technik:</span><span class="ru">4.3. Рекомендация — Вариант B (параллельно). Решает право, не техника:</span></h3>
+    <ul class="clean de">
+      <li><strong>Datenresidenz.</strong> AO §146 Abs. 2a: elektronische Bücher dürfen ohne Bewilligung in der EU/im EWR geführt werden; ausserhalb der EU (die Schweiz ist ein Drittland) ist ein Antrag/eine Bewilligung des Finanzamts mit Auflagen nötig. Schweizer Hosting deutscher Bücher = entweder Bewilligung oder EU-Hosting. Das spricht für eine eigene EU-Instanz.</li>
+      <li><strong>GoBD</strong> (Unveränderbarkeit, Verfahrensdokumentation, Verfügbarkeit bei Prüfung) lässt sich in einem isolierten deutschen Kreis leichter erfüllen.</li>
+      <li><strong>Rechtsträger.</strong> Entsteht eine Arvut DE GmbH, gehören die Daten logischerweise unter sie und nicht unter den Schweizer root.</li>
+    </ul>
+    <ul class="clean ru">
+      <li><strong>Резиденция данных.</strong> AO §146 Abs. 2a: электронные книги можно вести в EU/EEA без разрешения; вне EU (Швейцария — третья страна) — нужен Antrag/Bewilligung Finanzamt с условиями. Швейцарский хостинг немецких книг = либо разрешение, либо EU-хостинг. Толкает к отдельному EU-инстансу.</li>
+      <li><strong>GoBD</strong> (неизменяемость, Verfahrensdokumentation, доступность при проверке) проще закрывать на изолированном немецком контуре.</li>
+      <li><strong>Юрлицо.</strong> Если появится Arvut DE GmbH — данные логично держать под ним, а не под швейцарским root.</li>
+    </ul>
+    <p class="de">Eine Gruppen-Sicht „Arvut Holding sieht CH + DE" ist eine separate, spätere Reporting-Schicht darüber — keine Verschachtelung in der DB. Nicht mit dem Mandantenbaum verwechseln.</p>
+    <p class="ru">Group-view «Arvut Holding видит CH + DE» — это отдельный отчётный слой сверху позже, а не вложенность в БД. Не смешивать с деревом тенантов.</p>
+    <blockquote class="note de">⚠️ AO §146 ist mit einem deutschen Steuerberater/Juristen zu bestätigen — einen spezialisierten deutschen Rechts-Agenten haben wir nicht (nur einen schweizerischen und einen italienischen).</blockquote>
+    <blockquote class="note ru">⚠️ AO §146 подтвердить у немецкого Steuerberater/юриста — специализированного немецкого правового агента у нас в наборе нет (только швейцарский и итальянский).</blockquote>
+
+    <!-- 5. WORK BREAKDOWN -->
+    <div class="seclabel">05 — <span class="de">Arbeitsumfang</span><span class="ru">Объём работ</span></div>
+    <h2><span class="de">Arbeitsumfang (Work Breakdown)</span><span class="ru">Объём работ (Work Breakdown)</span></h2>
+    <p class="de">Stunden = „kompetenter Entwickler mit Kenntnis der Codebasis".</p>
+    <p class="ru">Часы — «компетентный разработчик, знающий кодбазу».</p>
+
+    <h3><span class="de">Phase 1 — MVP (Bücher führen + USt-Entwurf + HGB-Abschluss + Übergabe via DATEV)</span><span class="ru">Phase 1 — MVP (вести книги + USt-draft + отчётность HGB + отдать через DATEV)</span></h3>
+    <div class="de"><div class="tblwrap"><table class="grid">
+      <tr><th>Nr.</th><th>Block</th><th class="r">Std.</th><th>Kommentar</th></tr>
+      <tr><td>1</td><td><strong>Kontenrollen-Schicht</strong> (Engines von CH-Nummern entkoppeln)</td><td class="r"><strong>80–140</strong></td><td>Grösster und riskantester Block. Betrifft Buchung/USt/DAP/Bilanz/Abschluss — sie führen Prod-Bücher „auf den Rappen genau". Präzedenz: DAP hat bereits <code>dap_account_map</code></td></tr>
+      <tr><td>2</td><td>SKR03/SKR04-Vorlagen + Import</td><td class="r">16–30</td><td>Nach der Rollen-Schicht reine Daten</td></tr>
+      <tr><td>3</td><td>USt: UStVA + PDF-Formular (Entwurf) + Reverse Charge/EU grundlegend</td><td class="r">60–90</td><td>Ohne echte E-Einreichung</td></tr>
+      <tr><td>4</td><td>HGB-Abschluss: Bilanz §266 + GuV §275</td><td class="r">40–70</td><td>Neue Builder + PDF-Vorlagen</td></tr>
+      <tr><td>5</td><td>DATEV-Export (EXTF CSV)</td><td class="r">30–50</td><td>Die Sprache deutscher Steuerberater — Adoption-Hebel</td></tr>
+      <tr><td>6</td><td>Firmensuche: VIES + Handelsregister (anfangs manuelle Eingabe)</td><td class="r">16–30</td><td>Kein kostenloses Einheits-API wie Zefix</td></tr>
+      <tr><td>7</td><td>Locale de-DE (1.234,56 statt Apostroph)</td><td class="r">12–24</td><td>Mechanisch, aber überall</td></tr>
+      <tr><td>8</td><td>Mandant/Region: parallele EU-Instanz — Setup</td><td class="r">30–60</td><td>Deployment + Datenisolierung</td></tr>
+      <tr class="sum"><td></td><td>Summe Phase 1</td><td class="r">≈ 284–494</td><td>~2–3 Personenmonate</td></tr>
+    </table></div></div>
+    <div class="ru"><div class="tblwrap"><table class="grid">
+      <tr><th>#</th><th>Блок</th><th class="r">Часы</th><th>Комментарий</th></tr>
+      <tr><td>1</td><td><strong>Слой ролей счёта</strong> (расцепка движков от швейц. номеров)</td><td class="r"><strong>80–140</strong></td><td>Самый крупный и рисковый. Трогает posting/НДС/DAP/баланс/закрытие — они ведут прод-книги «копейка-в-копейку». Прецедент: у DAP уже есть <code>dap_account_map</code></td></tr>
+      <tr><td>2</td><td>Шаблоны SKR03/SKR04 + импорт</td><td class="r">16–30</td><td>После слоя ролей — это данные</td></tr>
+      <tr><td>3</td><td>USt: UStVA + форма PDF (draft) + Reverse Charge/EU базово</td><td class="r">60–90</td><td>Без реальной e-подачи</td></tr>
+      <tr><td>4</td><td>Отчётность HGB: Bilanz §266 + GuV §275</td><td class="r">40–70</td><td>Новые билдеры + PDF-шаблоны</td></tr>
+      <tr><td>5</td><td>DATEV-экспорт (EXTF CSV)</td><td class="r">30–50</td><td>Язык немецких Steuerberater — рычаг adoption</td></tr>
+      <tr><td>6</td><td>Company lookup: VIES + Handelsregister (ручной ввод на старте)</td><td class="r">16–30</td><td>Бесплатного единого API как Zefix нет</td></tr>
+      <tr><td>7</td><td>Локаль de-DE (1.234,56 вместо апострофа)</td><td class="r">12–24</td><td>Механически, но повсюду</td></tr>
+      <tr><td>8</td><td>Тенант/регион: параллельный EU-инстанс — сетап</td><td class="r">30–60</td><td>Деплой + изоляция данных</td></tr>
+      <tr class="sum"><td></td><td>Итого Phase 1</td><td class="r">≈ 284–494</td><td>~2–3 чел.-месяца</td></tr>
+    </table></div></div>
+
+    <h3><span class="de">Phase 2 — bis zur breiten Parität</span><span class="ru">Phase 2 — до широкого паритета</span></h3>
+    <div class="de"><div class="tblwrap"><table class="grid">
+      <tr><th>Nr.</th><th>Block</th><th class="r">Std.</th><th>Kommentar</th></tr>
+      <tr><td>9</td><td>ELSTER/ERiC — echte USt-E-Einreichung</td><td class="r">40–80</td><td>ERiC = native Bibliothek, Zertifikate</td></tr>
+      <tr><td>10</td><td>E-Bilanz (XBRL-Taxonomie) ans Finanzamt</td><td class="r">60–120</td><td>Bis zur Nachfrage zurückstellen</td></tr>
+      <tr><td>11</td><td>XRechnung/ZUGFeRD (E-Rechnungs-Pflicht DE)</td><td class="r">40–70</td><td>PDF/A-3 + eingebettetes XML EN 16931</td></tr>
+      <tr><td>12</td><td>GoBD-Härtung + Datenexport (DSFinV-K für Kassen)</td><td class="r">30–60</td><td>Viel Dokumentation/Prozess</td></tr>
+      <tr><td>13</td><td>ZM (Zusammenfassende Meldung)/OSS vollständig</td><td class="r">20–40</td><td>Grenzüberschreitende Lieferungen</td></tr>
+      <tr class="sum"><td></td><td>Summe Phase 2</td><td class="r">≈ 190–370</td><td></td></tr>
+    </table></div></div>
+    <div class="ru"><div class="tblwrap"><table class="grid">
+      <tr><th>#</th><th>Блок</th><th class="r">Часы</th><th>Комментарий</th></tr>
+      <tr><td>9</td><td>ELSTER/ERiC — реальная e-подача НДС</td><td class="r">40–80</td><td>ERiC — нативная либа, сертификаты</td></tr>
+      <tr><td>10</td><td>E-Bilanz (XBRL-таксономия) в Finanzamt</td><td class="r">60–120</td><td>Отложить до спроса</td></tr>
+      <tr><td>11</td><td>XRechnung/ZUGFeRD (мандат e-invoice DE)</td><td class="r">40–70</td><td>PDF/A-3 + встроенный XML EN 16931</td></tr>
+      <tr><td>12</td><td>GoBD-hardening + Datenexport (DSFinV-K для касс)</td><td class="r">30–60</td><td>Много документации/процесса</td></tr>
+      <tr><td>13</td><td>ZM (Zusammenfassende Meldung)/OSS полностью</td><td class="r">20–40</td><td>Трансграничные поставки</td></tr>
+      <tr class="sum"><td></td><td>Итого Phase 2</td><td class="r">≈ 190–370</td><td></td></tr>
+    </table></div></div>
+
+    <h3><span class="de">Ausserhalb des Kostenrahmens</span><span class="ru">Вне сметы</span></h3>
+    <div class="de"><div class="tblwrap"><table class="grid">
+      <tr><th>Block</th><th class="r">Std.</th><th>Entscheidung</th></tr>
+      <tr><td>Lohn (Lohnsteuer, SV KV/RV/AV/PV, DEÜV, ELStAM)</td><td class="r">200+</td><td><strong>Nicht bauen.</strong> Extern integrieren (DATEV Lohn / Lexoffice). Die Schweizer Logik AHV/UVG/BVG ist nicht übertragbar</td></tr>
+    </table></div>
+      <p><strong>Summe ohne Lohn:</strong> Phase 1 ≈ 300–500 Std. · bis Parität ≈ 500–870 Std.</p>
+    </div>
+    <div class="ru"><div class="tblwrap"><table class="grid">
+      <tr><th>Блок</th><th class="r">Часы</th><th>Решение</th></tr>
+      <tr><td>Payroll (Lohn: Lohnsteuer, SV KV/RV/AV/PV, DEÜV, ELStAM)</td><td class="r">200+</td><td><strong>Не строить.</strong> Интегрировать внешнее (DATEV Lohn / Lexoffice). Швейцарская логика AVS/LAINF/LPP не переносится</td></tr>
+    </table></div>
+      <p><strong>Итого без payroll:</strong> Phase 1 ≈ 300–500 ч · до паритета ≈ 500–870 ч.</p>
+    </div>
+
+    <!-- 6. FINANCE -->
+    <div class="seclabel">06 — <span class="de">Finanzmodell</span><span class="ru">Финансовая модель</span></div>
+    <h2><span class="de">Finanzmodell und Investitionsbedarf</span><span class="ru">Финансовая модель и инвестиционный ask</span></h2>
+    <p class="de">Stundensatz — Mischkalkulation für DE/CH-Entwicklung, Spanne <strong>CHF 120–150/Std.</strong> (Senior). Alles Planungsschätzungen.</p>
+    <p class="ru">Ставка — блендовая для DE/CH-разработки, диапазон <strong>CHF 120–150/ч</strong> (senior). Всё — планировочные оценки.</p>
+
+    <h3><span class="de">6.1. Entwicklungskosten</span><span class="ru">6.1. Стоимость разработки</span></h3>
+    <div class="de"><div class="tblwrap"><table class="grid">
+      <tr><th>Umfang</th><th class="r">Std.</th><th class="r">@120/Std.</th><th class="r">@150/Std.</th></tr>
+      <tr><td>Phase 1 (MVP)</td><td class="r">284–494</td><td class="r">~CHF 34'000</td><td class="r">~CHF 74'000</td></tr>
+      <tr><td>Phase 2 (vollständig)</td><td class="r">190–370</td><td class="r">~CHF 23'000</td><td class="r">~CHF 56'000</td></tr>
+      <tr><td>Phase 2 ohne E-Bilanz (Kern)</td><td class="r">130–250</td><td class="r">~CHF 16'000</td><td class="r">~CHF 37'000</td></tr>
+    </table></div></div>
+    <div class="ru"><div class="tblwrap"><table class="grid">
+      <tr><th>Скоуп</th><th class="r">Часы</th><th class="r">@120/ч</th><th class="r">@150/ч</th></tr>
+      <tr><td>Phase 1 (MVP)</td><td class="r">284–494</td><td class="r">~CHF 34'000</td><td class="r">~CHF 74'000</td></tr>
+      <tr><td>Phase 2 (полный)</td><td class="r">190–370</td><td class="r">~CHF 23'000</td><td class="r">~CHF 56'000</td></tr>
+      <tr><td>Phase 2 без E-Bilanz (ядро)</td><td class="r">130–250</td><td class="r">~CHF 16'000</td><td class="r">~CHF 37'000</td></tr>
+    </table></div></div>
+
+    <h3><span class="de">6.2. Nicht-Entwicklung (Programmkosten)</span><span class="ru">6.2. Не-разработка (программные расходы)</span></h3>
+    <div class="de"><div class="tblwrap"><table class="grid">
+      <tr><th>Position</th><th class="r">CHF</th></tr>
+      <tr><td>Rechtliche/steuerliche Begleitung (AO-§146-Bewilligung, GoBD-Verfahrensdoku, AVV, Partnervertrag)</td><td class="r">8'000–15'000</td></tr>
+      <tr><td>EU-Hosting: Setup + 12 Monate Betrieb</td><td class="r">5'000–12'000</td></tr>
+      <tr><td>ELSTER/DATEV-Zertifizierung + Konformitätstests (Phase 2)</td><td class="r">3'000–8'000</td></tr>
+    </table></div></div>
+    <div class="ru"><div class="tblwrap"><table class="grid">
+      <tr><th>Статья</th><th class="r">CHF</th></tr>
+      <tr><td>Юр/налоговое сопровождение (AO §146 Bewilligung, GoBD Verfahrensdoku, DPA, партнёрский договор)</td><td class="r">8'000–15'000</td></tr>
+      <tr><td>EU-хостинг: сетап + 12 мес. ops</td><td class="r">5'000–12'000</td></tr>
+      <tr><td>ELSTER/DATEV сертификация + conformance-тесты (Phase 2)</td><td class="r">3'000–8'000</td></tr>
+    </table></div></div>
+
+    <h3><span class="de">6.3. Investitionsszenarien (inkl. 15 % Reserve)</span><span class="ru">6.3. Итоговые сценарии инвестиции (с резервом 15 %)</span></h3>
+    <div class="de"><div class="tblwrap"><table class="grid">
+      <tr><th>Szenario</th><th>Umfang</th><th class="r">Investition (CHF)</th></tr>
+      <tr><td>Lean MVP</td><td>Nur Phase 1 + Basis Recht/Infra</td><td class="r"><strong>≈ 70'000–115'000</strong></td></tr>
+      <tr><td>Empfohlener Start</td><td>Phase 1 + Kern von Phase 2 (ohne E-Bilanz, ohne Lohn) + Recht + EU-Infra + Reserve</td><td class="r"><strong>≈ 110'000–165'000</strong></td></tr>
+      <tr><td>Volle Parität</td><td>+ E-Bilanz + vollständige ELSTER/E-Rechnung + GoBD</td><td class="r"><strong>≈ 150'000–210'000</strong></td></tr>
+    </table></div></div>
+    <div class="ru"><div class="tblwrap"><table class="grid">
+      <tr><th>Сценарий</th><th>Что входит</th><th class="r">Инвестиция (CHF)</th></tr>
+      <tr><td>Lean MVP</td><td>Только Phase 1 + базовое юр/инфра</td><td class="r"><strong>≈ 70'000–115'000</strong></td></tr>
+      <tr><td>Рекомендуемый запуск</td><td>Phase 1 + ядро Phase 2 (без E-Bilanz, без payroll) + юр + EU-инфра + резерв</td><td class="r"><strong>≈ 110'000–165'000</strong></td></tr>
+      <tr><td>Полный паритет</td><td>+ E-Bilanz + полный ELSTER/e-invoice + GoBD</td><td class="r"><strong>≈ 150'000–210'000</strong></td></tr>
+    </table></div></div>
+
+    <!-- 7. MULTI-JURISDICTION -->
+    <div class="seclabel">07 — <span class="de">Mehr-Jurisdiktions-Fähigkeit</span><span class="ru">Мультиюрисдикционность</span></div>
+    <h2><span class="de">Eine Plattform, N Länder</span><span class="ru">Одна платформа, N стран</span></h2>
+    <p class="de">Zentraler Punkt für Strategie und Investitionsbewertung: <strong>parallele Kreise (Variante B) ≠ parallele Entwicklungen.</strong> Getrennt werden Daten und Hosting, <strong>nicht der Code</strong>.</p>
+    <p class="ru">Ключевой момент для стратегии и для оценки инвестиции: <strong>параллельные контуры (Вариант B) ≠ параллельные разработки.</strong> Разделяются данные и хостинг, а <strong>не код</strong>.</p>
+
+    <div class="de"><div class="tblwrap"><table class="grid">
+      <tr><th>Ebene</th><th>Anzahl</th><th>Warum</th></tr>
+      <tr><td><strong>Codebasis</strong></td><td><strong>EINE</strong> für alle Länder</td><td>Gemeinsame Engine + anbindbare „Jurisdiktions-Pakete"</td></tr>
+      <tr><td><strong>Instanzen (Daten/Hosting)</strong></td><td>Mehrere, rechtsbedingt</td><td>Datenresidenz (CH = Drittland; EU-Länder können einen EU-Kreis teilen)</td></tr>
+    </table></div>
+      <p>Deutschland, Frankreich, die Schweiz sind <strong>keine drei Code-Forks</strong>. Es ist eine Plattform, in der ein Land = ein <strong>Jurisdiktions-Paket</strong> ist: Kontenrahmen + Kontenrollen, USt-Sätze/-Formular, Abschlussformat, Rechnungsformat, Locale, Firmensuche. Eine Engine; ein Land wird als Plug-in angebunden. Deshalb ist die Kontenrollen-Schicht (Block Nr. 1, 80–140 Std.) keine „Ausgabe für Deutschland", sondern das <strong>Fundament der Mehr-Jurisdiktions-Fähigkeit</strong>: sobald die Engines eine Kontenrolle statt einer Nummer lesen, ist ein neues Land = ein Datenpaket + wenige Module, kein Neuschreiben von USt/Bilanz.</p>
+    </div>
+    <div class="ru"><div class="tblwrap"><table class="grid">
+      <tr><th>Плоскость</th><th>Сколько</th><th>Почему</th></tr>
+      <tr><td><strong>Кодовая база</strong></td><td><strong>ОДНА</strong> на все страны</td><td>Общий движок + подключаемые «пакеты юрисдикции»</td></tr>
+      <tr><td><strong>Инстансы (данные/хостинг)</strong></td><td>Несколько, по праву</td><td>Резиденция данных (CH — третья страна; EU-страны могут делить один EU-контур)</td></tr>
+    </table></div>
+      <p>Германия, Франция, Швейцария — <strong>не три форка кода</strong>. Это одна платформа, где страна = <strong>jurisdiction pack</strong>: план счетов + роли счетов, ставки/форма НДС, формат отчётности, формат инвойса, локаль, поиск компаний. Движок один; страна подключается как плагин. Поэтому слой ролей счёта (блок №1, 80–140 ч) — не «расход на Германию», а <strong>фундамент мультиюрисдикционности</strong>: как только движки читают роль счёта, а не номер, новая страна = пакет данных + пара модулей, а не переписывание НДС/баланса заново.</p>
+    </div>
+
+    <h3><span class="de">7.1. Einmalig (zahlt das erste Land) vs. je Land</span><span class="ru">7.1. Разовое (платит первая страна) vs на каждую страну</span></h3>
+    <p class="de"><strong>Einmalig — Plattform (bleibt dauerhaft, wiederverwendbar):</strong></p>
+    <div class="de"><div class="tblwrap"><table class="grid">
+      <tr><th>Block</th><th class="r">Std.</th></tr>
+      <tr><td>Kontenrollen-Schicht</td><td class="r">80–140</td></tr>
+      <tr><td>Framework „Jurisdiktions-Paket" (Plug-in für Kontenrahmen/USt/Abschlüsse/Rechnung/Locale/Suche)</td><td class="r">40–70</td></tr>
+      <tr><td>EU-Instanz + „Provider-Region-Scope" (mehrere EU-Länder auf einem Deployment)</td><td class="r">40–70</td></tr>
+      <tr class="sum"><td>Summe Plattform</td><td class="r">≈ 160–280</td></tr>
+    </table></div>
+      <p><strong>Je Land — Paket (variabel):</strong></p>
+      <div class="tblwrap"><table class="grid">
+      <tr><th>Land</th><th class="r">Std. (Dev)</th><th>Anmerkung</th></tr>
+      <tr><td>🇩🇪 Deutschland (1.)</td><td class="r">150–230</td><td>trägt seine Spezifik; Handelsregister teurer (kein kostenloses API)</td></tr>
+      <tr><td>🇫🇷 Frankreich (2.)</td><td class="r">120–200</td><td><strong>günstiger</strong>: SIRENE/INSEE = kostenloses API; hinzu kommt die E-Rechnungs-Pflicht (Factur-X/Chorus Pro)</td></tr>
+      <tr><td>🏳️ 3. Land</td><td class="r">100–180</td><td>Paket bereits als Vorlage erprobt</td></tr>
+    </table></div>
+      <p>+ je Land nicht-Code: lokale rechtliche/steuerliche Begleitung ≈ CHF 8'000–15'000.</p>
+    </div>
+    <p class="ru"><strong>Разовое — платформа (живёт вечно, переиспользуется):</strong></p>
+    <div class="ru"><div class="tblwrap"><table class="grid">
+      <tr><th>Блок</th><th class="r">Часы</th></tr>
+      <tr><td>Слой ролей счёта</td><td class="r">80–140</td></tr>
+      <tr><td>Фреймворк «пакет юрисдикции» (плагинность CoA/НДС/отчётов/инвойса/локали/поиска)</td><td class="r">40–70</td></tr>
+      <tr><td>EU-инстанс + скоуп «провайдер-регион» (несколько EU-стран на одном деплое)</td><td class="r">40–70</td></tr>
+      <tr class="sum"><td>Итого платформа</td><td class="r">≈ 160–280</td></tr>
+    </table></div>
+      <p><strong>На каждую страну — пакет (переменное):</strong></p>
+      <div class="tblwrap"><table class="grid">
+      <tr><th>Страна</th><th class="r">Часы (dev)</th><th>Нюанс</th></tr>
+      <tr><td>🇩🇪 Германия (1-я)</td><td class="r">150–230</td><td>несёт свою специфику; Handelsregister дороже (нет бесплатного API)</td></tr>
+      <tr><td>🇫🇷 Франция (2-я)</td><td class="r">120–200</td><td><strong>дешевле</strong>: SIRENE/INSEE — бесплатный API; добавляет мандат e-invoice (Factur-X/Chorus Pro)</td></tr>
+      <tr><td>🏳️ 3-я страна</td><td class="r">100–180</td><td>пакет уже обкатан как шаблон</td></tr>
+    </table></div>
+      <p>+ на каждую страну не-код: местное юр/налоговое сопровождение ≈ CHF 8'000–15'000.</p>
+    </div>
+
+    <h3><span class="de">7.2. Was das finanziell bedeutet</span><span class="ru">7.2. Что это значит по деньгам</span></h3>
+    <ul class="clean de">
+      <li><strong>Deutschland</strong> = Plattform (160–280 Std.) + DE-Paket (150–230 Std.) = <strong>≈ 310–510 Std.</strong> — deckt sich mit der MVP-Schätzung. Eine Investition von 100k+ kauft <strong>im Wesentlichen die Plattform</strong>.</li>
+      <li><strong>Frankreich danach</strong> = nur das FR-Paket ≈ 120–200 Std. + ~CHF 10k Recht ≈ <strong>CHF 35'000–55'000</strong> — etwa <strong>halb so teuer wie Deutschland</strong>.</li>
+      <li><strong>Jedes weitere Land ist noch günstiger</strong> — die Grenzkosten sinken.</li>
+    </ul>
+    <ul class="clean ru">
+      <li><strong>Германия</strong> = платформа (160–280 ч) + DE-пакет (150–230 ч) = <strong>≈ 310–510 ч</strong> — сходится с MVP-оценкой. Инвестиция 100k+ покупает <strong>в основном платформу</strong>.</li>
+      <li><strong>Франция потом</strong> = только FR-пакет ≈ 120–200 ч + ~CHF 10k юр ≈ <strong>CHF 35'000–55'000</strong> — примерно <strong>вдвое дешевле Германии</strong>.</li>
+      <li><strong>Каждая следующая страна ещё дешевле</strong> — маржинальная стоимость падает.</li>
+    </ul>
+
+    <h3><span class="de">7.3. Instanzen — nicht zwingend eine je Land</span><span class="ru">7.3. Инстансы — их не обязательно по одному на страну</span></h3>
+    <ul class="clean de">
+      <li>🇨🇭 <strong>CH</strong> — eigene Instanz (Drittland, existiert bereits).</li>
+      <li>🇩🇪🇫🇷 <strong>EU-Länder</strong> können auf einer EU-Instanz liegen (z. B. Frankfurt), jedes als eigener provider-root über den „Provider-Region-Scope". Die EU-Residenz ist durch EU-Hosting für beide erfüllt.</li>
+      <li>Beim Markteintritt in Frankreich also <strong>kein drittes Deployment, sondern ein zweiter Mandant</strong> auf der EU-Instanz. Der Betrieb wächst nicht ×N.</li>
+    </ul>
+    <ul class="clean ru">
+      <li>🇨🇭 <strong>CH</strong> — свой инстанс (третья страна, уже есть).</li>
+      <li>🇩🇪🇫🇷 <strong>EU-страны</strong> могут жить на одном EU-инстансе (напр. Frankfurt), каждая — отдельный provider-root через скоуп «провайдер-регион». EU-резиденция удовлетворяется EU-хостингом для обеих.</li>
+      <li>Поэтому при выходе во Францию — <strong>не третий деплой, а второй tenant</strong> на EU-инстансе. Ops не растёт ×N.</li>
+    </ul>
+    <blockquote class="note de"><strong>Präzisierung zu §4.3:</strong> Steht Frankreich real auf der Agenda, sollte der „Provider-Region-Scope" gleich mitgebaut werden (mechanisch ist das Variante C), damit EU-Länder auf einem Deployment ko-existieren, statt Instanzen zu vermehren. Für das Szenario „nur Deutschland" kann er entfallen.</blockquote>
+    <blockquote class="note ru"><strong>Уточнение к §4.3:</strong> если Франция реально на карте — стоит сразу заложить «скоуп провайдер-регион» (механически это Вариант C), чтобы EU-страны кон-тенантились на одном деплое, а не плодили инстансы. Для сценария «только Германия» его можно пропустить.</blockquote>
+
+    <h3><span class="de">7.4. Fazit für den Investor</span><span class="ru">7.4. Вывод для инвестора</span></h3>
+    <blockquote class="pull de">Die Investition in Deutschland ist nicht ein Land, sondern eine europäische Mehr-Jurisdiktions-Buchhaltungsplattform, an die Frankreich und weitere Länder zu einem Bruchteil der Kosten angebunden werden. Das ist grundsätzlich stärker als „ein Produkt nur für Deutschland".</blockquote>
+    <blockquote class="pull ru">Инвестиция в Германию — это не одна страна, а европейская мультиюрисдикционная бухгалтерская платформа, где Франция и следующие страны подключаются за долю стоимости. Это принципиально сильнее, чем «сделали продукт под Германию».</blockquote>
+
+    <!-- 8. ROADMAP -->
+    <div class="seclabel">08 — <span class="de">Roadmap</span><span class="ru">Дорожная карта</span></div>
+    <h2><span class="de">Roadmap (Etappen)</span><span class="ru">Дорожная карта (этапность)</span></h2>
+    <ol class="steps de">
+      <li><strong>Sprint 0 — Fundament</strong> (Phase 1, Nr. 1–2, Nr. 8). Kontenrollen-Schicht + SKR04 + parallele EU-Instanz. Schaltet alles frei. <em>Riskanteste Etappe — hierhin das Hauptbudget für Regressionstests am CH-Prod.</em></li>
+      <li><strong>Sprint 1 — das, wofür monatlich gezahlt wird</strong> (Nr. 3–4). UStVA-Entwurf + HGB Bilanz/GuV. Danach kann der erste deutsche Mandant in einem „Parallel-Pilot" (wie Diacron/Pizza In) übernommen werden.</li>
+      <li><strong>Sprint 2 — Integration ins Ökosystem</strong> (Nr. 5–7). DATEV-Export + VIES + Locale. Öffnet die Tür zur Zusammenarbeit mit Steuerberatern.</li>
+      <li><strong>Phase 2 nach Bedarf.</strong> ELSTER-E-Einreichung → XRechnung/ZUGFeRD → GoBD → E-Bilanz. Jeweils aktivieren, wenn ein konkreter Mandant/Regulator es verlangt.</li>
+    </ol>
+    <ol class="steps ru">
+      <li><strong>Sprint 0 — фундамент</strong> (Phase 1, п.1–2, п.8). Слой ролей счёта + SKR04 + параллельный EU-инстанс. Разблокирует всё. <em>Самый рисковый этап — сюда основной регресс-бюджет на CH-прод.</em></li>
+      <li><strong>Sprint 1 — то, за что платят ежемесячно</strong> (п.3–4). UStVA-draft + HGB Bilanz/GuV. После этого можно взять первого немецкого клиента в «параллельном пилоте» (как Diacron/Pizza In).</li>
+      <li><strong>Sprint 2 — интеграция в экосистему</strong> (п.5–7). DATEV-экспорт + VIES + локаль. Открывает дверь к работе со Steuerberater.</li>
+      <li><strong>Phase 2 по спросу.</strong> ELSTER e-подача → XRechnung/ZUGFeRD → GoBD → E-Bilanz. Каждое включаем, когда потребует конкретный клиент/регулятор.</li>
+    </ol>
+
+    <!-- 9. RISKS -->
+    <div class="seclabel">09 — <span class="de">Risiken</span><span class="ru">Риски</span></div>
+    <h2><span class="de">Risiken</span><span class="ru">Риски</span></h2>
+    <div class="de"><div class="tblwrap"><table class="grid wrap">
+      <tr><th>Risiko</th><th>Bewertung</th><th>Massnahme</th></tr>
+      <tr><td>Regression am CH-Prod beim Refactoring der Rollen-Schicht</td><td>Hohe Auswirkung</td><td>Rollen-Schicht mit Backfill des CH-Mappings + vollständiger Lauf der bestehenden vitest/testcontainers-Suite „auf den Rappen genau" vor dem Deployment</td></tr>
+      <tr><td>Datenresidenz (AO §146) falsch eingeschätzt</td><td>Mittel</td><td>Vor der Hosting-Wahl mit einem deutschen Steuerjuristen bestätigen</td></tr>
+      <tr><td>ELSTER/ERiC schwieriger als erwartet (native Bibliothek, Zertifikate)</td><td>Mittel</td><td>Im MVP nur Entwurf (wie eCH heute), echte Einreichung in Phase 2</td></tr>
+      <tr><td>Handelsregister ohne kostenloses API</td><td>Gering</td><td>Zu Beginn manuelle Eingabe + VIES-Validierung der USt-IdNr.</td></tr>
+      <tr><td>Berufsrecht (Steuerberater, StBerG, Vorbehaltsaufgaben)</td><td>Mittel (GTM, nicht Code)</td><td>Partner = zugelassener Steuerberater; Arvut = Software + Buchführung, Unterschrift beim Partner</td></tr>
+    </table></div></div>
+    <div class="ru"><div class="tblwrap"><table class="grid wrap">
+      <tr><th>Риск</th><th>Оценка</th><th>Митигация</th></tr>
+      <tr><td>Регресс на швейцарском проде при рефакторе слоя ролей</td><td>Высокий импакт</td><td>Слой ролей вводится с backfill CH-маппинга + полный прогон vitest/testcontainers-набора «копейка-в-копейку» до деплоя</td></tr>
+      <tr><td>Резиденция данных (AO §146) неверно оценена</td><td>Средний</td><td>Подтвердить у немецкого налогового юриста до выбора хостинга</td></tr>
+      <tr><td>ELSTER/ERiC сложнее ожидаемого (нативная либа, сертификаты)</td><td>Средний</td><td>На MVP — только draft (как eCH сейчас), реальную подачу в Phase 2</td></tr>
+      <tr><td>Handelsregister нет бесплатного API</td><td>Низкий</td><td>На старте ручной ввод + VIES-валидация VAT-ID</td></tr>
+      <tr><td>Регуляторика профессии (Steuerberater, StBerG, Vorbehaltsaufgaben)</td><td>Средний (GTM, не код)</td><td>Партнёр = лицензированный Steuerberater; Arvut = software+bookkeeping, подпись за партнёром</td></tr>
+    </table></div></div>
+
+    <!-- 10. DECISIONS -->
+    <div class="seclabel">10 — <span class="de">Entscheidungen</span><span class="ru">Решения</span></div>
+    <h2><span class="de">Zu treffende (offene) Entscheidungen</span><span class="ru">Решения, которые надо принять (открытые)</span></h2>
+    <ol class="steps de">
+      <li><strong>Rechtsträger:</strong> Gründen wir eine Arvut DE GmbH oder arbeiten wir über den Partner-Steuerberater? — beeinflusst Hosting und Vertrag.</li>
+      <li><strong>Lohn:</strong> Bestätigen wir „nicht bauen, extern integrieren"?</li>
+      <li><strong>Echte USt-E-Einreichung (ELSTER):</strong> im MVP oder in Phase 2? (Empfehlung: Phase 2).</li>
+      <li><strong>Hosting:</strong> konkreter EU-Anbieter/-Region (Frankfurt?) für die Datenresidenz.</li>
+      <li><strong>Investitionsumfang:</strong> Lean MVP (~70–115k) oder Empfohlener Start (~110–165k)?</li>
+    </ol>
+    <ol class="steps ru">
+      <li><strong>Юрлицо:</strong> создаём Arvut DE GmbH или работаем через партнёра-Steuerberater? — влияет на хостинг и договор.</li>
+      <li><strong>Payroll:</strong> подтверждаем «не строим, интегрируем внешнее»?</li>
+      <li><strong>Реальная e-подача НДС (ELSTER):</strong> в MVP или в Phase 2? (рекомендуем Phase 2).</li>
+      <li><strong>Хостинг:</strong> конкретный EU-провайдер/регион (Frankfurt?) под резиденцию данных.</li>
+      <li><strong>Скоуп инвестиции:</strong> Lean MVP (~70–115k) или Рекомендуемый запуск (~110–165k)?</li>
+    </ol>
+
+    <!-- 11. NEXT STEPS -->
+    <div class="seclabel">11 — <span class="de">Nächste Schritte</span><span class="ru">Следующие шаги</span></div>
+    <h2><span class="de">Nächste Schritte</span><span class="ru">Следующие шаги</span></h2>
+    <ul class="clean de">
+      <li>AO §146 / GoBD mit einem deutschen Steuerjuristen bestätigen.</li>
+      <li>Investitionsumfang festlegen (Nr. 10.5) → finale Kalkulation.</li>
+      <li>Detailplanung der Kontenrollen-Schicht (genaue Liste der hartkodierten Stellen + Mapping-Design) — nimmt ±30 % Unsicherheit aus dem grössten Block.</li>
+      <li>Mit dem Partner das Pilotmodell abstimmen (Parallel-Buchführung wie bei Diacron).</li>
+    </ul>
+    <ul class="clean ru">
+      <li>Подтвердить AO §146 / GoBD у немецкого налогового юриста.</li>
+      <li>Зафиксировать скоуп инвестиции (п.10.5) → финальная смета.</li>
+      <li>Детальное проектирование слоя ролей счёта (точный список мест с хардкодом номеров + дизайн маппинга) — снимает ±30 % неопределённости по самому крупному блоку.</li>
+      <li>Согласовать с партнёром модель пилота (параллельный прогон книг, как с Diacron).</li>
+    </ul>
+
+    <footer class="docfoot">
+      <span class="de">Alle Zahlen haben Planungsqualität (±30 %). Die technischen Fakten (hartkodierte Konten, eCH-0217, QR-Bill, Zefix, Single-Root-RLS) wurden am 08.07.2026 im Code von ABM-server verifiziert. · Arvut GmbH · Untermüli 9, 6300 Zug · CHE-192.778.668</span>
+      <span class="ru">Все цифры — планировочного качества (±30 %). Инженерные факты (хардкод счетов, eCH-0217, QR-bill, Zefix, single-root RLS) верифицированы в коде ABM-server на 2026-07-08. · Arvut GmbH · Untermüli 9, 6300 Zug · CHE-192.778.668</span>
+    </footer>
+
+  </div>
+</div>
+<script src="/doc-lang.js"></script>
+</body>
+</html>

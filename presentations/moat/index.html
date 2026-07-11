@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Arvut — the moat and the build</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%8F%9B%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<style>
+  html,body{margin:0;background:#17120D}
+  body{min-height:100vh}
+</style>
+</head>
+<body>
+<style>
+  :root{
+    --ground:#17120D; --panel:#201811; --panel-2:#271E15;
+    --ivory:#EFE6D6; --taupe:#A6957A; --taupe-dim:#7E7160;
+    --brass:#CB9A3E; --brass-dim:#8F6E2E; --slate:#66717A; --slate-dim:#4A535A;
+    --line:#33291D; --line-soft:#2A2118;
+    --serif:Georgia,"Iowan Old Style","Palatino Linotype",Palatino,serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:"SF Mono","JetBrains Mono",ui-monospace,"Cascadia Code",monospace;
+  }
+  *{box-sizing:border-box}
+  .wrap{background:var(--ground);color:var(--ivory);font-family:var(--sans);
+    line-height:1.7;-webkit-font-smoothing:antialiased;font-size:16px;
+    padding:0;margin:0 auto;max-width:860px;overflow:hidden}
+  .pad{padding:0 clamp(22px,6vw,64px)}
+  .fade{opacity:0;transform:translateY(14px);animation:rise .9s cubic-bezier(.2,.7,.3,1) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.15s}.d3{animation-delay:.25s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media(prefers-reduced-motion:reduce){.fade{opacity:1;transform:none;animation:none}}
+  .eyebrow{font-family:var(--sans);font-size:12px;letter-spacing:.22em;text-transform:uppercase;
+    color:var(--brass);font-weight:500;margin:0}
+  h1{font-family:var(--serif);font-weight:400;font-size:clamp(34px,6.4vw,60px);line-height:1.06;
+    letter-spacing:-.01em;margin:.5rem 0 0;text-wrap:balance;color:var(--ivory)}
+  h1 em{font-style:italic;color:var(--brass)}
+  h2{font-family:var(--serif);font-weight:400;font-size:clamp(26px,4vw,38px);line-height:1.12;
+    letter-spacing:-.01em;margin:.3rem 0 0;text-wrap:balance}
+  .lede{font-size:clamp(17px,2.2vw,20px);color:var(--taupe);max-width:52ch;margin:1.4rem 0 0;line-height:1.55}
+  .seclabel{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--taupe-dim);display:flex;align-items:center;gap:14px;margin:0 0 1.6rem}
+  .seclabel::after{content:"";flex:1;height:1px;background:var(--line)}
+  hr{border:0;border-top:1px solid var(--line);margin:0}
+  p{margin:1rem 0 0}
+  .prin{list-style:none;padding:0;margin:2rem 0 0;display:grid;gap:1px;background:var(--line-soft);
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .prin li{background:var(--ground);padding:1.5rem 0;display:grid;grid-template-columns:26px 1fr;gap:18px;align-items:start}
+  .prin .mk{font-family:var(--mono);font-size:13px;color:var(--brass-dim);padding-top:5px}
+  .prin b{font-weight:500;color:var(--ivory)}
+  .prin span{color:var(--taupe);display:block;margin-top:.2rem;line-height:1.55}
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:2.4rem 0 0}
+  @media(max-width:560px){.split{grid-template-columns:1fr}}
+  .card{border:1px solid var(--line);border-radius:14px;padding:1.4rem 1.4rem 1.5rem;background:var(--panel)}
+  .card .tag{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:500}
+  .card.old{background:var(--panel);border-color:var(--slate-dim)}
+  .card.old .tag{color:var(--slate)}
+  .card.now{background:var(--panel-2);border-color:var(--brass-dim)}
+  .card.now .tag{color:var(--brass)}
+  .card h3{font-family:var(--serif);font-weight:400;font-size:20px;margin:.7rem 0 0;color:var(--ivory)}
+  .card p{font-size:14.5px;color:var(--taupe);margin:.5rem 0 0;line-height:1.5}
+  .card .pic{margin-top:1.2rem;display:flex;align-items:flex-end;gap:5px;height:52px}
+  .bar{flex:1;border-radius:2px 2px 0 0}
+  .old .bar{background:var(--slate-dim)}
+  .now .bar{background:var(--brass)}
+  .now .bar.ghost{background:transparent;border:1px dashed var(--brass-dim)}
+  blockquote{margin:2.8rem 0 0;padding:0 0 0 22px;border-left:2px solid var(--brass);
+    font-family:var(--serif);font-style:italic;font-size:clamp(19px,2.6vw,25px);line-height:1.4;
+    color:var(--ivory);max-width:40ch;text-wrap:balance}
+  blockquote span{color:var(--brass)}
+  .figs{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line-soft);
+    border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:2.2rem 0 0}
+  @media(max-width:560px){.figs{grid-template-columns:1fr}}
+  .fig{background:var(--panel);padding:1.5rem 1.4rem}
+  .fig .n{font-family:var(--mono);font-weight:500;font-size:clamp(30px,5vw,42px);
+    color:var(--brass);letter-spacing:-.02em;font-variant-numeric:tabular-nums;line-height:1}
+  .fig .u{font-family:var(--mono);font-size:13px;color:var(--taupe-dim)}
+  .fig .k{font-size:13.5px;color:var(--taupe);margin-top:.7rem;line-height:1.45}
+  .equiv{margin:2.2rem 0 0;border:1px solid var(--brass-dim);border-radius:14px;background:var(--panel-2);
+    padding:1.6rem clamp(18px,3vw,28px)}
+  .equiv .cap{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--brass);margin:0}
+  .equiv .big{font-family:var(--serif);font-size:clamp(21px,3vw,27px);line-height:1.35;margin:.9rem 0 0;color:var(--ivory);text-wrap:balance}
+  .equiv .big b{color:var(--brass);font-weight:400}
+  .erow{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:1.5rem 0 0}
+  @media(max-width:560px){.erow{grid-template-columns:1fr}}
+  .erow div{border-top:1px solid var(--line)}
+  .erow .t{font-size:13px;color:var(--taupe-dim);padding-top:.8rem}
+  .erow .v{font-family:var(--mono);font-size:15px;color:var(--ivory);margin-top:.2rem;font-variant-numeric:tabular-nums}
+  .note{font-size:13px;color:var(--taupe-dim);margin-top:1.4rem;line-height:1.55;max-width:60ch}
+  .foot{color:var(--taupe-dim);font-size:12.5px;font-family:var(--mono);letter-spacing:.04em;
+    display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}
+</style>
+
+<h2 class="sr">Arvut investor brief: the DAP accounting moat and the AI-native engineering behind it.</h2>
+<div class="wrap">
+
+  <section class="pad fade d1" style="padding-top:clamp(48px,9vw,88px);padding-bottom:clamp(40px,7vw,64px)">
+    <p class="eyebrow">Arvut · investor brief</p>
+    <h1>Books that show today —<br><em>not only yesterday.</em></h1>
+    <p class="lede">Arvut is an AI-native fiduciary. Two things make it defensible: a proprietary accounting protocol no incumbent can retrofit, and an engineering base built at a fraction of the industry's cost and time.</p>
+  </section>
+
+  <hr>
+
+  <section class="pad fade d2" style="padding-top:clamp(44px,7vw,72px);padding-bottom:clamp(44px,7vw,72px)">
+    <p class="seclabel">the moat</p>
+    <h2>A proprietary accounting protocol</h2>
+    <p class="lede" style="margin-top:1.1rem">Every system on the market — Abacus, Bexio, SAP — shows a photograph of yesterday: fixed prices, assets at cost. A profitable company can look loss-making, and the books will "prove" it twice.</p>
+
+    <div class="split">
+      <div class="card old">
+        <span class="tag">every other system</span>
+        <h3>Yesterday, at cost</h3>
+        <p>Static prices, assets frozen at purchase value. A photograph — accurate about the past, blind to the present.</p>
+        <div class="pic" aria-hidden="true">
+          <div class="bar" style="height:60%"></div><div class="bar" style="height:60%"></div>
+          <div class="bar" style="height:60%"></div><div class="bar" style="height:60%"></div>
+          <div class="bar" style="height:60%"></div>
+        </div>
+      </div>
+      <div class="card now">
+        <span class="tag">Arvut · DAP</span>
+        <h3>Today, at market</h3>
+        <p>Solvency, margin and capital of the business as it is now — a live second view on the same legal books.</p>
+        <div class="pic" aria-hidden="true">
+          <div class="bar" style="height:44%"></div><div class="bar" style="height:88%"></div>
+          <div class="bar ghost" style="height:66%"></div><div class="bar" style="height:100%"></div>
+          <div class="bar" style="height:72%"></div>
+        </div>
+      </div>
+    </div>
+
+    <ul class="prin">
+      <li><span class="mk">01</span><div><b>A second view, not a replacement.</b><span>DAP — Digital Accounting Protocol — runs on top of the legal books. Same data, real picture. The legal and tax layer stays untouched.</span></div></li>
+      <li><span class="mk">02</span><div><b>In production since June 2026.</b><span>We are the only ones running traditional and DAP books in parallel, from the same data, on live client mandates.</span></div></li>
+      <li><span class="mk">03</span><div><b>A protocol, executed by AI agents.</b><span>Not a feature bolted on afterward — the method itself, run by agents from the first line of code.</span></div></li>
+    </ul>
+
+    <blockquote>Everyone else is bolting a Ferrari engine onto a horse cart. Arvut is the whole Ferrari — AI from the first line of code. <span>DAP is what can't be retrofitted.</span></blockquote>
+  </section>
+
+  <hr>
+
+  <section class="pad fade d3" style="padding-top:clamp(44px,7vw,72px);padding-bottom:clamp(44px,7vw,72px)">
+    <p class="seclabel">the build</p>
+    <h2>What it takes to build this</h2>
+    <p class="lede" style="margin-top:1.1rem">A fiduciary-grade accounting engine is not a CRUD app. Double-entry to the cent, multi-currency, Swiss VAT, bank reconciliation, multi-tenant isolation, PDF filings, a client portal, an AI assistant — and DAP on top. Here is what stands in production today.</p>
+
+    <div class="figs" role="group" aria-label="Measured codebase">
+      <div class="fig"><div class="n">114’000</div><div class="u">lines of code</div><div class="k">76’000 product · the rest tests, schema, tooling</div></div>
+      <div class="fig"><div class="n">138</div><div class="u">database migrations</div><div class="k">Every schema change, versioned and reversible</div></div>
+      <div class="fig"><div class="n">~8’900</div><div class="u">lines of tests</div><div class="k">Correctness held to the cent, in CI on every change</div></div>
+      <div class="fig"><div class="n">4</div><div class="u">full-codebase audits</div><div class="k">Correctness, multi-tenant isolation, reliability — in one day</div></div>
+    </div>
+
+    <div class="equiv">
+      <p class="cap">traditional-equivalent effort</p>
+      <p class="big">Building this the conventional way costs <b>150–200 engineer-months</b> — a team of five to eight for roughly three years, or <b>25’000–33’000 engineer-hours</b>.</p>
+      <div class="erow">
+        <div><div class="t">Team of 5–8 specialists</div><div class="v">≈ 3 years</div></div>
+        <div><div class="t">Team of 2–3 specialists</div><div class="v">≈ 4–6 years</div></div>
+        <div><div class="t">Prior generation — AAA v1</div><div class="v">25’000 hours, built by hand</div></div>
+        <div><div class="t">Arvut — built AI-native by</div><div class="v">≈ 2 people</div></div>
+      </div>
+    </div>
+
+    <p class="note">Two generations of accounting engineering stand behind the product: a first system (AAA v1) that cost 25’000 hours the traditional way and proved the domain, and this AI-native rebuild whose conventional price would be another team-of-eight-for-three-years — delivered by essentially two people with AI agents. The line count is measured; the effort equivalents are estimates on standard industry productivity for domain-heavy financial software.</p>
+
+    <blockquote style="margin-top:2.8rem">We don't just sell AI-native leverage to fiduciaries. <span>We are built on it.</span></blockquote>
+  </section>
+
+  <hr>
+
+  <section class="pad" style="padding-top:2.2rem;padding-bottom:2.4rem">
+    <p class="foot"><span>Arvut GmbH · Zug, Switzerland</span><span>Confidential · investor brief</span></p>
+  </section>
+
+</div>
+</body>
+</html>

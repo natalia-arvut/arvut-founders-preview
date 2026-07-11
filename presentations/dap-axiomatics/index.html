@@ -1,0 +1,893 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>DAP Axiomatics — ARVUT (internal)</title>
+<!--
+  DAP Axiomatics — internal working document (EN + RU).
+  Confidential. Lives under /presentations/* → gated by ?k=0010 (team only) at nginx.
+  Source of truth: abm-docs strategy/dap-axiomatics.md. This is the styled internal
+  read; if the .md changes materially, regenerate this page from it.
+  Demo password is masked here on purpose — the real one is sent by email.
+  Language toggle: CSS (body.lang-en / body.lang-ru) + hash (#en / #ru).
+-->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%F0%9F%93%95%3C/text%3E%3C/svg%3E">
+<style>
+  :root{
+    --bg:#ffffff; --ink:#16211f; --ink-soft:#3b4a47; --muted:#657572; --faint:#8a9895;
+    --teal:#0e8a8a; --teal-d:#0a6a6a; --teal-bg:#eef7f6;
+    --amber-ink:#8a4b00; --amber-bg:#fdf2e2; --amber-line:#e8c58a;
+    --danger-ink:#a1152e; --danger-bg:#fdeef0; --danger-line:#f0c2ca;
+    --line:#e4e9e8; --line-soft:#eef2f1; --panel:#f7faf9; --panel-2:#f1f6f5;
+    --serif:Georgia,"Iowan Old Style",Palatino,"Palatino Linotype",serif;
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:"SF Mono","JetBrains Mono",ui-monospace,"Cascadia Code",Menlo,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--panel-2)}
+  body{font-family:var(--sans);color:var(--ink);line-height:1.66;-webkit-font-smoothing:antialiased;
+    font-size:16px}
+  .page{max-width:820px;margin:0 auto;background:var(--bg);
+    box-shadow:0 1px 0 var(--line),0 18px 60px -30px rgba(20,40,38,.35)}
+  .pad{padding:0 clamp(20px,5.5vw,60px)}
+
+  /* top bar */
+  .topbar{position:sticky;top:0;z-index:5;background:rgba(255,255,255,.94);
+    backdrop-filter:saturate(1.2) blur(6px);border-bottom:1px solid var(--line);
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    padding:11px clamp(20px,5.5vw,60px)}
+  .wordmark{font-weight:800;letter-spacing:.24em;font-size:13px;color:var(--teal-d)}
+  .langbar{display:flex;gap:6px;align-items:center}
+  .langbar .lbl{font-size:10.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--faint);margin-right:2px}
+  .langbar button{font:inherit;font-size:12px;font-weight:700;color:var(--teal-d);background:#fff;
+    border:1px solid var(--line);border-radius:999px;padding:4px 14px;cursor:pointer;transition:.15s}
+  .langbar button:hover{border-color:var(--teal)}
+  .langbar button.on{background:var(--teal);border-color:var(--teal);color:#fff}
+
+  /* language visibility */
+  body.lang-en .ru{display:none}
+  body.lang-ru .en{display:none}
+
+  /* hero */
+  .hero{padding-top:40px;padding-bottom:8px}
+  .chip{display:inline-flex;align-items:center;gap:8px;font-family:var(--mono);font-size:11px;
+    font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--danger-ink);background:var(--danger-bg);border:1px solid var(--danger-line);
+    border-radius:999px;padding:5px 13px}
+  h1.title{font-family:var(--serif);font-weight:400;font-size:clamp(34px,6.6vw,54px);line-height:1.04;
+    letter-spacing:-.015em;margin:.55rem 0 0;color:var(--ink)}
+  .subtitle{font-size:clamp(16px,2.3vw,20px);color:var(--muted);margin:.6rem 0 0;line-height:1.4}
+
+  /* meta table */
+  .meta{width:100%;border-collapse:collapse;margin:1.8rem 0 .4rem;font-size:13px}
+  .meta th{text-align:left;vertical-align:top;white-space:nowrap;color:var(--teal-d);font-weight:700;
+    padding:7px 16px 7px 0;width:1%;border-top:1px solid var(--line-soft)}
+  .meta td{vertical-align:top;color:var(--ink-soft);padding:7px 0;border-top:1px solid var(--line-soft)}
+
+  /* section labels */
+  .seclabel{font-family:var(--mono);font-size:12px;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--faint);display:flex;align-items:center;gap:14px;margin:3.2rem 0 1.3rem}
+  .seclabel::after{content:"";flex:1;height:1px;background:var(--line)}
+  .doc h2{font-family:var(--serif);font-weight:500;font-size:clamp(23px,3.4vw,30px);line-height:1.14;
+    letter-spacing:-.01em;margin:0 0 .2rem;color:var(--ink)}
+  .doc h3{font-size:16.5px;font-weight:750;color:var(--teal-d);margin:1.9rem 0 .1rem;letter-spacing:.01em}
+  .doc h4{font-size:15px;font-weight:750;color:var(--ink);margin:1.5rem 0 .1rem}
+  .doc p{margin:.85rem 0 0}
+  .doc strong{font-weight:700;color:var(--ink)}
+  .doc em{color:var(--ink-soft)}
+  .doc a{color:var(--teal-d)}
+  hr.rule{border:0;border-top:1px solid var(--line);margin:2.6rem 0 0}
+
+  ul.clean{margin:.7rem 0 0;padding-left:1.15rem}
+  ul.clean li{margin:.42rem 0;padding-left:.15rem}
+  ul.clean li::marker{color:var(--teal)}
+
+  blockquote.pull{margin:2rem 0 .3rem;padding:1.15rem 1.3rem;background:var(--teal-bg);
+    border-left:3px solid var(--teal);border-radius:0 10px 10px 0;font-family:var(--serif);
+    font-size:19px;line-height:1.4;color:var(--ink)}
+  blockquote.note{margin:1.2rem 0 0;padding:.5rem 0 .5rem 1.1rem;border-left:2px solid var(--line);
+    color:var(--muted);font-size:14.5px}
+
+  pre.mono{font-family:var(--mono);font-size:12.5px;line-height:1.5;background:var(--panel);
+    border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin:1.3rem 0 0;
+    overflow-x:auto;color:var(--ink-soft);white-space:pre}
+  .formula{font-family:var(--mono);font-size:13.5px;background:var(--teal-bg);border:1px solid #cfe6e4;
+    color:var(--teal-d);border-radius:8px;padding:9px 13px;display:inline-block;margin:1.1rem 0 0}
+
+  table.grid{border-collapse:collapse;width:100%;margin:1.3rem 0 .2rem;font-size:13.4px;background:#fff;
+    border:1px solid var(--line);border-radius:10px;overflow:hidden}
+  table.grid th{background:var(--panel-2);text-align:left;font-weight:750;color:var(--teal-d);
+    padding:9px 12px;border-bottom:1px solid var(--line);font-size:11.5px;letter-spacing:.05em;
+    text-transform:uppercase}
+  table.grid td{padding:9px 12px;border-bottom:1px solid var(--line-soft);vertical-align:top;
+    color:var(--ink-soft)}
+  table.grid tr:last-child td{border-bottom:0}
+  table.grid td:first-child{white-space:nowrap;font-weight:650;color:var(--ink)}
+  table.grid.wrap td:first-child{white-space:normal}
+  .tblwrap{overflow-x:auto;margin:0 -2px}
+  .num{font-variant-numeric:tabular-nums}
+
+  figure.shot{margin:1.7rem 0 0}
+  figure.shot img{width:100%;height:auto;display:block;border:1px solid var(--line);border-radius:12px;
+    background:var(--panel)}
+  figure.shot figcaption{font-size:12.5px;color:var(--muted);margin-top:.6rem;line-height:1.45;
+    padding:0 4px}
+
+  .internal-band{margin:1.6rem 0 0;padding:.55rem 1rem;background:var(--amber-bg);
+    border:1px solid var(--amber-line);border-radius:8px;font-size:12.5px;color:var(--amber-ink);
+    font-family:var(--mono);letter-spacing:.03em}
+
+  footer.docfoot{margin-top:3rem;padding:1.4rem 0 3rem;border-top:1px solid var(--line);
+    font-size:12.5px;color:var(--faint);font-family:var(--mono)}
+
+  @media (max-width:560px){
+    body{font-size:15px}
+    .meta th{white-space:normal}
+  }
+  @media print{
+    html,body{background:#fff}
+    .page{box-shadow:none;max-width:none}
+    .topbar{position:static;border-bottom:1px solid #ccc}
+    .langbar{display:none}
+    body.lang-en .ru,body.lang-ru .en{display:none}
+    figure.shot img{break-inside:avoid}
+    .seclabel{break-after:avoid}
+    @page{margin:16mm 14mm}
+  }
+</style>
+</head>
+<body class="lang-en">
+
+<div class="page">
+
+  <div class="topbar">
+    <span class="wordmark">ARVUT</span>
+    <div class="langbar">
+      <span class="lbl">Language</span>
+      <button type="button" data-lang="en" class="on">EN</button>
+      <button type="button" data-lang="ru">RU</button>
+    </div>
+  </div>
+
+  <!-- ================= ENGLISH ================= -->
+  <article class="doc en">
+  <div class="pad">
+
+    <section class="hero">
+      <span class="chip">Internal — do not forward</span>
+      <h1 class="title">DAP Axiomatics</h1>
+      <p class="subtitle">The Digital Accounting Protocol — a deep dive</p>
+
+      <table class="meta">
+        <tr><th>Confidential</th><td>Internal working document. Shared personally with Heinz and Federico, and within the Arvut team. Not for forwarding; not for public surfaces.</td></tr>
+        <tr><th>Author of the concept</th><td>Alex Kheylik, Arvut GmbH</td></tr>
+        <tr><th>Purpose</th><td>(1) a deep, shared understanding of DAP for Heinz and Federico before the live session; (2) the foundation of the briefing pack; (3) raw material for the presentation Federico can build and deliver himself.</td></tr>
+        <tr><th>Version</th><td>v0.2 · 06.07.2026 (added §9a “How to tell DAP” + roadmap: DAP chart of accounts, DAP Saldenliste, predictive layer) · v0.1 · 05.07.2026 · EN + RU</td></tr>
+        <tr><th>Sources of truth</th><td>DAP protocol specification v0.3 · DAP theses master v3 · board letter “DAP, in plain business language” · investor brief “the moat and the build” · canon v2.1 / v3</td></tr>
+      </table>
+    </section>
+
+    <div class="seclabel">§1 — Why the books lie</div>
+    <p>Legal accounting answers one question: <strong>“what happened, according to the rules?”</strong> It is very good at that question — and the rules are not ours to change, nor do we want to change them. But the owner of a business asks a different question: <strong>“how is my business doing — today?”</strong> The gap between those two questions is where the books lie.</p>
+    <p>Three structural reasons, each built into the rules themselves:</p>
+    <p><strong>1. Historic prices.</strong> The legal book carries assets at acquisition cost minus a depreciation schedule. A car worth <span class="num">50'000</span> the day it leaves the showroom stands at <span class="num">80'000</span> minus a table. A ten-year-old computer that is alive, working and worth <span class="num">300</span> stands at zero — it does not exist. Crypto and currency positions are frozen at prudence-principle values while the market moves daily. The book is a photograph — accurate about the past, blind to the present.</p>
+    <p><strong>2. Declarations instead of facts.</strong> The document that drives classical revenue and cost recognition is the invoice — a <em>declaration of intent</em>: what somebody says should be paid, to whom, by when. Whether goods actually moved (a delivery note certifies that) and whether money actually moved (a bank statement certifies that) are, in the classical model, secondary. Accrual accounting books the promise as wealth: receivables count as assets, declared revenue drives decisions.</p>
+    <p><strong>3. A report about the past.</strong> Even taken on its own terms, the legal picture arrives late. A Swiss SME typically sees its finalised annual accounts months after the year ends: filings are due in spring, and the extension culture routinely pushes them into autumn or to the year’s end — the exact dates vary by canton (in Ticino, from the end of May to the end of December of the following year). The “official truth” about a business year can arrive more than a year after the events it describes.</p>
+    <p>The consequence is not academic: <strong>a profitable company can look loss-making — and the books will “prove” it twice.</strong> Once through frozen asset values, once through declared-but-unsettled positions. The reverse also holds: a company drowning can show declared profit built of receivables that will never collect.</p>
+    <blockquote class="note"><em>One paragraph of spice, not a thesis:</em> this is the same mechanism, at a different scale, that made <em>The Big Short</em> possible — promises booked as wealth, from subprime CDOs to state budgets written against declared rather than collected taxes. Every bubble is made of unsettled receivables. In DAP terms (§2): the world keeps presenting the set A — what has been declared and delivered on paper — as if it were A∩B, what has actually been confirmed by money.</blockquote>
+
+    <div class="seclabel">§2 — The axioms of DAP</div>
+    <p>DAP — the <strong>Digital Accounting Protocol</strong> — is not a variation of classical accounting and not a critique of it. It is a deliberately different axiomatics for a different question. Five axioms; for each: the axiom, why classical accounting does not do this, and what it changes for the owner.</p>
+
+    <h3>Axiom 1 — Profit is confirmed by money, on both sides.</h3>
+    <p><strong>Revenue = delivered AND paid.</strong> An issued invoice is not revenue by itself. Symmetrically: <strong>a cost reduces profit only when paid</strong> — unpaid supplier invoices, accrued unpaid salaries, uncollected VAT all sit <em>outside</em> profit, visible but not counted, until money actually moves.</p>
+    <p><em>Why classical accounting doesn’t do this:</em> accrual recognises revenue at delivery (the declaration side) and costs at accrual — profit is an <em>opinion about the future</em> (which receivables will collect, which payables will be honoured). Cash accounting swings to the opposite extreme and loses the open states altogether.</p>
+    <p><em>What it changes for the owner:</em> the profit figure becomes a <strong>fact, not an estimate</strong>. To increase DAP profit somebody must actually pay you; to decrease it you must actually part with money. This makes the figure robust against the two classic manipulations — inflating revenue with invoices that will never collect, and depressing profit with invoices never meant to be paid. There is regulatory precedent for this logic: for VAT it is literally the <strong>Ist-Methode</strong>, an officially recognised ESTV method (Arvut itself is on it since 01.01.2026). DAP extends a regulator-legitimised principle to the whole management picture.</p>
+
+    <h3>Axiom 2 — Facts are not declarations.</h3>
+    <p>Documents split into two classes. <strong>Documents of fact</strong>: a bank statement or cash receipt certifies that money moved; a delivery note (Lieferschein / DDT / bolla di consegna) certifies that goods or services moved. <strong>Documents of declaration</strong>: the invoice — it fixes the <em>price</em> and announces the expected pair “delivery ↔ payment”, but by itself moves nothing. DAP builds its picture from documents of fact; the invoice is the clip that links the two streams of facts and fixes the price. While a client does not yet hand over every delivery note, the invoice remains an acceptable proxy — but the picture honestly distinguishes <strong>confirmed by fact</strong> from <strong>declared so far</strong>.</p>
+    <p><em>Why classical accounting doesn’t do this:</em> in the classical model the invoice is the accounting document and the delivery note is not — the hierarchy is inverted. The legal layer must book by invoices, as CO/VAT law requires — and in DAP’s legal layer it still does, unchanged.</p>
+    <p><em>What it changes for the owner:</em> the picture the owner reads is built from what <em>happened</em>, not from what was <em>announced</em> — with an explicit confidence grade on everything not yet backed by a document of fact.</p>
+
+    <h3>Axiom 3 — No state ever disappears.</h3>
+    <p>Everything that is not profit remains <strong>explicit and visible outside profit</strong>: delivered-but-unpaid, advances received, consumed-but-unpaid, accrued unpaid salaries, uncollected VAT. Nothing is netted away into a footnote. The law of conservation (§3) guarantees it structurally: a booking moves volume between states; volume only enters the system when an asset is born and only leaves when it dies.</p>
+    <p><em>Why classical accounting doesn’t do this:</em> it does keep the information — but scattered across accounts, sub-ledgers and notes, legible only to someone who can read a balance sheet. The states exist; the <em>picture of states</em> does not.</p>
+    <p><em>What it changes for the owner:</em> the profit figure is read <strong>together with the landscape of states</strong> — one glance shows what is confirmed, what is promised, what is owed and what is merely declared. This is also the honest answer to the strongest objection against Axiom 1 (§5, Q6): DAP’s stricter profit is safe <em>because</em> every excluded state stays on the picture.</p>
+
+    <h3>Axiom 4 — Assets are worth what they are worth today.</h3>
+    <p>Depreciation is not a time function on a tax schedule but the <strong>degree of real decay</strong>: the difference between acquisition cost and today’s value. Decay below cost = costs, immediately — value that actually vanished reduces DAP profit the moment it vanished. <strong>Appreciation above cost = market delta, a separate visible layer — NOT profit until sold.</strong> Valuation follows an explicit hierarchy: a market feed where one is objective (crypto, FX — live in production; cars, electronics — feed-ready); otherwise the owner’s own catalog price (the entrepreneur sets it, with full edit history); the tax schedule only as fallback.</p>
+    <p><em>Why classical accounting doesn’t do this:</em> the prudence principle (Niederstwertprinzip) and tax depreciation schedules exist to protect creditors and the fisc — legitimate goals that systematically produce values which are <em>safe</em> rather than <em>true</em>. A schedule can say an asset “is worth” 9 million when the market says 15 — or 300 francs.</p>
+    <p><em>What it changes for the owner:</em> the balance he reads matches the world he can touch. The ten-year-old computer is alive at <span class="num">300</span>. The car decayed <span class="num">30'000</span> the day it left the showroom — and the picture showed it that same day. The crypto position breathes with the market daily, its market delta visible but honestly separated from profit.</p>
+
+    <h3>Axiom 5 — The legal book is untouched. DAP is a projection.</h3>
+    <p>DAP does not replace, amend or even touch legal accounting. <strong>One journal, two projections</strong>: the legal ledger (CO/OR, prudence principle, tax depreciation, ESTV rates) for the auditor and the tax office; the DAP projection for the owner, the manager and the AI agent. There are no physical DAP accounts in the ledger, no second bookkeeping to maintain, and the two views reconcile to the centime <em>by construction</em> (§4).</p>
+    <p><em>Why classical accounting doesn’t do this:</em> it has one projection because it serves one master — compliance. Management accounting as practised today is usually a spreadsheet <em>re-interpretation</em> of the legal figures, manually maintained, drifting from the books it claims to summarise.</p>
+    <p><em>What it changes for the owner:</em> he gets the real picture <strong>without giving anything up</strong> — audit unchanged, taxes unchanged, no migration, no parallel data entry. And for Arvut it changes something structural: because DAP is a strict protocol (a finite state machine, §3), it is <em>executable by AI agents and machine-verifiable</em> — an agent does not interpret conventions, it executes transitions, and any illegal transition is an automatic red flag.</p>
+
+    <div class="seclabel">§3 — The geometry</div>
+    <blockquote class="note"><em>This section is the core of the NDA tier: the formalism that public and hub surfaces never show.</em></blockquote>
+
+    <h3>3.1 The two sets</h3>
+    <ul class="clean">
+      <li><strong>A</strong> — the set of delivered goods and services (what has left us toward the world).</li>
+      <li><strong>B</strong> — the set of payments (what money has actually moved).</li>
+      <li><strong>A∩B</strong> — delivered AND paid: the only thing DAP calls revenue.</li>
+      <li><strong>A\B</strong> — delivered, not paid: open receivables as a <em>state</em>, not an asset.</li>
+      <li><strong>B\A</strong> — paid, not delivered: advances.</li>
+    </ul>
+    <p>Classical accrual recognises revenue on A; cash accounting on B; DAP recognises <strong>only the intersection</strong> — and keeps both differences explicitly on the picture. “Accounts receivable” is not an asset in the DAP sense: a claim not confirmed by money is the state <em>Delivered ⑨</em>, not value sitting in one pile with cash. Information preserved, classification changed.</p>
+
+    <h3>3.2 The quadrants</h3>
+    <p>A coordinate plane. Left — <em>Azienda</em> (the company); right — <em>Esterno</em> (the external world). Above ground — living value; below ground — consumed value and sources.</p>
+    <pre class="mono">              Azienda (ours)        │        Esterno (the world)
+   D: living assets                 │   A: the world's money / value
+   (cash, equipment, Newborn,       │   (Sold, Reserved money —
+    Delivered…)                     │    the market's paying cloud)
+  ──────────────────────────────────┼──────────────────────────────
+   C: consumed (dead) assets        │   B: sources / liabilities
+   (Costs, Expenses, Salaries,      │   (payables, loans, VAT due,
+    decay)                          │    shareholders, equity)</pre>
+    <p>Every bar is an account or group; every double-entry booking is a <strong>transfer of volume</strong> from one bar to another — dig here, pour there. The total volume of the system changes only when an asset is <em>born</em> (mining, production, FX purchase) or <em>dies</em> (write-off, disposal). This is the law of conservation of value, and it is machine-checkable. Its balance form: at any date <strong>D + C = A + B</strong> — the company side equals the world side, the quadrant analogue of “assets = liabilities + equity”.</p>
+
+    <h3>3.3 The nine states</h3>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>№</th><th>State</th><th>Quadrant</th><th>Meaning</th></tr>
+      <tr><td>①</td><td>Operating</td><td>D</td><td>working living assets — split in the product into <strong>liquid</strong> (cash/bank, per currency) and <strong>illiquid</strong> (inventory, equipment)</td></tr>
+      <tr><td>②</td><td>Passivi</td><td>B</td><td>sources: suppliers, credits, shareholders</td></tr>
+      <tr><td>③</td><td>Costs</td><td>C</td><td>consumed <strong>and paid</strong> — the only consumption that reduces profit</td></tr>
+      <tr><td>④</td><td>Sold</td><td>A</td><td><strong>A∩B</strong> — delivered and paid: revenue</td></tr>
+      <tr><td>⑤</td><td>Salaries</td><td>C</td><td>salaries + social charges — a state of its own, split <strong>paid / unpaid</strong>; accrued-unpaid salaries circulate in the firm’s working capital and distort the picture if merged into ③</td></tr>
+      <tr><td>⑥</td><td>Reserved money</td><td>A</td><td>the market’s money “cloud” standing behind Newborn/Delivered — breathes with the market</td></tr>
+      <tr><td>⑦</td><td>Expenses</td><td>C</td><td>consumed, <strong>NOT paid</strong> — visible, outside profit, becomes ③ upon payment</td></tr>
+      <tr><td>⑧</td><td>Newborn</td><td>D</td><td>newborn assets: mined, produced, extracted — valued per the Axiom-4 hierarchy</td></tr>
+      <tr><td>⑨</td><td>Delivered</td><td>D</td><td>shipped Newborn — the set A awaiting its money</td></tr>
+    </table>
+    </div>
+    <p><em>Terminology note:</em> the DAP meaning of Costs/Expenses is deliberately inverted relative to everyday usage — ③ = consumed-and-paid, ⑦ = consumed-not-paid. On screens the product uses honest labels (“consumed-paid” / “consumed-unpaid”); the circled numbers are the internal model.</p>
+
+    <h3>3.4 The state machine — sixteen transitions</h3>
+    <p>Every business event is a transition; every document of fact triggers one; anything else is an illegal move and flags automatically.</p>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>#</th><th>Transition</th><th>Meaning</th><th>Trigger</th></tr>
+      <tr><td>T1</td><td>② → AnP</td><td>received an asset, not yet paid</td><td>vendor invoice, AP open — basis: <strong>delivery note</strong> (invoice = proxy)</td></tr>
+      <tr><td>T2</td><td>AnP → AdP</td><td>paid for what was received</td><td>payment matched (bank statement)</td></tr>
+      <tr><td>T3</td><td>AnP → ⑦</td><td>consumed the unpaid</td><td>expense booking with AP open</td></tr>
+      <tr><td>T4</td><td>AdP → ③</td><td>consumed the paid</td><td>expense booking, AP settled</td></tr>
+      <tr><td>T5</td><td>⑦ → ③</td><td>paid for the already-consumed</td><td>payment matched after the fact</td></tr>
+      <tr><td>T6</td><td>⑦ → ⑧</td><td>burned a resource → an asset is born</td><td>mining reward / FX trade</td></tr>
+      <tr><td>T7</td><td>⑥ → ⑧</td><td>production + market reservation; revaluation</td><td>price feed / draft invoice</td></tr>
+      <tr><td>T8</td><td>⑧ → ⑨</td><td>shipment to the world</td><td><strong>delivery note</strong> (invoice = declared proxy)</td></tr>
+      <tr><td>T9</td><td>⑨ → ④</td><td>payment received → A∩B</td><td>payment matched (bank statement)</td></tr>
+      <tr><td>T10</td><td>② → ①</td><td>advance (B without A)</td><td>payment without matched invoice</td></tr>
+      <tr><td>T11</td><td>AnP decay → ⑦</td><td>decay of an unpaid asset</td><td>register revaluation; measure = market/catalog delta</td></tr>
+      <tr><td>T12</td><td>AdP decay → ③</td><td>decay of a paid asset</td><td>register revaluation; measure = market/catalog delta</td></tr>
+      <tr><td>T13</td><td>③ → ⑧</td><td>burned a <strong>paid</strong> resource → asset born</td><td>mirror of T6</td></tr>
+      <tr><td>T14</td><td>⑧ → ∅</td><td>write-off / death of Newborn</td><td>write-off</td></tr>
+      <tr><td>T15</td><td>⑨ → ⑧</td><td>return: the world rejected the shipment</td><td>credit note</td></tr>
+      <tr><td>T16</td><td>④ + ⑥ → ①</td><td>settlement: the world’s money flows into Operating</td><td>consequence of T9</td></tr>
+    </table>
+    </div>
+    <p><strong>Partial payments:</strong> ownership transfers proportionally — a partial T9 moves exactly the paid share from ⑨ to ④; the remainder stays visibly in ⑨. <strong>AnP/AdP</strong> — received-not-paid / received-and-paid; VAT moves as a synchronous parallel pair with the base asset (T2/T5 pull the VAT transition in the same proportion).</p>
+
+    <h3>3.5 The Landscape</h3>
+    <p>The product draws the whole geometry as one screen — <strong>DAP Landscape</strong>: four quadrants of bars, a 36-month time slider under which every bar breathes, dashed separators splitting each quadrant into “counts toward profit” and “visible but outside profit” zones.</p>
+    <ul class="clean">
+      <li><strong>D</strong> — liquid cash per currency (CHF nearest the axis, then EUR, USD, BTC, ETH…), illiquid assets, the register of living assets (stacked, per-asset tooltips), per-asset trading positions.</li>
+      <li><strong>A</strong> — Sold (A∩B) dominant; Reserved money at the far edge, breathing with the market.</li>
+      <li><strong>C</strong> — Costs at the axis; behind the separator: Expenses ⑦, unpaid salaries, decay mirrors — visible, outside profit.</li>
+      <li><strong>B</strong> — the seven-bar liability taxonomy: <strong>short-term payables → loans → VAT due → other taxes → other payables ‖ share capital → accumulated result.</strong> Debts by nature on one side of the separator; what was invested and what was earned, separately, on the other. Cash-versus-debts at first glance; a realistic Swiss capital structure readable without a single table.</li>
+      <li><strong>Paired bars</strong> — every market-valued position (BTC, a car, a ten-year-old computer) renders as a pair: current value ↑ in D pinned strictly above its acquisition cost ↓ in C, with the red/green position delta between them, breathing under the slider.</li>
+      <li><strong>Net result mode</strong> collapses the P&amp;L bars into a single green/red profit bar; the <strong>Zoom-into-margin</strong> slider shaves the common pedestal off Sold and consumption so the margin becomes visible even when both bars are huge and close.</li>
+    </ul>
+    <div class="formula">DAP Net result = Sold(A∩B) − Costs③ − Salaries(paid)</div>
+    <p>— market delta and register delta reported as separate lines, never blended in.</p>
+
+    <figure class="shot">
+      <img src="img/dap-landscape.png?k=0010" alt="DAP Landscape — Example Treuhand SA">
+      <figcaption><strong>DAP Landscape — Example Treuhand SA.</strong> The four quadrants live: BTC/ETH pairs breathe over their acquisition cost with red/green position deltas; the asset-register stack with its decayed mirror; liquid cash per currency at the axis; Sold dominant in the Market quadrant with Reserved money at the far edge.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="img/dap-balance.png?k=0010" alt="DAP Balance — Example Treuhand SA">
+      <figcaption><strong>DAP Balance — Example Treuhand SA.</strong> The DAP position with its explicit delta layers (market Δ, asset-register Δ) reconciling to the book position; the payment-confirmed VAT block; the register of living assets — the MacBook at book value 0, alive at 300.</figcaption>
+    </figure>
+
+    <div class="seclabel">§4 — Two views, one data</div>
+    <p>The question every accountant asks first: <em>“so this is double bookkeeping?”</em> Two things are true at once here, and telling them apart is the answer. <strong>Double bookkeeping — no</strong>: there is no second set of books to maintain (below). <strong>Double-entry — yes, fully</strong>: DAP does not abolish the law of double-entry, it obeys it. Every transition moves volume out of one bar and into another (Σ debits = Σ credits on every transition), and the whole system balances at every moment by the quadrant identity:</p>
+    <div class="formula">D + C = A + B</div>
+    <p>— the company side (living + consumed) always equals the world side (market + sources): the DAP analogue of the balance-sheet identity, machine-checked on every date.</p>
+    <p><strong>One database. Two projections.</strong> The legal ledger is the storage format: every business event lands as a double-entry booking, exactly as CO/OR requires. DAP is a <strong>derived, read-only projection</strong> computed from the same journal, the same invoices, the same payments and the same matching. There are no physical DAP accounts (this was tried in the 2023 sandbox and deliberately rejected — mixing DAP pairs into the legal chart of accounts produced exactly the mess the two-layer architecture avoids). A mapping table (<span style="font-family:var(--mono);font-size:13px">dap_account_map</span>) ties every ledger account to a DAP state; coverage is exhaustive and machine-checked (unmapped accounts = 0 is a monitored invariant on every company).</p>
+    <p><strong>Delta layers.</strong> Everywhere DAP’s valuation deliberately departs from the book, the difference is collected into an explicit, named layer — never smeared into the figures:</p>
+    <ul class="clean">
+      <li><strong>market Δ</strong> — mark-to-market of exchange-priced positions above/below book;</li>
+      <li><strong>register Δ</strong> — living-asset valuations versus book value (the computer alive at 300 against a book value of 0).</li>
+    </ul>
+    <p><strong>Reconciliation by construction.</strong> Strip the delta layers and DAP <em>must</em> equal the legal trial balance to the centime:</p>
+    <div class="formula">DAP − marketΔ − registerΔ = legal book</div>
+    <p>This is not a reconciliation <em>procedure</em> someone runs — it is an identity that holds by construction, enforced by golden tests in CI on every change and verified on live companies. If it ever failed to hold, that would be a bug, not a discrepancy to investigate.</p>
+    <p>So: the auditor sees exactly the books he has always seen. The owner sees the real picture. Nobody maintains anything twice, and the two views cannot drift apart — they are the same data.</p>
+    <figure class="shot">
+      <img src="img/dap-landscape-description.png?k=0010" alt="Landscape legend and reconciliation panel — Example Treuhand SA">
+      <figcaption><strong>Landscape legend &amp; reconciliation — Example Treuhand SA.</strong> Every quadrant itemised (states, paired positions, decayed mirrors), the set-theory card (A, A∩B, confirmed vs declared, advances) and the machine-checked reconciliation with the legal ledger: journal balanced, all accounts mapped, revenue/expense identities, market-vs-book and register-vs-book deltas named to the centime.</figcaption>
+    </figure>
+
+    <div class="seclabel">§5 — What DAP is NOT</div>
+    <blockquote class="note"><em>Objection-axioms in Q→A form — built to be copied into a live conversation. Priority audience: Federico and investors.</em></blockquote>
+    <h4>Q1. “Isn’t this just cash accounting?”</h4>
+    <p>No — and the difference is the whole point. Cash accounting <em>forgets</em> what is open: an unpaid invoice simply doesn’t exist for it. DAP <strong>keeps every state visible</strong> — delivered-unpaid, consumed-unpaid, advances, accrued salaries — explicitly on the picture, outside profit but never lost. Cash accounting loses information; DAP adds a stricter recognition rule <em>on top of</em> complete information. The innovation is the combination: money-confirmed profit <em>plus</em> full visibility of states.</p>
+    <h4>Q2. “So it’s a dashboard on top of the old books?”</h4>
+    <p>No — it is a different way of <em>producing</em> the data, not of displaying it. Since 03.07.2026 all new bookkeeping at Arvut runs <strong>DAP-first</strong>: every business event is booked as a protocol transition (T1–T16), matching is immediate, paid/unpaid is never merged, and the double-entry ledger is the <em>storage format and legal projection</em> of those transitions. A dashboard reads whatever the books happen to contain; DAP disciplines how the books come to contain it. That discipline (facts, immediate matching, exhaustive mapping, state integrity) is precisely what a retrofitted BI layer cannot impose on data produced the old way.</p>
+    <h4>Q3. “Is it a replacement for legal accounting?”</h4>
+    <p>No. The CO/OR books stay exactly as they are — same accounts, same bookings, same prudence principle, same tax depreciation. Audit and taxes change nothing. DAP is a projection of the same data (§4); it reconciles to the trial balance by construction. Nothing about a company’s compliance posture changes by turning DAP on.</p>
+    <h4>Q4. “Is it an estimation model? Where do the numbers come from?”</h4>
+    <p>Every figure originates in a document: delivery notes and bank statements as documents of fact, invoices as price-fixing declarations, market feeds with daily timestamps, or the owner’s catalog price with full edit history. The valuation hierarchy is explicit and per-asset (feed → catalog → tax fallback), and everywhere a valuation departs from the book, the difference sits in a named delta layer — visible, attributable, never blended into profit. DAP contains <em>judgments</em> (the owner may set a catalog price, with the right to be wrong — the market corrects); it contains no hidden model.</p>
+    <h4>Q5. “Isn’t the accrual principle there for a reason?”</h4>
+    <p>Yes — and it stays fully in force where it belongs: in the legal layer. DAP does not amend accrual accounting; it answers a different question next to it. Accrual answers “what happened by the rules”; DAP answers “what is confirmed by facts and money, today.”</p>
+    <h4>Q6. The strongest honest objection: “I consumed unpaid materials, sold the product, collected the money — isn’t DAP profit overstated at that moment?”</h4>
+    <p>This is the classicist’s best card (prudence would accrue the cost), and DAP’s answer comes from its own first principles: <strong>differences are never lost.</strong> The unpaid consumption has not vanished — it hangs as an explicit ⑦ bar behind the separator in C and as an open debt in B, on the same screen as the profit figure. DAP’s rule is: <em>the number is read together with the landscape</em> — and the UI is built so that it physically is. Classical accounting hides this nuance in the notes; DAP draws it on the picture. (Same logic for leasing-heavy businesses: decay of a not-yet-paid asset accumulates in ⑦, so DAP profit looks higher while the matching debt stays fully visible — the honest reading is the pair, and the pair is always shown.)</p>
+
+    <div class="seclabel">§6 — In production. Not a concept.</div>
+    <p>Two clocks run behind DAP, and both matter. The <strong>concept is a ten-year program</strong>: the idea, the quadrant geometry and the specification matured through dozens of hand-built versions since 2016. The <strong>implementation is a two-and-a-half-month sprint</strong>: once the AI-native platform existed, the protocol went from specification to full production and has been operating on live mandates since. The first clock is why nobody shortcuts this; the second is what AI-native engineering changes.</p>
+    <h4>The genesis (2016–2026)</h4>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>When</th><th>Milestone</th></tr>
+      <tr><td>September 2016</td><td>The idea of a new accounting — a team decision of three</td></tr>
+      <tr><td>March 2017</td><td>Development of the new accounting begins — dozens of versions through 2026, all hand-coded</td></tr>
+      <tr><td>Late 2017</td><td>The quadrant idea</td></tr>
+      <tr><td>2018</td><td>Iterations of the graphical language of quadrant theory</td></tr>
+      <tr><td>Summer 2019 → summer 2025</td><td>The DAP specification matures — dozens of versions</td></tr>
+      <tr><td>June 2024</td><td>The quadrant model applied to cryptocurrency and fiat operations</td></tr>
+      <tr><td>Summer 2024</td><td>First DAP versions implemented in the previous-generation system — AAA (Arvut Accounting Application)</td></tr>
+      <tr><td>June 2025</td><td>The set-intersection idea: revenue = A∩B</td></tr>
+      <tr><td>November 2025</td><td>The ABM concept; documentation work through March 2026</td></tr>
+      <tr><td>March 2026</td><td>Programming of ABM and the new accounting begins — AI-native from the first line</td></tr>
+    </table>
+    </div>
+    <h4>From specification to production — 2.5 months</h4>
+    <div class="tblwrap">
+    <table class="grid">
+      <tr><th>When</th><th>What shipped</th></tr>
+      <tr><td>12.06.2026</td><td>Specification v0.2 reviewed and confirmed (taxonomy ①–⑨, transitions T1–T16, invariants, valuation rules, two-layer architecture)</td></tr>
+      <tr><td>13.06.2026</td><td><strong>v1 in production</strong>: derived DAP engine over the live ledger + the quadrant dashboard with time slider, liquidity/solvency split, net-result &amp; zoom controls — same week</td></tr>
+      <tr><td>02.07.2026</td><td><strong>v2 in production</strong>: daily price feeds (CoinGecko/ECB, cron), per-asset mark-to-market with paired position bars, two product tabs — DAP Balance and DAP Landscape</td></tr>
+      <tr><td>02.07.2026</td><td><strong>v2.1 in production</strong>: the profit principle — profit only from paid, salaries split paid/unpaid, VAT on Ist-logic both sides</td></tr>
+      <tr><td>03.07.2026</td><td><strong>DAP-first booking</strong> becomes the operating protocol for all new bookkeeping; NDA visibility gate ships in the product (DAP tabs and APIs visible only to NDA-signed fiduciaries, enforced server-side)</td></tr>
+      <tr><td>04.07.2026</td><td><strong>v3 in production</strong>: delivery notes (facts vs declarations, confirmed/declared grading), decay-based depreciation, the register of living assets with valuation history — spec accepted and deployed the same day</td></tr>
+      <tr><td>05.07.2026</td><td>Landscape refinement: seven-bar liability taxonomy, anti-collision layout, production palette</td></tr>
+      <tr><td><strong>daily</strong></td><td><strong>new DAP and Landscape versions ship continuously — the protocol is a living product, not a frozen release</strong></td></tr>
+    </table>
+    </div>
+    <h4>The engineering behind it <em>(measured 05.07.2026)</em></h4>
+    <ul class="clean">
+      <li><strong>~114'000 lines of code</strong> stand in production: ~76'000 product (server + platform + MCP), ~8'900 tests, ~7'300 across 138 versioned database migrations, ~22'000 ops/tooling.</li>
+      <li>Traditional-equivalent effort: <strong>150–200 engineer-months</strong> — a team of 5–8 for roughly three years, or 25'000–33'000 engineer-hours. Built AI-native by essentially two people.</li>
+      <li>Behind it, a first generation: <strong>AAA v1, 25'000 hours</strong> built the traditional way — it proved the domain and was deliberately retired for the AI-native rebuild.</li>
+      <li>Correctness is held to the cent in CI on every change (450+ tests incl. golden DAP reconciliations); four full-codebase audits (money paths, multi-tenant isolation, reliability) were run and closed into production in a single day — 05.07.2026.</li>
+    </ul>
+    <blockquote class="note"><em>Line counts are measured; effort equivalents are estimates on standard industry productivity for domain-heavy financial software.</em></blockquote>
+
+    <div class="seclabel">§7 — Proof</div>
+    <h3>7.1 The demo universe</h3>
+    <p>The demo is not a canned video — it is a living fiduciary (<strong>Example Treuhand SA</strong>) with three fictional client companies under it, each built to demonstrate one vertical of the protocol on realistic Swiss books, regrown monthly by automation. All names, counterparties and figures are fictional; every booking is backed by a real generated PDF (invoices with QR-bills, bank statements whose running balance reconciles to the centime, delivery notes, payslips, till reports) — click a booking, see its document.</p>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>Company</th><th>What it demonstrates</th></tr>
+      <tr><td><strong>Ristorante Lago Blu Sagl</strong> (gastro, Lugano)</td><td>cash tills + Cash Control sessions; card settlements (NEXI/TWINT) with fee decomposition; the salary split — last month accrued-unpaid, watch ⑤ paid/unpaid on the Landscape; open supplier invoices as living ⑦</td></tr>
+      <tr><td><strong>Arredo Vivo SA</strong> (furniture, Locarno)</td><td>EUR/CHF dual currency; <strong>a DDT with every delivery</strong> → deliveries fully <em>confirmed by fact</em>; one client deliberately without delivery notes → the declared-vs-confirmed contrast on one screen; partial payments → proportional A∩B</td></tr>
+      <tr><td><strong>Alpine Crypto Trading GmbH</strong> (Zug)</td><td>breathing positions: BTC/ETH pairs current-value-over-cost with red/green deltas moving under the time slider; market delta honestly outside profit; realistic capital structure — share capital, shareholder loan and accumulated result as separate bars</td></tr>
+      <tr><td><strong>Example Treuhand SA</strong> itself</td><td>the register of living assets — the canonical trio: a MacBook (cost 3'000, book value 0, alive at 300), a BMW decaying faster than its schedule, an artwork appreciating into market delta; delivery-note grading; a crypto treasury with daily feeds</td></tr>
+    </table>
+    </div>
+    <p><strong>Seeing it live:</strong> the demo universe runs on the production platform at <strong>abm.arvut.ch</strong>. Use the presenter account <strong>demopro</strong> / <strong>************</strong> <em>(the password is sent to you by email)</em> — read-only, scoped to Example Treuhand SA and its clients, with the DAP tabs (DAP Balance, DAP Landscape) enabled. <em>The public demo/demo login deliberately does not show DAP — the protocol is gated even inside the demo.</em> Open a company → Accounting → the two DAP tabs sit right after Balance Sheet; drag the time slider and watch the picture breathe.</p>
+
+    <div class="internal-band">INTERNAL / BOARD ONLY — §7.2 real client cases. The live-clients gate applies (no DAP communication toward Diacron clients before the Diacron NDA and Alberto’s onboarding).</div>
+    <h3>7.2 Real cases — internal / board only</h3>
+    <ul class="clean">
+      <li><strong>Iris Mobili S.r.l.</strong> (furniture, Diacron client, EUR/CHF, 1'832 entries) — the VAT case. Asked to “compute VAT by any convenient method”, Arvut did it through <strong>full bookkeeping</strong> instead of a spreadsheet — and reconciled 1'832/1'832 entries against the client’s Zucchetti registri. The full-books approach surfaced what the declaration-driven Excel process structurally cannot see: input VAT (import/logistics/installation) that appears never to have been claimed — a <strong>hypothesis, still to be verified with the client</strong>, but potentially six figures per year. The DAP thesis in one sentence: <em>a spreadsheet computes what it was given; full books see what is missing.</em> Iris is also the designated first live case for delivery-note (DDT) grading — gated until the Diacron NDA.</li>
+      <li><strong>Pizza In SA</strong> (gastro, Diacron client) — the parallel-books case. ABM ran the complete books <strong>in parallel with the client’s existing accounting</strong> for Q1: 416 bank transactions, running balance walked to the centime, quarter reconciled <strong>zero-to-zero</strong> against the incumbent. Mandate live since 01.04. This is the operational proof behind “two views, one data”: we already run parallel books on live mandates and they converge exactly.</li>
+    </ul>
+
+    <div class="seclabel">§8 — The moat &amp; the IP</div>
+    <h3>8.1 Why it cannot be retrofitted</h3>
+    <p>Every system on the market — Abacus, Bexio, SAP — shows the photograph of yesterday: fixed prices, assets at cost, declarations as revenue. That is not a missing feature; it is their data model and their production process. DAP requires the data to be <em>produced</em> differently — facts over declarations, immediate matching, exhaustive state mapping, paid/unpaid never merged (§5 Q2). An incumbent can bolt on a dashboard; it cannot retro-impose a production discipline on decades of data and habits, and it cannot re-found its recognition rules without breaking its own installed base.</p>
+    <p>And the protocol is executed by AI agents from the first line of code — not a feature added afterward. Which is the culmination this section has been building to:</p>
+    <blockquote class="pull">Everyone else is bolting a Ferrari engine onto a horse cart. Arvut is the whole Ferrari — AI from the first line of code. DAP is what can’t be retrofitted.</blockquote>
+    <h3>8.2 What we protect, and how</h3>
+    <p><strong>Today: trade secret discipline, enforced in three layers.</strong></p>
+    <ul class="clean">
+      <li><strong>Naming canon</strong> (since 03.07.2026): the name “DAP”, A∩B, state and transition names never appear on public surfaces — bios, meta, LinkedIn, the AI concierge’s knowledge base included. Publicly we claim only the <em>result</em>.</li>
+      <li><strong>Legal layer</strong>: a ready-to-sign, legally reviewed NDA sits on all ten partner hubs; disclosure of mechanics follows signature, not curiosity.</li>
+      <li><strong>Product layer</strong>: the DAP tabs and APIs are gated in the product itself — a fiduciary sees them only after its NDA signature is flagged, enforced server-side (an unsigned tenant gets a 403, not a hidden button).</li>
+    </ul>
+    <p><strong>The option: patents — and a second investor profile.</strong> Patent protection across jurisdictions is a real programme with real costs. That opens a second, distinct investor profile alongside the seed investor: one who funds the patenting of DAP and is buying not revenue growth but <strong>a position in the IP itself — an asset whose value is the protection</strong>. For someone who understands intellectual property as an asset class, this is a specific, attractive deal — and a conversation that only works with the author in the room.</p>
+    <h3>8.3 The NDA ladder</h3>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>Rung</th><th>Surface</th><th>What is shown</th></tr>
+      <tr><td>1 — Public</td><td>arvut.ch/clarity</td><td>result-language only: real-time solvency and true margin; no protocol name, no mechanics</td></tr>
+      <tr><td>2 — Code-gated</td><td>partner hubs <span style="font-family:var(--mono);font-size:12px">/*/dap</span> + the investor moat brief</td><td>the name DAP, business-language theses, canonical examples; no formalism, no numbers</td></tr>
+      <tr><td>3 — Signed NDA</td><td>personal handover</td><td><strong>this document</strong>, the full specification, the deep demo</td></tr>
+      <tr><td>4 — Live</td><td>session with the author</td><td>the live system on the demo universe, questions answered on the spot</td></tr>
+    </table>
+    </div>
+    <p>The ladder is the moat’s <em>presentation</em>: each rung shows enough to want the next, and the depth sits exactly where an investor expects a real asset to sit — behind a signature.</p>
+
+    <div class="seclabel">§9 — The business layer</div>
+    <h3>9.1 The formula</h3>
+    <p>The canonical positioning formula — verbatim, always (it works only while it is one sentence, never paraphrased):</p>
+    <blockquote class="pull">A traditional fiduciary is the shared accountant of SMEs. A fiduciary in the Arvut network is also their fractional CFO — and not only for small businesses.</blockquote>
+    <p>The second half is only possible because of DAP: the CFO-level picture — liquidity per currency, true margin, early warnings, real asset values — is produced by the platform automatically, so the fiduciary offers CFO-grade advice <strong>without hiring analysts</strong>. The fiduciary supplies the judgment and the relationship; DAP supplies the picture. And because a fractional CFO is as valuable to a 150-person company as to a 10-person one, DAP opens the segment traditional fiduciaries never reach. <em>(Terminology rule: the CFO half is always “fractional” — never “shared CFO”.)</em></p>
+    <h3>9.2 Four ways DAP earns — in order of immediacy</h3>
+    <ul class="clean">
+      <li><strong>It wins fiduciaries.</strong> DAP is the sharpest answer to “why join your network rather than buy Bexio?” Every fiduciary it convinces is recurring platform revenue: CHF 500/year per mandate + CHF 1.50 per booking.</li>
+      <li><strong>It grows what fiduciaries earn — and what they’ll pay for.</strong> The fractional-CFO tier is advisory revenue <em>for the fiduciary</em>, on top of bookkeeping. A partner who earns more per client holds clients longer and defends our pricing instead of questioning it.</li>
+      <li><strong>It opens bigger mandates.</strong> Larger companies mean more bookings per mandate — usage revenue scales with exactly the segment DAP unlocks.</li>
+      <li><strong>It carries the raise.</strong> For investors DAP is the moat: a proprietary protocol in production, not a feature copied in a quarter. The teaser sits in deck v19; the depth sits behind NDA — exactly where an investor expects a real asset to sit.</li>
+    </ul>
+    <h3>9.3 The CFO-tier hypothesis</h3>
+    <p>The anchor: a full-time CFO in Switzerland costs <strong>CHF 150'000–300'000 a year</strong>. The fractional-CFO tier sells the CFO-grade picture and judgment at a fraction of that — priced by company size (what the end client pays the fiduciary, advisory revenue enabled by the platform):</p>
+    <div class="tblwrap">
+    <table class="grid">
+      <tr><th>Client segment</th><th>Fractional-CFO tier, per month</th></tr>
+      <tr><td>Small companies</td><td class="num">CHF 1'000–2'000</td></tr>
+      <tr><td>Mid-size companies</td><td class="num">CHF 3'000–4'000</td></tr>
+      <tr><td>Larger companies</td><td class="num">CHF 5'000–10'000</td></tr>
+    </table>
+    </div>
+    <p>Even at the top of the range, a larger company pays roughly a third of a junior full-time CFO — for a picture no in-house CFO assembles by hand. <strong>Status: working hypothesis, to be validated in pilot</strong> — put on the table here precisely so the three of us can discuss it concretely; not canon, not quoted externally.</p>
+
+    <div class="seclabel">§9a — How to tell DAP (the analogy canon)</div>
+    <blockquote class="note"><em>This section is an instruction, not theory: the analogies below are the arsenal for presenting DAP, with an explicit rule of use. <strong>One leading analogy per conversation, at most one supporting.</strong> Within the tech family the three work as acts of ONE story — not as three separate analogies.</em></blockquote>
+    <p><strong>One family: the history of computing.</strong> For tech and investor audiences the whole presentation lives inside a single register — determinism, network protocols, operating systems. Coherence beats variety.</p>
+    <h4>Act 1 — the opening: determinism</h4>
+    <p>“Ten different accountants, given the same business, the same documents and the same period, will close the books to ten different results. DAP is an algorithm: the same documents plus the same rules always produce the same states — like transferring a file across the world and getting the same checksum.” One stroke establishes trust and carries both the due-diligence thesis and AI-agent executability. (A live parallel-books proof exists — §7.2.) <em>Tier: usable down to result-level, public-adjacent conversations.</em></p>
+    <h4>Act 2 — the middle: TCP/IP and checksums</h4>
+    <p>Traditional accounting is analog television: the signal degrades with every hop and depends on the operator’s tuning. DAP is a packet protocol: exact transfer, checksums preserved. And the checksums are not a metaphor — the machine-checked invariants (journal balanced, every account mapped, D + C = A + B) are the md5 of the books; reconciliation by construction is the end-to-end integrity check. This act explains the <em>name</em>: Digital Accounting Protocol. <em>Tier: hub tier and deeper.</em></p>
+    <h4>Act 3 — the finale: MS-DOS vs UNIX</h4>
+    <p>MS-DOS was everywhere and it was “good enough” — but there was no model underneath it, only accreted conventions. UNIX was a small core of first principles — and on that core the following decades were built. The world migrated by itself, over decades, without a war. Traditional accounting is MS-DOS; DAP is UNIX: “everything is a state transition” is its “everything is a file”. <strong><em>Tier: strictly oral — NDA and investor conversations only; never in writing, never on public surfaces.</em></strong> <em>It is the closing act by design: opening with it provokes the premature “so you are replacing accounting?” — and the public canon everywhere remains “a second view; the legal books untouched”.</em></p>
+    <h4>The fiduciary/accountant track</h4>
+    <p>Shorter, no UNIX: determinism → <strong>“giving confused with receiving”</strong>: I hand an asset to the outside world — and record that I received something (a “receivable asset”). A claim not confirmed by money is a state, not an asset. Always with the proviso of respect: <em>traditional accounting was right for the paper era — the substrate changed; none of this is the accountant’s fault.</em></p>
+
+    <div class="seclabel">§10 — The unexpected questions (living FAQ)</div>
+    <blockquote class="note"><em>This section is living — it grows with every deep dive. DAP conversations are won or lost on the unexpected question. After the live session with Federico, his questions are appended here verbatim — they are the future investor FAQ. Seeded with the known ones:</em></blockquote>
+    <h4>“What about accrual rules?”</h4>
+    <p>They remain fully in force — in the legal layer, which DAP does not touch (§5 Q5). DAP is not an amendment to accrual accounting; it is a second projection with a stricter recognition rule, answering a different question. When an auditor asks about accruals, the answer is the legal book — unchanged.</p>
+    <h4>“How does this survive an audit?”</h4>
+    <p>The audit examines the legal books, which are untouched and CO/OR-compliant. DAP is management reporting derived from the same journal, reconciling to the trial balance by construction (§4) — if anything, it <em>strengthens</em> the audit trail: every DAP figure traces to documents, and reconciliation is a machine-checked identity, not a quarterly hunt.</p>
+    <h4>“Isn’t this just cash accounting?”</h4>
+    <p>No — cash accounting forgets what is open; DAP keeps every state visible (§5 Q1). Money-confirmed profit <em>plus</em> complete state visibility is the combination neither accrual nor cash accounting offers.</p>
+    <h4>“Who signs off on DAP figures?”</h4>
+    <p>Nobody needs to “sign” a projection — one verifies the protocol. Legal figures are signed exactly as today (fiduciary, auditor). DAP figures are deterministic derivations from documents, with machine-checkable invariants and golden reconciliations; the correct question is “does the identity hold?”, and the system answers it continuously.</p>
+    <h4>“What happens if the client’s fiduciary leaves the network?”</h4>
+    <p>The client’s legal books are fully portable — canon: <em>“Arvut is the hub, not a cage — export all your data to Bexio, Abacus or SAP anytime.”</em> Nothing about compliance or continuity is hostage. What leaves with the network is the DAP view itself — the protocol, the discipline and the picture are the network’s value, which is precisely the retention argument rather than a lock-in.</p>
+    <blockquote class="note">[— Federico’s questions from the live session go here, verbatim —]</blockquote>
+
+    <div class="seclabel">§11 — Roadmap (short)</div>
+    <p>What stands is v3 in production; what follows is refinement and rollout, not construction:</p>
+    <ul class="clean">
+      <li><strong>Delivery notes on live clients</strong> — first case Iris Mobili (DDT in every delivery); client instruction drafted; gated behind the Diacron NDA.</li>
+      <li><strong>Live mark-to-market cases</strong> — mapping the real crypto (Crypto Strategy) and EUR (Iris) books onto the protocol’s market layer.</li>
+      <li><strong>Feed adapters for the asset register</strong> — objective market feeds beyond crypto/FX (vehicles, electronics) through the existing price-feed abstraction.</li>
+      <li><strong>Position lifecycle in the demo</strong> — showing the sale of a trading position (expense → cost conversion) end to end.</li>
+      <li><strong>PDF report layer</strong> — DAP views as generated documents alongside the existing Annual Report / VAT engines.</li>
+      <li><strong>Client portal exposure</strong> — the owner’s view of his own landscape, under the fiduciary’s brand.</li>
+      <li><strong>A hierarchical DAP chart of accounts</strong> — quadrant account groups linked to the legal chart by a first-class two-way mapping: two charts of accounts, ONE journal (the 2023 sandbox guardrail stands — no physical DAP accounts in the legal ledger).</li>
+      <li><strong>DAP Saldenliste</strong> — the quadrant trial balance with the identity row Σ(D)+Σ(C) = Σ(A)+Σ(B) as a visible, dated report.</li>
+      <li><strong>A predictive layer on top of explicit states — in research.</strong></li>
+      <li><strong>Translations</strong> — DE/FR/IT of the presentation version, after the Federico session shapes it.</li>
+    </ul>
+
+    <div class="seclabel">Appendix — Glossary</div>
+    <p><em>The vocabulary to speak precisely. Protocol terms, one line each:</em></p>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>Term</th><th>Meaning</th></tr>
+      <tr><td>A</td><td>the set of delivered goods/services</td></tr>
+      <tr><td>B</td><td>the set of payments actually made/received</td></tr>
+      <tr><td>A∩B</td><td>delivered AND paid — the only thing DAP calls revenue (state ④ Sold)</td></tr>
+      <tr><td>A\B</td><td>delivered, not paid — open receivables as an explicit state, not an asset</td></tr>
+      <tr><td>B\A</td><td>paid, not delivered — advances</td></tr>
+      <tr><td>Quadrants D/C/A/B</td><td>company-alive / company-consumed / world-alive / sources — the four fields of the Landscape (§3.2)</td></tr>
+      <tr><td>States ①–⑨</td><td>Operating, Passivi, Costs, Sold, Salaries, Reserved money, Expenses, Newborn, Delivered (§3.3)</td></tr>
+      <tr><td>AnP / AdP</td><td>received-not-paid / received-and-paid asset</td></tr>
+      <tr><td>Transitions T1–T16</td><td>the sixteen legal moves of the state machine; every document of fact triggers exactly one (§3.4)</td></tr>
+      <tr><td>Document of fact</td><td>delivery note (goods moved) or bank statement/receipt (money moved) — the only documents that trigger transitions</td></tr>
+      <tr><td>Declaration</td><td>the invoice — fixes the price, links delivery to payment, triggers nothing by itself</td></tr>
+      <tr><td>Confirmed / declared</td><td>grading of the set A: backed by a delivery note vs. built on an invoice proxy</td></tr>
+      <tr><td>Decay (истлевание)</td><td>real loss of asset value below acquisition cost — booked as costs the moment it happens; the DAP meaning of depreciation</td></tr>
+      <tr><td>Appreciation</td><td>asset value above cost — market delta, never profit until sold</td></tr>
+      <tr><td>Register of living assets</td><td>the DAP asset register, independent of book value: alive = works, not “book value &gt; 0”</td></tr>
+      <tr><td>market Δ / register Δ</td><td>the two explicit delta layers where DAP valuation departs from the book (§4)</td></tr>
+      <tr><td>Reconciliation by construction</td><td>the identity DAP − marketΔ − registerΔ = legal book, enforced by golden tests</td></tr>
+      <tr><td>DAP-first booking</td><td>the operating protocol: every event booked as a transition; double-entry as storage format and legal projection</td></tr>
+      <tr><td>Law of conservation</td><td>volume moves between bars; it enters only at birth (T6/T7/T13) and leaves only at death (T14); balance form: D + C = A + B</td></tr>
+      <tr><td>Landscape / Balance</td><td>the two product views: the quadrant picture with time slider / the tabular DAP-Bilanz+P&amp;L with market-vs-book columns</td></tr>
+      <tr><td>Net result</td><td>Sold(A∩B) − Costs③ − Salaries(paid); deltas reported separately</td></tr>
+      <tr><td>Ist-Methode</td><td>the ESTV cash-basis VAT method — the regulatory precedent for money-confirmed recognition</td></tr>
+    </table>
+    </div>
+
+    <footer class="docfoot">Confidential — internal · Arvut GmbH · DAP Axiomatics v0.2 · 06.07.2026 · do not forward</footer>
+  </div>
+  </article>
+
+  <!-- ================= РУССКИЙ ================= -->
+  <article class="doc ru">
+  <div class="pad">
+
+    <section class="hero">
+      <span class="chip">Внутренний — не пересылать</span>
+      <h1 class="title">DAP Axiomatics</h1>
+      <p class="subtitle">The Digital Accounting Protocol — глубокое погружение</p>
+
+      <table class="meta">
+        <tr><th>Конфиденциально</th><td>Внутренний рабочий документ. Передаётся лично Heinz и Federico, а также внутри команды Arvut. Не для пересылки; не для публичных поверхностей.</td></tr>
+        <tr><th>Автор концепции</th><td>Alex Kheylik, Arvut GmbH</td></tr>
+        <tr><th>Назначение</th><td>(1) глубокое, общее понимание DAP для Heinz и Federico перед живой сессией; (2) фундамент брифинг-пакета; (3) сырьё для презентации, которую Federico сможет собрать и провести сам.</td></tr>
+        <tr><th>Версия</th><td>v0.2 · 06.07.2026 (добавлены §9a «Как рассказывать DAP» + дорожная карта: DAP-план счетов, DAP Saldenliste, предиктивный слой) · v0.1 · 05.07.2026 · EN + RU</td></tr>
+        <tr><th>Источники истины</th><td>спецификация протокола DAP v0.3 · DAP theses master v3 · письмо board «DAP, на простом языке бизнеса» · инвесторский бриф «ров и стройка» · canon v2.1 / v3</td></tr>
+      </table>
+    </section>
+
+    <div class="seclabel">§1 — Почему книги врут</div>
+    <p>Легальная бухгалтерия отвечает на один вопрос: <strong>«что произошло, согласно правилам?»</strong> На этот вопрос она отвечает очень хорошо — и правила не нам менять, да мы и не хотим их менять. Но владелец бизнеса задаёт другой вопрос: <strong>«как дела у моего бизнеса — сегодня?»</strong> Разрыв между этими двумя вопросами — то место, где книги врут.</p>
+    <p>Три структурные причины, каждая встроена в сами правила:</p>
+    <p><strong>1. Исторические цены.</strong> Легальная книга несёт активы по цене приобретения минус график амортизации. Машина, стоящая <span class="num">50'000</span> в день выезда из салона, числится как <span class="num">80'000</span> минус таблица. Десятилетний компьютер, который жив, работает и стоит <span class="num">300</span>, числится по нулю — его не существует. Крипто- и валютные позиции заморожены на значениях по принципу осторожности, пока рынок движется ежедневно. Книга — это фотография: точна о прошлом, слепа к настоящему.</p>
+    <p><strong>2. Декларации вместо фактов.</strong> Документ, на котором держится классическое признание дохода и затрат, — это инвойс, <em>декларация намерения</em>: то, что кто-то говорит, должно быть оплачено, кому, к какому сроку. Действительно ли сдвинулся товар (это удостоверяет накладная) и действительно ли сдвинулись деньги (это удостоверяет банковская выписка) — в классической модели вторично. Бухгалтерия по методу начисления проводит обещание как богатство: дебиторка считается активом, заявленный доход управляет решениями.</p>
+    <p><strong>3. Отчёт о прошлом.</strong> Даже в собственной логике легальная картина приходит поздно. Швейцарское SME обычно видит свою финализированную годовую отчётность спустя месяцы после конца года: подача приходится на весну, а культура продлений регулярно отодвигает её на осень или на конец года — конкретные даты варьируются по кантонам (в Ticino — с конца мая до конца декабря следующего года). «Официальная правда» о деловом годе может прийти больше чем через год после описываемых ею событий.</p>
+    <p>Следствие не академическое: <strong>прибыльная компания может выглядеть убыточной — и книги «докажут» это дважды.</strong> Один раз через замороженные стоимости активов, другой раз через заявленные, но неурегулированные позиции. Верно и обратное: тонущая компания может показывать заявленную прибыль, построенную из дебиторки, которая никогда не соберётся.</p>
+    <blockquote class="note"><em>Один абзац остроты, не тезис:</em> это тот же механизм, только в другом масштабе, что сделал возможным <em>The Big Short</em> — обещания, проведённые как богатство, от subprime-CDO до государственных бюджетов, свёрстанных под заявленные, а не собранные налоги. Каждый пузырь сделан из неурегулированной дебиторки. В терминах DAP (§2): мир постоянно преподносит множество A — то, что заявлено и поставлено на бумаге, — как если бы это было A∩B, то, что действительно подтверждено деньгами.</blockquote>
+
+    <div class="seclabel">§2 — Аксиомы DAP</div>
+    <p>DAP — <strong>Digital Accounting Protocol</strong> — это не вариация классической бухгалтерии и не критика её. Это намеренно другая аксиоматика для другого вопроса. Пять аксиом; для каждой: сама аксиома, почему классическая бухгалтерия так не делает, и что это меняет для владельца.</p>
+
+    <h3>Аксиома 1 — Прибыль подтверждается деньгами, с обеих сторон.</h3>
+    <p><strong>Доход = поставлено И оплачено.</strong> Выставленный инвойс сам по себе не доход. Симметрично: <strong>затрата уменьшает прибыль только когда оплачена</strong> — неоплаченные инвойсы поставщиков, начисленные неоплаченные зарплаты, несобранный VAT все находятся <em>вне</em> прибыли, видимые, но не засчитанные, пока деньги действительно не сдвинулись.</p>
+    <p><em>Почему классическая бухгалтерия так не делает:</em> метод начисления признаёт доход в момент поставки (сторона декларации) и затраты в момент начисления — прибыль оказывается <em>мнением о будущем</em> (какая дебиторка соберётся, какая кредиторка будет погашена). Кассовый метод бросается в противоположную крайность и вовсе теряет открытые состояния.</p>
+    <p><em>Что это меняет для владельца:</em> цифра прибыли становится <strong>фактом, а не оценкой</strong>. Чтобы увеличить DAP-прибыль, кто-то должен действительно тебе заплатить; чтобы уменьшить её, ты должен действительно расстаться с деньгами. Это делает цифру устойчивой к двум классическим манипуляциям — надуванию дохода инвойсами, которые никогда не соберутся, и занижению прибыли инвойсами, которые никогда не собирались оплачивать. У этой логики есть регуляторный прецедент: для VAT это буквально <strong>Ist-Methode</strong>, официально признанный метод ESTV (сам Arvut на нём с 01.01.2026). DAP распространяет узаконенный регулятором принцип на всю управленческую картину.</p>
+
+    <h3>Аксиома 2 — Факты — это не декларации.</h3>
+    <p>Документы делятся на два класса. <strong>Документы факта</strong>: банковская выписка или кассовый чек удостоверяет, что деньги сдвинулись; накладная (Lieferschein / DDT / bolla di consegna) удостоверяет, что сдвинулись товары или услуги. <strong>Документы-декларации</strong>: инвойс — он фиксирует <em>цену</em> и объявляет ожидаемую пару «поставка ↔ оплата», но сам по себе ничего не двигает. DAP строит свою картину из документов факта; инвойс — это скрепка, связывающая два потока фактов и фиксирующая цену. Пока клиент ещё не передаёт каждую накладную, инвойс остаётся приемлемым прокси — но картина честно различает <strong>подтверждённое фактом</strong> и <strong>заявленное на данный момент</strong>.</p>
+    <p><em>Почему классическая бухгалтерия так не делает:</em> в классической модели учётный документ — это инвойс, а накладная нет; иерархия перевёрнута. Легальный слой обязан проводить по инвойсам, как того требует CO/VAT-право, — и в легальном слое DAP он так и делает, без изменений.</p>
+    <p><em>Что это меняет для владельца:</em> картина, которую читает владелец, построена из того, что <em>произошло</em>, а не из того, что было <em>объявлено</em>, — с явной оценкой уверенности на всём, что ещё не подкреплено документом факта.</p>
+
+    <h3>Аксиома 3 — Ни одно состояние никогда не исчезает.</h3>
+    <p>Всё, что не является прибылью, остаётся <strong>явным и видимым вне прибыли</strong>: поставленное-но-неоплаченное, полученные авансы, израсходованное-но-неоплаченное, начисленные неоплаченные зарплаты, несобранный VAT. Ничего не сворачивается в примечание. Закон сохранения (§3) гарантирует это структурно: проводка перемещает объём между состояниями; объём входит в систему только когда актив рождается, и покидает её только когда умирает.</p>
+    <p><em>Почему классическая бухгалтерия так не делает:</em> она хранит эту информацию — но разбросанной по счетам, субледжерам и примечаниям, читаемой только тем, кто умеет читать баланс. Состояния существуют; <em>картины состояний</em> не существует.</p>
+    <p><em>Что это меняет для владельца:</em> цифра прибыли читается <strong>вместе с ландшафтом состояний</strong> — один взгляд показывает, что подтверждено, что обещано, что должно и что просто заявлено. Это же и честный ответ на сильнейшее возражение против Аксиомы 1 (§5, Q6): более строгая прибыль DAP безопасна <em>именно потому</em>, что каждое исключённое состояние остаётся на картине.</p>
+
+    <h3>Аксиома 4 — Активы стоят столько, сколько они стоят сегодня.</h3>
+    <p>Амортизация — не функция времени по налоговому графику, а <strong>степень реального истлевания</strong>: разница между ценой приобретения и сегодняшней стоимостью. Истлевание ниже цены приобретения = затраты, немедленно — стоимость, которая действительно исчезла, уменьшает DAP-прибыль в тот момент, когда исчезла. <strong>Рост стоимости выше цены приобретения = рыночная дельта, отдельный видимый слой — НЕ прибыль до продажи.</strong> Оценка следует явной иерархии: рыночный фид там, где он объективен (крипто, FX — живьём в производстве; машины, электроника — готовы к фиду); иначе собственная каталожная цена владельца (предприниматель задаёт её, с полной историей правок); налоговый график только как fallback.</p>
+    <p><em>Почему классическая бухгалтерия так не делает:</em> принцип осторожности (Niederstwertprinzip) и налоговые графики амортизации существуют, чтобы защищать кредиторов и фиск — законные цели, которые систематически дают значения, <em>безопасные</em>, а не <em>истинные</em>. График может утверждать, что актив «стоит» 9 миллионов, когда рынок говорит 15 — или 300 франков.</p>
+    <p><em>Что это меняет для владельца:</em> баланс, который он читает, совпадает с миром, который он может потрогать. Десятилетний компьютер жив на <span class="num">300</span>. Машина истлела на <span class="num">30'000</span> в день выезда из салона — и картина показала это в тот же день. Крипто-позиция дышит вместе с рынком ежедневно, её рыночная дельта видима, но честно отделена от прибыли.</p>
+
+    <h3>Аксиома 5 — Легальная книга нетронута. DAP — это проекция.</h3>
+    <p>DAP не заменяет, не правит и даже не касается легальной бухгалтерии. <strong>Один журнал, две проекции</strong>: легальный леджер (CO/OR, принцип осторожности, налоговая амортизация, курсы ESTV) для ревизора и налоговой; DAP-проекция для владельца, менеджера и AI-агента. В леджере нет физических DAP-счетов, нет второй бухгалтерии, которую нужно вести, и два взгляда сходятся до копейки <em>by construction</em> (§4).</p>
+    <p><em>Почему классическая бухгалтерия так не делает:</em> у неё одна проекция, потому что она служит одному господину — комплаенсу. Управленческий учёт в сегодняшней практике обычно является табличной <em>переинтерпретацией</em> легальных цифр, ведётся вручную и дрейфует от книг, которые якобы обобщает.</p>
+    <p><em>Что это меняет для владельца:</em> он получает реальную картину <strong>ничего не отдавая взамен</strong> — аудит без изменений, налоги без изменений, никакой миграции, никакого параллельного ввода данных. А для Arvut это меняет нечто структурное: поскольку DAP — строгий протокол (конечный автомат, §3), он <em>исполним AI-агентами и машинно-проверяем</em> — агент не интерпретирует условности, он исполняет переходы, и любой нелегальный переход — автоматический красный флаг.</p>
+
+    <div class="seclabel">§3 — Геометрия</div>
+    <blockquote class="note"><em>Этот раздел — ядро NDA-тира: формализм, который публичные и хаб-поверхности никогда не показывают.</em></blockquote>
+
+    <h3>3.1 Два множества</h3>
+    <ul class="clean">
+      <li><strong>A</strong> — множество поставленных товаров и услуг (то, что ушло от нас к миру).</li>
+      <li><strong>B</strong> — множество платежей (какие деньги действительно сдвинулись).</li>
+      <li><strong>A∩B</strong> — поставлено И оплачено: единственное, что DAP называет доходом.</li>
+      <li><strong>A\B</strong> — поставлено, не оплачено: открытая дебиторка как <em>состояние</em>, не как актив.</li>
+      <li><strong>B\A</strong> — оплачено, не поставлено: авансы.</li>
+    </ul>
+    <p>Классический метод начисления признаёт доход на A; кассовый метод — на B; DAP признаёт <strong>только пересечение</strong> — и держит обе разности явно на картине. «Дебиторская задолженность» не является активом в смысле DAP: требование, не подтверждённое деньгами, — это состояние <em>Delivered ⑨</em>, а не стоимость, лежащая в одной куче с наличными. Информация сохранена, классификация изменена.</p>
+
+    <h3>3.2 Квадранты</h3>
+    <p>Координатная плоскость. Слева — <em>Azienda</em> (компания); справа — <em>Esterno</em> (внешний мир). Над землёй — живая стоимость; под землёй — израсходованная стоимость и источники.</p>
+    <pre class="mono">              Azienda (наше)         │        Esterno (мир)
+   D: живые активы                   │   A: деньги / ценности мира
+   (наличные, оборудование, Newborn, │   (Sold, Reserved money —
+    Delivered…)                      │    платящее облако рынка)
+  ──────────────────────────────────┼──────────────────────────────
+   C: израсходованные (мёртвые)      │   B: источники / пассивы
+      активы                         │   (кредиторка, займы, VAT к уплате,
+   (Costs, Expenses, Salaries,       │    акционеры, капитал)
+    истлевание)                      │</pre>
+    <p>Каждый бар — это счёт или группа; каждая проводка двойной записи — <strong>перенос объёма</strong> из одного бара в другой: копнуть здесь, насыпать там. Общий объём системы меняется только когда актив <em>рождается</em> (майнинг, производство, покупка валюты) или <em>умирает</em> (списание, выбытие). Это закон сохранения стоимости, и он машинно-проверяем. Его балансовая форма: на любую дату <strong>D + C = A + B</strong> — сторона компании равна стороне мира, квадрантный аналог тождества «активы = пассивы».</p>
+
+    <h3>3.3 Девять состояний</h3>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>№</th><th>Состояние</th><th>Квадрант</th><th>Смысл</th></tr>
+      <tr><td>①</td><td>Operating</td><td>D</td><td>работающие живые активы — в продукте делятся на <strong>ликвидные</strong> (касса/банк, по валютам) и <strong>неликвидные</strong> (запасы, оборудование)</td></tr>
+      <tr><td>②</td><td>Passivi</td><td>B</td><td>источники: поставщики, кредиты, акционеры</td></tr>
+      <tr><td>③</td><td>Costs</td><td>C</td><td>израсходованное <strong>и оплаченное</strong> — единственное потребление, уменьшающее прибыль</td></tr>
+      <tr><td>④</td><td>Sold</td><td>A</td><td><strong>A∩B</strong> — поставлено и оплачено: доход</td></tr>
+      <tr><td>⑤</td><td>Salaries</td><td>C</td><td>зарплаты + соцотчисления — отдельное состояние, деление <strong>оплачено / неоплачено</strong>; начисленные неоплаченные зарплаты циркулируют в оборотном капитале фирмы и искажают картину, если слить их в ③</td></tr>
+      <tr><td>⑥</td><td>Reserved money</td><td>A</td><td>денежное «облако» рынка, стоящее за Newborn/Delivered — дышит вместе с рынком</td></tr>
+      <tr><td>⑦</td><td>Expenses</td><td>C</td><td>израсходовано, <strong>НЕ оплачено</strong> — видимо, вне прибыли, становится ③ при оплате</td></tr>
+      <tr><td>⑧</td><td>Newborn</td><td>D</td><td>новорождённые активы: намайнено, произведено, добыто — оцениваются по иерархии Аксиомы 4</td></tr>
+      <tr><td>⑨</td><td>Delivered</td><td>D</td><td>отгруженный Newborn — множество A в ожидании своих денег</td></tr>
+    </table>
+    </div>
+    <p><em>Терминологическая ремарка:</em> DAP-смысл Costs/Expenses намеренно перевёрнут относительно бытового употребления — ③ = израсходовано-и-оплачено, ⑦ = израсходовано-не-оплачено. На экранах продукт использует честные подписи («consumed-paid» / «consumed-unpaid»); кружочные номера — внутренняя модель.</p>
+
+    <h3>3.4 Конечный автомат — шестнадцать переходов</h3>
+    <p>Каждое бизнес-событие — это переход; каждый документ факта запускает один; всё остальное — нелегальный ход, флагуется автоматически.</p>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>#</th><th>Переход</th><th>Смысл</th><th>Триггер</th></tr>
+      <tr><td>T1</td><td>② → AnP</td><td>получен актив, ещё не оплачен</td><td>инвойс поставщика, AP открыт — основание: <strong>накладная</strong> (инвойс = прокси)</td></tr>
+      <tr><td>T2</td><td>AnP → AdP</td><td>оплачено полученное</td><td>платёж сматчен (банковская выписка)</td></tr>
+      <tr><td>T3</td><td>AnP → ⑦</td><td>израсходовано неоплаченное</td><td>проводка расхода при открытом AP</td></tr>
+      <tr><td>T4</td><td>AdP → ③</td><td>израсходовано оплаченное</td><td>проводка расхода, AP погашен</td></tr>
+      <tr><td>T5</td><td>⑦ → ③</td><td>оплачено уже израсходованное</td><td>платёж сматчен постфактум</td></tr>
+      <tr><td>T6</td><td>⑦ → ⑧</td><td>сожжён ресурс → рождается актив</td><td>награда за майнинг / FX-сделка</td></tr>
+      <tr><td>T7</td><td>⑥ → ⑧</td><td>производство + рыночное резервирование; переоценка</td><td>прайс-фид / черновой инвойс</td></tr>
+      <tr><td>T8</td><td>⑧ → ⑨</td><td>отгрузка в мир</td><td><strong>накладная</strong> (инвойс = заявленный прокси)</td></tr>
+      <tr><td>T9</td><td>⑨ → ④</td><td>получен платёж → A∩B</td><td>платёж сматчен (банковская выписка)</td></tr>
+      <tr><td>T10</td><td>② → ①</td><td>аванс (B без A)</td><td>платёж без сматченного инвойса</td></tr>
+      <tr><td>T11</td><td>AnP истлевание → ⑦</td><td>истлевание неоплаченного актива</td><td>переоценка реестра; мера = рыночная/каталожная дельта</td></tr>
+      <tr><td>T12</td><td>AdP истлевание → ③</td><td>истлевание оплаченного актива</td><td>переоценка реестра; мера = рыночная/каталожная дельта</td></tr>
+      <tr><td>T13</td><td>③ → ⑧</td><td>сожжён <strong>оплаченный</strong> ресурс → рождён актив</td><td>зеркало T6</td></tr>
+      <tr><td>T14</td><td>⑧ → ∅</td><td>списание / смерть Newborn</td><td>списание</td></tr>
+      <tr><td>T15</td><td>⑨ → ⑧</td><td>возврат: мир отверг отгрузку</td><td>кредит-нота</td></tr>
+      <tr><td>T16</td><td>④ + ⑥ → ①</td><td>урегулирование: деньги мира втекают в Operating</td><td>следствие T9</td></tr>
+    </table>
+    </div>
+    <p><strong>Частичные платежи:</strong> право собственности переходит пропорционально — частичный T9 перемещает ровно оплаченную долю из ⑨ в ④; остаток остаётся видимым в ⑨. <strong>AnP/AdP</strong> — получено-не-оплачено / получено-и-оплачено; VAT движется синхронной параллельной парой с базовым активом (T2/T5 тянут переход VAT в той же пропорции).</p>
+
+    <h3>3.5 Landscape</h3>
+    <p>Продукт рисует всю геометрию как один экран — <strong>DAP Landscape</strong>: четыре квадранта баров, 36-месячный временной слайдер, под которым каждый бар дышит, пунктирные разделители, дробящие каждый квадрант на зоны «идёт в прибыль» и «видимо, но вне прибыли».</p>
+    <ul class="clean">
+      <li><strong>D</strong> — ликвидная наличность по валютам (CHF ближе всего к оси, затем EUR, USD, BTC, ETH…), неликвидные активы, реестр живых активов (стопкой, тултипы по каждому активу), торговые позиции по каждому активу.</li>
+      <li><strong>A</strong> — Sold (A∩B) доминирует; Reserved money на дальнем краю, дышит вместе с рынком.</li>
+      <li><strong>C</strong> — Costs у оси; за разделителем: Expenses ⑦, неоплаченные зарплаты, зеркала истлевания — видимо, вне прибыли.</li>
+      <li><strong>B</strong> — семибаровая таксономия пассивов: <strong>краткосрочная кредиторка → займы → VAT к уплате → прочие налоги → прочая кредиторка ‖ уставный капитал → накопленный результат.</strong> Долги по природе с одной стороны разделителя; что было вложено и что заработано — раздельно, с другой. Наличные-против-долгов с первого взгляда; реалистичная швейцарская структура капитала, читаемая без единой таблицы.</li>
+      <li><strong>Парные бары</strong> — каждая рыночно-оценённая позиция (BTC, машина, десятилетний компьютер) рендерится парой: текущая стоимость ↑ в D, прибитая строго выше своей цены приобретения ↓ в C, с красной/зелёной дельтой позиции между ними, дышащей под слайдером.</li>
+      <li><strong>Режим Net result</strong> сворачивает бары P&amp;L в один зелёный/красный бар прибыли; слайдер <strong>Zoom-into-margin</strong> срезает общий пьедестал с Sold и потребления, так что маржа становится видимой, даже когда оба бара огромны и близки.</li>
+    </ul>
+    <div class="formula">DAP Net result = Sold(A∩B) − Costs③ − Salaries(paid)</div>
+    <p>— рыночная дельта и дельта реестра выводятся отдельными строками, никогда не смешиваются внутрь.</p>
+
+    <figure class="shot">
+      <img src="img/dap-landscape.png?k=0010" alt="DAP Landscape — Example Treuhand SA">
+      <figcaption><strong>DAP Landscape — Example Treuhand SA.</strong> Четыре квадранта живьём: пары BTC/ETH дышат над своей ценой приобретения с красными/зелёными дельтами позиций; стопка реестра активов с её истлевшим зеркалом; ликвидная наличность по валютам у оси; Sold доминирует в квадранте рынка, Reserved money на дальнем краю.</figcaption>
+    </figure>
+    <figure class="shot">
+      <img src="img/dap-balance.png?k=0010" alt="DAP Balance — Example Treuhand SA">
+      <figcaption><strong>DAP Balance — Example Treuhand SA.</strong> DAP-позиция с её явными слоями дельт (рыночная Δ, Δ реестра активов), сходящаяся к книжной позиции; блок VAT, подтверждённого платежом; реестр живых активов — MacBook по книжной стоимости 0, жив на 300.</figcaption>
+    </figure>
+
+    <div class="seclabel">§4 — Два взгляда, одни данные</div>
+    <p>Вопрос, который любой бухгалтер задаёт первым: <em>«так это двойная бухгалтерия?»</em> Здесь одновременно верны две вещи, и различить их — и есть ответ. <strong>Двойная бухгалтерия — нет</strong>: второго комплекта книг, который надо вести, не существует (ниже). <strong>Двойная проводка — да, полностью</strong>: DAP не отменяет закон двойной записи — он ему подчиняется. Каждый переход выкапывает объём в одном баре и насыпает в другой (Σ дебетов = Σ кредитов в каждом переходе), и вся система в любой момент балансируется квадрантным тождеством:</p>
+    <div class="formula">D + C = A + B</div>
+    <p>— сторона компании (живое + израсходованное) всегда равна стороне мира (рынок + источники): DAP-аналог балансового тождества, машинно проверяется на каждую дату.</p>
+    <p><strong>Одна база данных. Две проекции.</strong> Легальный леджер — это формат хранения: каждое бизнес-событие приземляется как проводка двойной записи, ровно как требует CO/OR. DAP — это <strong>производная, read-only проекция</strong>, вычисленная из того же журнала, тех же инвойсов, тех же платежей и того же матчинга. Физических DAP-счетов нет (это пробовали в песочнице 2023 и намеренно отвергли — смешивание DAP-пар в легальный план счетов давало ровно тот бардак, которого избегает двухслойная архитектура). Таблица маппинга (<span style="font-family:var(--mono);font-size:13px">dap_account_map</span>) связывает каждый счёт леджера с DAP-состоянием; покрытие исчерпывающее и машинно-проверяемое (unmapped accounts = 0 — мониторимый инвариант по каждой компании).</p>
+    <p><strong>Слои дельт.</strong> Везде, где оценка DAP намеренно отходит от книги, разница собирается в явный именованный слой — никогда не размазывается по цифрам:</p>
+    <ul class="clean">
+      <li><strong>рыночная Δ</strong> — переоценка по рынку биржево-оценённых позиций выше/ниже книги;</li>
+      <li><strong>Δ реестра</strong> — оценки живых активов против книжной стоимости (компьютер жив на 300 против книжной стоимости 0).</li>
+    </ul>
+    <p><strong>Сверка by construction.</strong> Снять слои дельт — и DAP <em>обязан</em> равняться легальному пробному балансу до копейки:</p>
+    <div class="formula">DAP − marketΔ − registerΔ = легальная книга</div>
+    <p>Это не <em>процедура</em> сверки, которую кто-то запускает, — это тождество, выполняющееся по построению, обеспеченное golden-тестами в CI на каждое изменение и проверяемое на живых компаниях. Если бы оно когда-то не выполнилось, это был бы баг, а не расхождение для расследования.</p>
+    <p>Итак: ревизор видит ровно те книги, что видел всегда. Владелец видит реальную картину. Никто ничего не ведёт дважды, и два взгляда не могут разойтись — это одни и те же данные.</p>
+    <figure class="shot">
+      <img src="img/dap-landscape-description.png?k=0010" alt="Landscape legend and reconciliation panel — Example Treuhand SA">
+      <figcaption><strong>Легенда Landscape и сверка — Example Treuhand SA.</strong> Каждый квадрант расписан (состояния, парные позиции, истлевшие зеркала), теоретико-множественная карточка (A, A∩B, подтверждённое vs заявленное, авансы) и машинно-проверяемая сверка с легальным леджером: журнал сбалансирован, все счета замаппены, тождества дохода/расхода, дельты рынок-против-книги и реестр-против-книги названы до копейки.</figcaption>
+    </figure>
+
+    <div class="seclabel">§5 — Чем DAP НЕ является</div>
+    <blockquote class="note"><em>Возражения-аксиомы в форме Q→A — сделаны, чтобы копировать их в живой разговор. Приоритетная аудитория: Federico и инвесторы.</em></blockquote>
+    <h4>Q1. «Разве это не просто кассовый учёт?»</h4>
+    <p>Нет — и разница в этом весь смысл. Кассовый учёт <em>забывает</em>, что открыто: неоплаченного инвойса для него попросту не существует. DAP <strong>держит каждое состояние видимым</strong> — поставлено-неоплачено, израсходовано-неоплачено, авансы, начисленные зарплаты — явно на картине, вне прибыли, но никогда не потеряно. Кассовый учёт теряет информацию; DAP добавляет более строгое правило признания <em>поверх</em> полной информации. Инновация в комбинации: подтверждённая деньгами прибыль <em>плюс</em> полная видимость состояний.</p>
+    <h4>Q2. «Значит, это дашборд поверх старых книг?»</h4>
+    <p>Нет — это другой способ <em>производить</em> данные, а не отображать их. С 03.07.2026 вся новая бухгалтерия в Arvut ведётся <strong>DAP-first</strong>: каждое бизнес-событие проводится как переход протокола (T1–T16), матчинг немедленный, оплачено/неоплачено никогда не сливаются, а леджер двойной записи — это <em>формат хранения и легальная проекция</em> этих переходов. Дашборд читает то, что в книгах случайно оказалось; DAP дисциплинирует то, как книги приходят к своему содержимому. Эта дисциплина (факты, немедленный матчинг, исчерпывающий маппинг, целостность состояний) — ровно то, что ретрофит BI-слоя не может навязать данным, произведённым по-старому.</p>
+    <h4>Q3. «Это замена легальной бухгалтерии?»</h4>
+    <p>Нет. Книги CO/OR остаются ровно как есть — те же счета, те же проводки, тот же принцип осторожности, та же налоговая амортизация. Аудит и налоги ничего не меняют. DAP — проекция тех же данных (§4); она сходится с пробным балансом по построению. Ничто в комплаенс-позиции компании не меняется от включения DAP.</p>
+    <h4>Q4. «Это модель оценки? Откуда берутся цифры?»</h4>
+    <p>Каждая цифра берёт начало в документе: накладные и банковские выписки как документы факта, инвойсы как декларации, фиксирующие цену, рыночные фиды с ежедневными таймстампами или каталожная цена владельца с полной историей правок. Иерархия оценки явная и по каждому активу (фид → каталог → налоговый fallback), и всюду, где оценка отходит от книги, разница сидит в именованном слое дельты — видимая, атрибутируемая, никогда не смешанная в прибыль. DAP содержит <em>суждения</em> (владелец может задать каталожную цену, с правом ошибиться — рынок поправит); он не содержит скрытой модели.</p>
+    <h4>Q5. «Разве принцип начисления не для чего-то нужен?»</h4>
+    <p>Да — и он остаётся в полной силе там, где ему место: в легальном слое. DAP не правит метод начисления; он отвечает на другой вопрос рядом с ним. Начисление отвечает «что произошло по правилам»; DAP отвечает «что подтверждено фактами и деньгами, сегодня».</p>
+    <h4>Q6. Сильнейшее честное возражение: «Я израсходовал неоплаченные материалы, продал продукт, собрал деньги — разве DAP-прибыль не завышена в этот момент?»</h4>
+    <p>Это лучшая карта классициста (осторожность начислила бы затрату), и ответ DAP идёт из его собственных первопринципов: <strong>разности никогда не теряются.</strong> Неоплаченное потребление не исчезло — оно висит явным баром ⑦ за разделителем в C и открытым долгом в B, на том же экране, что и цифра прибыли. Правило DAP: <em>цифра читается вместе с ландшафтом</em> — и UI построен так, что физически так и есть. Классическая бухгалтерия прячет этот нюанс в примечаниях; DAP рисует его на картине. (Та же логика для лизинго-ёмких бизнесов: истлевание ещё-не-оплаченного актива накапливается в ⑦, так что DAP-прибыль выглядит выше, пока соответствующий долг остаётся полностью видимым — честное чтение это пара, и пара всегда показана.)</p>
+
+    <div class="seclabel">§6 — В производстве. Не концепт.</div>
+    <p>За DAP идут двое часов, и важны оба. <strong>Концепция — десятилетняя программа</strong>: идея, геометрия квадрантов и спецификация вызревали через десятки собранных вручную версий с 2016. <strong>Реализация — спринт в 2.5 месяца</strong>: как только появилась AI-native платформа, протокол прошёл путь от спецификации до полного производства и с тех пор работает на живых мандатах. Первые часы — почему это нельзя срезать; вторые — то, что меняет AI-native инженерия.</p>
+    <h4>Генезис (2016–2026)</h4>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>Когда</th><th>Веха</th></tr>
+      <tr><td>Сентябрь 2016</td><td>Идея новой бухгалтерии — командное решение троих</td></tr>
+      <tr><td>Март 2017</td><td>Начинается разработка новой бухгалтерии — десятки версий до 2026, все вручную</td></tr>
+      <tr><td>Конец 2017</td><td>Идея квадрантов</td></tr>
+      <tr><td>2018</td><td>Итерации графического языка теории квадрантов</td></tr>
+      <tr><td>Лето 2019 → лето 2025</td><td>Спецификация DAP вызревает — десятки версий</td></tr>
+      <tr><td>Июнь 2024</td><td>Модель квадрантов применена к криптовалютным и фиатным операциям</td></tr>
+      <tr><td>Лето 2024</td><td>Первые версии DAP реализованы в системе предыдущего поколения — AAA (Arvut Accounting Application)</td></tr>
+      <tr><td>Июнь 2025</td><td>Идея пересечения множеств: доход = A∩B</td></tr>
+      <tr><td>Ноябрь 2025</td><td>Концепция ABM; работа над документацией до марта 2026</td></tr>
+      <tr><td>Март 2026</td><td>Начинается программирование ABM и новой бухгалтерии — AI-native с первой строки</td></tr>
+    </table>
+    </div>
+    <h4>От спецификации до производства — 2.5 месяца</h4>
+    <div class="tblwrap">
+    <table class="grid">
+      <tr><th>Когда</th><th>Что вышло</th></tr>
+      <tr><td>12.06.2026</td><td>Спецификация v0.2 отревьюена и подтверждена (таксономия ①–⑨, переходы T1–T16, инварианты, правила оценки, двухслойная архитектура)</td></tr>
+      <tr><td>13.06.2026</td><td><strong>v1 в производстве</strong>: производный DAP-движок над живым леджером + дашборд квадрантов с временным слайдером, разделение ликвидность/платёжеспособность, контролы net-result и zoom — на той же неделе</td></tr>
+      <tr><td>02.07.2026</td><td><strong>v2 в производстве</strong>: ежедневные прайс-фиды (CoinGecko/ECB, cron), переоценка по рынку по каждому активу с парными барами позиций, две продуктовые вкладки — DAP Balance и DAP Landscape</td></tr>
+      <tr><td>02.07.2026</td><td><strong>v2.1 в производстве</strong>: принцип прибыли — прибыль только из оплаченного, зарплаты делятся оплачено/неоплачено, VAT по Ist-логике с обеих сторон</td></tr>
+      <tr><td>03.07.2026</td><td><strong>Проводка DAP-first</strong> становится рабочим протоколом для всей новой бухгалтерии; в продукте выходит NDA-гейт видимости (вкладки и API DAP видны только фидуциариям с подписанным NDA, обеспечено на сервере)</td></tr>
+      <tr><td>04.07.2026</td><td><strong>v3 в производстве</strong>: накладные (факты против деклараций, оценка подтверждённое/заявленное), амортизация на основе истлевания, реестр живых активов с историей оценок — спецификация принята и задеплоена в тот же день</td></tr>
+      <tr><td>05.07.2026</td><td>Доработка Landscape: семибаровая таксономия пассивов, антиколлизионная раскладка, продакшн-палитра</td></tr>
+      <tr><td><strong>ежедневно</strong></td><td><strong>новые версии DAP и Landscape выходят непрерывно — протокол это живой продукт, а не замороженный релиз</strong></td></tr>
+    </table>
+    </div>
+    <h4>Инженерия за этим <em>(измерено 05.07.2026)</em></h4>
+    <ul class="clean">
+      <li><strong>~114'000 строк кода</strong> стоят в производстве: ~76'000 продукт (сервер + платформа + MCP), ~8'900 тесты, ~7'300 по 138 версионированным миграциям БД, ~22'000 ops/тулинг.</li>
+      <li>Эквивалент традиционных усилий: <strong>150–200 инженеро-месяцев</strong> — команда из 5–8 человек примерно на три года, или 25'000–33'000 инженеро-часов. Построено AI-native по сути двумя людьми.</li>
+      <li>За этим — первое поколение: <strong>AAA v1, 25'000 часов</strong>, построенное традиционным способом — оно доказало предметную область и было намеренно выведено из эксплуатации ради AI-native перестройки.</li>
+      <li>Корректность держится до копейки в CI на каждое изменение (450+ тестов, включая golden DAP-сверки); четыре полнокодовых аудита (денежные пути, мультитенантная изоляция, надёжность) были проведены и закрыты в производство за один день — 05.07.2026.</li>
+    </ul>
+    <blockquote class="note"><em>Счётчики строк измерены; эквиваленты усилий — оценки по стандартной отраслевой производительности для предметно-ёмкого финансового ПО.</em></blockquote>
+
+    <div class="seclabel">§7 — Доказательства</div>
+    <h3>7.1 Демо-вселенная</h3>
+    <p>Демо — не записанное видео, а живая фидуциария (<strong>Example Treuhand SA</strong>) с тремя вымышленными компаниями-клиентами под ней, каждая построена, чтобы демонстрировать одну вертикаль протокола на реалистичных швейцарских книгах, ежемесячно перевыращивается автоматизацией. Все имена, контрагенты и цифры вымышлены; каждая проводка подкреплена настоящим сгенерированным PDF (инвойсы с QR-bill, банковские выписки, чей бегущий баланс сходится до копейки, накладные, расчётные листки, кассовые отчёты) — кликни проводку, увидь её документ.</p>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>Компания</th><th>Что демонстрирует</th></tr>
+      <tr><td><strong>Ristorante Lago Blu Sagl</strong> (гастро, Lugano)</td><td>кассы + сессии Cash Control; карточные расчёты (NEXI/TWINT) с разложением комиссии; деление зарплат — последний месяц начислено-неоплачено, следи за ⑤ оплачено/неоплачено на Landscape; открытые инвойсы поставщиков как живые ⑦</td></tr>
+      <tr><td><strong>Arredo Vivo SA</strong> (мебель, Locarno)</td><td>EUR/CHF двойная валюта; <strong>DDT с каждой поставкой</strong> → поставки полностью <em>подтверждены фактом</em>; один клиент намеренно без накладных → контраст заявленное-против-подтверждённого на одном экране; частичные платежи → пропорциональный A∩B</td></tr>
+      <tr><td><strong>Alpine Crypto Trading GmbH</strong> (Zug)</td><td>дышащие позиции: пары BTC/ETH текущая-стоимость-над-ценой с красными/зелёными дельтами, движущимися под временным слайдером; рыночная дельта честно вне прибыли; реалистичная структура капитала — уставный капитал, займ акционера и накопленный результат отдельными барами</td></tr>
+      <tr><td>сама <strong>Example Treuhand SA</strong></td><td>реестр живых активов — каноническая тройка: MacBook (цена 3'000, книжная стоимость 0, жив на 300), BMW, истлевающий быстрее своего графика, произведение искусства, растущее в стоимости в рыночную дельту; оценка накладных; крипто-казна с ежедневными фидами</td></tr>
+    </table>
+    </div>
+    <p><strong>Увидеть живьём:</strong> демо-вселенная работает на продакшн-платформе на <strong>abm.arvut.ch</strong>. Используй презентерский аккаунт <strong>demopro</strong> / <strong>************</strong> <em>(пароль высылается тебе по email)</em> — read-only, ограничен Example Treuhand SA и её клиентами, с включёнными вкладками DAP (DAP Balance, DAP Landscape). <em>Публичный логин demo/demo намеренно не показывает DAP — протокол гейчен даже внутри демо.</em> Открой компанию → Accounting → две вкладки DAP стоят сразу после Balance Sheet; потяни временной слайдер и смотри, как картина дышит.</p>
+
+    <div class="internal-band">INTERNAL / BOARD ONLY — §7.2 реальные кейсы клиентов. Действует гейт живых клиентов (никакой коммуникации о DAP в сторону клиентов Diacron до NDA Diacron и онбординга Alberto).</div>
+    <h3>7.2 Реальные кейсы — internal / board only</h3>
+    <ul class="clean">
+      <li><strong>Iris Mobili S.r.l.</strong> (мебель, клиент Diacron, EUR/CHF, 1'832 записи) — VAT-кейс. На просьбу «посчитать VAT любым удобным методом» Arvut сделал это через <strong>полную бухгалтерию</strong> вместо таблицы — и сверил 1'832/1'832 записи против registri клиента в Zucchetti. Подход полных книг выявил то, чего декларационно-ведомый Excel-процесс структурно увидеть не может: input VAT (импорт/логистика/монтаж), который, похоже, никогда не был заявлен, — <strong>гипотеза, ещё подлежащая проверке с клиентом</strong>, но потенциально шестизначная в год. Тезис DAP в одном предложении: <em>таблица считает то, что ей дали; полные книги видят то, чего не хватает.</em> Iris также назначена первым живым кейсом оценки накладных (DDT) — гейчена до NDA Diacron.</li>
+      <li><strong>Pizza In SA</strong> (гастро, клиент Diacron) — кейс параллельных книг. ABM вёл полные книги <strong>параллельно с существующей бухгалтерией клиента</strong> за Q1: 416 банковских транзакций, бегущий баланс пройден до копейки, квартал сведён <strong>в ноль-в-ноль</strong> против действующего провайдера. Мандат живой с 01.04. Это операционное доказательство за «два взгляда, одни данные»: мы уже ведём параллельные книги на живых мандатах, и они сходятся точно.</li>
+    </ul>
+
+    <div class="seclabel">§8 — Ров и IP</div>
+    <h3>8.1 Почему это нельзя ретрофитить</h3>
+    <p>Каждая система на рынке — Abacus, Bexio, SAP — показывает фотографию вчерашнего дня: фиксированные цены, активы по цене приобретения, декларации как доход. Это не недостающая фича; это их модель данных и их процесс производства. DAP требует, чтобы данные <em>производились</em> иначе — факты над декларациями, немедленный матчинг, исчерпывающий маппинг состояний, оплачено/неоплачено никогда не сливаются (§5 Q2). Игрок рынка может прикрутить дашборд; он не может задним числом навязать производственную дисциплину на десятилетия данных и привычек, и он не может переоснова́ть свои правила признания, не сломав собственную инсталлированную базу.</p>
+    <p>А протокол исполняется AI-агентами с первой строки кода — не фича, добавленная потом. В этом и кульминация, к которой этот раздел вёл:</p>
+    <blockquote class="pull">Все остальные приделывают двигатель Ferrari к телеге. Arvut — это целая Ferrari: AI с первой строки кода. DAP — это то, что нельзя ретрофитить (добавить задним числом).</blockquote>
+    <h3>8.2 Что мы защищаем и как</h3>
+    <p><strong>Сегодня: дисциплина коммерческой тайны, обеспеченная в трёх слоях.</strong></p>
+    <ul class="clean">
+      <li><strong>Канон именования</strong> (с 03.07.2026): имя «DAP», A∩B, имена состояний и переходов никогда не появляются на публичных поверхностях — включая био, мету, LinkedIn, базу знаний AI-консьержа. Публично мы заявляем только <em>результат</em>.</li>
+      <li><strong>Легальный слой</strong>: готовый к подписи, юридически отревьюенный NDA лежит на всех десяти партнёрских хабах; раскрытие механики следует за подписью, а не за любопытством.</li>
+      <li><strong>Продуктовый слой</strong>: вкладки и API DAP гейчены в самом продукте — фидуциария видит их только после того, как её подпись NDA отмечена, обеспечено на сервере (неподписанный тенант получает 403, а не спрятанную кнопку).</li>
+    </ul>
+    <p><strong>Опция: патенты — и второй профиль инвестора.</strong> Патентная защита по юрисдикциям — это реальная программа с реальными затратами. Это открывает второй, отдельный профиль инвестора рядом с seed-инвестором: тот, кто финансирует патентование DAP и покупает не рост выручки, а <strong>позицию в самой интеллектуальной собственности — актив, чья ценность в защите</strong>. Для того, кто понимает интеллектуальную собственность как класс активов, это конкретная, привлекательная сделка — и разговор, который работает только с автором в комнате.</p>
+    <h3>8.3 Лестница NDA</h3>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>Ступень</th><th>Поверхность</th><th>Что показано</th></tr>
+      <tr><td>1 — Публично</td><td>arvut.ch/clarity</td><td>только язык результата: платёжеспособность в реальном времени и истинная маржа; без имени протокола, без механики</td></tr>
+      <tr><td>2 — Гейт по коду</td><td>партнёрские хабы <span style="font-family:var(--mono);font-size:12px">/*/dap</span> + инвесторский бриф о рве</td><td>имя DAP, тезисы на языке бизнеса, канонические примеры; без формализма, без цифр</td></tr>
+      <tr><td>3 — Подписанный NDA</td><td>личная передача</td><td><strong>этот документ</strong>, полная спецификация, глубокое демо</td></tr>
+      <tr><td>4 — Живьём</td><td>сессия с автором</td><td>живая система на демо-вселенной, вопросы отвечаются на месте</td></tr>
+    </table>
+    </div>
+    <p>Лестница — это <em>презентация</em> рва: каждая ступень показывает достаточно, чтобы захотеть следующую, и глубина сидит ровно там, где инвестор ожидает найти реальный актив — за подписью.</p>
+
+    <div class="seclabel">§9 — Бизнес-слой</div>
+    <h3>9.1 Формула</h3>
+    <p>Каноническая формула позиционирования — дословно, всегда (она работает, только пока это одно предложение, никогда не перефразированное):</p>
+    <blockquote class="pull">Традиционная фидуциария — общий бухгалтер для малого и среднего бизнеса. Фидуциария сети Arvut — ещё и внешний финансовый директор, и не только для малого бизнеса.</blockquote>
+    <p>Вторая половина возможна только благодаря DAP: картина уровня CFO — ликвидность по валютам, истинная маржа, ранние предупреждения, реальные стоимости активов — производится платформой автоматически, так что фидуциария предлагает совет уровня CFO <strong>без найма аналитиков</strong>. Фидуциария поставляет суждение и отношения; DAP поставляет картину. А поскольку fractional CFO так же ценен компании из 150 человек, как и из 10, DAP открывает сегмент, до которого традиционные фидуциарии никогда не дотягиваются. <em>(Терминологическое правило: половина CFO всегда «fractional» — никогда «shared CFO».)</em></p>
+    <h3>9.2 Четыре способа, которыми DAP зарабатывает — по порядку непосредственности</h3>
+    <ul class="clean">
+      <li><strong>Он выигрывает фидуциарий.</strong> DAP — самый острый ответ на «зачем вступать в вашу сеть, а не купить Bexio?» Каждая убеждённая фидуциария — это регулярная выручка платформы: CHF 500/год за мандат + CHF 1.50 за проводку.</li>
+      <li><strong>Он растит то, что зарабатывают фидуциарии — и за что они готовы платить.</strong> Тир fractional-CFO — это консультационная выручка <em>для фидуциарии</em>, поверх бухгалтерии. Партнёр, который зарабатывает больше на клиенте, дольше удерживает клиентов и защищает наши цены, а не оспаривает их.</li>
+      <li><strong>Он открывает более крупные мандаты.</strong> Крупнее компании — больше проводок на мандат; usage-выручка масштабируется ровно с тем сегментом, который DAP разблокирует.</li>
+      <li><strong>Он несёт раунд.</strong> Для инвесторов DAP — это ров: проприетарный протокол в производстве, а не фича, скопированная за квартал. Тизер сидит в деке v19; глубина сидит за NDA — ровно там, где инвестор ожидает найти реальный актив.</li>
+    </ul>
+    <h3>9.3 Гипотеза CFO-тира</h3>
+    <p>Якорь: полноставочный CFO в Швейцарии стоит <strong>CHF 150'000–300'000 в год</strong>. Тир fractional-CFO продаёт картину и суждение уровня CFO за долю от этого — с ценой по размеру компании (то, что конечный клиент платит фидуциарии, консультационная выручка, включённая платформой):</p>
+    <div class="tblwrap">
+    <table class="grid">
+      <tr><th>Сегмент клиента</th><th>Тир fractional-CFO, в месяц</th></tr>
+      <tr><td>Малые компании</td><td class="num">CHF 1'000–2'000</td></tr>
+      <tr><td>Средние компании</td><td class="num">CHF 3'000–4'000</td></tr>
+      <tr><td>Крупные компании</td><td class="num">CHF 5'000–10'000</td></tr>
+    </table>
+    </div>
+    <p>Даже на верхе диапазона крупная компания платит примерно треть от джуниор-CFO на полной ставке — за картину, которую ни один инхаус-CFO не собирает вручную. <strong>Статус: рабочая гипотеза, подлежит валидации в пилоте</strong> — выложена на стол здесь именно для того, чтобы мы втроём могли обсудить её конкретно; не канон, не цитируется вовне.</p>
+
+    <div class="seclabel">§9a — Как рассказывать DAP (канон аналогий)</div>
+    <blockquote class="note"><em>Эта секция — инструкция, не теория: аналогии ниже — арсенал подачи DAP с явным правилом применения. <strong>Одна ведущая аналогия на разговор, максимум одна поддерживающая.</strong> Внутри tech-семьи три работают как акты ОДНОЙ истории — не как три отдельные аналогии.</em></blockquote>
+    <p><strong>Семья одна: история вычислений.</strong> Для tech- и инвесторской аудитории вся подача живёт в одном регистре — детерминизм, сетевые протоколы, операционные системы. Связность бьёт разнообразие.</p>
+    <h4>Акт 1 — открытие: детерминизм</h4>
+    <p>«Десять разных бухгалтеров, получив один и тот же бизнес, те же документы и тот же период, закроют книги с десятью разными результатами. DAP — алгоритм: те же документы плюс те же правила всегда дают те же состояния — как передать файл через полмира и получить ту же контрольную сумму». Одним ходом устанавливает доверие и несёт и DD-тезис, и исполнимость AI-агентами. (Живое доказательство параллельных книг — §7.2.) <em>Ярус: вплоть до публично-смежных разговоров (result-level).</em></p>
+    <h4>Акт 2 — середина: TCP/IP и чек-суммы</h4>
+    <p>Традиционная бухгалтерия — аналоговое телевидение: сигнал деградирует с каждой передачей и зависит от настройки оператора. DAP — пакетный протокол: точная передача, чек-суммы сохранены. И чек-суммы не метафора — машинно-проверяемые инварианты (журнал сбалансирован, каждый счёт замаплен, D + C = A + B) — это md5 книг; сверка by construction — end-to-end проверка целостности. Этот акт объясняет <em>имя</em>: Digital Accounting Protocol. <em>Ярус: хаб и глубже.</em></p>
+    <h4>Акт 3 — финал: MS-DOS vs UNIX</h4>
+    <p>MS-DOS был везде и был «good enough» — но под ним не было модели, только наросшие конвенции. UNIX был малым ядром первых принципов — и на этом ядре построены следующие десятилетия. Мир мигрировал сам, десятилетиями, без войны. Традиционная бухгалтерия — MS-DOS; DAP — UNIX: «everything is a state transition» — его «everything is a file». <strong><em>Ярус: строго устно — только NDA- и инвесторские разговоры; никогда письменно, никогда на публичных поверхностях.</em></strong> <em>Финал по построению: открытие им провоцирует преждевременное «так вы заменяете бухгалтерию?» — а публичный канон везде остаётся «второй взгляд; легальные книги не тронуты».</em></p>
+    <h4>Трек фидуциариев/бухгалтеров</h4>
+    <p>Короче, без UNIX: детерминизм → <strong>«отдачу перепутали с получением»</strong>: я отдаю актив внешнему миру — и записываю, что что-то получил («дебиторка-актив»). Требование, не подтверждённое деньгами, — состояние, не актив. Всегда с оговоркой уважения: <em>традиционная бухгалтерия была правильной для бумажной эпохи — сменился субстрат; здесь нет вины бухгалтера.</em></p>
+
+    <div class="seclabel">§10 — Неожиданные вопросы (живой FAQ)</div>
+    <blockquote class="note"><em>Этот раздел живой — он растёт с каждым глубоким погружением. Разговоры о DAP выигрываются или проигрываются на неожиданном вопросе. После живой сессии с Federico его вопросы дописываются сюда дословно — это будущий инвесторский FAQ. Засеяно известными:</em></blockquote>
+    <h4>«А как же правила начисления?»</h4>
+    <p>Они остаются в полной силе — в легальном слое, которого DAP не касается (§5 Q5). DAP — не поправка к методу начисления; это вторая проекция с более строгим правилом признания, отвечающая на другой вопрос. Когда ревизор спрашивает о начислениях, ответ — легальная книга, без изменений.</p>
+    <h4>«Как это переживает аудит?»</h4>
+    <p>Аудит исследует легальные книги, которые нетронуты и соответствуют CO/OR. DAP — это управленческая отчётность, производная из того же журнала, сходящаяся с пробным балансом по построению (§4) — если уж на то пошло, она <em>усиливает</em> аудиторский след: каждая цифра DAP прослеживается до документов, а сверка — машинно-проверяемое тождество, а не квартальная охота.</p>
+    <h4>«Разве это не просто кассовый учёт?»</h4>
+    <p>Нет — кассовый учёт забывает, что открыто; DAP держит каждое состояние видимым (§5 Q1). Подтверждённая деньгами прибыль <em>плюс</em> полная видимость состояний — это комбинация, которой не предлагает ни метод начисления, ни кассовый метод.</p>
+    <h4>«Кто подписывает цифры DAP?»</h4>
+    <p>Никому не нужно «подписывать» проекцию — верифицируют протокол. Легальные цифры подписываются ровно как сегодня (фидуциария, ревизор). Цифры DAP — детерминированные производные из документов, с машинно-проверяемыми инвариантами и golden-сверками; правильный вопрос — «выполняется ли тождество?», и система отвечает на него непрерывно.</p>
+    <h4>«Что будет, если фидуциария клиента уйдёт из сети?»</h4>
+    <p>Легальные книги клиента полностью портируемы — канон: <em>«Arvut — это хаб, а не клетка: экспортируй все свои данные в Bexio, Abacus или SAP в любой момент.»</em> Ничто в комплаенсе или непрерывности не заложник. То, что уходит вместе с сетью, — это сам взгляд DAP: протокол, дисциплина и картина — это ценность сети, что как раз и является аргументом удержания, а не lock-in.</p>
+    <blockquote class="note">[— вопросы Federico с живой сессии идут сюда, дословно —]</blockquote>
+
+    <div class="seclabel">§11 — Дорожная карта (кратко)</div>
+    <p>Что стоит — это v3 в производстве; что следует — доработка и раскатка, не стройка:</p>
+    <ul class="clean">
+      <li><strong>Накладные на живых клиентах</strong> — первый кейс Iris Mobili (DDT в каждой поставке); инструкция клиенту заготовлена; гейчена за NDA Diacron.</li>
+      <li><strong>Живые кейсы переоценки по рынку</strong> — маппинг реальных крипто- (Crypto Strategy) и EUR- (Iris) книг на рыночный слой протокола.</li>
+      <li><strong>Адаптеры фидов для реестра активов</strong> — объективные рыночные фиды за пределами крипто/FX (транспорт, электроника) через существующую абстракцию прайс-фида.</li>
+      <li><strong>Жизненный цикл позиции в демо</strong> — показ продажи торговой позиции (конверсия расход → затрата) от начала до конца.</li>
+      <li><strong>Слой PDF-отчётов</strong> — взгляды DAP как сгенерированные документы рядом с существующими движками Annual Report / VAT.</li>
+      <li><strong>Выставление в клиентский портал</strong> — взгляд владельца на его собственный ландшафт, под брендом фидуциарии.</li>
+      <li><strong>Иерархический DAP-план счетов</strong> — квадрантные группы счетов, связанные с легальным планом первоклассным двусторонним маппингом: два плана счетов, ОДИН журнал (guardrail песочницы 2023 в силе — никаких физических DAP-счетов в легальном леджере).</li>
+      <li><strong>DAP Saldenliste</strong> — квадрантный пробный баланс со строкой-тождеством Σ(D)+Σ(C) = Σ(A)+Σ(B) как видимый отчёт на дату.</li>
+      <li><strong>Предиктивный слой поверх явных состояний — in research.</strong></li>
+      <li><strong>Переводы</strong> — DE/FR/IT презентационной версии, после того как сессия с Federico её оформит.</li>
+    </ul>
+
+    <div class="seclabel">Приложение — Глоссарий</div>
+    <p><em>Словарь, чтобы говорить точно. Термины протокола, по одной строке:</em></p>
+    <div class="tblwrap">
+    <table class="grid wrap">
+      <tr><th>Термин</th><th>Смысл</th></tr>
+      <tr><td>A</td><td>множество поставленных товаров/услуг</td></tr>
+      <tr><td>B</td><td>множество действительно совершённых/полученных платежей</td></tr>
+      <tr><td>A∩B</td><td>поставлено И оплачено — единственное, что DAP называет доходом (состояние ④ Sold)</td></tr>
+      <tr><td>A\B</td><td>поставлено, не оплачено — открытая дебиторка как явное состояние, не как актив</td></tr>
+      <tr><td>B\A</td><td>оплачено, не поставлено — авансы</td></tr>
+      <tr><td>Квадранты D/C/A/B</td><td>компания-живое / компания-израсходованное / мир-живое / источники — четыре поля Landscape (§3.2)</td></tr>
+      <tr><td>Состояния ①–⑨</td><td>Operating, Passivi, Costs, Sold, Salaries, Reserved money, Expenses, Newborn, Delivered (§3.3)</td></tr>
+      <tr><td>AnP / AdP</td><td>получен-не-оплачен / получен-и-оплачен актив</td></tr>
+      <tr><td>Переходы T1–T16</td><td>шестнадцать легальных ходов конечного автомата; каждый документ факта запускает ровно один (§3.4)</td></tr>
+      <tr><td>Документ факта</td><td>накладная (сдвинулись товары) или банковская выписка/чек (сдвинулись деньги) — единственные документы, запускающие переходы</td></tr>
+      <tr><td>Декларация</td><td>инвойс — фиксирует цену, связывает поставку с оплатой, сам по себе ничего не запускает</td></tr>
+      <tr><td>Подтверждённое / заявленное</td><td>оценка множества A: подкреплено накладной vs построено на прокси-инвойсе</td></tr>
+      <tr><td>Истлевание (decay)</td><td>реальная потеря стоимости актива ниже цены приобретения — проводится как затраты в момент, когда случается; DAP-смысл амортизации</td></tr>
+      <tr><td>Рост стоимости (appreciation)</td><td>стоимость актива выше цены приобретения — рыночная дельта, никогда не прибыль до продажи</td></tr>
+      <tr><td>Реестр живых активов</td><td>DAP-реестр активов, независимый от книжной стоимости: жив = работает, а не «книжная стоимость &gt; 0»</td></tr>
+      <tr><td>рыночная Δ / Δ реестра</td><td>два явных слоя дельт, где оценка DAP отходит от книги (§4)</td></tr>
+      <tr><td>Сверка by construction</td><td>тождество DAP − marketΔ − registerΔ = легальная книга, обеспеченное golden-тестами</td></tr>
+      <tr><td>Проводка DAP-first</td><td>рабочий протокол: каждое событие проводится как переход; двойная запись как формат хранения и легальная проекция</td></tr>
+      <tr><td>Закон сохранения</td><td>объём движется между барами; он входит только при рождении (T6/T7/T13) и уходит только при смерти (T14); балансовая форма: D + C = A + B</td></tr>
+      <tr><td>Landscape / Balance</td><td>два взгляда продукта: картина квадрантов с временным слайдером / табличный DAP-Bilanz+P&amp;L со столбцами рынок-против-книги</td></tr>
+      <tr><td>Net result</td><td>Sold(A∩B) − Costs③ − Salaries(paid); дельты выводятся отдельно</td></tr>
+      <tr><td>Ist-Methode</td><td>кассовый метод VAT от ESTV — регуляторный прецедент для признания, подтверждённого деньгами</td></tr>
+    </table>
+    </div>
+
+    <footer class="docfoot">Конфиденциально — внутреннее · Arvut GmbH · DAP Axiomatics v0.2 · 06.07.2026 · не пересылать</footer>
+  </div>
+  </article>
+
+</div>
+
+<!-- ?k=0010 on subresources: /presentations/* is gated by ?k=; relative
+     subresource requests drop the query and would hit the gate (served the
+     access page instead of the file). This page is only ever reachable WITH
+     the code, so embedding it here leaks nothing. -->
+<script src="toggle.js?k=0010"></script>
+
+</body>
+</html>

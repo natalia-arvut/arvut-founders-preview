@@ -1,0 +1,483 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Selinùs × Arvut — Un'opportunità in Ticino e Grigioni</title>
+<style>
+@import url('assets/fonts/manrope.css');
+
+:root{
+  --cream:#FCFAF4; --ink:#202B28; --body:#445049; --muted:#79827C;
+  --teal:#009B9F; --teal-d:#016E72; --teal-soft:#E3F2F0;
+  --hair:#ECE6D8;
+}
+*{box-sizing:border-box}
+html{-webkit-font-smoothing:antialiased; text-rendering:optimizeLegibility}
+body{
+  margin:0; background:#EAE7DD; color:var(--body);
+  font-family:"Manrope",system-ui,sans-serif; font-weight:450;
+  font-size:15px; line-height:1.55; letter-spacing:-0.003em;
+}
+h1,h2,h3,h4{color:var(--ink); font-weight:800; line-height:1.08; letter-spacing:-0.022em; margin:0; text-wrap:balance}
+h2{font-size:27px}
+h3{font-size:18px; font-weight:700}
+h4{font-size:15px; font-weight:800}
+p{margin:0 0 13px; text-wrap:pretty}
+strong{color:var(--ink); font-weight:700}
+em{font-style:italic}
+
+.src{font-size:.66em; font-weight:700; color:var(--teal-d); text-decoration:none;
+  vertical-align:.4em; white-space:nowrap; padding:0 .1em; letter-spacing:0}
+.src::before{content:"↗"; font-size:.8em; margin-right:.5px; opacity:.65}
+.src:hover{text-decoration:underline}
+
+.page{
+  width:210mm; height:297mm; background:var(--cream);
+  margin:0 auto 16px; padding:17mm 20mm 14mm;
+  display:flex; flex-direction:column;
+  box-shadow:0 6px 30px -10px rgba(0,0,0,.25);
+  break-after:page; position:relative; overflow:hidden;
+}
+.page:last-child{break-after:auto}
+.rh{display:flex; justify-content:space-between; align-items:center;
+  font-size:10px; font-weight:700; letter-spacing:.13em; text-transform:uppercase; color:var(--muted)}
+.rh .b{color:var(--ink)}
+.rh .b .d{display:inline-block; width:6px;height:6px;border-radius:50%;background:var(--teal);vertical-align:1px;margin-right:5px}
+.pc{flex:1; padding-top:11mm}
+.pc.center{display:flex; flex-direction:column; justify-content:center; padding-top:0}
+.rf{display:flex; justify-content:space-between; align-items:center; margin-top:10mm;
+  font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; color:var(--muted)}
+.rf .pg{color:var(--teal-d)}
+
+.kicker{font-size:11px; font-weight:800; letter-spacing:.04em; color:var(--teal-d); margin:0 0 7px}
+.pc h2{margin:0 0 14px; max-width:24ch}
+.lead{font-size:18px; line-height:1.42; color:var(--ink); font-weight:500; max-width:62ch; margin-bottom:16px}
+.body-col{max-width:68ch}
+.note{font-size:12.5px; color:var(--muted); line-height:1.45; margin-top:10px}
+
+.cover .pc{display:flex; flex-direction:column; justify-content:center; padding-top:0}
+.cover h1{font-size:45px; line-height:1.03; letter-spacing:-0.03em; margin:0 0 22px; max-width:18ch}
+.cover h1 .hl{color:var(--teal)}
+.cover .sub{font-size:19px; line-height:1.45; color:var(--body); max-width:58ch; margin:0 0 22px}
+.metaline{font-size:12px; color:var(--muted); font-weight:700; letter-spacing:.02em; margin-bottom:22px}
+.metaline span{color:var(--ink)}
+.scope{background:var(--teal-soft); border-radius:12px; padding:15px 20px; margin-bottom:32px; max-width:66ch;
+  display:flex; flex-wrap:wrap; gap:7px 22px; font-size:12.5px; color:var(--body)}
+.scope .scope-lbl{display:block; width:100%; font-size:10.5px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; color:var(--teal-d); margin-bottom:3px}
+.scope b{color:var(--ink); font-weight:700}
+.geo{display:inline-block; font-size:10px; font-weight:800; letter-spacing:.06em; text-transform:uppercase;
+  color:var(--teal-d); background:var(--teal-soft); border-radius:5px; padding:2px 7px; vertical-align:1px}
+.figrow{display:flex; gap:28px}
+.fig{flex:1}
+.fig .fn{font-size:34px; font-weight:800; color:var(--ink); letter-spacing:-0.035em; line-height:1}
+.fig .fn .u{font-size:15px; color:var(--teal-d); font-weight:700; letter-spacing:0}
+.fig .fl{font-size:12.5px; color:var(--body); margin-top:10px; line-height:1.4; max-width:27ch}
+
+table{width:100%; border-collapse:collapse; margin:14px 0; font-size:13.5px}
+td,th{text-align:left; padding:9px 12px; vertical-align:top}
+thead th, tr.head th{color:var(--teal-d); font-weight:800; font-size:11px; letter-spacing:.05em; text-transform:uppercase; border-bottom:1.5px solid var(--teal-soft)}
+tbody tr+tr td, table.cmp tr+tr td{border-top:1px solid var(--hair)}
+td.num,th.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
+.cmp td:first-child{font-weight:600; color:var(--ink)}
+.hl td{background:var(--teal-soft)} .hl td strong{color:var(--teal-d)}
+
+table.pricing{margin-top:8px}
+table.pricing th, table.pricing td{font-size:13px; line-height:1.4; border-top:1px solid var(--hair)}
+table.pricing tr:first-child th{border-top:0}
+table.pricing .feat{background:var(--teal-soft)}
+table.pricing .rh2{font-weight:700; color:var(--ink); white-space:nowrap; width:120px}
+table.pricing .price-big{font-size:17px; font-weight:800; color:var(--ink)}
+table.pricing thead th{border-bottom:0}
+
+.callout{background:var(--teal); color:#F2FBFB; border-radius:16px; padding:22px 24px; margin:18px 0}
+.callout h3{color:#fff; margin:0 0 7px}
+.callout p{color:#E4F4F3; margin:0; max-width:64ch}
+.callout .src{color:#CFEFEE}
+
+.panel{background:#fff; border-radius:14px; padding:18px 20px; margin:16px 0}
+.panel figcaption,figcaption{font-size:12px; color:var(--muted); margin-top:11px; line-height:1.4}
+.barlbl{font-size:13px; font-weight:700; fill:var(--ink)}
+.barval{font-size:12.5px; font-weight:700; fill:var(--teal-d)}
+.axis{font-size:11px; fill:var(--muted)}
+
+ul.clean{padding:0; list-style:none; margin:14px 0}
+ul.clean li{padding:5px 0 5px 22px; position:relative; font-size:14.5px; max-width:68ch}
+ul.clean li+li{margin-top:4px}
+ul.clean li::before{content:""; position:absolute; left:2px; top:13px; width:6px; height:6px; border-radius:50%; background:var(--teal)}
+
+.chlist{display:grid; grid-template-columns:1fr 1fr; gap:16px 30px; margin:16px 0}
+.chl{display:flex; gap:13px}
+.chl .no{font-size:20px; font-weight:800; color:var(--teal); line-height:1; min-width:22px}
+.chl .t{font-weight:800; color:var(--ink); font-size:14.5px; margin-bottom:3px}
+.chl .c{font-size:13px; color:var(--body); line-height:1.42}
+.chl .cost{font-size:11.5px; color:var(--muted); font-weight:700; margin-top:5px}
+
+.funnel{display:flex; flex-direction:column; gap:6px; margin:6px 0}
+.fstep{display:flex; align-items:center; justify-content:space-between; color:#fff; font-weight:700; padding:11px 18px; border-radius:9px; font-size:14px}
+.fstep .v{font-variant-numeric:tabular-nums; font-weight:800}
+
+.two{display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-top:6px}
+.srclist{font-size:12px; margin-top:8px; column-count:2; column-gap:26px}
+.srclist a{display:block; padding:3.5px 0; color:var(--teal-d); text-decoration:none; break-inside:avoid; word-break:break-word}
+.srclist a:hover{text-decoration:underline}
+
+.closing{font-size:21px; line-height:1.4; color:var(--ink); font-weight:600; max-width:34ch; text-wrap:balance}
+.air h2{font-size:31px; margin-bottom:20px}
+.air .lead{font-size:20px; line-height:1.46; margin-bottom:24px; max-width:64ch}
+.air > p{margin-bottom:22px; font-size:15.5px}
+.air .cmp th{padding-bottom:12px}
+.air .cmp td{padding:14px 12px}
+
+@page{ size:A4; margin:0 }
+@media print{
+  *{-webkit-print-color-adjust:exact; print-color-adjust:exact}
+  body{background:var(--cream)}
+  .page{margin:0; box-shadow:none}
+}
+@media screen and (max-width:760px){
+  .page{width:100%; height:auto; min-height:0; padding:24px 20px}
+  .cover h1{font-size:32px} .figrow,.two,.chlist{grid-template-columns:1fr; flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- ===================== P1 · COPERTINA ===================== -->
+<div class="page cover">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Ticino + Grigioni · 2026</span></div>
+  <div class="pc">
+    <h1>Un'opportunità in Ticino e Grigioni: <span class="hl">clienti in tempo reale</span></h1>
+    <p class="sub">Potenziale di mercato, costi della contabilità interna, modello di prezzo e piano di marketing per il passo verso l'alto — nel segmento delle medie e grandi imprese della Svizzera meridionale.</p>
+    <div class="metaline">Analisi di mercato · realizzata da <span>Arvut</span> per <span>Selinùs Financial Consulting SA</span> · dati 2023–2026 · ogni cifra con fonte e livello geografico</div>
+    <div class="scope">
+      <span class="scope-lbl">Perimetro di questa analisi</span>
+      <span><b>Cantone Ticino + Cantone Grigioni</b> — focus (Svizzera meridionale, regione di Selinùs)</span>
+      <span><b>Svizzera</b> — quadro di confronto</span>
+      <span>Altri cantoni non sono considerati.</span>
+    </div>
+    <div class="figrow">
+      <div class="fig"><div class="fn">45'503</div><div class="fl">SA + Sagl (AG+GmbH) in Ticino + Grigioni · al 28.06.2026 <a class="src" href="https://www.zefix.ch">Registro di commercio · dato Arvut</a></div></div>
+      <div class="fig"><div class="fn">5'246</div><div class="fl">imprese medie (10–249 dip.) in TI+GR — il segmento target <a class="src" href="https://www.pxweb.bfs.admin.ch/api/v1/de/px-x-0602010000_107/px-x-0602010000_107.px">BFS STATENT 2023</a></div></div>
+      <div class="fig"><div class="fn">95–105<span class="u"> Mila</span></div><div class="fl">CHF — costo pieno di un contabile interno all'anno (TI/GR) <a class="src" href="https://www.ahv-iv.ch">Calcolo</a></div></div>
+    </div>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">01</span></div>
+</div>
+
+<!-- ===================== P2 · IL QUADRO ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Il quadro</span></div>
+  <div class="pc air">
+    <p class="kicker">Il quadro</p>
+    <h2>La barriera che non esiste più</h2>
+    <p class="lead">Fino a poco fa una media o grande impresa teneva la contabilità all'interno — uno, due, tre contabili dipendenti. Affidarla a un fiduciario era o troppo costoso o tecnicamente impossibile.</p>
+    <p class="body-col">Il fiduciario lavorava «una volta a trimestre / all'anno», mentre un'impresa ha bisogno del proprio quadro finanziario <strong>oggi</strong>. Lo strumento in tempo reale — la piattaforma ABM come white-label <a class="src" href="https://new.arvut.ch/de">arvut.ch</a> — elimina entrambe le barriere.</p>
+    <table class="cmp">
+      <tr class="head"><th>La barriera di ieri</th><th>Cosa cambia lo strumento in tempo reale</th></tr>
+      <tr><td>Servire clienti medi/grandi non conviene</td><td><strong>Produzione in qualsiasi volume</strong> senza assunzioni proporzionali</td></tr>
+      <tr><td>Fiduciario = «un rapporto all'anno»</td><td><strong>Quadro in tempo reale</strong>, ruolo di CFO esterno</td></tr>
+      <tr><td>All'interno costa meno</td><td>Costo pieno di una posizione 95–105k a persona — <strong>il fiduciario costa meno</strong></td></tr>
+      <tr><td>Un piccolo studio non può servire i grandi</td><td><strong>Il tempo reale dà al piccolo studio la forza d'urto di uno grande</strong></td></tr>
+    </table>
+    <p class="body-col">Per Selinùs non è una sostituzione del business odierno, ma un <strong>secondo piano</strong> — un servizio ad alto margine che cresce naturalmente dalla consulenza societaria e fiscale esistente e dalla tenuta della contabilità per terzi.</p>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">02</span></div>
+</div>
+
+<!-- ===================== P3 · QUADRO DI CONFRONTO · SVIZZERA ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Quadro di confronto · Svizzera</span></div>
+  <div class="pc">
+    <p class="kicker">Quadro di confronto · intera Svizzera</p>
+    <h2>Dove sta l'opportunità</h2>
+    <p class="body-col">Per inquadrare, prima l'<strong>intera Svizzera</strong> come riferimento; il focus vero dell'analisi è poi il <strong>Ticino e i Grigioni</strong> (pagina 4).</p>
+    <p class="body-col"><span class="geo">Svizzera</span> <strong>643'317 imprese</strong> (BFS STATENT 2023). Le imprese davvero grandi (250+ dipendenti) sono solo <strong>2'141</strong> (0,3%), ma impiegano circa un terzo di tutti gli occupati; le medie (50–249) sono <strong>11'132</strong>. L'obiettivo realistico «grande cliente» per un fiduciario è quindi il <strong>segmento medio</strong> (10–249), in Svizzera <strong>67'583</strong> imprese <a class="src" href="https://www.pxweb.bfs.admin.ch/api/v1/de/px-x-0602010000_107/px-x-0602010000_107.px">BFS STATENT 2023</a>.</p>
+    <div class="panel">
+      <div style="font-weight:700;color:var(--ink);font-size:13px;margin-bottom:8px">Imprese in Svizzera per dimensione (2023)</div>
+      <svg viewBox="0 0 760 232" width="100%" role="img" aria-label="Struttura delle imprese svizzere per dimensione">
+        <g font-family="Manrope">
+          <text x="0" y="30" class="barlbl">meno di 10 dipendenti</text>
+          <rect x="0" y="40" width="620" height="30" rx="6" fill="#CFE9E7"/>
+          <text x="608" y="60" text-anchor="end" class="barval" fill="#016E72">573'593 imprese · ≈89%</text>
+          <text x="0" y="102" class="barlbl">10–249 dipendenti (nucleo PMI)</text>
+          <rect x="0" y="112" width="300" height="30" rx="6" fill="#009B9F"/>
+          <text x="312" y="132" class="barval">67'583 imprese · obiettivo</text>
+          <text x="0" y="174" class="barlbl">250 e più dipendenti</text>
+          <rect x="0" y="184" width="16" height="30" rx="5" fill="#202B28"/>
+          <text x="26" y="204" class="barval" fill="#202B28">2'141 grandi imprese</text>
+        </g>
+      </svg>
+      <figcaption>Fonte: BFS / STATENT 2023, unità istituzionali (imprese) <a class="src" href="https://www.pxweb.bfs.admin.ch/api/v1/de/px-x-0602010000_107/px-x-0602010000_107.px">px-cube</a>. Larghezza delle barre illustrativa; cifre esatte indicate.</figcaption>
+    </div>
+    <div class="callout">
+      <h3>Il segmento medio — l'obiettivo</h3>
+      <p>Troppo grandi per «un contabile part-time», queste imprese tengono storicamente il proprio reparto contabile. È qui che entra il modello in tempo reale.</p>
+    </div>
+    <p class="body-col">Sul lato dell'offerta il mercato è molto frammentato: TREUHAND|SUISSE conta ~4'300 membri, lo studio medio ha <strong>6 collaboratori</strong>, ~80% ≤10 persone <a class="src" href="https://www.treuhandsuisse.ch/zentralverband/organisation">TREUHAND|SUISSE</a>. Uno strumento in tempo reale dà al piccolo studio la forza d'urto di uno grande.</p>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">03</span></div>
+</div>
+
+<!-- ===================== P4 · FOCUS · TICINO + GRIGIONI ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Focus · Ticino + Grigioni</span></div>
+  <div class="pc">
+    <p class="kicker">Focus di questa analisi · Svizzera meridionale</p>
+    <h2>Dal mercato PMI maturo del Ticino al mondo operativo dei Grigioni</h2>
+    <p class="body-col"><span class="geo">Ticino + Grigioni</span> <strong>45'503 SA + Sagl</strong> (al 28.06.2026, Registro di commercio · dato Arvut). I due cantoni sono complementari.</p>
+    <table class="cmp">
+      <tr class="head"><th>Cantone</th><th class="num">SA</th><th class="num">Sagl</th><th class="num">Totale (SA+Sagl)</th></tr>
+      <tr><td>Ticino (TI)</td><td class="num">16'608</td><td class="num">15'773</td><td class="num">32'381</td></tr>
+      <tr><td>Grigioni (GR)</td><td class="num">7'164</td><td class="num">5'958</td><td class="num">13'122</td></tr>
+      <tr class="hl"><td><strong>Ticino + Grigioni</strong></td><td class="num"><strong>23'772</strong></td><td class="num"><strong>21'731</strong></td><td class="num"><strong>45'503</strong></td></tr>
+    </table>
+    <p class="note" style="margin-top:2px">In <strong>Ticino SA ≈ Sagl (≈51/49)</strong> — mercato PMI maturo e misto. Nei <strong>Grigioni SA > Sagl (≈55/45)</strong> — più holding, strutture turistiche ed energetiche. <a class="src" href="https://www.zefix.ch">Registro di commercio · dato Arvut</a></p>
+    <div class="panel">
+      <div style="font-weight:700;color:var(--ink);font-size:13px;margin-bottom:10px">Densità operativa — quota di medie imprese (10–249 dip.) sullo stock di società</div>
+      <svg viewBox="0 0 760 180" width="100%" role="img" aria-label="Densità operativa Ticino vs Grigioni">
+        <g font-family="Manrope">
+          <rect x="0" y="22" width="307" height="30" rx="6" fill="#5BB8B6"/><text x="319" y="43" class="barval">Ticino · 3'207 / 32'381 = 9,9%</text>
+          <rect x="0" y="64" width="480" height="30" rx="6" fill="#009B9F"/><text x="492" y="85" class="barval" fill="#016E72">Grigioni · 2'039 / 13'122 = 15,5%</text>
+          <line x1="0" y1="118" x2="620" y2="118" stroke="#ECE6D8" stroke-width="1"/>
+          <text x="0" y="142" class="axis">Ticino: cantone fiduciario e transfrontaliero, molte piccole società e holding.</text>
+          <text x="0" y="160" class="axis">Grigioni: turismo, energia, edilizia — datori di lavoro reali, base operativa più densa. (Scala 0–20%.)</text>
+        </g>
+      </svg>
+      <figcaption>Stock società: Registro di commercio, al 28.06.2026 (dato Arvut). Segmento: BFS STATENT 2023, px-cube <a class="src" href="https://www.pxweb.bfs.admin.ch/api/v1/de/px-x-0602010000_107/px-x-0602010000_107.px">Link</a>. Quote calcolate; cifre esatte.</figcaption>
+    </div>
+    <div class="callout">
+      <h3>Il segmento target: 5'246 medie + 117 grandi imprese</h3>
+      <p>10–249 dip.: Ticino <strong>3'207</strong> + Grigioni <strong>2'039</strong> = <strong>5'246</strong>. Più 250+: Ticino 70 + Grigioni 47 = <strong>117 grandi</strong>. Due accessi in un mercato: in Ticino il <strong>mercato PMI maturo</strong> e i <strong>gruppi transfrontalieri italiani</strong> (multivaluta, multi-entità), nei Grigioni il <strong>denso tessuto operativo</strong> di turismo, energia ed edilizia.</p>
+    </div>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">04</span></div>
+</div>
+
+<!-- ===================== P5 · I COSTI ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>I costi · TI/GR</span></div>
+  <div class="pc">
+    <p class="kicker">Il denaro</p>
+    <h2>Quanto costa un contabile interno</h2>
+    <p class="body-col">L'argomento economico centrale è il <strong>costo pieno della posizione</strong>, non lo «stipendio nudo». Ticino e Grigioni non sono i cantoni più cari (il Ticino ha una delle <strong>basi salariali più basse</strong> della Svizzera per la pressione transfrontaliera dall'Italia; i Grigioni intorno alla mediana). Ma anche qui il costo pieno di un contabile è incomparabile con il pacchetto di servizi. Impiegato di contabilità ~CHF 72'000, Responsabile contabilità ~CHF 105'000–115'000 lordi <a class="src" href="https://www.jobs.ch/en/salary/?term=buchhalter">jobs.ch</a>. Su questo il datore paga i contributi (2025):</p>
+    <div class="panel">
+      <svg viewBox="0 0 760 140" width="100%" role="img" aria-label="Costo pieno di un contabile in Ticino/Grigioni">
+        <g font-family="Manrope">
+          <text x="716" y="18" text-anchor="end" class="barlbl" font-size="15">= CHF 95'000–105'000 / anno (TI/GR)</text>
+          <rect x="0" y="28" width="430" height="44" fill="#009B9F"/>
+          <rect x="430" y="28" width="80" height="44" fill="#54B5B3"/>
+          <rect x="510" y="28" width="48" height="44" fill="#9AD2CF"/>
+          <rect x="558" y="28" width="158" height="44" fill="#202B28"/>
+          <text x="12" y="56" fill="#fff" class="barval">Stipendio lordo ~80'000</text>
+          <text x="438" y="56" fill="#fff" class="barval" font-size="11">+Contributi</text>
+          <text x="516" y="56" fill="#16433f" class="barval" font-size="11">LPP</text>
+          <text x="566" y="56" fill="#fff" class="barval">+ Posto di lavoro</text>
+          <text x="0" y="104" class="axis">Contributi del datore 2025: AVS/AI/IPG 5,3% · AD 1,1% · AF (TI/GR secondo cassa) · LAINF ~0,7% · LPP ≥ metà.</text>
+          <text x="0" y="122" class="axis">Supplemento totale ≈ 14–17%. Posto di lavoro: licenze software, PC, formazione ~6'000–10'000.</text>
+        </g>
+      </svg>
+      <figcaption>Contributi — dati primari <a class="src" href="https://www.ahv-iv.ch">ahv-iv.ch</a>. Stipendio — aggregatori di mercato (indicativo).</figcaption>
+    </div>
+    <p class="body-col">Un responsabile contabilità — costo pieno <strong>CHF 145'000–160'000</strong>. E una grande impresa non ne tiene uno solo — ma un <strong>team di 2–4 persone:</strong></p>
+    <div class="panel">
+      <svg viewBox="0 0 760 140" width="100%" role="img" aria-label="Costo del personale interno per livello">
+        <g font-family="Manrope">
+          <text x="0" y="20" class="barlbl">Personale interno — costo pieno annuo (CHF) · Ticino/Grigioni</text>
+          <rect x="0" y="32" width="110" height="24" rx="5" fill="#009B9F"/><text x="120" y="49" class="barval">1 contabile ≈ 95–105'000</text>
+          <rect x="0" y="64" width="160" height="24" rx="5" fill="#202B28" opacity=".82"/><text x="170" y="81" class="barval" fill="#202B28">Responsabile contabilità ≈ 150'000</text>
+          <rect x="0" y="96" width="420" height="24" rx="5" fill="#202B28"/><text x="430" y="113" class="barval" fill="#202B28">Team 2–4 pers. ≈ 200'000–440'000</text>
+        </g>
+      </svg>
+      <figcaption>Costo del personale — calcolo (contributi + stipendi). Lunghezza delle barre proporzionale a CHF/anno.</figcaption>
+    </div>
+    <p class="note">Il fiduciario con lo strumento in tempo reale svolge lo stesso lavoro <strong>senza personale proporzionale</strong>: più conveniente del reparto interno, con quadro in tempo reale e ruolo di CFO. (Tariffe orarie dei fiduciari 80–100 / 130–300 CHF — valori indicativi svizzeri.)</p>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">05</span></div>
+</div>
+
+<!-- ===================== P6 · MERCATO DEL LAVORO ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Mercato del lavoro</span></div>
+  <div class="pc">
+    <p class="kicker">Mercato del lavoro</p>
+    <h2>Cosa succede davvero con i contabili</h2>
+    <div class="callout">
+      <h3>Non è una questione di carenza di personale</h3>
+      <p>La tesi «non si trovano contabili» non è confermata dai dati ufficiali. L'indice di carenza di competenze 2025 (Adecco/UZH) è sceso di ~22% a livello svizzero. Le professioni commerciali, contabili e ICT sono in <strong>eccesso di offerta</strong> a causa dell'IA; solo poche categorie restano in carenza (sanità, edilizia, ingegneri) — non le professioni finanziarie. <a class="src" href="https://www.adeccogroup.com/de-ch/zukunft-der-arbeit/swiss-skills-shortage/swiss-skills-shortage-2025">Adecco</a> <a class="src" href="https://www.stellenmarktmonitor.uzh.ch/de/indices/fachkraeftemangel.html">UZH</a></p>
+    </div>
+    <p class="body-col"><strong>Cosa significa per il fiduciario.</strong> Poiché non si tratta di carenza di personale, il valore del fiduciario non sta nel «coprire un posto». Sta altrove:</p>
+    <ul class="clean">
+      <li><strong>Il costo pieno della posizione interna è alto</strong> — si può ridurre.</li>
+      <li><strong>La routine si automatizza</strong> — IA e tempo reale assorbono l'inserimento manuale e liberano tempo per l'analisi.</li>
+      <li><strong>La domanda si sposta verso la consulenza</strong> — il cliente vuole decisioni, non registrazioni.</li>
+    </ul>
+    <p class="body-col">L'argomento poggia sull'economia e sullo spostamento del fiduciario verso il ruolo di consulente finanziario — più solido del mito della carenza. Per Selinùs, che ha già una forte <strong>consulenza fiscale e societaria</strong>, questo ruolo di consulente è terreno familiare.</p>
+    <p class="note">Sfumatura: «professioni commerciali» è un aggregato ampio e impiegatizio. Il fiduciario/consulente qualificato è altra cosa — proprio per questo il posizionamento «verso l'alto, al ruolo di CFO».</p>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">06</span></div>
+</div>
+
+<!-- ===================== P7 · TENDENZE + LEVA ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Tendenze · Leva</span></div>
+  <div class="pc">
+    <p class="kicker">Tendenze del settore</p>
+    <h2>Il mercato si muove già in quella direzione</h2>
+    <div class="two">
+      <div>
+        <h4>«Fiduciario → CFO digitale»</h4>
+        <p style="font-size:13.5px">Una tendenza diretta che il settore proclama da sé (TREUHAND|SUISSE, BDO): tempo reale e IA diventano la norma, la compliance di routine si automatizza, il valore si sposta nella consulenza. <a class="src" href="https://www.treuhandsuisse.ch/blog/transformation-im-treuhandwesen-so-werden-treuhaender-zum-digitalen-cfo">TREUHAND|SUISSE</a></p>
+      </div>
+      <div>
+        <h4>Cloud e regolamentazione</h4>
+        <p style="font-size:13.5px">Il software in tempo reale (Abacus/AbaPlato, Bexio, Banana, KLARA) è consolidato. Riforma IVA 2025 (rendiconto annuale fino a CHF 5'005'000 di fatturato), eBill/fatturazione elettronica. <a class="src" href="https://www.estv.admin.ch/estv/it/home/imposta-sul-valore-aggiunto/iva-dichiarazione/modifiche-iva-2025.html">AFC</a></p>
+      </div>
+    </div>
+    <h2 style="margin-top:30px">La leva per Selinùs</h2>
+    <ul class="clean">
+      <li><strong>Passo verso l'alto, non sostituzione.</strong> Selinùs è già un partner fiduciario completo (consulenza societaria e fiscale + contabilità per terzi) — lo strumento in tempo reale aggiunge un <strong>secondo piano ad alto margine</strong>.</li>
+      <li><strong>Consulenza fiscale/societaria come apriporta.</strong> La competenza fiscale e societaria dello studio è l'accesso diretto alle medie e grandi imprese che hanno bisogno sia del tempo reale sia dell'accompagnamento fiscale e strutturale.</li>
+      <li><strong>Ticino transfrontaliero.</strong> Al confine con l'Italia, molti gruppi con contabilità <strong>multivaluta e multi-entità</strong> — lì il quadro in tempo reale è particolarmente prezioso.</li>
+      <li><strong>Grigioni come secondo mercato.</strong> Turismo, energia, edilizia — denso tessuto operativo medio; maggioranza germanofona → necessaria una versione <strong>DE</strong> dei materiali.</li>
+    </ul>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">07</span></div>
+</div>
+
+<!-- ===================== P8 · MODELLO DI PREZZO ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Modello di prezzo</span></div>
+  <div class="pc">
+    <p class="kicker">Modello di prezzo</p>
+    <h2>A quale prezzo proporre</h2>
+    <p class="body-col">Il prezzo deve essere nettamente sotto il proprio personale, ma <strong>non a buon mercato</strong> — altrimenti il servizio sembra «un altro fiduciario» invece della sostituzione della funzione finanziaria. L'ancora di confronto è dura: il <strong>costo pieno del personale</strong> in TI/GR (1 contabile ≈95–105k, team 2–4 ≈200–440k).</p>
+    <table class="pricing">
+      <tr><th></th><th>Real-Time Books</th><th class="feat">Finance Partner</th><th>Virtual CFO</th></tr>
+      <tr><td class="rh2">Per chi</td><td>media impresa 10–49 dip.</td><td class="feat">impresa 50–249 dip.</td><td>grande / gruppo / holding 250+</td></tr>
+      <tr><td class="rh2">Prezzo annuo</td><td><span class="price-big">CHF 18–30k</span></td><td class="feat"><span class="price-big">CHF 36–60k</span></td><td><span class="price-big">CHF 60–120k</span></td></tr>
+      <tr><td class="rh2">Contenuto</td><td>contabilità in tempo reale + IVA, creditori/debitori, portale a marchio Selinùs, reporting</td><td class="feat">+ reporting gestionale mensile, multivaluta (EUR/USD/CHF), analisi trimestrali</td><td>+ consolidamento e budgeting, CFO esterno, pianificazione fiscale e strutturale</td></tr>
+      <tr><td class="rh2">Risparmio</td><td>≈ 70% vs 1 interno</td><td class="feat">≈ 70–80% vs team</td><td>vs personale + CFO 300–440k</td></tr>
+    </table>
+    <p class="note">Il limite inferiore (18k) è volutamente sopra il mandato classico (6–15k): è un altro prodotto. I costi di piattaforma per Selinùs sono <strong>CHF 500/anno per mandato + 1.50 per registrazione</strong> — a 18–120k il margine resta alto. La <strong>multivaluta</strong> si adatta alla clientela transfrontaliera ticinese; il pacchetto «Virtual CFO» si lega alla consulenza fiscale e societaria di Selinùs.</p>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">08</span></div>
+</div>
+
+<!-- ===================== P9 · MARKETING ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Marketing · Canali e budget</span></div>
+  <div class="pc">
+    <p class="kicker">Piano di marketing · 6 mesi</p>
+    <h2>Come raggiungere questi clienti</h2>
+    <p class="body-col"><strong>Gruppo target:</strong> una lista iniziale di <strong>~300–400 imprese</strong> del segmento medio/grande <span class="geo">Ticino + Grigioni</span> — per dimensione, settore e caratteristica «tengono la contabilità internamente». Due sotto-segmenti: <strong>gruppi transfrontalieri in Ticino</strong> e <strong>tessuto operativo medio dei Grigioni</strong> (turismo/energia/edilizia). Decisori — titolari, direttori, responsabili finanziari. Lingua: Ticino italiano, Grigioni tedesco.</p>
+    <h3 style="margin:18px 0 4px">Canali — dal più efficace per l'high-ticket</h3>
+    <div class="chlist">
+      <div class="chl"><div class="no">1</div><div><div class="t">Contatto diretto mirato</div><div class="c">Lista + LinkedIn + lettere personali + telefono. Il pretesto è questo documento di analisi.</div><div class="cost">Strumenti ~150–250 CHF/mese + risorsa</div></div></div>
+      <div class="chl"><div class="no">2</div><div><div class="t">LinkedIn Ads</div><div class="c">Targeting sui decisori in TI e GR, modulo lead per scaricare l'analisi.</div><div class="cost">~70–120 CHF/lead</div></div></div>
+      <div class="chl"><div class="no">3</div><div><div class="t">Google Ads / SEO</div><div class="c">Intercettare l'intento: «esternalizzare contabilità Ticino», «CFO esterno PMI», «Buchhaltung auslagern Graubünden».</div><div class="cost">CPC 6–20 CHF</div></div></div>
+      <div class="chl"><div class="no">4</div><div><div class="t">Eventi e associazioni</div><div class="c">Cc-Ti (Camera di commercio Ticino), Handelskammer GR, reti settoriali; relazione «Finanze in tempo reale».</div><div class="cost">Affiliazione/sponsoring — aperto</div></div></div>
+      <div class="chl"><div class="no">5</div><div><div class="t">Contenuti e thought leadership</div><div class="c">1–2 articoli e un webinar (tempo reale + multivaluta per imprese transfrontaliere). In IT e DE.</div><div class="cost">soprattutto tempo</div></div></div>
+      <div class="chl"><div class="no">6</div><div><div class="t">Referenze e partner</div><div class="c">Banche, avvocati, notai, clienti esistenti di Selinùs.</div><div class="cost">≈ 0</div></div></div>
+    </div>
+    <h3 style="margin:18px 0 6px">Budget — tre scenari (su 6 mesi)</h3>
+    <table>
+      <tr class="head"><th>Scenario</th><th class="num">al mese</th><th class="num">6 mesi</th><th>Composizione</th></tr>
+      <tr><td>Lean</td><td class="num">~2'000</td><td class="num">~12'000</td><td>Outreach + organico + 1 evento</td></tr>
+      <tr class="hl"><td><strong>Standard</strong> · consigliato</td><td class="num"><strong>~7'000</strong></td><td class="num"><strong>~42'000</strong></td><td>Outreach + risorsa lead + LinkedIn + Google + contenuti + eventi</td></tr>
+      <tr><td>Aggressivo</td><td class="num">~13'000</td><td class="num">~78'000</td><td>risorsa piena + più pubblicità + PR</td></tr>
+    </table>
+    <p class="note">Benchmark CH/EMEA. Ticino e Grigioni sono mercati pubblicitari più economici di Zurigo, quindi il budget è inferiore rispetto ai dossier della Svizzera tedesca. Questo piano promuove la nuova linea in tempo reale a marchio Selinùs ed è eseguito da Arvut — un filone separato accanto al business odierno.</p>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">09</span></div>
+</div>
+
+<!-- ===================== P10 · PREVISIONE & REDDITIVITÀ ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Previsione · Redditività</span></div>
+  <div class="pc">
+    <p class="kicker">Previsione e redditività</p>
+    <h2>Cosa porta il piano</h2>
+    <h3 style="margin-bottom:8px">Previsione del funnel — scenario Standard</h3>
+    <div class="funnel">
+      <div class="fstep" style="background:#202B28"><span>Lista target</span><span class="v">400</span></div>
+      <div class="fstep" style="background:#0E6266; width:92%"><span>Contatto stabilito</span><span class="v">~350</span></div>
+      <div class="fstep" style="background:#009B9F; width:74%"><span>Colloqui / analisi</span><span class="v">45–65</span></div>
+      <div class="fstep" style="background:#3DB1B0; width:54%"><span>Offerte</span><span class="v">22–32</span></div>
+      <div class="fstep" style="background:#86CECC; color:#0E4A4C; width:36%"><span>Clienti acquisiti</span><span class="v">5–8</span></div>
+    </div>
+    <table style="margin-top:12px">
+      <tr class="head"><th>Mese</th><th class="num">1</th><th class="num">2</th><th class="num">3</th><th class="num">4</th><th class="num">5</th><th class="num">6</th><th class="num">Σ</th></tr>
+      <tr><td>Nuovi clienti</td><td class="num">0</td><td class="num">0</td><td class="num">1</td><td class="num">1</td><td class="num">1–2</td><td class="num">2–3</td><td class="num"><strong>5–8</strong></td></tr>
+    </table>
+    <p class="note">Previsione secondo le conversioni pianificate; si affina nel corso del lavoro sui canali. Il B2B high-ticket ha un ciclo lungo, perciò le chiusure cadono verso fine semestre. A regime — ~1–2 clienti/mese; Lean ~2–3 nel semestre, Aggressivo ~9–14.</p>
+    <div class="callout" style="margin-top:18px">
+      <h3>Redditività — scenario Standard</h3>
+      <p>Spesa ~CHF 42k su 6 mesi → 5–8 clienti × ~CHF 45k/anno = CHF 225–360k di fatturato annuo cumulato. CAC ~5–8k, LTV (contratto 3–5 anni) ~135–225k → LTV/CAC ≈ 17–28×. Il marketing si ripaga con i primi 2–3 clienti.</p>
+    </div>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">10</span></div>
+</div>
+
+<!-- ===================== P11 · RUOLI & CONCLUSIONE ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Ruoli · Conclusione</span></div>
+  <div class="pc center">
+    <p class="kicker">Ruoli e conclusione</p>
+    <h2>Chi fa cosa</h2>
+    <div class="two">
+      <div>
+        <h4 style="color:var(--teal-d)">Arvut esegue</h4>
+        <p>Lista target, contatto diretto (LinkedIn, lettere, telefono), generazione lead, pubblicità, contenuti — tutto il lavoro operativo, a marchio Selinùs.</p>
+      </div>
+      <div>
+        <h4 style="color:var(--teal-d)">Da Selinùs serve</h4>
+        <p><strong>1.</strong> Approvazione e finanziamento del budget (consigliato: Standard).<br><strong>2.</strong> Marchio e firma sui materiali.<br><strong>3.</strong> Quando pronto — partecipazione al webinar.</p>
+      </div>
+    </div>
+    <div class="callout" style="margin-top:40px; padding:30px 32px">
+      <h3 style="font-size:20px; margin-bottom:12px">L'opportunità in una frase</h3>
+      <p style="font-size:16px; line-height:1.55">Per primi nella Svizzera meridionale — facendo leva sul mercato PMI maturo del Ticino, sulla vicinanza transfrontaliera con l'Italia, sul tessuto operativo medio dei Grigioni e sulla propria competenza fiscale e societaria — offrire alle medie e grandi imprese una contabilità in tempo reale e il ruolo di CFO esterno a marchio proprio, aggiungendo al business odierno un secondo piano ad alto margine.</p>
+    </div>
+  </div>
+  <div class="rf"><span>Analisi di mercato</span><span class="pg">11</span></div>
+</div>
+
+<!-- ===================== P12 · FONTI ===================== -->
+<div class="page">
+  <div class="rh"><span class="b"><span class="d"></span>SELINÙS × ARVUT</span><span>Metodologia · Fonti</span></div>
+  <div class="pc">
+    <p class="kicker">Metodologia e fonti</p>
+    <h2>Da dove vengono i numeri</h2>
+    <ul class="clean">
+      <li><strong>Dati primari:</strong> imprese per classe dimensionale — BFS STATENT 2023 (px-cube, unità istituzionali, estratto dal vivo); stock SA/Sagl TI+GR — Registro di commercio, conteggio Arvut, al 28.06.2026; contributi sociali — SVA / ahv-iv.ch 2025; mercato del lavoro — Adecco/UZH 2025; frammentazione — TREUHAND|SUISSE.</li>
+      <li><strong>Dati indicativi</strong> (aggregatori, senza verifica ufficiale): stipendi dei contabili (jobs.ch, lohncheck); tariffe/mandati dei fiduciari (svizzeri).</li>
+      <li><strong>Valori di piano:</strong> conversioni del funnel e budget di marketing — ipotesi con leve aperte.</li>
+      <li><strong>Punti aperti:</strong> aliquote AF esatte TI/GR (secondo cassa ~1,2–2,0%); numero di studi fiduciari TI/GR (nessun registro); tariffe dei fiduciari della regione; stipendi via BFS RSS.</li>
+      <li><strong>Contro-evidenza:</strong> la «carenza di contabili» è smentita (Adecco/UZH 2025) — l'analisi si basa sul costo della posizione interna e sul ruolo di CFO, non sulla carenza di personale.</li>
+    </ul>
+    <h3 style="margin:20px 0 6px">Elenco fonti</h3>
+    <div class="srclist">
+      <a href="https://www.pxweb.bfs.admin.ch/api/v1/de/px-x-0602010000_107/px-x-0602010000_107.px">BFS STATENT 2023 — imprese per cantone e classe dimensionale (px-cube)</a>
+      <a href="https://www.bfs.admin.ch/bfs/it/home/statistiche/industria-servizi/imprese-impieghi/struttura-economia-imprese/pmi.html">BFS — struttura delle imprese / PMI</a>
+      <a href="https://www.zefix.ch">Registro di commercio / Zefix — stock SA/Sagl (28.06.2026)</a>
+      <a href="https://www3.ti.ch/DFE/DR/USTAT/">Ustat — Ufficio di statistica del Cantone Ticino</a>
+      <a href="https://www.gr.ch/DE/institutionen/verwaltung/dvs/awt">Cantone Grigioni — Ufficio dell'economia e del turismo</a>
+      <a href="https://www.ahv-iv.ch">ahv-iv.ch — AVS/AI/IPG, AD</a>
+      <a href="https://www.adeccogroup.com/de-ch/zukunft-der-arbeit/swiss-skills-shortage/swiss-skills-shortage-2025">Adecco — Swiss Skills Shortage 2025</a>
+      <a href="https://www.stellenmarktmonitor.uzh.ch/de/indices/fachkraeftemangel.html">UZH Stellenmarkt-Monitor — indice carenza competenze</a>
+      <a href="https://www.treuhandsuisse.ch/zentralverband/organisation">TREUHAND|SUISSE — organizzazione</a>
+      <a href="https://www.treuhandsuisse.ch/blog/transformation-im-treuhandwesen-so-werden-treuhaender-zum-digitalen-cfo">TREUHAND|SUISSE — CFO digitale</a>
+      <a href="https://www.bdo.ch/de-ch/publikationen/digitale-transformation-treuhand">BDO — trasformazione digitale fiduciaria</a>
+      <a href="https://www.estv.admin.ch/estv/it/home/imposta-sul-valore-aggiunto/iva-dichiarazione/modifiche-iva-2025.html">AFC — riforma IVA 2025 (rendiconto annuale)</a>
+      <a href="https://www.jobs.ch/en/salary/?term=buchhalter">jobs.ch — stipendio contabile</a>
+      <a href="https://lohncheck.ch/it/salario/commercio/contabile">lohncheck — contabile</a>
+      <a href="https://new.arvut.ch/de">arvut.ch — piattaforma ABM (white-label)</a>
+    </div>
+  </div>
+  <div class="rf"><span>SELINÙS × ARVUT · Ticino + Grigioni · Giugno 2026</span><span class="pg">12</span></div>
+</div>
+
+</body>
+</html>

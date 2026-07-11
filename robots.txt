@@ -1,0 +1,30 @@
+# arvut.ch — production. Indexing allowed for everyone, AI answer engines included.
+User-agent: *
+Allow: /
+
+# Explicit allow for AI search / answer-engine crawlers & user-fetchers.
+# (Blocking these removes the site from AI *answers*, not just training.)
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Bytespider
+Allow: /
+
+# Out of search for everyone (internal hubs + password-protected partner doc).
+User-agent: *
+Disallow: /presentations
+Disallow: /documents
+Disallow: /diacron
+Disallow: /figemax
+Disallow: /k/
+
+Sitemap: https://arvut.ch/sitemap.xml

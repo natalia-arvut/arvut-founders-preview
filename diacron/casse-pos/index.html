@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="it">
+<head>
+<!--
+  DOCUMENTO-SORGENTE. Self-contained A4. Nota tecnica — Casse & POS per Pizza In SA.
+  Preparato da Arvut per Diacron Suisse SA. Stesso stile A4 dell'NDA (@page A4, print CSS).
+  PDF: Chrome/headless --print-to-pdf (A4 in @page) o Cmd/Ctrl+P → Salva come PDF.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Casse & terminali di pagamento · Pizza In SA · Arvut ↔ Diacron</title>
+<style>
+:root{--cream:#FCFAF4;--ink:#202B28;--body:#3c463f;--muted:#79827C;--teal:#CC961F;--teal-d:#94680F;--teal-soft:#FAF0D4;--hair:#ECE6D8;--warn:#9a3b12;--warn-soft:#fbf0e8;--warn-line:#f0d3bf;}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#EAE7DD;color:var(--body);font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.sheet{max-width:820px;margin:0 auto;padding:28px 20px 80px}
+.doc{background:var(--cream);border-radius:6px;box-shadow:0 1px 2px rgba(32,43,40,.05),0 18px 44px -26px rgba(32,43,40,.34);padding:48px 56px 56px}
+h1,h2,h3{color:var(--ink);font-weight:800;line-height:1.13;letter-spacing:-.012em;margin:0;text-wrap:balance}
+h1{font-size:27px;margin:0 0 6px;max-width:36ch}
+h2{font-size:17px;margin:30px 0 9px;padding-top:14px;border-top:1px solid var(--hair)}
+h3{font-size:14.5px;margin:16px 0 5px}
+p{margin:0 0 9px;max-width:76ch}
+p.sub{color:var(--teal-d);font-weight:700;font-size:13px;letter-spacing:.03em;text-transform:uppercase;margin:0 0 18px}
+p.lead{font-size:15.5px;color:var(--ink);max-width:70ch;margin:0 0 16px}
+strong{color:var(--ink);font-weight:700}em{color:var(--body)}a{color:var(--teal-d)}
+ul{margin:4px 0 10px;padding-left:0;list-style:none}
+ul li{position:relative;padding:4px 0 4px 20px;max-width:76ch}
+ul li::before{content:"";position:absolute;left:3px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+blockquote,.banner{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:8px;padding:14px 16px;margin:0 0 26px;font-size:12.5px;line-height:1.5;color:#6b3411}
+blockquote p{margin:0 0 6px;max-width:none}blockquote p:last-child{margin:0}
+blockquote strong,.banner strong{color:var(--warn)}
+.hl{background:var(--teal-soft);border:1px solid var(--teal-soft);border-radius:10px;padding:18px 20px 14px;margin:0 0 18px}
+.hl h2{border-top:none;padding-top:0;margin-top:0;color:var(--teal-d)}
+table{width:100%;border-collapse:collapse;margin:6px 0 16px;font-size:13px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--hair);vertical-align:top}
+th{color:var(--teal-d);font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.02em;border-bottom:1.5px solid var(--hair)}
+td strong{color:var(--ink)}
+.tag{display:inline-block;background:var(--teal-soft);color:var(--teal-d);border-radius:5px;padding:1px 7px;font-size:11px;font-weight:700}
+hr{border:none;border-top:1px solid var(--hair);margin:26px 0}
+.foot{margin-top:34px;color:var(--muted);font-size:11.5px}
+.src{font-size:11.5px;color:var(--muted);line-height:1.5}
+.src a{color:var(--teal-d);word-break:break-all}
+@page{size:A4;margin:16mm 15mm}
+@media print{body{background:#fff}.sheet{max-width:none;margin:0;padding:0}.doc{box-shadow:none;border-radius:0;padding:0}h2{break-after:avoid}blockquote,.banner,.hl{break-inside:avoid}table{break-inside:avoid}a{color:var(--ink);text-decoration:none}}
+@media(max-width:640px){.doc{padding:30px 22px 36px}h1{font-size:23px}table{font-size:12px}th,td{padding:6px 6px}}
+</style>
+</head>
+<body>
+<div class="sheet"><div class="doc">
+<h1>Registratori di cassa e terminali di pagamento — Pizza In SA</h1>
+<p class="sub">Nota tecnica · Arvut ↔ Diacron Suisse SA · luglio 2026</p>
+<div class="banner"><strong>Nota preparata da Arvut per Diacron Suisse SA.</strong> Analisi e raccomandazioni sui sistemi di cassa e sui terminali di pagamento per <strong>Pizza In SA</strong> (Mendrisio · Agno). Tutti i prezzi sono <strong>stime</strong> da fonti pubbliche (luglio 2026) e vanno confermati con offerta del fornitore. Versione leggibile/stampabile (Cmd/Ctrl+P → Salva come PDF).</div>
+
+<div class="hl">
+<h2>In sintesi</h2>
+<ul>
+<li><strong>In Svizzera non esiste l'obbligo di «cassa fiscale»</strong> (a differenza dell'Italia): nessuna certificazione ESTV/AFC, nessuna trasmissione telematica obbligatoria degli scontrini. Esistono però obblighi del <strong>CO (art. 957–958f)</strong> e della <strong>LIVA</strong> di tenere una contabilità completa, immodificabile e con <strong>corretta separazione delle aliquote IVA</strong>.</li>
+<li><strong>Il problema IVA di Pizza In è reale.</strong> Non è «birra vs cibo», ma <strong>sala vs asporto</strong>: al tavolo (consumo sul posto) <strong>tutto</strong> — pizza, gelato, birra — è al <strong>8.1%</strong>; l'aliquota ridotta <strong>2.6%</strong> vale sull'<strong>asporto</strong> di alimentari; birra e alcolici restano sempre al <strong>8.1%</strong>. Una pizzeria con gelateria ha quindi <strong>entrambe le aliquote</strong>: se la cassa non le separa, l'intero incasso si presume al 8.1% (o, se impostata solo al 2.6%, la birra risulta sotto-tassata) → dichiarazione IVA errata e rischio di rettifica alla verifica AFC.</li>
+<li><strong>Il mito «troppo caro» non regge.</strong> Una cassa cloud gastronomica moderna costa da <strong>~60–160 CHF/mese per punto vendita</strong> più l'hardware una tantum. Per due punti: circa <strong>1'600–3'000 CHF una tantum + ~120–240 CHF/mese</strong>. È meno del costo di una singola rettifica IVA in verifica, e azzera ore di inserimento manuale in contabilità.</li>
+</ul>
+</div>
+
+<h2>1. Requisiti in Svizzera / Ticino (2026)</h2>
+<p><strong>Cosa NON è richiesto:</strong> nessuna cassa fiscale certificata né trasmissione telematica obbligatoria.</p>
+<p><strong>Cosa è richiesto di fatto (CO + LIVA, controllo AFC):</strong></p>
+<ul>
+<li><strong>Registrazione completa e immodificabile</strong> dell'incasso (libro cassa) e conservazione dei dati per <strong>10 anni</strong> (art. 958f CO).</li>
+<li><strong>Corretta separazione delle aliquote IVA</strong>. Aliquote 2026 (invariate dal 2024): <strong>8.1%</strong> (normale — ristorazione al tavolo, alcolici); <strong>2.6%</strong> (ridotta — alimentari da asporto/«sopra il banco»); <strong>3.8%</strong> (speciale — alloggio, non rilevante per Pizza In).</li>
+<li><strong>Regola AFC per l'asporto:</strong> se una stessa cassa serve sia la sala (8.1%) sia l'asporto (2.6%), <strong>deve essere programmata di conseguenza</strong>, altrimenti l'intero fatturato è presunto come ristorazione al 8.1%. In alternativa: due casse distinte.</li>
+<li><strong>Metodo forfetario</strong> possibile per piccoli punti misti (indicativamente ≤20 posti o asporto &gt;50% del fatturato) — da verificare punto per punto con Diacron; anche in quel caso serve una cassa che distingua le posizioni.</li>
+<li><strong>Scontrino valido</strong> per la deduzione dell'IVA a monte: n. IVA del venditore, aliquota e importo dell'imposta in CHF.</li>
+</ul>
+
+<h2>2. Il problema delle casse attuali</h2>
+<p>Le casse attuali di Pizza In: <strong>(a)</strong> non esportano i dati di vendita in forma elettronica (né verso la contabilità né come rendiconto Z digitale); <strong>(b)</strong> non gestiscono più aliquote IVA per gruppo merceologico — quindi non separano la birra/sala al 8.1% dall'asporto al 2.6%. Con un fatturato misto sala/asporto tipico di pizzeria + gelateria, la ripartizione IVA è quasi certamente <strong>non corretta</strong>: è questo — non «la moda» — il motivo per aggiornare le casse. In più, l'export elettronico elimina il trasferimento manuale dei rendiconti Z in contabilità.</p>
+
+<h2>3. Sistemi di cassa — 3 opzioni</h2>
+<p>Tutte e tre: gestiscono più aliquote IVA per gruppo (8.1 / 2.6 / 3.8), offrono export elettronico (CSV/DATEV/API + rendiconti Z), sono pensate per ristorazione e assistite in Svizzera.</p>
+<table>
+<tr><th>Sistema</th><th>Per chi</th><th>Prezzo (stima)</th><th>Note</th></tr>
+<tr><td><strong>Paymash</strong> <span class="tag">consigliato</span></td><td>Svizzero, budget, multi-punto</td><td>CHF 59–120/mese per punto</td><td>Azienda svizzera con assistenza locale; multi-filiale da un'unica licenza; <strong>export contabile/DATEV</strong> esplicito; multi-IVA per gruppo. Hardware: tablet + stampante Bluetooth (economico).</td></tr>
+<tr><td><strong>Lightspeed Restaurant</strong> (ex-Gastrofix)</td><td>«Professionale», crescita/consegne</td><td>€ 160–250/mese per punto</td><td>Funzioni ristorante complete (tavoli, conto diviso, KDS cucina, multi-punto da console unica), reportistica e integrazioni forti. Più caro; giustificato per formati complessi.</td></tr>
+<tr><td><strong>SumUp POS</strong> (Lite/Pro)</td><td>Budget minimo, cassa+carte insieme</td><td>CHF 50–133/mese; kit ~CHF 1'300</td><td>Cassa su tablet + incasso carte dallo stesso fornitore. <strong>Non supporta TWINT</strong> — in Ticino è un limite. Reportistica più semplice.</td></tr>
+</table>
+<p><strong>Traccia locale ticinese</strong> (assistenza in italiano, in loco — da richiedere offerta): <strong>Cassa in Cloud</strong> (cassaincloud.ch, orientata a pizzerie/bar/asporto), <strong>Ejost SA</strong> (&gt;60 anni nel Ticino, casse e terminali), <strong>B-Positive Sagl</strong>, <strong>Osatech</strong>, <strong>Inforeg</strong> (integratori, anche Lightspeed). Vantaggio: supporto locale, fattura in italiano, intervento in loco a Mendrisio/Agno.</p>
+
+<h2>4. Terminali di pagamento (acquiring) — 3 opzioni</h2>
+<p>Pizza In lavora già con <strong>NEXI</strong> e <strong>PostFinance</strong>. In Svizzera è quasi indispensabile <strong>TWINT</strong>, ed è consigliata l'integrazione terminale↔cassa (importo che passa dalla cassa al terminale senza digitazione manuale).</p>
+<table>
+<tr><th>Terminale / acquirer</th><th>Costo (stima)</th><th>Note</th></tr>
+<tr><td><strong>NEXI Switzerland</strong> <span class="tag">già in uso</span></td><td>carte ~1.65% · TWINT ~1.35%</td><td>Terminali PAX/PayTec integrabili con la cassa; carte + <strong>TWINT + PostFinance + Lunch-Check + WIR</strong>. Sconto convenzione <strong>GastroSuisse</strong> se soci. Da ottimizzare, non sostituire.</td></tr>
+<tr><td><strong>Worldline (SIX)</strong></td><td>~1.7% · terminale da ~CHF 99</td><td>Standard svizzero, massima affidabilità/copertura; conveniente da ~3'000 CHF/mese di incassi carta per punto.</td></tr>
+<tr><td><strong>myPOS / SumUp</strong></td><td>myPOS Go 2 ~CHF 49 · SumUp 1.5–2.5% o 0.99%+CHF 29/mese</td><td>Economici, senza contratto — buoni per bar/gelateria o secondo punto. <strong>SumUp senza TWINT</strong> → preferire myPOS se serve un terminale a basso costo.</td></tr>
+</table>
+<p>PostFinance è comunque supportato come metodo dai terminali NEXI/Worldline: non è necessario un terminale PostFinance dedicato.</p>
+
+<div class="hl">
+<h2>5. Raccomandazione</h2>
+<p><strong>Abbinamento consigliato: Paymash (cassa) + NEXI (già presente, da integrare con la cassa) + TWINT.</strong></p>
+<ul>
+<li>Fornitore svizzero con assistenza locale, multi-punto da un'unica licenza, <strong>export diretto verso la contabilità</strong> (chiude il requisito «rendiconti elettronici»), IVA multi-aliquota corretta per gruppo.</li>
+<li>NEXI resta al suo posto → migrazione minima; si mantengono TWINT/PostFinance; si chiede solo l'integrazione cassa↔terminale e la revisione della tariffa a volume.</li>
+<li><strong>Costo indicativo (2 punti):</strong> hardware una tantum ~<strong>1'600–3'000 CHF</strong> + software ~<strong>120–240 CHF/mese</strong>; acquiring invariato NEXI (~1.35–1.65%).</li>
+</ul>
+<p><strong>Alternativa «chiavi in mano» locale:</strong> Lightspeed tramite integratore ticinese (B-Positive / Osatech) + NEXI/Worldline + TWINT — più potente e assistito in loco, più costoso; indicato se si prevede crescita/consegne.</p>
+</div>
+
+<h2>6. Il mito «troppo caro» — i numeri</h2>
+<ul>
+<li>«Non cambiare nulla» non è gratis: con fatturato misto sala/asporto senza corretta separazione, l'intero incasso è presunto al 8.1% → si <strong>paga IVA in eccesso</strong> dove si avrebbe diritto al 2.6% (asporto), oppure — nell'errore opposto — si rischia <strong>rettifica + sanzione</strong> alla verifica AFC. Su un fatturato di ristorazione si parla di migliaia di CHF l'anno.</li>
+<li>Il trasferimento manuale dei rendiconti Z in contabilità costa ore di lavoro ogni mese (Diacron / contabilità). L'export elettronico lo azzera.</li>
+<li>Implementazione completa su 2 punti: dell'ordine di <strong>2–3 mila CHF una tantum + ~150–250 CHF/mese</strong>. Meno di una singola rettifica IVA, e si ripaga con il tempo di contabilità risparmiato.</li>
+</ul>
+
+<h2>7. Checklist — domande al fornitore</h2>
+<ul>
+<li><strong>IVA:</strong> si può assegnare l'aliquota <strong>per gruppo merceologico e per singola posizione</strong> (sala 8.1% vs asporto 2.6%)? Stesso prodotto con due prezzi/aliquote «al tavolo» e «da asporto» — come si realizza?</li>
+<li><strong>Rendiconti:</strong> formato del <strong>rendiconto Z</strong> ed export (PDF + CSV/XML)? C'è la ripartizione del fatturato per aliquota IVA nel report giornaliero?</li>
+<li><strong>Export contabile:</strong> quali formati (CSV/DATEV/API)? Si possono inviare i dati automaticamente al sistema contabile (per ABM è importante API/CSV)?</li>
+<li><strong>Multi-punto:</strong> Mendrisio + Agno su console unica, con report consolidati?</li>
+<li><strong>Integrazione cassa↔terminale:</strong> l'importo passa dalla cassa al terminale NEXI/Worldline automaticamente? Quali terminali sono certificati?</li>
+<li><strong>Metodi:</strong> TWINT / PostFinance / carte tutti supportati sul terminale? Commissioni per ciascun metodo?</li>
+<li><strong>Conformità CH:</strong> immodificabilità delle registrazioni, conservazione dati <strong>10 anni</strong> (art. 958f CO), accesso all'archivio in caso di verifica AFC?</li>
+<li><strong>Prezzo totale:</strong> software/mese, hardware una tantum, licenza/terminale aggiuntivi, commissione acquiring, durata contratto e condizioni di uscita, costo assistenza/intervento in Ticino.</li>
+<li><strong>Forfait ESTV:</strong> verificare con Diacron se a qualche punto si applica il metodo forfetario (≤20 posti / asporto &gt;50%) e come la cassa lo supporta.</li>
+<li><strong>Assistenza locale:</strong> tecnico in Ticino (italiano), tempi di intervento, formazione del personale.</li>
+</ul>
+
+<hr>
+<p class="src"><strong>Fonti (stime, luglio 2026):</strong><br>
+ESTV — aliquote IVA 2026: estv.admin.ch · Asporto vs sala (Branchen-Info Gastgewerbe): gastroconsult.ch, gastropedia.ch · GastroSuisse IVA: gastrosuisse.ch · Confronto casse CH: kassensysteme-vergleich.ch · Lightspeed (ex-Gastrofix): lightspeedhq.de · Paymash CH: paymash.com/it-ch/gastronomia · SumUp CH: ch-de.sumup.com · Terminali CH: mobiletransaction.org, klara.ch · NEXI Svizzera ristorazione/TWINT: nexi.swiss · Integratori ticinesi: cassaincloud.ch, ejost.ch, b-positive.ch, osatech.ch<br>
+<em>I prezzi in CHF (in particolare tariffe Lightspeed e commissioni NEXI a volume) vanno finalizzati con offerta del fornitore.</em></p>
+
+<p class="foot">Arvut GmbH · Untermüli 9, 6300 Zug · Documento riservato Arvut ↔ Diacron — nota informativa per Pizza In SA.</p>
+</div></div>
+</body>
+</html>

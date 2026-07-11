@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="de">
+<head>
+<!--
+  Geschützter Bereich Arvut ↔ AAR — Dokumenten-Hub (statisch, self-contained).
+  nginx-Gate (location /aar, ?k=4341, kein Cookie). Interne /aar/* Links
+  erhalten ?k aus der URL via JS (Code nicht hartkodiert).
+  Neues Dokument hinzufügen: <a class="doc"> in der Liste duplizieren.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Geschützter Bereich · Arvut ↔ AAR</title>
+<style>
+:root{--cream:#FCFAF4;--bg:#EAE7DD;--ink:#202B28;--body:#3c463f;--muted:#79827C;--teal:#AB9954;--teal-d:#7E6F3A;--teal-soft:#F5F1E6;--hair:#ECE6D8;}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--body);font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.topbar{border-bottom:1px solid var(--hair);background:var(--cream)}
+.topwrap{max-width:760px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.kit{display:flex;align-items:center;gap:18px;}
+.kit-a{display:inline-flex;align-items:center;gap:6px;color:var(--teal-d);font-size:13px;font-weight:600;text-decoration:none;transition:color .15s;}
+.kit-a:hover{color:var(--teal);}
+.kit-a svg{width:15px;height:15px;flex:0 0 auto;}
+.topwrap a{display:inline-flex;align-items:center}
+.logo{height:22px;width:auto;display:block}
+.sheet{max-width:760px;margin:0 auto;padding:40px 20px 90px}
+.doc-wrap{background:var(--cream);border-radius:10px;box-shadow:0 1px 2px rgba(32,43,40,.05),0 18px 44px -26px rgba(32,43,40,.34);padding:40px 44px 44px}
+.badge{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--hair);background:#fff;color:var(--muted);border-radius:7px;padding:5px 11px;font-size:12px;margin-bottom:18px}
+.badge svg{width:13px;height:13px}
+h1{color:var(--ink);font-weight:800;letter-spacing:-.015em;font-size:28px;line-height:1.12;margin:0 0 8px}
+.lead{color:var(--body);max-width:62ch;margin:0 0 28px}
+.sec{color:var(--teal-d);font-weight:800;font-size:11.5px;letter-spacing:.05em;text-transform:uppercase;margin:0 0 10px}
+.list{display:flex;flex-direction:column;border:1px solid var(--hair);border-radius:12px;overflow:hidden;background:#fff}
+a.doc,div.doc{display:flex;align-items:flex-start;gap:14px;padding:18px 18px;text-decoration:none;color:inherit;border-top:1px solid var(--hair);transition:background .15s}
+.doc:first-child{border-top:none}
+a.doc:hover{background:var(--teal-soft)}
+div.doc.soon{opacity:.6;cursor:default}
+.ic{flex:0 0 auto;width:34px;height:34px;border-radius:8px;background:var(--teal-soft);color:var(--teal-d);display:flex;align-items:center;justify-content:center;margin-top:1px}
+.ic svg{width:18px;height:18px}
+.meta{min-width:0;flex:1}
+.t{color:var(--ink);font-weight:700;font-size:15.5px;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.type{font-size:11px;font-weight:700;color:var(--teal-d);background:var(--teal-soft);border-radius:5px;padding:2px 7px;letter-spacing:.02em}
+.type.soon{color:var(--muted);background:#eee}
+.n{color:var(--muted);font-size:13px;margin-top:3px;line-height:1.45}
+.arrow{flex:0 0 auto;color:var(--muted);margin-top:6px;transition:transform .15s,color .15s}
+a.doc:hover .arrow{color:var(--teal-d);transform:translateX(3px)}
+.foot{margin-top:30px;color:var(--muted);font-size:12px;text-align:center}
+@media(max-width:560px){.doc-wrap{padding:28px 20px 30px}h1{font-size:24px}}
+</style>
+</head>
+<body>
+<header class="topbar"><div class="topwrap"><a href="/" aria-label="Arvut"><img class="logo" src="/logo.png" alt="Arvut"></a><nav class="kit" aria-label="Über Arvut"><a href="https://abm.arvut.ch/downloads/onepager_fiduciary_de.pdf" target="_blank" rel="noopener" class="kit-a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg>One-Pager</a><a href="https://abm.arvut.ch/downloads/pitch_deck_fiduciary_de.pdf" target="_blank" rel="noopener" class="kit-a"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 4h18"/><path d="M4 4v10a1 1 0 0 0 1 1h14a1 1 0 0 0 1-1V4"/><path d="M12 15v5M9 20h6"/></svg>Präsentation</a></nav></div></header>
+<div class="sheet">
+  <div class="doc-wrap">
+    <span class="badge">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Geschützter Bereich · nur für AAR
+    </span>
+    <h1>Arvut&nbsp;↔&nbsp;AAR</h1>
+    <p class="lead">Dokumente unserer Zusammenarbeit. Die Links öffnen in einem neuen Tab. Diese Seite wird laufend ergänzt.</p>
+
+    <p class="sec">Dokumente</p>
+    <div class="list">
+
+      <a class="doc" href="/aar/analyse-marche/" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 14l4-4 3 3 5-6"/></svg></span>
+        <span class="meta">
+          <span class="t">Marktstudie <span class="type">A4 / HTML</span></span>
+          <span class="n">Marktanalyse für AAR (Kanton St. Gallen / Deutschschweiz): Marktpotenzial, Ökonomie der internen Buchhaltung und Trends — mit Tarifvorschlag. Jede Kennzahl mit Quelle. A4-Fassung.</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="doc" href="/aar/acces/" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21v-1a6 6 0 0 1 12 0v1"/><path d="M19 8v6M16 11h6"/></svg></span>
+        <span class="meta">
+          <span class="t">Ihre ABM-Zugänge <span class="type">Info</span></span>
+          <span class="n">Ihre Benutzerkonten, die Anmeldung («Passwort vergessen») und die Demo-Buchhaltung.</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="doc" href="https://aar.arvut.ch" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span>
+        <span class="meta">
+          <span class="t">Ihre Landing-Page (Entwurf) <span class="type">Vorschau</span></span>
+          <span class="n">White-Label-Seite in den Farben von AAR — Buchhaltung und Finanzen in Echtzeit, präsentiert unter Ihrer Marke. aar.arvut.ch</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+      </a>
+
+      <a class="doc" href="/aar/pilot/" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+        <span class="meta">
+          <span class="t">Pilotvereinbarung <span class="type">A4 / HTML</span></span>
+          <span class="n">Projekt einer Pilotvereinbarung (3 Monate): CHF 1'000/Mandat, anrechenbar bei Fortsetzung; Digitalisierung inklusive. Entwurf zur Diskussion — lesbare/druckbare A4-Fassung.</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="doc" href="https://docs.google.com/document/d/1zzjJQyBSudHVNrCZfq5JhjOdGZflmf2uSTwblgKsw9w/edit" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h2M9 17h6"/></svg></span>
+        <span class="meta">
+          <span class="t">Pilotvereinbarung <span class="type">Google Doc</span></span>
+          <span class="n">Dieselbe Pilotvereinbarung als Google-Dokument — für Ihre Kommentare.</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+      </a>
+
+      <a class="doc" href="/aar/sow/" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+        <span class="meta">
+          <span class="t">Leistungsvereinbarung (SoW) <span class="type">A4 / HTML</span></span>
+          <span class="n">White-Label-Buchhaltung: Abonnement CHF 500/Jahr + CHF 1.50/Buchung, plus Echtzeit-Module (Annex 3). Entwurf zur Diskussion, in rechtlicher Prüfung — A4-Fassung.</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="doc" href="https://docs.google.com/document/d/1ioJcL94xpq3g1AOa_Y51mIP9hkPeG5XmEmceIvniwLU/edit" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h2M9 17h6"/></svg></span>
+        <span class="meta">
+          <span class="t">Leistungsvereinbarung (SoW) <span class="type">Google Doc</span></span>
+          <span class="n">Dieselbe Leistungsvereinbarung als Google-Dokument — praktisch für Ihre Anmerkungen.</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+      </a>
+
+      <a class="doc" href="/aar/best/" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h6M9 17h6"/></svg></span>
+        <span class="meta">
+          <span class="t">Anhang 4 — Kundenakquisition «/best» <span class="type">A4 / HTML</span></span>
+          <span class="n">Optionaler Anhang zum SoW: Arvut vermittelt Ihnen Kunden aus dem /best-Kanal (Matching nach Kanton, Sprache, Grösse). CHF 500 einmalig pro vermitteltem Kunden — fällig erst bei Mandatsunterzeichnung. Entwurf zur Diskussion — A4-Fassung.</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="doc" href="https://docs.google.com/document/d/1TcevlaW2ZYbY7IGRIAExhynktVvkX3jNGj8moIkTSno/edit" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 13h2M9 17h6"/></svg></span>
+        <span class="meta">
+          <span class="t">Anhang 4 — Kundenakquisition «/best» <span class="type">Google Doc</span></span>
+          <span class="n">Derselbe Anhang als Google-Dokument (Master DE) — für Ihre Kommentare.</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg></span>
+      </a>
+
+      <a class="doc" href="/aar/dap/" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="8" height="8" rx="1"/><rect x="13" y="3" width="8" height="8" rx="1"/><rect x="3" y="13" width="8" height="8" rx="1"/><rect x="13" y="13" width="8" height="8" rx="1"/></svg></span>
+        <span class="meta">
+          <span class="t">DAP — Digital Accounting Protocol <span class="type">A4 / HTML</span></span>
+          <span class="n">Das proprietäre Protokoll hinter Arvut: geldbestätigter Gewinn, Liquidität und Margen auf einem Echtzeit-Bild — was es Ihnen und Ihren Kunden bringt.</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+      <a class="doc" href="/aar/nda/" target="_blank" rel="noopener">
+        <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></span>
+        <span class="meta">
+          <span class="t">NDA — Geheimhaltungsvereinbarung <span class="type">A4 / HTML</span></span>
+          <span class="n">Öffnet die Tiefe von DAP (Methodik, vertiefte Demo, Roadmap): Entwurf der Geheimhaltungsvereinbarung — lesbare/druckbare Version.</span>
+        </span>
+        <span class="arrow"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      </a>
+
+
+    </div>
+
+    <p class="foot">Arvut GmbH · vertrauliche Dokumente Arvut ↔ AAR</p>
+  </div>
+</div>
+
+<script src="/hub-klink.js"></script>
+</body>
+</html>

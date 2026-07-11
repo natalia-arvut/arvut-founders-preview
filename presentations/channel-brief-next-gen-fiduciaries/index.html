@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--
+  INTERNAL — Channel Brief "Next-Generation Fiduciaries" (founding new Treuhand firms on Arvut).
+  For board discussion: Heinz, Federico, Alex. From Arvut Strategy, 11 July 2026.
+  Source of truth: channel_brief_next_gen_fiduciaries_EN.md (Arvut Strategy 2026-07-11).
+  Lives under /presentations/* so the ?k=0010 team gate covers it automatically.
+  A4 auto-pagination via UNGATED /a4.js (subresources of gated pages do not carry ?k;
+  arvut.ch CSP script-src 'self' — external same-domain file required, inline is blocked).
+  Arvut brand style (cream/teal, Hanken Grotesk) — same family as /k/nda-* documents.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Channel Brief · Next-Generation Fiduciaries — Arvut (internal)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#FCFAF4;--ink:#202B28;--body:#3c463f;--muted:#79827C;--teal:#009B9F;--teal-d:#016E72;--teal-soft:#E3F2F0;--hair:#ECE6D8;--warn:#9a3b12;--warn-soft:#fbf0e8;--warn-line:#f0d3bf;}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#EAE7DD;color:var(--body);font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:13.5px;line-height:1.58;-webkit-font-smoothing:antialiased}
+#doc{max-width:820px;margin:0 auto;padding:24px 20px}   /* only shown if JS is off (unpaginated fallback) */
+.page{width:210mm;height:297mm;background:var(--cream);margin:0 auto 16px;padding:16mm 20mm 13mm;display:flex;flex-direction:column;box-shadow:0 6px 30px -10px rgba(0,0,0,.25);break-after:page;position:relative;overflow:hidden}
+.page:last-child{break-after:auto}
+.rh{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding-bottom:9px;border-bottom:1px solid var(--hair)}
+.rh .b{color:var(--ink)}
+.rh .b .d{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--teal);vertical-align:1px;margin-right:6px}
+.pc{flex:1 1 auto;min-height:0;padding-top:8mm;overflow:hidden}
+.rf{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;margin-top:7mm;padding-top:9px;border-top:1px solid var(--hair);font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rf .pg{color:var(--teal-d)}
+h1,h2,h3{color:var(--ink);font-weight:800;line-height:1.16;letter-spacing:-.012em;margin:0;text-wrap:balance}
+h1{font-size:30px;margin:0 0 6px;max-width:24ch}
+h1 .hl{color:var(--teal)}
+h2{font-size:15px;margin:20px 0 7px}
+.pc>h2:first-child{margin-top:0}
+h2 .no{color:var(--teal);font-variant-numeric:tabular-nums;margin-right:10px}
+p{margin:0 0 8px;max-width:82ch}
+strong{color:var(--ink);font-weight:700}em{font-style:italic}a{color:var(--teal-d)}
+ol.sub{margin:5px 0 8px;padding-left:24px}
+ol.sub>li{padding:2px 0;max-width:82ch}
+ul.dash{margin:5px 0 8px;padding-left:0;list-style:none}
+ul.dash>li{position:relative;padding:2px 0 2px 18px;max-width:82ch}
+ul.dash>li::before{content:"";position:absolute;left:2px;top:11px;width:6px;height:6px;border-radius:50%;background:var(--teal)}
+.chip{display:inline-block;background:var(--teal-soft);border:1px solid #cfe7e5;color:var(--teal-d);font-weight:700;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:4px 12px;margin:0 8px 18px 0}
+.chip.warn{background:var(--warn-soft);border-color:var(--warn-line);color:var(--warn)}
+.metaline{color:var(--muted);font-size:12px;margin:0 0 4px}
+.metaline span{color:var(--ink);font-weight:700}
+table.grid{border-collapse:collapse;width:100%;margin:8px 0 12px;font-size:12.5px}
+table.grid th{text-align:left;vertical-align:top;padding:7px 9px;color:var(--teal-d);font-weight:800;font-size:10px;letter-spacing:.07em;text-transform:uppercase;border-bottom:2px solid var(--teal)}
+table.grid td{text-align:left;vertical-align:top;padding:7px 9px;border-top:1px solid var(--hair)}
+table.grid td:first-child{font-weight:700;color:var(--ink);width:24%}
+.callout{background:#fff;border:1px solid var(--hair);border-left:3px solid var(--teal);border-radius:10px;padding:12px 16px;margin:10px 0 12px}
+.callout p{margin:0;max-width:none}
+.summary{background:var(--teal-soft);border:1px solid #cfe7e5;border-radius:10px;padding:13px 17px;margin:18px 0 0}
+.summary p{margin:0;max-width:none;color:var(--teal-d);font-weight:600;font-style:italic}
+.print{position:fixed;right:22px;bottom:22px;background:var(--teal);color:#fff;border:none;border-radius:999px;font:inherit;font-size:12.5px;font-weight:700;letter-spacing:.03em;padding:11px 20px;cursor:pointer;box-shadow:0 6px 20px -6px rgba(1,110,114,.6);z-index:50}
+.print:hover{background:var(--teal-d)}
+@page{size:A4;margin:0}
+@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}body{background:var(--cream)}.page{margin:0;box-shadow:none}.print{display:none}}
+@media screen and (max-width:760px){.page{width:100%;height:auto;min-height:0;padding:26px 22px}.pc{overflow:visible}h1{font-size:24px}}
+</style>
+</head>
+<body>
+
+<div id="pages"></div>
+
+<!-- Source content — a flat sequence of blocks. /a4.js flows these into A4 sheets. -->
+<div id="doc"
+     data-hdr-left="Arvut GmbH — Channel Brief"
+     data-hdr-right="Internal · Board"
+     data-ftr-left="Next-Generation Fiduciaries · Proposal for decision · 11.07.2026">
+
+  <p style="margin:0 0 0"><span class="chip">Internal — for board decision</span><span class="chip warn">No external action until approved</span></p>
+  <h1 data-keep-next>Next-Generation <span class="hl">Fiduciaries</span></h1>
+  <p class="metaline" data-keep-next>Channel brief — founding new Treuhand firms on Arvut</p>
+  <p class="metaline" data-keep-next><span>For:</span> Board discussion (Heinz, Federico, Alex) &nbsp;·&nbsp; <span>From:</span> Arvut Strategy &nbsp;·&nbsp; <span>Date:</span> 11 July 2026</p>
+  <p class="metaline" style="margin-bottom:14px"><span>Status:</span> Proposal for decision — no external action taken or planned until the board approves.</p>
+
+  <h2 data-keep-next><span class="no">1</span>The thesis</h2>
+  <p>Alongside (a) modernizing existing fiduciaries (Figemax → OBT → TBO pipeline) and (b) deep partnerships (Diacron), the P&amp;M case opens a third GTM channel: <strong>find qualified, ambitious people and help them found new-generation Treuhand firms — born on Arvut infrastructure.</strong></p>
+  <p>Why it's attractive: a new fiduciary has zero legacy (no old software, no ingrained processes) → 100% wallet share from day one. P&amp;M proved the entry barrier is gone: profile, hub, white-label landing, market study, contracts and NDA — in one working day, before the company was even registered. And demographics work for us: a wave of retiring owners of classic Treuhand offices means mandates coming free that someone must pick up.</p>
+
+  <h2 data-keep-next><span class="no">2</span>Who we target (the pool)</h2>
+  <p data-keep-next>Treuhand is a regulated profession — the &laquo;young and ambitious founder&raquo; here is not a startup-hub generalist but <strong>someone who holds the qualification yet lacks capital, clients, and infrastructure:</strong></p>
+  <ol class="sub">
+    <li><strong>Fresh qualification holders</strong> — Fachausweis Treuhänder / dipl. Treuhandexperte graduates (annual exam cohorts; reachable via associations and schools).</li>
+    <li><strong>Managers aged ~30–40 in Big-4 / mid-tier firms</strong> (BDO, Forvis Mazars, OBT-class) who have hit the partner-track ceiling. Their biggest fear about leaving — &laquo;who runs my back office?&raquo; — is exactly what we remove.</li>
+    <li><strong>Employees of retiring-owner firms with no successor</strong> — the hottest segment: an MBI scenario where the person <em>and</em> the freed-up mandates come as a package. They know the clients personally; they lack only the structure.</li>
+  </ol>
+  <p>Startup incubators are explicitly out of scope: no licences there.</p>
+
+  <h2 data-keep-next><span class="no">3</span>How we reach them (the entry)</h2>
+  <p data-keep-next>There is <strong>no existing &laquo;founders in fiduciary&raquo; scene</strong> — no events, no program. That gap is the opportunity: whoever names it, owns it.</p>
+  <ul class="dash">
+    <li><strong>Program, not conference:</strong> &laquo;Next-Generation Treuhand&raquo; — a cohort track: day-one infrastructure + founding support + first mandates. We define it; nobody else has.</li>
+    <li><strong>Associations as a room, not a mailbox:</strong> TREUHAND|SUISSE sections and ExpertSuisse young-member circles — entered <strong>through people</strong> (Heinz's M&amp;A network, Oliver's and Alberto's professional circles), not via info@ cold mail. First posture: a <em>talk</em> (&laquo;how to open a Treuhand office without a back office — a one-day case&raquo;), not a pitch.</li>
+    <li><strong>Schools:</strong> HWZ, ZHAW, FFHS Treuhand-Lehrgänge — a guest lecture with the same case is a legitimate, cheap entry to exactly segment 1.</li>
+  </ul>
+
+  <h2 data-keep-next><span class="no">4</span>The offer (&laquo;Treuhand-in-a-Box&raquo;)</h2>
+  <p data-keep-next>The P&amp;M package is ~80% of the product. Complete it with:</p>
+  <table class="grid">
+    <thead>
+      <tr><th>Module</th><th>Content</th><th>Owner</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Infrastructure day-one</td><td>ABM tenant, partner hub, white-label landing, canton market study, contract + SoW, NDA</td><td>Arvut (proven: 1 day)</td></tr>
+      <tr><td>Founding support</td><td>AG/GmbH incorporation, statutes, insurances, banking</td><td><strong>Heinz / Federico</strong> — their visible role in the channel</td></tr>
+      <tr><td>First mandates</td><td>/best referrals (CHF 500 per introduced client) + succession deals (retiring-owner mandates)</td><td>Arvut + network</td></tr>
+    </tbody>
+  </table>
+
+  <h2 data-keep-next><span class="no">5</span>Economics — and the honest caveat</h2>
+  <p><strong>Pricing frame = open board decision.</strong> 50/50 gross feels natural for this channel (deep alignment, zero legacy) — but making 50/50 the <em>default</em> for a whole channel is a policy call, not a per-deal call. Alternative: standard 500 + 1.50 with an upgrade path to 50/50 once volume proves out. <strong>Decide once, explicitly.</strong> (Reminder of our own principle: we split revenue, never profit.)</p>
+  <div class="callout">
+    <p><strong>The caveat:</strong> a new fiduciary has zero mandates → 50% of zero is zero. The channel only earns when paired with a mandate source: /best flow (not yet live) or succession purchases. So this channel is not a third pillar standing alone — it is <strong>the bridge</strong> between the retiring-owner wave and our infrastructure: new fiduciaries are the hands that pick up dying offices' mandates on ABM.</p>
+  </div>
+
+  <h2 data-keep-next><span class="no">6</span>Proof gate — when the channel counts as real</h2>
+  <p data-keep-next>P&amp;M is one swallow, and not yet registered. Before building the program publicly:</p>
+  <ol class="sub">
+    <li>P&amp;M registered (real UID) and contract signed;</li>
+    <li>P&amp;M serving its <strong>first real paying client</strong> on ABM;</li>
+    <li>/best delivering its <strong>first real leads</strong> (so &laquo;first mandates&raquo; in the offer is a fact, not a promise).</li>
+  </ol>
+  <p>Until all three: internal preparation only (people mapping, talk outline, program naming). <strong>No association outreach, no public program announcement.</strong> Our own canon applies: sell what is PROVEN/LIVE.</p>
+
+  <h2 data-keep-next><span class="no">7</span>What we ask the board to decide</h2>
+  <ol class="sub">
+    <li><strong>Green-light the channel direction</strong> (yes / no / park).</li>
+    <li><strong>Pricing frame</strong> for channel partners: 50/50 gross default · standard 500+1.50 with upgrade path · case-by-case.</li>
+    <li><strong>Heinz &amp; Federico's role</strong> in the founding-support module (§4) — are they in, and on what terms?</li>
+    <li><strong>Proof gate confirmation</strong> (§6) — agree that external moves wait for the three conditions.</li>
+  </ol>
+
+  <div class="summary">
+    <p>One-line summary: opening new fiduciaries is easier than modernizing old ones — and P&amp;M shows we can do it in a day. But the channel goes public only after its first case actually exists.</p>
+  </div>
+
+</div>
+
+<button id="printBtn" class="print" type="button">Print / Save as PDF</button>
+<script src="/a4.js"></script>
+</body>
+</html>

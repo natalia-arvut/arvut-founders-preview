@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#fcfaf4" />
+    <script>document.documentElement.classList.add('js');</script>
+
+    <!-- title + description + og:title/description are set per-page by
+         react-helmet (src/components/Seo.tsx) and baked in by the prerender
+         step. Kept here only as a fallback for the bare SPA shell. -->
+    <title>Arvut — Buchhaltungsproduktion für Schweizer Treuhandgesellschaften</title>
+
+    <link rel="icon" type="image/x-icon" href="/arvut-founders-preview/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/arvut-founders-preview/apple-touch-icon.png" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Hanken+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Arvut" />
+
+    <!-- Organization JSON-LD — static, present in raw HTML for AI/search agents -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Arvut",
+        "legalName": "Arvut GmbH",
+        "url": "https://arvut.ch",
+        "logo": "https://arvut.ch/apple-touch-icon.png",
+        "foundingDate": "2022-05-09",
+        "description": "Arvut is the AI-powered back-office for Swiss fiduciaries: the Arvut team and the ABM platform produce the bookkeeping for fiduciary firms' mandates — entries, VAT, reconciliations — while the fiduciary reviews, signs and keeps the client. White-label, Swiss-hosted, non-poaching.",
+        "email": "hello@arvut.ch",
+        "vatID": "CHE-192.778.668",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Untermüli 9",
+          "postalCode": "6300",
+          "addressLocality": "Zug",
+          "addressCountry": "CH"
+        },
+        "areaServed": "CH",
+        "sameAs": ["https://ch.linkedin.com/in/kheylik"]
+      }
+    </script>
+    <script type="module" crossorigin src="/arvut-founders-preview/assets/index-668lW-m1.js"></script>
+    <link rel="stylesheet" crossorigin href="/arvut-founders-preview/assets/index-CfxKiCo_.css">
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

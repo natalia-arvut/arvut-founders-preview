@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--
+  Collaboration & Revenue-Share Agreement (50/50) — Arvut GmbH ↔ Example Treuhand SA.
+  DRAFT FOR DISCUSSION, 10.07.2026 — no pilot phase, direct final contract (decision Alex 10.07.2026).
+  Adapted to EN from the Diacron definitivo (/diacron/accordo/, source contratto-diacron-5050-definitivo-2026-07-10.md).
+  Example Treuhand signatory = Thomas Meier, Managing Director (fictitious showcase, 11.07.2026).
+  Remaining placeholders (.fill): UID is FICTITIOUS (CHE-000.000.001 — showcase),
+  commencement date and signing date open.
+  A4 auto-pagination via UNGATED /a4.js (subresources of gated /example/* pages do not carry ?k).
+  Example Treuhand monochrome brand (session-2 canon): Montserrat headings + Inconsolata body, ink #151617.
+  Behind the /example nginx gate (?k=1291). PDF: Print / Save as PDF button.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Collaboration &amp; Revenue-Share Agreement · Arvut ↔ Example Treuhand — draft 11.07.2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Inconsolata:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--paper:#FCFAF4;--bg:#EAE7DD;--ink:#151617;--body:#4A4D50;--muted:#8B8F93;--soft:#F0EDE5;--hair:#E2DCD0;--warn:#9a3b12;--warn-soft:#fbf0e8;--warn-line:#f0d3bf;}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--body);font-family:"Inconsolata",ui-monospace,Menlo,monospace;font-size:14.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+#doc{max-width:820px;margin:0 auto;padding:24px 20px}   /* only shown if JS is off (unpaginated fallback) */
+.page{width:210mm;height:297mm;background:var(--paper);margin:0 auto 16px;padding:15mm 19mm 12mm;display:flex;flex-direction:column;box-shadow:0 6px 30px -10px rgba(0,0,0,.25);break-after:page;position:relative;overflow:hidden}
+.page:last-child{break-after:auto}
+.rh{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;font-size:9px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding-bottom:8px;border-bottom:1px solid var(--ink)}
+.rh .b{color:var(--ink)}
+.rh .b .d{display:inline-block;width:7px;height:7px;background:var(--ink);vertical-align:0;margin-right:7px}
+.pc{flex:1 1 auto;min-height:0;padding-top:7mm;overflow:hidden}
+.rf{flex:0 0 auto;display:flex;justify-content:space-between;align-items:center;margin-top:6mm;padding-top:8px;border-top:1px solid var(--hair);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.rf .pg{color:var(--ink)}
+h1,h2,h3{font-family:"Montserrat",Helvetica,Arial,sans-serif;color:var(--ink);line-height:1.15;letter-spacing:-.01em;margin:0;text-wrap:balance}
+h1{font-size:29px;font-weight:800;margin:0 0 6px;max-width:26ch;text-transform:uppercase;letter-spacing:.005em}
+h2{font-size:16px;font-weight:800;margin:22px 0 8px;padding-top:12px;border-top:1px solid var(--hair);text-transform:uppercase;letter-spacing:.04em}
+h3{font-size:14.5px;font-weight:700;margin:15px 0 5px}
+.pc>h2:first-child,.pc>h3:first-child{margin-top:0;padding-top:0;border-top:none}
+p{margin:0 0 8px;max-width:86ch}
+strong{color:var(--ink);font-weight:700}em{font-style:italic}a{color:var(--ink)}
+ul{margin:4px 0 9px;padding-left:0;list-style:none}
+ul li{position:relative;padding:3px 0 3px 18px;max-width:86ch}
+ul li::before{content:"";position:absolute;left:2px;top:11px;width:5px;height:5px;background:var(--ink)}
+ol{margin:4px 0 9px;padding-left:22px}ol li{padding:2px 0;max-width:86ch}
+.chip{display:inline-block;background:var(--ink);color:var(--paper);font-weight:700;font-size:10px;letter-spacing:.14em;text-transform:uppercase;padding:6px 12px;margin:0 0 16px}
+.chip.warn{background:var(--warn-soft);border:1px solid var(--warn-line);color:var(--warn);margin-left:8px}
+.sub{font-family:"Montserrat",Helvetica,Arial,sans-serif;color:var(--body);font-size:15px;font-weight:600;margin:0 0 16px}
+.fill{color:var(--warn);font-weight:700;background:var(--warn-soft);border-bottom:1px dashed var(--warn-line);padding:0 3px}
+table{border-collapse:collapse;width:100%;margin:6px 0 14px;font-size:13px}
+td,th{text-align:left;vertical-align:top;padding:7px 9px}
+table.parties td:first-child{width:34%;color:var(--ink);font-weight:700;background:var(--soft);border-right:2px solid var(--ink)}
+table.parties tr+tr td{border-top:1px solid var(--hair)}
+table.grid th{font-family:"Montserrat",Helvetica,Arial,sans-serif;color:var(--ink);font-weight:800;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;border-bottom:2px solid var(--ink)}
+table.grid td{border-top:1px solid var(--hair)}
+table.grid td:first-child{font-weight:700;color:var(--ink)}
+.sign{margin-top:22px}
+.sign td:first-child{width:34%}
+.sigline{display:block;margin-top:24px;border-top:1px solid var(--ink);padding-top:4px;color:var(--muted);font-size:10.5px;max-width:260px}
+.src{font-size:10.5px;color:var(--muted);font-style:italic;max-width:none}
+.note{font-size:12.8px;color:var(--muted)}
+.print{position:fixed;right:22px;bottom:22px;background:var(--ink);color:var(--paper);border:none;font-family:"Inconsolata",ui-monospace,monospace;font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding:12px 20px;cursor:pointer;box-shadow:0 6px 20px -6px rgba(21,22,23,.55);z-index:50}
+.print:hover{background:#000}
+@page{size:A4;margin:0}
+@media print{*{-webkit-print-color-adjust:exact;print-color-adjust:exact}body{background:var(--paper)}.page{margin:0;box-shadow:none}.print{display:none}}
+@media screen and (max-width:760px){.page{width:100%;height:auto;min-height:0;padding:26px 20px}.pc{overflow:visible}h1{font-size:22px}}
+</style>
+</head>
+<body>
+
+<div id="pages"></div>
+
+<!-- Source content — a flat sequence of blocks. /a4.js flows these into A4 sheets. -->
+<div id="doc"
+     data-hdr-left="Arvut ↔ Example Treuhand — Collaboration Agreement"
+     data-hdr-right="Draft · Confidential"
+     data-ftr-left="Arvut GmbH ↔ Example Treuhand SA · 50/50 · Draft 11.07.2026">
+
+  <p style="margin:0 0 14px"><span class="chip">Draft for discussion · 11 July 2026</span><span class="chip warn">Not yet signed</span><span class="chip">Illustrative sample — fictitious parties</span></p>
+  <h1 data-keep-next>Collaboration and Revenue-Share Agreement</h1>
+  <p class="sub" data-keep-next>Management of accounting mandates — Arvut ↔ Example Treuhand · fields marked <span class="fill">[…]</span> are to be completed on signature</p>
+
+  <table class="parties">
+  <tbody>
+  <tr>
+  <td>Arvut (accounting production / platform):</td>
+  <td>Arvut GmbH, Untermüli 9, 6300 Zug, Switzerland — UID CHE-192.778.668 (&laquo;Arvut&raquo;), represented by Heinz Brägger, Managing Director (Geschäftsführer)</td>
+  </tr>
+  <tr>
+  <td>Example Treuhand (fiduciary / front-end):</td>
+  <td>Example Treuhand SA, Bahnhofstrasse 1, 8001 Zürich, Switzerland — UID <strong>CHE-000.000.001</strong> <span class="fill">[fictitious — illustrative showcase]</span> (&laquo;Example Treuhand&raquo;), represented by Thomas Meier, Managing Director</td>
+  </tr>
+  <tr>
+  <td>Subject:</td>
+  <td><strong>Framework agreement</strong> for the white-label <strong>accounting production</strong> of the <strong>current and future</strong> mandates listed in Annex 1 — a 50/50 share <strong>calculated exclusively on the accounting fee</strong> of each mandate (payroll, advisory and all other services rendered by Example Treuhand excluded) — and for the optional <strong>real-time value-added services</strong> of Annex 3, activatable per mandate</td>
+  </tr>
+  <tr>
+  <td>Commencement date:</td>
+  <td><span class="fill">[to be agreed on signature]</span></td>
+  </tr>
+  <tr>
+  <td>Term:</td>
+  <td>12 months, automatically renewed for successive 12-month periods unless terminated in writing at least 90 days before the end of the current period</td>
+  </tr>
+  <tr>
+  <td>Service unit:</td>
+  <td>1 mandate (end-client of Example Treuhand)</td>
+  </tr>
+  </tbody>
+  </table>
+
+  <h3 data-keep-next>1) Terms and definitions</h3>
+  <p><strong>Mandate:</strong> an end-client of Example Treuhand whose accounting production is handled by Arvut under this Agreement (Annex 1). <strong>End-client:</strong> a natural or legal person with whom Example Treuhand has a mandate relationship for accounting services. <strong>Document / Voucher:</strong> a single document treated as a processing unit. <strong>Booking (Buchung):</strong> a single entry in the journal.</p>
+  <p><strong>Accounting Revenue of a mandate:</strong> the portion of the annual fee invoiced by Example Treuhand to the end-client that is <strong>attributable solely to accounting production</strong> (bookkeeping) under this Agreement, <strong>excluding</strong> payroll/salaries, advisory and every other service rendered by Example Treuhand. It is the <strong>basis</strong> of the share under art. 7. VAT excluded. <em>(Example: total client fee ~CHF 18'000/year, of which bookkeeping CHF 6'000, payroll ~CHF 5'000–8'000, advisory/other the remainder → the 50/50 share applies only to the CHF 6'000.)</em></p>
+  <p><strong>Excluded services:</strong> payroll/salaries, advisory and every other service that is not accounting production remain within the competence — and revenue — of Example Treuhand and do <strong>not</strong> enter the calculation basis. Payroll may be included as a separate line, with its own basis and share, <strong>only if and when</strong> Arvut provides its production (addendum).</p>
+  <p><strong>Arvut share = full compensation.</strong> 50% of the Accounting Revenue is the <strong>sole</strong> compensation of Arvut for the mandate and <strong>replaces</strong> every separate tariff for production on the ABM platform (in particular the CHF 500/year + CHF 1.50/booking tariff of the standard model, which does <strong>not</strong> apply to this Agreement). No cost is deducted before the split.</p>
+  <p><strong>ABM Platform:</strong> the software platform owned exclusively by Arvut (art. 8). <strong>White-label:</strong> Arvut's services are rendered under the branding of Example Treuhand. <strong>Framework agreement:</strong> this Agreement governs uniformly <strong>all mandates, current and future</strong>, listed in Annex 1; mandates are added or removed by an <strong>update of Annex 1 countersigned by the Parties</strong>, without renegotiating or amending this Agreement. The terms agreed here are the <strong>standard model</strong> of the Arvut&nbsp;↔&nbsp;Example Treuhand collaboration and apply automatically to every new mandate entered in Annex 1.</p>
+  <p><strong>Value-added services (real-time):</strong> the <strong>optional</strong> modules listed in Annex 3 (automatic document capture — portal, Telegram, tills/POS, bank via EBICS; real-time accounting; daily reporting per point of sale / cost and profit centres; automatic VAT eCH-0217; own white-label domain), <strong>activatable per mandate</strong>. They do <strong>not</strong> enter the Accounting Revenue or the 50/50 share; their remuneration is governed by Annex 3 (art. 7.6).</p>
+
+  <h3 data-keep-next>2) Collaboration model and nature of the agreement</h3>
+  <p>The Parties collaborate in the management of the mandates: <strong>Example Treuhand</strong> is the front-end (client relationship, fiduciary licence, communications with authorities, VAT filing, annual closing and taxation, invoicing of the end-client); <strong>Arvut</strong> is the back-end of accounting production on the ABM platform.</p>
+  <p><strong>Nature of the agreement.</strong> The Parties qualify this Agreement as a <strong>bilateral exchange-of-performance contract of continuing nature (Dauerschuldverhältnis) of mixed type</strong> (contract for services + grant of access to the platform). The Parties <strong>expressly exclude</strong> the formation of a simple partnership within the meaning of art. 530 et seq. of the Swiss Code of Obligations (&laquo;CO&raquo;): <strong>(a)</strong> they pursue no common purpose but their own, opposing interests typical of an exchange relationship; <strong>(b)</strong> they contribute to and constitute no common assets (<em>Gesamthandsvermögen</em>); <strong>(c)</strong> each Party acts <strong>in its own name and for its own account</strong>, bears its own costs and risks exclusively and is not liable for the obligations of the other; <strong>(d)</strong> there is no <em>animus societatis</em>, no reciprocal power of representation and no joint management; <strong>(e)</strong> the determination of the remuneration under art. 7 is a <strong>contractual method of price calculation</strong> (variable consideration of the exchange), <strong>not</strong> a participation in the profits of a common enterprise. No provision grants a Party control, voting or veto rights over the business decisions of the other. Example Treuhand <strong>commissions</strong> the mandates and Arvut <strong>accepts</strong> them; there are no joint management decisions.</p>
+  <p><strong>Termination.</strong> The Parties understand this relationship as a <em>Dauerschuldverhältnis</em> of predominantly exchange/contract-for-services character, to which art. 404 CO does <strong>not</strong> apply. <strong>In the alternative</strong>, should an authority hold art. 404 CO applicable: <strong>(i)</strong> the Parties acknowledge the mandatory nature of the right to terminate at any time; <strong>(ii)</strong> the Party terminating before the end of the current contractual period pays the other, as agreed liquidation of the damage (art. 404 para. 2 and art. 160 CO), an amount equal to <strong>100% of the residual share until the end of the current contractual period</strong>, except in the case of termination for good cause attributable to the other Party.</p>
+  <p><strong>Communication (default):</strong> clarifications Arvut → Example Treuhand → end-client. Direct contact Arvut&nbsp;↔&nbsp;end-client only with the prior written authorisation of Example Treuhand.</p>
+
+  <h3 data-keep-next>3) Scope of services (deliverables) — per mandate</h3>
+  <p>Arvut provides for each mandate: postings at line/item level; open-items schedule and payment reconciliation (AR/AP); VAT calculation basis and reports ready for filing by Example Treuhand; preparation of the annual closing (preparation, not legal finalisation); integrated document&nbsp;↔&nbsp;posting archive (audit trail). Legal/tax finalisation and signature remain with Example Treuhand.</p>
+
+  <h3 data-keep-next>4) Input and process</h3>
+  <p>Example Treuhand makes available supporting documents, bank statements/transaction data, proofs of payment; where necessary cash/expense records. The SLAs run from receipt of the complete set; in the case of missing data Arvut prepares an exception list. <strong>No cost is deducted</strong> from the Accounting Revenue before the split under art. 7 (the 50/50 share is gross and includes, for Arvut, every production fee — cf. art. 1, &laquo;Arvut share = full compensation&raquo;).</p>
+
+  <h3 data-keep-next>5) SLA and corrections</h3>
+  <p>Standard processing: up to 2 weeks from receipt of the complete set. Corrections: within 2 business days from notification and confirmation by Example Treuhand.</p>
+
+  <h3 data-keep-next>6) Bookkeeping rules (Example Treuhand standard)</h3>
+  <p>Arvut applies: <strong>(a)</strong> no rounding of posting amounts (the document amount is carried to the cent: 99.99 remains 99.99); <strong>(b)</strong> periods already filed/closed are not modified: documents received after the closing are posted in the first open period thereafter; for certain mandates the closing is monthly.</p>
+
+  <h3 data-keep-next>7) Determination of the remuneration (variable 50/50 share)</h3>
+  <ol type="1">
+  <li>The share of each Party is <strong>50% of the Accounting Revenue of the mandate</strong> (art. 1), i.e. of the bookkeeping component of the client fee only — <strong>not</strong> of the total client fee, <strong>not</strong> of payroll, <strong>not</strong> of advisory. The share is <strong>gross</strong>: no cost is deducted and, for Arvut, it replaces every separate production tariff (no CHF 500 + 1.50/booking). For each mandate the base Accounting Revenue is stated in Annex 1.</li>
+  <li><strong>Periodicity:</strong> calculation and settlement <strong>quarterly</strong>, with a transparent statement (revenue, direct costs per Party, share of each).</li>
+  <li><strong>Invoicing of the end-client:</strong> <strong>Example Treuhand invoices the end-client the entire fee of the mandate</strong> (front-end / owner of the client relationship); <strong>Arvut invoices Example Treuhand its share (50% of the Accounting Revenue)</strong> at the periodicity of art. 7.2. Payment of the shares therefore occurs by <strong>invoicing of Arvut's share to Example Treuhand</strong> (VAT excluded, where due).</li>
+  <li><strong>Related-party transparency:</strong> where a direct cost is rendered by a related party of one of the Parties, the relevant tariff is disclosed transparently in the statement.</li>
+  <li>In case of late payment between the Parties: default interest of 5% per annum (art. 104 CO) from the due date plus reminder costs. Amounts VAT excluded.</li>
+  <li><strong>Value-added services (Annex 3) — separate remuneration.</strong> Value-added services are remunerated <strong>separately</strong> under Annex 3 and do <strong>not</strong> enter the 50/50 basis. <strong>The price applied to the end-client for such services is determined freely and exclusively by Example Treuhand</strong> (front-end / owner of the client relationship); the remuneration due to Arvut is a <strong>wholesale tariff per module and per mandate, agreed in writing by the Parties on activation</strong> (annotation in Annex 1 or countersigned addendum), independent of the price charged to the client. The spread between the client price and the Arvut tariff is <strong>Example Treuhand's margin</strong>. Arvut does not intervene in, and has no claim on, the end-client price.</li>
+  </ol>
+
+  <h3 data-keep-next>8) Ownership of the ABM platform (red line)</h3>
+  <p>The ABM platform and every related intellectual-property right remain the <strong>exclusive, 100% property of Arvut</strong>. This Agreement concerns exclusively the operational collaboration and the variable remuneration, and grants Example Treuhand <strong>no</strong> right, share, licence of use (beyond the management access under art. 9), purchase option or title in or to the platform, the code, the aggregated data or the know-how of Arvut. The determination of the remuneration (art. 7) compensates <strong>exclusively</strong> the respective operational services and in no case constitutes consideration for a participation, licence or right of Example Treuhand in the platform. Termination of this Agreement gives rise to <strong>no</strong> residual, liquidation or goodwill claim of Example Treuhand on the platform or its value. Nothing in this Agreement constitutes a company, a joint venture or common assets.</p>
+
+  <h3 data-keep-next>9) Portal and white-label access</h3>
+  <p>Example Treuhand has management access per mandate. End-clients may receive read-only access under the branding of Example Treuhand, if provided for in Example Treuhand's agreement with the client.</p>
+
+  <h3 data-keep-next>10) Remuneration review (review clause)</h3>
+  <p>The economic terms of art. 7 are <strong>renegotiable</strong> at the request of either Party upon the following triggers: <strong>(a)</strong> after the first <strong>5</strong> active mandates, or <strong>(b)</strong> after <strong>12 months</strong> from commencement. The renegotiation takes account of the actual evolution of roles and costs. Absent agreement on new terms, the current terms remain in force until the end of the contractual period. This clause is a price-adjustment mechanism of the exchange and implies no joint management or decision-making.</p>
+
+  <h3 data-keep-next>11) Handover / export</h3>
+  <p>On request, Arvut provides structured exports (CSV/XLS or agreed formats). Upon termination: export of movements/data, PDF archive of documents and principal reports, support for the transfer into Example Treuhand's system (reasonable effort).</p>
+
+  <h3 data-keep-next>12) Liability (cap)</h3>
+  <p>Arvut's liability per mandate is limited to the amount of the net shares received by Arvut for that mandate in the 12 months preceding the damaging event (rolling 12 months). This limitation <strong>does not apply in case of unlawful intent or gross negligence of Arvut (art. 100 para. 1 CO)</strong>. For the conduct of its auxiliaries, Arvut is liable within the limits of <strong>art. 101 CO</strong>; this limitation does <strong>not</strong> cover unlawful intent or gross negligence of the auxiliaries. Liability for indirect damage, lost profit and consequential damage is excluded, <strong>save for</strong> unlawful intent or gross negligence.</p>
+
+  <h3 data-keep-next>13) Early termination and setup indemnity</h3>
+  <p>In case of early termination by Example Treuhand before the end of the period, the accrued shares remain due together with a lump-sum indemnity covering the implementation/setup costs of <strong>CHF 1'000</strong> per active mandate (flat-rate cost recovery, not a penalty). Extraordinary termination for good cause attributable to Arvut remains reserved, in which case no indemnity is due.</p>
+
+  <h3 data-keep-next>14) No poaching of clients (non-circumvention / non-solicitation) and penalty</h3>
+  <p>Arvut acknowledges that all end-clients handled under this Agreement are clients of Example Treuhand.</p>
+  <ul>
+  <li><strong>14.1 Non-circumvention.</strong> Arvut undertakes, for the entire term and for <strong>24 months</strong> after termination, <strong>and limited to the end-clients actually introduced or handled</strong> under this Agreement, <strong>for accounting services of the same type</strong> as those covered by this Agreement, not to conclude or perform, directly or through third parties/affiliated companies, contracts with such clients. Arvut remains free to offer its services to any other person, fiduciary or client not handled under this Agreement. The undertaking is construed in accordance with art. 27 para. 2 of the Swiss Civil Code; where held excessive, <strong>it remains valid to the maximum extent permitted by law</strong> (art. 20 para. 2 CO).</li>
+  <li><strong>14.2 Non-solicitation.</strong> Arvut carries out no direct marketing, offers or solicitations aimed at moving Example Treuhand's clients to a direct contract with Arvut.</li>
+  <li><strong>14.3 Exception (spontaneous contact).</strong> If a client of Example Treuhand contacts Arvut spontaneously, Arvut: (a) informs Example Treuhand within a reasonable time; (b) proceeds exclusively through Example Treuhand, or concludes a direct contract only with the prior written authorisation of Example Treuhand.</li>
+  <li><strong>14.4 Penalty.</strong> For each breach of arts. 14.1–14.2, and for each mandate concerned, Arvut pays Example Treuhand a contractual penalty equal to <strong>200% of the accounting fee of the mandate for the 12 months preceding the breach</strong>. As the breach concerns an obligation to abstain, the penalty is due <strong>in addition</strong> to cessation of the prohibited conduct (art. 160 para. 2 CO). Example Treuhand may claim damages exceeding the penalty (art. 161 para. 2 CO). The court's power to reduce an excessive penalty (art. 163 para. 3 CO), which the Parties acknowledge as mandatory, remains reserved.</li>
+  <li><strong>14.5 Reciprocity.</strong> The non-circumvention and non-solicitation obligations of arts. 14.1 and 14.2 are <strong>reciprocal</strong>: for the entire term of the Agreement and for <strong>24 months</strong> from termination, Example Treuhand likewise refrains from soliciting or hiring Arvut's personnel and from circumventing Arvut with other suppliers in order to replicate, for the mandates covered by this Agreement, the accounting-production services and the modules of Annex 3, without prejudice to each Party's right to deal freely with third parties not handled under this Agreement. The contractual penalty of art. 14.4 applies mirror-wise against the defaulting Party. The reciprocal and balanced undertaking is construed in accordance with art. 27 para. 2 of the Swiss Civil Code.</li>
+  </ul>
+
+  <h3 data-keep-next>15) Confidentiality and secrecy</h3>
+  <p>Each Party treats the information of the other Party and of the end-clients as a business secret (art. 162 of the Swiss Criminal Code, &laquo;SCC&raquo;); the obligations last for 5 years from termination. Upon termination, subject to statutory retention duties, Arvut returns/destroys residual copies on written request. Arvut acts as an auxiliary person (Hilfsperson) of Example Treuhand; the professional secrecy of Example Treuhand remains unaffected (incl. art. 321 SCC where applicable); Example Treuhand warrants the necessary authorisations/consents.</p>
+
+  <h3 data-keep-next>15bis) Operational scope and secrecy</h3>
+  <p><strong>(a) Scope (AMLA line).</strong> Arvut performs <strong>accounting production exclusively</strong>. Arvut <strong>does not receive, hold or transfer client assets</strong>, <strong>holds no power of attorney over bank accounts</strong> and <strong>executes no payments</strong>: payments are only <strong>prepared</strong> (art. 7.6 / Annex 3, module E) and <strong>signed and executed by the client</strong>. Arvut is therefore not a financial intermediary within the meaning of the Anti-Money-Laundering Act (AMLA/GwG) and the activity is not subject to FINMA supervision.</p>
+  <p><strong>(b) Secrecy.</strong> Arvut's personnel are bound by <strong>business secrecy (art. 162 SCC)</strong> and — where a mandate is subject to professional secrecy (art. 321 SCC, e.g. audit mandates) or bank secrecy (art. 47 of the Banking Act) — by the corresponding obligations, on a <strong>back-to-back</strong> basis without attenuation. Arvut <strong>assumes full responsibility</strong> for its auxiliary personnel (art. 101 CO).</p>
+  <p><strong>(c) Carve-out.</strong> Should a mandate become an <strong>audit mandate</strong> (art. 321 SCC) or concern a <strong>supervised client</strong> (bank/FINMA-licensed institution — art. 47 Banking Act / FINMA Circ. 2018/3 Outsourcing), the corresponding additional regimes apply, to be agreed in writing.</p>
+
+  <h3 data-keep-next>15ter) Artificial-intelligence tools and sub-processors</h3>
+  <ol type="1">
+  <li>The principal (controller) <strong>authorises</strong> Arvut, as processor (art. 9 of the Swiss Federal Act on Data Protection, &laquo;FADP&raquo;), to use <strong>artificial-intelligence-based tools</strong> (currently Anthropic PBC — &laquo;Claude Code&raquo;) as a <strong>sub-processor</strong> for the performance of the accounting services. The current list of sub-processors is made available; the principal may object within 30 days to any new addition (art. 9 para. 3 FADP).</li>
+  <li>Arvut warrants that the option to use the data for <strong>model training/improvement is disabled</strong> and, where technically available, <strong>Zero Data Retention</strong> is enabled, with no human review of the inputs beyond residual anti-abuse control. <em>Disabling training alone is not sufficient:</em> the DPA and the settings indicated here apply cumulatively.</li>
+  <li>Arvut and the sub-processor are bound to <strong>secrecy</strong> (art. 162 SCC) and adopt technical/organisational measures (art. 8 FADP), including — where possible — <strong>minimisation/pseudonymisation</strong> of data requiring special protection (payslips) before transmission. The AI output is <strong>always subject to human review</strong>; responsibility remains with Arvut/Example Treuhand (the AI is a tool, not a responsible actor).</li>
+  <li>Recourse to <strong>other AI providers</strong> is permitted only on the <strong>same conditions</strong> (DPA + entry/authorisation among the sub-processors + training disabled + minimal retention).</li>
+  <li>Data of any <strong>audit mandates</strong> (art. 321 SCC) are not transmitted to the AI tools, save in anonymised form or with reinforced safeguards.</li>
+  </ol>
+
+  <h3 data-keep-next>16) Final provisions</h3>
+  <p>Written form for amendments; severability; no assignment without consent (save to group companies or in a reorganisation of Arvut); set-off only with undisputed or adjudicated claims; force majeure (SLAs suspended); notices in writing; electronic signature in counterparts. Arts. 8, 12, 13, 14, 15, 15bis, 15ter, 17 and Annex 2 <strong>survive</strong> termination.</p>
+
+  <h3 data-keep-next>17) Governing law and jurisdiction</h3>
+  <p>This Agreement is governed by <strong>Swiss law</strong>, excluding its conflict-of-laws rules and the Vienna Convention (CISG). The exclusive place of jurisdiction for every dispute arising out of or in connection with this Agreement is <strong>Zug</strong> (seat of Arvut) (art. 17 of the Swiss Civil Procedure Code), subject to mandatory statutory fora.</p>
+
+  <h3 data-keep-next>18) Entire agreement</h3>
+  <p>This Agreement cancels and replaces every prior understanding relating to its subject matter, including earlier drafts. Amendments are valid only in writing.</p>
+
+  <table class="parties sign">
+  <tbody>
+  <tr>
+  <td>Place and date</td>
+  <td>Zug / Zürich, <span class="fill">[date]</span></td>
+  </tr>
+  <tr>
+  <td>For Arvut GmbH</td>
+  <td>Heinz Brägger, Managing Director <span class="sigline">Signature</span></td>
+  </tr>
+  <tr>
+  <td>For Example Treuhand SA</td>
+  <td>Thomas Meier, Managing Director <span class="sigline">Signature</span></td>
+  </tr>
+  </tbody>
+  </table>
+
+  <h2 data-keep-next>Annex 1 — Mandate register</h2>
+  <p class="note" data-keep-next><em>For each mandate the <strong>base Accounting Revenue</strong> is stated (bookkeeping component only, on which the 50/50 share of art. 7 applies; payroll/advisory excluded). To be completed on signature; thereafter updated by countersigned amendment of this Annex (art. 1, &laquo;Framework agreement&raquo;).</em></p>
+  <table class="grid">
+  <thead>
+  <tr><th>#</th><th>Mandate</th><th>Legal entity</th><th>Base Accounting Revenue (CHF/year)</th><th>VAT status</th><th>Bank / sources</th><th>Notes</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>1</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr><td>2</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr><td>3</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr><td>4</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+  <tr><td>5</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+  </tbody>
+  </table>
+
+  <h2 data-keep-next>Annex 2 — Processing of personal data (art. 9 FADP / SR 235.1)</h2>
+  <p><em>The Annex &laquo;Data Processing Agreement&raquo; of the Arvut Statement of Work applies in full: Example Treuhand = controller; Arvut = processor (art. 9 FADP); processing only on instruction; security art. 8 FADP; sub-processors art. 9 para. 3; cross-border transfers arts. 16–17; breach notification art. 24; return/deletion subject to the retention duty of art. 958f CO. The full text is set out in the Statement of Work (SoW) accompanying this Agreement and is attached on signature.</em> <em>Sub-processors (list to be maintained and authorised, art. 9 para. 3): <strong>Anthropic PBC</strong> for the AI tools (art. 15ter) — training disabled, Zero Data Retention where available. Every further AI provider or sub-processor on the same conditions.</em></p>
+
+  <h2 data-keep-next>Annex 3 — Value-added services (real-time)</h2>
+  <p class="note" data-keep-next><em>Modules are <strong>optional</strong>, activated per mandate. Honest status: <strong>available, configured per mandate</strong>; certain integrations (in particular EBICS) are in consolidation — proven on a first mandate and in roll-out, to be confirmed per mandate before activation. They do <strong>not</strong> enter the 50/50 share (cf. art. 7.6).</em></p>
+  <table class="grid">
+  <thead>
+  <tr><th>#</th><th>Module</th><th>What it does</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+  <tr><td>A</td><td>Automatic document capture</td><td>Documents arrive by themselves: e-mail, portal, Telegram, tills/POS (daily closings), bank via EBICS (camt.053)</td><td>Available; POS/EBICS configured per mandate</td></tr>
+  <tr><td>B</td><td>Real-time accounting</td><td>Books updated continuously; every figure reconciled at source</td><td>Available</td></tr>
+  <tr><td>C</td><td>Daily reporting</td><td>A real picture every morning, <strong>per point of sale</strong>, as cost and profit centres</td><td>Available</td></tr>
+  <tr><td>D</td><td>Automatic VAT (eCH-0217)</td><td>VAT return generated at period end, ready for Example Treuhand's signature</td><td>Available (draft for signature)</td></tr>
+  <tr><td>E</td><td>Payments via EBICS</td><td>Payments prepared by ABM (pain.001); <strong>signature and execution remain with the client</strong></td><td>In consolidation; per mandate</td></tr>
+  <tr><td>F</td><td>Own white-label domain</td><td>Client portal on Example Treuhand's domain (e.g. <code>abm.example-treuhand.example</code>)</td><td>Available (requires 1 DNS record)</td></tr>
+  </tbody>
+  </table>
+  <p><strong>Price and activation.</strong> Modules are <strong>opt-in per mandate</strong>. <strong>The end-client price is determined freely by Example Treuhand</strong> (art. 7.6); Arvut is owed a <strong>wholesale tariff per module/mandate, agreed in writing by the Parties on activation</strong>, independent of the client price. Activation of a module for a mandate is perfected by annotation in Annex 1 or by countersigned addendum. No module is owed or invoiced unless activated.</p>
+
+  <h2 data-keep-next>Annex 4 — Client acquisition (referral programme &laquo;/best&raquo;)</h2>
+  <p class="note" data-keep-next><em><strong>Optional (opt-in)</strong> Annex to the Agreement. It applies exclusively if countersigned by both Parties at the foot of this Annex; non-signature in no way prejudices the Agreement. Integral part of the Agreement: in case of conflict between this Annex and the body of the Agreement, this Annex prevails for the matters governed here (art. 18 of the Agreement).</em></p>
+
+  <h3 data-keep-next>1) Subject, background and qualification</h3>
+  <p>Arvut operates a demand channel through which Swiss businesses ask to be matched with a fiduciary of the Arvut network (currently via the page arvut.ch/best and the connected marketing channels; the channel may evolve without amending this Annex). This Annex governs the referral of prospective end-clients to Example Treuhand, the related acquisition fee and the relationship with art. 14 of the Agreement.</p>
+  <p><strong>No volume commitment.</strong> Arvut guarantees no number, frequency or quality of Referrals; Example Treuhand is not obliged to accept any Referral. The matching programme is not exclusive: Arvut remains free to work with other fiduciaries of the network.</p>
+  <p><strong>Qualification and transparency (art. 412 et seq. CO).</strong> The Parties qualify each Referral as brokerage within the meaning of art. 412 et seq. CO, in the framework relationship constituted by the Agreement. Arvut declares that it receives no brokerage fee from the prospect and that it operates for the entire network, including its own fiduciary entity as residual recipient (backstop) of unplaced Referrals; Example Treuhand takes note and consents (art. 415 CO). This Annex does not alter the nature of the Agreement (art. 2) and constitutes no simple partnership, joint venture or joint management.</p>
+  <p><strong>Lawfulness of collection.</strong> Arvut warrants that leads are collected lawfully (in particular in compliance with the FADP and art. 3 of the Unfair Competition Act); Example Treuhand is not responsible for collection practices prior to delivery of the Referral.</p>
+
+  <h3 data-keep-next>2) Definitions</h3>
+  <p><strong>Referral (Lead):</strong> a documented communication by which Arvut presents to Example Treuhand a prospective end-client interested in fiduciary/accounting services, with the data collected (in particular: sector, size, canton, language, stated needs).</p>
+  <p><strong>Introduced Client:</strong> a prospective end-client that is the subject of an accepted Referral and subsequently signs a mandate with Example Treuhand.</p>
+  <p><strong>Referral Register:</strong> a register kept by Arvut (source of the lead, delivery date, assigned fiduciary, outcome). The Register is the basis of counting and invoicing of the fee under art. 4; Example Treuhand may at any time request an extract for the part concerning it. The Register is retained for 10 years for invoiced Referrals (art. 958f CO); for Referrals that do not result in a mandate, the personal data of contact persons are deleted or anonymised after 24 months.</p>
+
+  <h3 data-keep-next>3) Referral process and acceptance</h3>
+  <p><strong>3.1 Matching.</strong> Arvut matches prospects to the fiduciaries of the network by the criteria: canton → language → sector/size/capacity. On equal criteria, assignment rotates. Assignment to Arvut's own fiduciary entity occurs only residually (backstop), where no fiduciary of the network matches the criteria or accepts the Referral.</p>
+  <p><strong>3.2 Exclusivity of the Referral.</strong> Each Referral is assigned to one fiduciary only; Arvut does not offer the same prospect in parallel to other fiduciaries until the Referral is refused or lapses under art. 3.3.</p>
+  <p><strong>3.3 Acceptance (SLA).</strong> The Referral is deemed received upon delivery to the e-mail address indicated by Example Treuhand (or via the ABM platform). Example Treuhand communicates acceptance or refusal within <strong>2 business days</strong> of receipt; Arvut sends a reminder at least one business day before expiry of the term. Absent a response within the term, the Referral is deemed refused and Arvut is free to reassign it in the order of art. 3.1.</p>
+  <p><strong>3.4 Pre-matching phase.</strong> Contacts between Arvut and the prospect prior to delivery of the Referral (needs gathering, qualification, demo) do not breach arts. 2 and 14 of the Agreement, the prospect not yet being a client of Example Treuhand. From delivery of the accepted Referral, communication with the prospect follows the model of art. 2 of the Agreement.</p>
+
+  <h3 data-keep-next>4) Client Acquisition Fee</h3>
+  <p><strong>4.1</strong> For each Introduced Client, Example Treuhand pays Arvut a one-time fee of <strong>CHF 500.--</strong> (VAT excluded), due upon signature of the mandate between Example Treuhand and the Introduced Client. No fee is due for Referrals that do not result in a mandate.</p>
+  <p><strong>4.2</strong> The fee under art. 4.1 covers acquisition costs and is independent of, and cumulative with, the variable share under art. 7 of the Agreement (50/50 on the Accounting Revenue), which applies to the Introduced Client's mandate once entered in Annex 1 of the Agreement. The acquisition fee enters neither the Accounting Revenue basis nor the 50/50 split.</p>
+  <p><strong>4.3</strong> The prices charged by Example Treuhand to the Introduced Client are determined freely by Example Treuhand; the base Accounting Revenue of the new mandate is stated in Annex 1 (art. 7.1 of the Agreement).</p>
+  <p><strong>4.4 Pre-existing relationships.</strong> No fee is due if Example Treuhand demonstrates, within the term of art. 3.3, a documented pre-existing business relationship or contact with the prospect; in that case the prospect is not an Introduced Client and the Referral is without effect.</p>
+
+  <h3 data-keep-next>5) Registration of the mandate and network standards</h3>
+  <p><strong>5.1</strong> The Introduced Client's mandate is entered in Annex 1 of the Agreement (countersigned update, art. 1 &laquo;Framework agreement&raquo;) and handled on the ABM platform under the Agreement. Handling outside the platform requires the Parties' prior written agreement.</p>
+  <p><strong>5.2</strong> Towards Introduced Clients Example Treuhand maintains the network standards communicated to the public (real-time up-to-date accounting, full document–posting reconciliation, client portal under Example Treuhand's branding, data hosting in Switzerland compliant with the FADP, ten-year retention — art. 958f CO), <strong>to the extent such standards are actually delivered by Arvut in accordance with the Agreement</strong>. Example Treuhand's obligation under this art. 5.2 is limited to keeping the mandate on the platform and not obstructing delivery; Example Treuhand remains front-end and solely responsible towards the end-client under art. 2 of the Agreement.</p>
+
+  <h3 data-keep-next>6) Relationship with art. 14 of the Agreement (non-circumvention)</h3>
+  <p><strong>6.1</strong> From signature of the mandate, the Introduced Client is for all purposes a client of Example Treuhand; the protections of art. 14 of the Agreement (incl. the penalty of art. 14.4) apply in full for the entire duration of the mandate. <strong>For Introduced Clients, the 24-month period of art. 14.1 of the Agreement does not apply after termination of the relevant mandate</strong>; for end-clients not referred by Arvut, art. 6.3 remains unaffected.</p>
+  <p><strong>6.2 Derogation (reassignment).</strong> In partial derogation from art. 14.1 of the Agreement, Arvut is free to reassign an Introduced Client — to another fiduciary of the network or, residually in the order of art. 3.1, to its own fiduciary entity — without incurring any penalty, exclusively in the following cases:</p>
+  <ul>
+  <li><strong>(a)</strong> the Referral was refused or lapsed (art. 3.3);</li>
+  <li><strong>(b)</strong> the mandate between Example Treuhand and the Introduced Client has ended; if the ending is attributable to a serious breach by Arvut under the Agreement, reassignment to Arvut's own fiduciary entity is excluded for 12 months;</li>
+  <li><strong>(c)</strong> the Introduced Client spontaneously asks Arvut for a new match, by a written, documented request of the client kept in the Register; in that case Arvut informs Example Treuhand without delay and Example Treuhand has 10 business days from the communication to remedy the client relationship before any reassignment.</li>
+  </ul>
+  <p><strong>6.3</strong> For clarity, the full protection of art. 14 of the Agreement — including the 24-month post-termination period — remains unchanged for all end-clients <strong>not</strong> referred by Arvut (Example Treuhand's own clients, including mandates already entered in Annex 1).</p>
+
+  <h3 data-keep-next>7) Presentation of Example Treuhand and prospect data (FADP)</h3>
+  <p><strong>7.1 Consent to presentation.</strong> Example Treuhand authorises Arvut to present to prospects, in the course of matching, its name, seat/canton, working languages, size and areas of competence, including the contact persons designated by Example Treuhand; Example Treuhand warrants that it has informed them. No public list/directory of the network's fiduciaries is published.</p>
+  <p><strong>7.2 Prospect data.</strong> For the personal data of prospects, Arvut and Example Treuhand act as separate controllers (art. 5 lit. j FADP), each for its own purposes; the processing on instruction under Annex 2 of the Agreement does not apply to this phase. Arvut warrants that the privacy notice published on arvut.ch names the disclosure of data to the network's fiduciaries as a category of recipients (art. 19 para. 2 FADP); Example Treuhand fulfils its own information duty (art. 19 para. 3 FADP) at the latest on first contact with the prospect. Marketing-attribution data (UTM and similar) remain internal to Arvut and are not transferred to Example Treuhand. Example Treuhand uses the data received exclusively to assess and, in case of acceptance, manage the relationship with the prospect; in case of refusal of the Referral it deletes them within 30 days, and may retain, for at most 12 months, only the minimum data (prospect name, date, outcome) as proof of the refusal.</p>
+  <p><strong>7.3 Security and data requiring special protection.</strong> Referrals do not as a rule contain personal data requiring special protection (art. 5 lit. c FADP); Arvut removes or masks such data if present in free-text fields before delivery. Delivery of Referrals occurs via the ABM platform or an encrypted channel (art. 8 FADP). The Parties inform each other without delay of any security breach concerning prospect data (art. 24 FADP).</p>
+
+  <h3 data-keep-next>8) Term and termination</h3>
+  <p><strong>8.1</strong> This Annex follows the term of the Agreement. Either Party may additionally terminate this Annex alone, in writing, with 30 days' notice to the end of a month, without effect on the Agreement.</p>
+  <p><strong>8.2</strong> Upon termination of this Annex the accrued fees remain due (art. 4). Arts. 4 (accrued fees), 6 and 7.2–7.3 survive termination of this Annex and of the Agreement, for the survival period of art. 14 of the Agreement (art. 16 of the Agreement).</p>
+  <p><strong>8.3</strong> Arvut may amend the economic terms (art. 4) for Referrals <strong>delivered after the amendment takes effect</strong>, with 3 months' prior written notice; amendments have no retroactive effect. In case of amendment, Example Treuhand may terminate this Annex under art. 8.1 before it takes effect. This art. 8.3 is an agreed, limited derogation from the written-form clause of art. 16 of the Agreement; the amendment is communicated in writing.</p>
+  <p><em>By countersigning below, the Parties adopt this Annex 4 as an integral part of the Agreement.</em></p>
+
+  <table class="parties sign">
+  <tbody>
+  <tr>
+  <td>Place and date</td>
+  <td>Zug / Zürich, <span class="fill">[date]</span></td>
+  </tr>
+  <tr>
+  <td>For Arvut GmbH</td>
+  <td>Heinz Brägger, Managing Director <span class="sigline">Signature</span></td>
+  </tr>
+  <tr>
+  <td>For Example Treuhand SA</td>
+  <td>Thomas Meier, Managing Director <span class="sigline">Signature</span></td>
+  </tr>
+  </tbody>
+  </table>
+
+  <p class="src">Arvut GmbH · Collaboration and Revenue-Share Agreement Arvut ↔ Example Treuhand SA (50/50) incl. Annex 4 &laquo;/best&raquo; · draft for discussion 10.07.2026 · confidential document</p>
+
+</div>
+
+<button class="print" type="button" id="printBtn">Print / Save as PDF</button>
+<script src="/a4.js"></script>
+</body>
+</html>

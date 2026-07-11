@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="it">
+<head>
+<!--
+  DOCUMENTO-SORGENTE (rigenerabile). Self-contained A4. NDA (bozza) — Arvut ↔ IBEX SERVICES SA.
+  Rigenera con: python3 tools/gen-hub-nda-dap.py (repo ABM-new-site)
+  NDA-мастера: ~/Projects/GoToMarket/Arvut-presentations/NDA_DAP_partner_master_*.md
+  PDF: Chrome/headless --print-to-pdf (A4 in @page).
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Bozza per discussione · NDA Arvut ↔ IBEX SERVICES SA</title>
+<style>
+:root{--cream:#FCFAF4;--ink:#202B28;--body:#3c463f;--muted:#79827C;--teal:#A2895A;--teal-d:#7E6C44;--teal-soft:#F3EFE7;--hair:#ECE6D8;--warn:#9a3b12;--warn-soft:#fbf0e8;--warn-line:#f0d3bf;}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#EAE7DD;color:var(--body);font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.sheet{max-width:820px;margin:0 auto;padding:28px 20px 80px}
+.doc{background:var(--cream);border-radius:6px;box-shadow:0 1px 2px rgba(32,43,40,.05),0 18px 44px -26px rgba(32,43,40,.34);padding:48px 56px 56px}
+h1,h2,h3{color:var(--ink);font-weight:800;line-height:1.13;letter-spacing:-.012em;margin:0;text-wrap:balance}
+h1{font-size:27px;margin:0 0 6px;max-width:34ch}
+h2{font-size:17px;margin:30px 0 9px;padding-top:14px;border-top:1px solid var(--hair)}
+h3{font-size:14.5px;margin:16px 0 5px}
+p{margin:0 0 9px;max-width:76ch}
+p.sub{color:var(--teal-d);font-weight:700;font-size:13px;letter-spacing:.03em;text-transform:uppercase;margin:0 0 18px}
+p.lead{font-size:15.5px;color:var(--ink);max-width:70ch;margin:0 0 16px}
+p.cl{padding-left:20px;text-indent:-20px}
+strong{color:var(--ink);font-weight:700}em{color:var(--body)}a{color:var(--teal-d)}
+ul{margin:4px 0 10px;padding-left:0;list-style:none}
+ul li{position:relative;padding:4px 0 4px 20px;max-width:76ch}
+ul li::before{content:"";position:absolute;left:3px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+blockquote,.banner{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:8px;padding:14px 16px;margin:0 0 26px;font-size:12.5px;line-height:1.5;color:#6b3411}
+blockquote p{margin:0 0 6px;max-width:none}blockquote p:last-child{margin:0}
+blockquote strong,.banner strong{color:var(--warn)}
+.hl{background:var(--teal-soft);border:1px solid var(--teal-soft);border-radius:10px;padding:18px 20px 14px;margin:0 0 18px}
+.hl h2{border-top:none;padding-top:0;margin-top:0;color:var(--teal-d)}
+.hl.cta{margin-top:28px}
+.sig{margin-top:34px;display:flex;gap:40px;flex-wrap:wrap}
+.sig div{flex:1 1 260px}
+.sig .line{border-bottom:1px solid var(--ink);height:38px;margin:18px 0 6px}
+.sig .who{color:var(--ink);font-weight:700;font-size:13px}
+.sig .role{color:var(--muted);font-size:12.5px}
+hr{border:none;border-top:1px solid var(--hair);margin:26px 0}
+hr + h2{border-top:none;padding-top:0;margin-top:26px}
+.line-inline{display:inline-block;width:240px;border-bottom:1px solid var(--ink);height:1em}
+.sigblock{margin-top:26px;line-height:2}
+.foot{margin-top:34px;color:var(--muted);font-size:11.5px}
+@page{size:A4;margin:16mm 15mm}
+@media print{body{background:#fff}.sheet{max-width:none;margin:0;padding:0}.doc{box-shadow:none;border-radius:0;padding:0}h2{break-after:avoid}blockquote,.banner,.hl{break-inside:avoid}.sig{break-inside:avoid}a{color:var(--ink);text-decoration:none}}
+@media(max-width:640px){.doc{padding:30px 22px 36px}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<div class="sheet"><div class="doc">
+<h1>Accordo di non divulgazione (NDA)</h1>
+<div class="banner"><strong>Bozza per discussione — Arvut ↔︎ IBEX SERVICES SA.</strong> Predisposta per IBEX SERVICES SA — versione leggibile/stampabile. La firma verrà organizzata separatamente (su carta o in formato elettronico). Osservazioni e commenti benvenuti.</div>
+<p><strong>tra</strong></p>
+<p><strong>Arvut GmbH</strong>, Untermüli 9, 6300 Zugo, Svizzera (IDI CHE-192.778.668) — la <strong>«Parte divulgante»</strong></p>
+<p><strong>e</strong></p>
+<p><strong>IBEX SERVICES SA</strong>, Via Serafino Balestra 6, 6830 Chiasso — la <strong>«Parte ricevente»</strong></p>
+<p>(ciascuna una «Parte», congiuntamente le «Parti»)</p>
+<hr>
+<h2>1. Scopo e Informazioni confidenziali</h2>
+<p>La Parte ricevente sta valutando, ed eventualmente negoziando, una collaborazione commerciale con Arvut GmbH nell'ambito della quale la Parte ricevente utilizzerebbe la piattaforma, la metodologia e i servizi connessi di Arvut nella propria attività fiduciaria e per i propri clienti (lo <strong>«Scopo»</strong>). A tale Scopo, la Parte divulgante comunicherà informazioni confidenziali, in particolare concernenti <strong>DAP — Digital Accounting Protocol</strong> (protocollo contabile digitale): il suo concetto, la metodologia, gli algoritmi, la documentazione, le dimostrazioni, la roadmap di prodotto, i dettagli finanziari e qualsiasi materiale tecnico o commerciale connesso (congiuntamente le <strong>«Informazioni confidenziali»</strong>), indipendentemente dal fatto che siano comunicate in forma scritta, elettronica, orale o visiva. Le comunicazioni orali o visive (incluse le dimostrazioni) sono coperte se designate come confidenziali al momento della comunicazione o se la loro natura confidenziale risulta evidente dalle circostanze. L'esistenza, lo stato e il contenuto delle trattative tra le Parti costituiscono parimenti Informazioni confidenziali di entrambe le Parti; nessuna Parte effettuerà alcun annuncio pubblico al riguardo senza il previo consenso scritto dell'altra Parte.</p>
+<h2>2. Obblighi della Parte ricevente</h2>
+<p class="cl">La Parte ricevente si impegna a:</p>
+<p class="cl">a) utilizzare le Informazioni confidenziali <strong>esclusivamente per lo Scopo</strong>;</p>
+<p class="cl">b) mantenere le Informazioni confidenziali strettamente riservate e proteggerle con almeno la stessa diligenza applicata alle proprie informazioni confidenziali, e in ogni caso con una diligenza non inferiore a quella ragionevole;</p>
+<p class="cl">c) comunicarle unicamente ai propri amministratori, dirigenti, dipendenti e consulenti professionali che ne necessitano per lo Scopo e che sono vincolati da obblighi di confidenzialità almeno altrettanto protettivi di quelli del presente Accordo o dal segreto professionale legale; la Parte ricevente risponde di qualsiasi violazione commessa da tali persone come di una violazione propria (art. 101 CO);</p>
+<p class="cl">d) non utilizzare, implementare o riprodurre le Informazioni confidenziali relative a DAP, in tutto o in parte, nella concezione, nello sviluppo o nella fornitura di prodotti o servizi propri o di terzi (<strong>divieto di utilizzo</strong>). Il presente Accordo non limita la Parte ricevente nell'esercizio della propria attività ordinaria, inclusi i servizi contabili o fiduciari, sulla base di informazioni rientranti nella clausola 3 o di competenze ed esperienze professionali generali, purché ciò avvenga senza utilizzo delle Informazioni confidenziali. A scanso di equivoci, il presente Accordo non costituisce un divieto di concorrenza;</p>
+<p class="cl">e) non effettuare reverse engineering, decompilare o altrimenti tentare di ricavare la metodologia, gli algoritmi o la logica sottostante di DAP da qualsiasi dimostrazione, software o materiale messo a disposizione.</p>
+<h2>3. Eccezioni</h2>
+<p class="cl">Gli obblighi di cui alla clausola 2 non si applicano alle informazioni per le quali la Parte ricevente può dimostrare che:</p>
+<p class="cl">a) sono o diventano di pubblico dominio senza violazione del presente Accordo;</p>
+<p class="cl">b) erano da essa lecitamente conosciute prima della comunicazione, libere da qualsiasi obbligo di confidenzialità;</p>
+<p class="cl">c) sono state sviluppate in modo indipendente da persone che non hanno avuto accesso alle Informazioni confidenziali, come comprovato da registrazioni scritte contemporanee; oppure</p>
+<p class="cl">d) devono essere comunicate in virtù di disposizioni imperative di legge o per ordine di un'autorità competente — nel qual caso la Parte ricevente, ove legalmente consentito, ne informa senza indugio la Parte divulgante e limita la comunicazione al minimo necessario.</p>
+<h2>4. Nessuna licenza, nessun obbligo, nessuna garanzia</h2>
+<p>Il presente Accordo non concede né trasferisce alcun diritto di proprietà intellettuale o licenza. Qualsiasi utilizzo della piattaforma, della metodologia o dei servizi di Arvut che ecceda la valutazione ai fini dello Scopo avverrà unicamente in virtù di un accordo scritto separatamente sottoscritto (ad es. un accordo pilota, di partenariato o di servizio), il quale disciplinerà in via esclusiva tale utilizzo; il presente Accordo continua ad applicarsi a tutte le Informazioni confidenziali non coperte da tale accordo. Nessuna disposizione del presente Accordo obbliga una delle Parti a concludere una collaborazione o altra operazione. Le Informazioni confidenziali sono fornite «così come sono»; la Parte divulgante non rilascia alcuna dichiarazione o garanzia quanto alla loro esattezza o completezza. Rimane riservata la protezione dei segreti d'affari della Parte divulgante in virtù del diritto vigente, in particolare della Legge federale contro la concorrenza sleale (LCSl) e dell'art. 162 CP.</p>
+<h2>5. Restituzione e cancellazione</h2>
+<p>Su prima richiesta della Parte divulgante, la Parte ricevente restituirà o cancellerà irrevocabilmente tutte le Informazioni confidenziali, incluse le copie e le note derivate, e ne darà conferma per iscritto. Le copie richieste da disposizioni imperative di legge o da direttive interne di audit, nonché le copie di backup create automaticamente e non facilmente accessibili nel corso ordinario dell'attività, possono essere conservate ma rimangono soggette al presente Accordo per tutta la durata della loro conservazione.</p>
+<h2>6. Durata</h2>
+<p>Il presente Accordo entra in vigore con la firma di entrambe le Parti. Gli obblighi di cui alle clausole 2–5 rimangono in vigore per <strong>cinque (5) anni</strong> dalla firma. Per le Informazioni confidenziali che costituiscono un segreto d'affari, gli obblighi di cui alla clausola 2 lett. a)–c) rimangono in vigore fintanto che tali informazioni conservano la natura di segreto d'affari; il divieto di utilizzo di cui alla clausola 2 lett. d) si estingue cinque (5) anni dopo la firma.</p>
+<h2>7. Pena convenzionale</h2>
+<p>In caso di violazione della clausola 2, la Parte ricevente pagherà una pena convenzionale (art. 160 segg. CO) di <strong>CHF 50'000</strong> per ogni violazione; una serie di violazioni connesse derivanti dal medesimo evento è considerata come un'unica violazione e, in caso di violazione continuata, ogni mese iniziato costituisce una violazione distinta. La pena è dovuta indipendentemente dalla prova di un danno effettivo; l'importo complessivo delle pene ai sensi della presente clausola è limitato a CHF 250'000. Il pagamento della pena non libera la Parte ricevente dai suoi obblighi ai sensi del presente Accordo; rimangono riservati il diritto di pretendere il risarcimento del danno eccedente la pena (art. 161 cpv. 2 CO) e il diritto di chiedere provvedimenti inibitori.</p>
+<h2>8. Diritto applicabile e foro competente</h2>
+<p>Il presente Accordo è retto dal <strong>diritto materiale svizzero</strong>, ad esclusione delle sue norme di conflitto. Sono esclusivamente competenti i <strong>tribunali della sede di Arvut GmbH (Zugo, Svizzera)</strong>; rimane riservato il diritto della Parte divulgante di chiedere provvedimenti cautelari o inibitori dinanzi a qualsiasi altro tribunale competente.</p>
+<h2>9. Disposizioni finali</h2>
+<p>Qualora una disposizione del presente Accordo fosse dichiarata nulla, le restanti disposizioni rimangono in vigore e la disposizione nulla sarà sostituita da una disposizione valida quanto più vicina possibile al suo intento economico. Le modifiche richiedono la forma scritta.</p>
+<hr>
+<p><strong>Arvut GmbH</strong> — Zugo, ____________</p>
+<p class="sigblock"><span class="line-inline"></span><br>
+Heinz Brägger, Geschäftsführer</p>
+<p><strong>IBEX SERVICES SA</strong> — Chiasso, ____________</p>
+<p class="sigblock"><span class="line-inline"></span><br>
+Oliver Camponovo, Direttore</p>
+<p class="foot">Arvut GmbH · Untermüli 9, 6300 Zug · Bozza per discussione.</p>
+</div></div>
+</body>
+</html>

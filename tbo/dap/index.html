@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="de">
+<head>
+<!--
+  DOCUMENTO-SORGENTE (rigenerabile). Self-contained A4. DAP one-pager — Arvut ↔ TBO Treuhand AG.
+  Rigenera con: python3 tools/gen-hub-nda-dap.py (repo ABM-new-site)
+  NDA-мастера: ~/Projects/GoToMarket/Arvut-presentations/NDA_DAP_partner_master_*.md
+  PDF: Chrome/headless --print-to-pdf (A4 in @page).
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>DAP — Digital Accounting Protocol · Arvut ↔ TBO Treuhand AG</title>
+<style>
+:root{--cream:#FCFAF4;--ink:#202B28;--body:#3c463f;--muted:#79827C;--teal:#1A4593;--teal-d:#002060;--teal-soft:#E9EEF8;--hair:#ECE6D8;--warn:#9a3b12;--warn-soft:#fbf0e8;--warn-line:#f0d3bf;}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#EAE7DD;color:var(--body);font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.sheet{max-width:820px;margin:0 auto;padding:28px 20px 80px}
+.doc{background:var(--cream);border-radius:6px;box-shadow:0 1px 2px rgba(32,43,40,.05),0 18px 44px -26px rgba(32,43,40,.34);padding:48px 56px 56px}
+h1,h2,h3{color:var(--ink);font-weight:800;line-height:1.13;letter-spacing:-.012em;margin:0;text-wrap:balance}
+h1{font-size:27px;margin:0 0 6px;max-width:34ch}
+h2{font-size:17px;margin:30px 0 9px;padding-top:14px;border-top:1px solid var(--hair)}
+h3{font-size:14.5px;margin:16px 0 5px}
+p{margin:0 0 9px;max-width:76ch}
+p.sub{color:var(--teal-d);font-weight:700;font-size:13px;letter-spacing:.03em;text-transform:uppercase;margin:0 0 18px}
+p.lead{font-size:15.5px;color:var(--ink);max-width:70ch;margin:0 0 16px}
+p.cl{padding-left:20px;text-indent:-20px}
+strong{color:var(--ink);font-weight:700}em{color:var(--body)}a{color:var(--teal-d)}
+ul{margin:4px 0 10px;padding-left:0;list-style:none}
+ul li{position:relative;padding:4px 0 4px 20px;max-width:76ch}
+ul li::before{content:"";position:absolute;left:3px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+blockquote,.banner{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:8px;padding:14px 16px;margin:0 0 26px;font-size:12.5px;line-height:1.5;color:#6b3411}
+blockquote p{margin:0 0 6px;max-width:none}blockquote p:last-child{margin:0}
+blockquote strong,.banner strong{color:var(--warn)}
+.hl{background:var(--teal-soft);border:1px solid var(--teal-soft);border-radius:10px;padding:18px 20px 14px;margin:0 0 18px}
+.hl h2{border-top:none;padding-top:0;margin-top:0;color:var(--teal-d)}
+.hl.cta{margin-top:28px}
+.sig{margin-top:34px;display:flex;gap:40px;flex-wrap:wrap}
+.sig div{flex:1 1 260px}
+.sig .line{border-bottom:1px solid var(--ink);height:38px;margin:18px 0 6px}
+.sig .who{color:var(--ink);font-weight:700;font-size:13px}
+.sig .role{color:var(--muted);font-size:12.5px}
+hr{border:none;border-top:1px solid var(--hair);margin:26px 0}
+hr + h2{border-top:none;padding-top:0;margin-top:26px}
+.line-inline{display:inline-block;width:240px;border-bottom:1px solid var(--ink);height:1em}
+.sigblock{margin-top:26px;line-height:2}
+.foot{margin-top:34px;color:var(--muted);font-size:11.5px}
+@page{size:A4;margin:16mm 15mm}
+@media print{body{background:#fff}.sheet{max-width:none;margin:0;padding:0}.doc{box-shadow:none;border-radius:0;padding:0}h2{break-after:avoid}blockquote,.banner,.hl{break-inside:avoid}.sig{break-inside:avoid}a{color:var(--ink);text-decoration:none}}
+@media(max-width:640px){.doc{padding:30px 22px 36px}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<div class="sheet"><div class="doc">
+<h1>DAP — Digital Accounting Protocol</h1>
+<p class="sub">Das proprietäre Protokoll hinter der Arvut-Plattform</p>
+<p class="lead">Die klassische Buchhaltung beantwortet die Frage: <em>«Was ist — nach den Regeln — geschehen?»</em> DAP beantwortet die Frage, die ein Unternehmer wirklich stellt: <em>«Wie steht mein Geschäft — heute?»</em></p>
+<p><strong>Der klassische Treuhänder ist der geteilte Buchhalter der KMU. Der Treuhänder im Arvut-Netzwerk ist zusätzlich ihr externer CFO — und nicht nur für kleine Unternehmen.</strong> DAP macht diese Rolle wirtschaftlich möglich — ohne Analysten einzustellen.</p>
+<div class="hl"><h2>Das Prinzip: geldbestätigter Gewinn</h2>
+<p>Ein Ertrag zählt erst, wenn die Leistung erbracht <strong>und</strong> bezahlt ist. Ein Aufwand mindert den Gewinn erst, wenn er bezahlt ist. Alles andere — gestellte, aber nicht bezahlte Rechnungen, erhaltene, aber nicht bezahlte Lieferantenrechnungen, aufgelaufene, aber nicht ausbezahlte Löhne — <strong>verschwindet nicht</strong>: Es bleibt als expliziter Zustand sichtbar, ausserhalb des Gewinns.</p></div>
+<p>Das ist keine Kassenbuchhaltung: Die Kasse «vergisst», was noch offen ist; DAP bewahrt jeden Zustand und zeigt ihn. Und es ersetzt die gesetzliche Buchführung nicht: Die Bücher bleiben vollständig OR-konform — DAP ist eine Projektion derselben Daten; Revision und Steuern ändern sich nicht.</p>
+<h2>Buchhaltung nach Fakten, nicht nach Deklarationen</h2>
+<p>In der klassischen Buchhaltung ist die Rechnung das zentrale Dokument. Doch die Rechnung ist eine <strong>Absichtserklärung</strong> — was, an wen, wie viel bezahlt werden soll. Der Fakt ist etwas anderes: Der <strong>Lieferschein</strong> bezeugt, dass die Ware den Besitzer gewechselt hat; der <strong>Bankauszug</strong> bezeugt, dass Geld geflossen ist. DAP baut das Bild auf Fakten-Dokumenten: Zahlungen aus den Bankauszügen — auf den Rappen — und Lieferungen aus den Lieferscheinen; die Rechnung verbindet die beiden Ströme und fixiert den Preis.</p>
+<p>Solange ein Kunde noch nicht alle Lieferscheine übergibt, bleibt die Rechnung ein zulässiger Ersatz — aber das Bild unterscheidet ehrlich, was <strong>durch einen Fakt bestätigt</strong> und was <strong>bisher nur deklariert</strong> ist. Die gesetzlichen Bücher buchen weiter nach Rechnung, wie OR und MWSTG es verlangen — daran ändert sich nichts.</p>
+<h2>Aktiven: was sie heute wert sind</h2>
+<p>Die klassische Abschreibung folgt einer Steuertabelle. DAP zeigt den <strong>realen Wertverzehr</strong>: die Differenz zwischen Anschaffungspreis und heutigem Wert — vom Markt, wo es einen objektiven Preis gibt, oder aus dem eigenen Katalog des Inhabers; die Steuertabelle bleibt nur als Rückfalloption.</p>
+<ul>
+<li>Ein Auto für 80'000, kaum aus dem Showroom gefahren, ist 50'000 wert: <strong>30'000 sind bereits verzehrt</strong> — und das Bild zeigt es am selben Tag, nicht über zehn Jahresquoten.</li>
+<li>Ein zehn Jahre alter Computer: <strong>in den Büchern null, aber er lebt und arbeitet</strong> — gekauft für 3'000, heute 300 wert. DAP führt ein <strong>Register der lebenden Aktiven</strong>, nicht der Buchrestwerte: Lebendig ist das Aktivum, das arbeitet — nicht das mit einem Restsaldo über null.</li>
+<li>Wertzuwachs über den Anschaffungspreis hinaus ist kein Gewinn, solange nicht verkauft wird: Er bleibt als Marktdelta sichtbar — wie bei börsengehandelten Aktiven (Krypto, Währungen), die täglich über einen Live-Feed neu bewertet werden.</li>
+</ul>
+<p>Der Wertverzehr mindert den DAP-Gewinn sofort — in dem Moment, in dem Wert real verschwunden ist. In den gesetzlichen Büchern bleibt die Abschreibung steuerlich, wie sie ist — diese Ebene wird nicht angetastet.</p>
+<h2>Was es Ihnen als Treuhänder bringt</h2>
+<ul>
+<li><strong>Ein Blick statt 200 Zeilen:</strong> Liquidität pro Währung gegen Schulden, echte Marge, Eigenkapital — auf einem Bild, aktuell mit den Büchern.</li>
+<li><strong>Gewinn, durch Zahlungseingänge bestätigt:</strong> keine «Papiergewinne», die später in Debitorenverlusten verschwinden.</li>
+<li><strong>Risikokunden werden früh sichtbar:</strong> Unbezahltes ist konstruktionsbedingt sichtbar, nicht in Fussnoten begraben.</li>
+<li><strong>Robust gegen Verzerrungen:</strong> aufgeblähte oder nie zur Zahlung bestimmte Rechnungen mindern den Gewinn nicht.</li>
+<li><strong>Zwei Ebenen, ein Datenbestand:</strong> gesetzliches Buch unangetastet (OR, Vorsichtsprinzip) + DAP-Führungsebene. Keine doppelte Buchhaltung zu pflegen.</li>
+<li><strong>Der reale Wert des Anlagenparks:</strong> Das Register der lebenden Aktiven zeigt, was das Unternehmen heute wirklich besitzt — nicht die Restwerte einer Tabelle.</li>
+</ul>
+<h2>Was Ihre Kunden sehen</h2>
+<ul>
+<li>Der Inhaber versteht sein Unternehmen <strong>in zehn Sekunden</strong> — ohne eine Bilanz lesen zu können.</li>
+<li>«Wie viel kann ich ausgeben?» hat eine visuelle Antwort: Kasse und Bank pro Währung, gegen fällige Schulden.</li>
+<li>Das Bild aktualisiert sich <strong>in Echtzeit</strong> mit der Buchhaltung — keine Quartalsauswertung, ein lebendes Abbild.</li>
+<li>Was die Firma wirklich besitzt — zum heutigen Wert, nicht nach Steuertabelle.</li>
+<li>Und es trägt <strong>Ihre Marke</strong>: DAP ist Teil der White-Label-Plattform, die Sie Ihren Kunden als eigenen Service anbieten.</li>
+</ul>
+<h2>Warum jetzt</h2>
+<p>DAP ist ein proprietäres Protokoll von Arvut, <strong>heute produktiv</strong> auf der Plattform — kein Konzept. Und das Protokoll wächst im Produktivbetrieb weiter: Buchhaltung nach Fakten und Wertverzehr zu Marktwerten sind bereits im Einsatz. Weder die etablierten Treuhand-Systeme noch die neuen Cloud-Tools bieten Vergleichbares. Die Partner des Arvut-Netzwerks können es als Erste ihren Kunden vorlegen.</p>
+<div class="hl cta"><h2>Möchten Sie sehen, wie es innen funktioniert?</h2>
+<p>Die Mechanik des Protokolls — Geometrie, Zustände, Übergänge, Roadmap — zeigen wir gerne persönlich, <strong>nach Unterzeichnung der Geheimhaltungsvereinbarung</strong> gleich nebenan in diesem Bereich. Eine Live-Demo ist innert weniger Tage organisiert.</p></div>
+<p class="foot">Arvut GmbH · Untermüli 9, 6300 Zug · Informationsdokument — kein Vertragsangebot.</p>
+</div></div>
+</body>
+</html>

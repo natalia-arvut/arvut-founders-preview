@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<!--
+  DOCUMENTO-SORGENTE (rigenerabile). Self-contained A4. DAP one-pager — Arvut ↔ Figemax SA.
+  Rigenera con: python3 tools/gen-hub-nda-dap.py (repo ABM-new-site)
+  NDA-мастера: ~/Projects/GoToMarket/Arvut-presentations/NDA_DAP_partner_master_*.md
+  PDF: Chrome/headless --print-to-pdf (A4 in @page).
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>DAP — Digital Accounting Protocol · Arvut ↔ Figemax SA</title>
+<style>
+:root{--cream:#FCFAF4;--ink:#202B28;--body:#3c463f;--muted:#79827C;--teal:#6E255A;--teal-d:#4F1B41;--teal-soft:#F2E8F0;--hair:#ECE6D8;--warn:#9a3b12;--warn-soft:#fbf0e8;--warn-line:#f0d3bf;}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#EAE7DD;color:var(--body);font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.sheet{max-width:820px;margin:0 auto;padding:28px 20px 80px}
+.doc{background:var(--cream);border-radius:6px;box-shadow:0 1px 2px rgba(32,43,40,.05),0 18px 44px -26px rgba(32,43,40,.34);padding:48px 56px 56px}
+h1,h2,h3{color:var(--ink);font-weight:800;line-height:1.13;letter-spacing:-.012em;margin:0;text-wrap:balance}
+h1{font-size:27px;margin:0 0 6px;max-width:34ch}
+h2{font-size:17px;margin:30px 0 9px;padding-top:14px;border-top:1px solid var(--hair)}
+h3{font-size:14.5px;margin:16px 0 5px}
+p{margin:0 0 9px;max-width:76ch}
+p.sub{color:var(--teal-d);font-weight:700;font-size:13px;letter-spacing:.03em;text-transform:uppercase;margin:0 0 18px}
+p.lead{font-size:15.5px;color:var(--ink);max-width:70ch;margin:0 0 16px}
+p.cl{padding-left:20px;text-indent:-20px}
+strong{color:var(--ink);font-weight:700}em{color:var(--body)}a{color:var(--teal-d)}
+ul{margin:4px 0 10px;padding-left:0;list-style:none}
+ul li{position:relative;padding:4px 0 4px 20px;max-width:76ch}
+ul li::before{content:"";position:absolute;left:3px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+blockquote,.banner{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:8px;padding:14px 16px;margin:0 0 26px;font-size:12.5px;line-height:1.5;color:#6b3411}
+blockquote p{margin:0 0 6px;max-width:none}blockquote p:last-child{margin:0}
+blockquote strong,.banner strong{color:var(--warn)}
+.hl{background:var(--teal-soft);border:1px solid var(--teal-soft);border-radius:10px;padding:18px 20px 14px;margin:0 0 18px}
+.hl h2{border-top:none;padding-top:0;margin-top:0;color:var(--teal-d)}
+.hl.cta{margin-top:28px}
+.sig{margin-top:34px;display:flex;gap:40px;flex-wrap:wrap}
+.sig div{flex:1 1 260px}
+.sig .line{border-bottom:1px solid var(--ink);height:38px;margin:18px 0 6px}
+.sig .who{color:var(--ink);font-weight:700;font-size:13px}
+.sig .role{color:var(--muted);font-size:12.5px}
+hr{border:none;border-top:1px solid var(--hair);margin:26px 0}
+hr + h2{border-top:none;padding-top:0;margin-top:26px}
+.line-inline{display:inline-block;width:240px;border-bottom:1px solid var(--ink);height:1em}
+.sigblock{margin-top:26px;line-height:2}
+.foot{margin-top:34px;color:var(--muted);font-size:11.5px}
+@page{size:A4;margin:16mm 15mm}
+@media print{body{background:#fff}.sheet{max-width:none;margin:0;padding:0}.doc{box-shadow:none;border-radius:0;padding:0}h2{break-after:avoid}blockquote,.banner,.hl{break-inside:avoid}.sig{break-inside:avoid}a{color:var(--ink);text-decoration:none}}
+@media(max-width:640px){.doc{padding:30px 22px 36px}h1{font-size:23px}}
+</style>
+</head>
+<body>
+<div class="sheet"><div class="doc">
+<h1>DAP — Digital Accounting Protocol</h1>
+<p class="sub">Le protocole propriétaire derrière la plateforme Arvut</p>
+<p class="lead">La comptabilité classique répond à la question : <em>«que s'est-il passé, selon les règles ?»</em> DAP répond à celle qu'un chef d'entreprise pose vraiment : <em>«où en est mon affaire — aujourd'hui ?»</em></p>
+<p><strong>Un fiduciaire traditionnel est le comptable partagé des PME. Un fiduciaire du réseau Arvut est aussi leur directeur financier externe — et pas seulement pour les petites entreprises.</strong> DAP rend ce rôle économiquement possible — sans embaucher d'analystes.</p>
+<div class="hl"><h2>Le principe : un bénéfice confirmé par l'argent</h2>
+<p>Un produit ne compte que lorsque la prestation est livrée <strong>et</strong> encaissée. Une charge ne réduit le bénéfice que lorsqu'elle est payée. Tout le reste — factures émises non encaissées, factures fournisseurs non payées, salaires courus non versés — <strong>ne disparaît pas</strong> : il reste visible comme un état explicite, hors du bénéfice.</p></div>
+<p>Ce n'est pas une comptabilité de caisse : la caisse «oublie» ce qui reste ouvert ; DAP conserve chaque état et le montre. Et cela ne remplace pas la comptabilité légale : les livres restent pleinement conformes au CO — DAP est une projection des mêmes données ; révision et fiscalité ne changent pas.</p>
+<h2>Une comptabilité par les faits, pas par les déclarations</h2>
+<p>Dans la comptabilité classique, le document central est la facture. Mais la facture est une <strong>déclaration d'intention</strong> — quoi, à qui, combien devra être payé. Le fait est autre chose : le <strong>bulletin de livraison</strong> atteste que la marchandise a changé de mains ; le <strong>relevé bancaire</strong> atteste que l'argent a bougé. DAP construit l'image sur les documents-faits : les paiements à partir des relevés — au centime — et les livraisons à partir des bulletins ; la facture relie les deux flux et fixe le prix.</p>
+<p>Tant qu'un client ne remet pas encore tous les bulletins de livraison, la facture reste un substitut acceptable — mais l'image distingue honnêtement ce qui est <strong>confirmé par un fait</strong> de ce qui n'est <strong>pour l'instant que déclaré</strong>. Les livres légaux continuent d'enregistrer par facture, comme l'exigent le CO et la LTVA — rien ne change.</p>
+<h2>Les actifs : ce qu'ils valent aujourd'hui</h2>
+<p>L'amortissement classique suit un barème fiscal. DAP montre l'<strong>usure réelle</strong> : la différence entre le prix d'acquisition et la valeur d'aujourd'hui — par le marché là où il existe un prix objectif, ou par le catalogue du propriétaire ; le barème fiscal ne reste qu'une solution de repli.</p>
+<ul>
+<li>Une voiture achetée 80'000, à peine sortie du garage, en vaut 50'000 : <strong>30'000 ont déjà fondu</strong> — et l'image le montre le jour même, pas en dix annuités.</li>
+<li>Un ordinateur de dix ans : <strong>zéro dans les livres, mais il vit et travaille</strong> — acheté 3'000, il en vaut 300 aujourd'hui. DAP tient un <strong>registre des actifs vivants</strong>, pas des valeurs résiduelles : est vivant l'actif qui travaille, pas celui dont le solde comptable dépasse zéro.</li>
+<li>La hausse au-dessus du prix d'acquisition n'est pas un bénéfice tant qu'on ne vend pas : elle reste visible comme delta de marché — comme pour les actifs cotés (crypto, devises), réévalués chaque jour sur un flux de marché.</li>
+</ul>
+<p>L'usure réduit le bénéfice DAP immédiatement — au moment où la valeur a réellement disparu. Dans les livres légaux, l'amortissement reste fiscal, tel quel — ce niveau n'est pas touché.</p>
+<h2>Ce que cela apporte à votre fiduciaire</h2>
+<ul>
+<li><strong>Un coup d'œil au lieu de 200 lignes :</strong> liquidités par monnaie contre dettes, marge réelle, fonds propres — sur une seule image, à jour avec les livres.</li>
+<li><strong>Un bénéfice confirmé par les encaissements :</strong> pas de «bénéfices papier» qui s'évaporent ensuite en pertes sur débiteurs.</li>
+<li><strong>Les clients à risque apparaissent tôt :</strong> l'impayé est visible par construction, pas enfoui dans les annexes.</li>
+<li><strong>Robuste face aux distorsions :</strong> des factures gonflées ou jamais destinées à être payées ne réduisent pas le bénéfice.</li>
+<li><strong>Deux niveaux, une seule donnée :</strong> livre légal intact (CO, principe de prudence) + niveau de gestion DAP. Aucune double comptabilité à tenir.</li>
+<li><strong>La valeur réelle du parc d'actifs :</strong> le registre des actifs vivants montre ce que l'entreprise possède vraiment aujourd'hui — pas les valeurs résiduelles d'un barème.</li>
+</ul>
+<h2>Ce que voient vos clients</h2>
+<ul>
+<li>Le patron comprend son entreprise <strong>en dix secondes</strong> — sans savoir lire un bilan.</li>
+<li>«Combien puis-je dépenser ?» a une réponse visuelle : caisse et banque par monnaie, face aux dettes échues.</li>
+<li>L'image se met à jour <strong>en temps réel</strong> avec la comptabilité — pas un rapport trimestriel, une photographie vivante.</li>
+<li>Ce que l'entreprise possède vraiment — à la valeur d'aujourd'hui, pas selon un barème fiscal.</li>
+<li>Et elle porte <strong>votre marque</strong> : DAP fait partie de la plateforme white-label que vous offrez à vos clients comme votre propre service.</li>
+</ul>
+<h2>Pourquoi maintenant</h2>
+<p>DAP est un protocole propriétaire d'Arvut, <strong>en production aujourd'hui</strong> sur la plateforme — pas un concept. Et le protocole continue de grandir en production : la comptabilité par les faits et l'usure à valeur de marché sont déjà en service. Ni les systèmes fiduciaires établis ni les nouveaux outils cloud n'offrent rien de comparable. Les partenaires du réseau Arvut sont les premiers à pouvoir le présenter à leurs clients.</p>
+<div class="hl cta"><h2>Vous voulez voir comment cela fonctionne à l'intérieur ?</h2>
+<p>La mécanique du protocole — géométrie, états, transitions, roadmap — nous vous la montrons volontiers en personne, <strong>après signature de l'accord de confidentialité</strong> disponible juste à côté dans cet espace. Une démo en direct s'organise en quelques jours.</p></div>
+<p class="foot">Arvut GmbH · Untermüli 9, 6300 Zug · Document d'information — ne constitue pas une offre contractuelle.</p>
+</div></div>
+</body>
+</html>

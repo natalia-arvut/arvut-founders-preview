@@ -1,0 +1,527 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!--
+  INTERNAL working document — LinkedIn Kit, /best distribution campaign.
+  Source: /Users/al/Downloads/linkedin_kit_best_launch.md (Arvut Strategy, 2026-07-02).
+  2026-07-04 restructure (Alex): 2x3 format — main kit text RU|EN (toggle),
+  message templates A1-A4 / B1-B3 in DE|IT|FR tabs per card. DE texts are
+  BoD-approved and unchanged; IT/FR are faithful translations. Same URL/token.
+  NO gate — the secret is the unguessable /k/best-kit-<token>/ URL itself (decision
+  Alex 2026-07-03: Heinz's outreach team must not hold the 0010 hub code). noindex +
+  robots Disallow /k/ + never linked from any public page or the public JS bundle.
+  Old gated path /presentations/linkedin-kit-best/ redirects here.
+  PDF: Chrome/headless print (A4 via @page) — prints the selected main language;
+  hidden message-language variants are revealed and labelled in print.
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LinkedIn Kit — /best Distribution Campaign · Arvut (internal)</title>
+<style>
+:root{--cream:#FCFAF4;--ink:#202B28;--body:#3c463f;--muted:#79827C;--teal:#009B9F;--teal-d:#016E72;--teal-soft:#E3F2F0;--hair:#ECE6D8;--warn:#9a3b12;--warn-soft:#fbf0e8;--warn-line:#f0d3bf;--gold:#B98A2F;--gold-soft:#FAF3E3;}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#EAE7DD;color:var(--body);font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.sheet{max-width:860px;margin:0 auto;padding:28px 20px 80px}
+.doc{background:var(--cream);border-radius:6px;box-shadow:0 1px 2px rgba(32,43,40,.05),0 18px 44px -26px rgba(32,43,40,.34);padding:48px 56px 56px}
+h1,h2,h3{color:var(--ink);font-weight:800;line-height:1.15;letter-spacing:-.012em;margin:0;text-wrap:balance}
+h1{font-size:27px;margin:0 0 6px}
+h2{font-size:17px;margin:34px 0 10px;padding-top:16px;border-top:1px solid var(--hair)}
+h2 .no{color:var(--teal);font-variant-numeric:tabular-nums;margin-right:8px}
+h3{font-size:14.5px;margin:18px 0 6px}
+p{margin:0 0 9px;max-width:76ch}
+strong{color:var(--ink);font-weight:700}em{color:var(--body)}a{color:var(--teal-d)}
+ul{margin:4px 0 10px;padding-left:0;list-style:none}
+ul li{position:relative;padding:4px 0 4px 20px;max-width:76ch}
+ul li::before{content:"";position:absolute;left:3px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+ol{margin:4px 0 10px;padding-left:22px}ol li{padding:3px 0;max-width:76ch}
+.meta{color:var(--muted);font-size:12.5px;margin:0 0 22px}
+.chip{display:inline-block;background:var(--warn-soft);border:1px solid var(--warn-line);color:var(--warn);font-weight:700;font-size:11px;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:4px 12px;margin:0 0 16px}
+.brand{display:flex;align-items:baseline;gap:10px;margin-bottom:18px}
+.brand .wordmark{font-weight:800;font-size:15px;letter-spacing:.14em;color:var(--teal-d)}
+.brand .rule{flex:1;height:1px;background:var(--hair)}
+.lead{font-size:15px;color:var(--ink)}
+/* language switcher (main kit text) */
+.langbar{display:flex;gap:8px;align-items:center;margin:0 0 20px}
+.langbar .lbl{font-size:11px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--muted)}
+.langbar button{font:inherit;font-size:12.5px;font-weight:700;color:var(--teal-d);background:#fff;border:1px solid var(--hair);border-radius:999px;padding:5px 16px;cursor:pointer}
+.langbar button.on{background:var(--teal);border-color:var(--teal);color:#fff}
+body.lang-en .L.ru{display:none}
+body.lang-ru .L.en{display:none}
+/* message cards (LinkedIn DM / post templates) */
+.msg{background:#fff;border:1px solid var(--hair);border-left:3px solid var(--teal);border-radius:10px;padding:14px 18px;margin:10px 0 16px;max-width:70ch;box-shadow:0 1px 2px rgba(32,43,40,.04)}
+.msg p{max-width:none}.msg p:last-child{margin:0}
+.msg .tag{display:block;font-size:10.5px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--teal-d);margin:0 0 7px}
+.msg.post{border-left-color:var(--gold)}
+.msg.post .tag{color:var(--gold)}
+.intent{font-size:12.5px;color:var(--muted);font-style:italic;margin:0 0 6px;max-width:72ch}
+/* per-card language tabs DE|IT|FR */
+.mtabs{display:flex;gap:6px;margin:8px 0 0}
+.mtabs button{font:inherit;font-size:11px;font-weight:800;letter-spacing:.06em;color:var(--teal-d);background:#fff;border:1px solid var(--hair);border-radius:7px 7px 0 0;border-bottom:none;padding:4px 14px;cursor:pointer}
+.mtabs button.on{background:var(--teal);border-color:var(--teal);color:#fff}
+.msgset .msg{margin-top:0;border-top-left-radius:0}
+.msgset{margin:0 0 16px}
+.msgset .msg[hidden]{display:none}
+/* golden rule / rules banners */
+.golden{background:var(--gold-soft);border:1px solid #ecd9ad;border-radius:10px;padding:14px 18px;margin:14px 0 18px;color:#6b4d13;font-size:13.5px}
+.golden strong{color:#8a6216}
+.rules{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:10px;padding:13px 16px;margin:12px 0 20px;font-size:12.8px;line-height:1.5;color:#6b3411}
+.rules strong{color:var(--warn)}
+/* tables */
+table{border-collapse:collapse;width:100%;margin:10px 0 18px;font-size:12.8px;background:#fff;border:1px solid var(--hair);border-radius:8px;overflow:hidden}
+th,td{text-align:left;vertical-align:top;padding:9px 12px}
+th{color:var(--teal-d);font-weight:800;font-size:11px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1.5px solid var(--teal-soft);background:#fff}
+tr+tr td{border-top:1px solid var(--hair)}
+td:first-child{font-weight:700;color:var(--ink);width:22%}
+/* objections */
+.obj{background:#fff;border:1px solid var(--hair);border-radius:10px;padding:12px 16px;margin:8px 0;max-width:76ch}
+.obj .q{font-weight:700;color:var(--ink);margin:0 0 5px}
+.obj .a{margin:0;color:var(--body)}
+.obj .a::before{content:"→ ";color:var(--teal);font-weight:800}
+.msg .q{font-weight:700;color:var(--ink);margin:0 0 5px}
+.msg .a{margin:0 0 4px;color:var(--body)}
+.msg .a::before{content:"→ ";color:var(--teal);font-weight:800}
+/* checklist */
+.check{margin:6px 0 12px;padding:0;list-style:none}
+.check li{position:relative;padding:6px 0 6px 30px;max-width:76ch}
+.check li::before{content:"";position:absolute;left:2px;top:9px;width:14px;height:14px;border:2px solid var(--teal);border-radius:4px;background:#fff}
+.check li.hot::before{border-color:var(--warn)}
+.check li.hot{color:#6b3411}
+.check li.hot strong{color:var(--warn)}
+code,.utm{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:var(--teal-soft);color:var(--teal-d);border-radius:5px;padding:2px 6px}
+.utm{display:block;padding:9px 12px;margin:6px 0 10px;overflow-x:auto;white-space:nowrap}
+.footer{margin-top:36px;padding-top:14px;border-top:1px solid var(--hair);color:var(--muted);font-size:11.5px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+@media(max-width:640px){.doc{padding:30px 22px 40px}h1{font-size:22px}}
+@page{size:A4;margin:16mm 14mm}
+@media print{body{background:#fff}.sheet{padding:0;max-width:none}.doc{box-shadow:none;border-radius:0;padding:0}h2{break-after:avoid}.msg,.obj,.golden,.rules{break-inside:avoid}
+.langbar,.mtabs{display:none}
+.msgset .msg[hidden]{display:block}}
+</style>
+</head>
+<body class="lang-en">
+<div class="sheet">
+<div class="doc">
+
+<div class="brand"><span class="wordmark">ARVUT</span><span class="rule"></span></div>
+<span class="chip">Internal — do not forward</span>
+<h1>LinkedIn Kit — /best Distribution Campaign</h1>
+<p class="meta L en">Arvut Strategy · 2026-07-02 (v2 · 2026-07-04) · Working document for the LinkedIn outreach team (Heinz's two team members). Kit text: EN | RU. Message templates: German originals (BoD-approved, ready-to-send) with Italian and French translations — switch per card.</p>
+<p class="meta L ru">Arvut Strategy · 2026-07-02 (v2 · 2026-07-04) · Рабочий документ для LinkedIn-команды (два человека Heinz). Текст кита: EN | RU. Шаблоны сообщений: немецкие оригиналы (одобрены BoD, готовы к отправке) + переводы на итальянский и французский — переключение на каждой карточке.</p>
+
+<div class="langbar"><span class="lbl">Kit language</span>
+<button type="button" data-kl="en" class="on">EN</button>
+<button type="button" data-kl="ru">RU</button>
+</div>
+
+<div class="L en">
+<h2><span class="no">0</span>Campaign framing <em style="font-weight:400;color:var(--muted)">(read this to the team first)</em></h2>
+<p class="lead"><strong>Why past cold outreach produced zero — and why this campaign is different.</strong> A fiduciary receives twenty messages a week saying &laquo;buy our software/service&raquo;. We are the only ones writing the opposite: <strong>&laquo;we bring you clients.&raquo;</strong> This hits pain point&nbsp;#1 — most fiduciaries don't know how to win new clients; they live on word of mouth, and word of mouth doesn't scale. /best is not an ad page for our services. It is an <strong>aspirational mirror</strong>: here is the standard of &laquo;the fiduciary businesses are looking for&raquo; — and Arvut is the path to that standard.</p>
+<div class="golden"><strong>The golden rule:</strong> if a message can be read as &laquo;we sell bookkeeping services&raquo;, it is written wrong. The right message reads as &laquo;we are a source of clients and production capacity for your growth.&raquo;</div>
+<p><strong>The team's role is to book meetings, not to sell.</strong> Every substantive question (pricing, mechanics, technology) belongs in a call.</p>
+</div>
+<div class="L ru">
+<h2><span class="no">0</span>Рамка кампании <em style="font-weight:400;color:var(--muted)">(сначала прочитать команде вслух)</em></h2>
+<p class="lead"><strong>Почему прошлый холодный аутрич дал ноль — и почему эта кампания другая.</strong> Фидуциария получает двадцать сообщений в неделю в духе &laquo;купите наш софт/сервис&raquo;. Мы единственные, кто пишет обратное: <strong>&laquo;мы приводим вам клиентов.&raquo;</strong> Это попадает в боль&nbsp;№1 — большинство фидуциарий не умеют привлекать новых клиентов; они живут на сарафане, а сарафан не масштабируется. /best — не рекламная страница наших услуг. Это <strong>аспирационное зеркало</strong>: вот стандарт &laquo;фидуциарии, которую ищет бизнес&raquo; — и Arvut — путь к этому стандарту.</p>
+<div class="golden"><strong>Золотое правило:</strong> если сообщение можно прочитать как &laquo;мы продаём бухгалтерские услуги&raquo; — оно написано неправильно. Правильное сообщение читается как &laquo;мы — источник клиентов и производственной мощности для вашего роста.&raquo;</div>
+<p><strong>Роль команды — назначать встречи, а не продавать.</strong> Любой содержательный вопрос (цены, механика, технология) — в звонок.</p>
+</div>
+
+<div class="L en">
+<h2><span class="no">1</span>Audience split <em style="font-weight:400;color:var(--muted)">(decision)</em></h2>
+<table>
+<tr><th></th><th>Fiduciaries</th><th>SMEs</th></tr>
+<tr><td>Instrument</td><td>Personal DMs (connection → follow-ups)</td><td>Content posts from team members' profiles; NO personal DMs</td></tr>
+<tr><td>Share of effort</td><td>~90%</td><td>~10%</td></tr>
+<tr><td>CTA</td><td>20-min call (Calendly)</td><td>Form on /best</td></tr>
+<tr><td>Link</td><td><a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a> → hub/pilot discussed in the call</td><td><a href="https://arvut.ch/besten" target="_blank" rel="noopener">arvut.ch/besten</a> (DE) with UTM; IT → <a href="https://arvut.ch/it/migliori" target="_blank" rel="noopener">arvut.ch/it/migliori</a>, FR → <a href="https://arvut.ch/fr/meilleures" target="_blank" rel="noopener">arvut.ch/fr/meilleures</a></td></tr>
+</table>
+<p><em>Rationale:</em> at a fiduciary firm, one person makes the decision, and a LinkedIn dialogue with that person works. SMEs are reached far more efficiently through content, search visibility and (later) paid ads — cold-DMing business owners burns invitation limits for nothing.</p>
+</div>
+<div class="L ru">
+<h2><span class="no">1</span>Разделение аудиторий <em style="font-weight:400;color:var(--muted)">(решение)</em></h2>
+<table>
+<tr><th></th><th>Фидуциарии</th><th>SME</th></tr>
+<tr><td>Инструмент</td><td>Личные DM (connection → follow-up'ы)</td><td>Контент-посты с личных профилей команды; БЕЗ личных DM</td></tr>
+<tr><td>Доля усилий</td><td>~90%</td><td>~10%</td></tr>
+<tr><td>CTA</td><td>20-мин звонок (Calendly)</td><td>Форма на /best</td></tr>
+<tr><td>Ссылка</td><td><a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a> → хаб/пилот обсуждаются в звонке</td><td><a href="https://arvut.ch/besten" target="_blank" rel="noopener">arvut.ch/besten</a> (DE) с UTM; IT → <a href="https://arvut.ch/it/migliori" target="_blank" rel="noopener">arvut.ch/it/migliori</a>, FR → <a href="https://arvut.ch/fr/meilleures" target="_blank" rel="noopener">arvut.ch/fr/meilleures</a></td></tr>
+</table>
+<p><em>Логика:</em> в фидуциарии решение принимает один человек, и LinkedIn-диалог с ним работает. SME гораздо эффективнее достигаются контентом, поисковой видимостью и (позже) рекламой — холодные DM владельцам бизнеса сжигают лимиты приглашений впустую.</p>
+</div>
+
+<div class="L en"><h2><span class="no">2</span>Line A — Fiduciaries <em style="font-weight:400;color:var(--muted)">(German originals · Italian and French translations per card)</em></h2></div>
+<div class="L ru"><h2><span class="no">2</span>Линия A — фидуциарии <em style="font-weight:400;color:var(--muted)">(немецкие оригиналы · переводы IT и FR на карточках)</em></h2></div>
+
+<div class="L en"><h3>A1 · Connection Note <em style="font-weight:400;color:var(--muted)">(limit ~200 characters; no pitch — the goal is an accepted invitation)</em></h3>
+<p class="intent">Intent: introduce yourself honestly, no selling, with the &laquo;we bring clients&raquo; hook.</p></div>
+<div class="L ru"><h3>A1 · Connection Note <em style="font-weight:400;color:var(--muted)">(лимит ~200 знаков; без питча — цель = принятое приглашение)</em></h3>
+<p class="intent">Задача: честно представиться, без продажи, с крючком &laquo;мы приводим клиентов&raquo;.</p></div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">DM · Connection note · DE</span>
+<p>Guten Tag Herr/Frau [Name] — ich arbeite mit Arvut in Zug: Wir führen für Treuhänder die Buchhaltung im White-Label und bringen ihnen neue Kunden. Kein Pitch — ich vernetze mich gern mit Treuhand-Profis. Freundliche Grüsse, [Vorname]</p>
+</div>
+<div class="msg M it" hidden><span class="tag">DM · Connection note · IT</span>
+<p>Buongiorno [Nome] — lavoro con Arvut a Zugo: contabilità white-label per le fiduciarie e nuovi clienti per loro. Nessun pitch — mi collego volentieri con professionisti del settore. Cordiali saluti, [Nome]</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">DM · Connection note · FR</span>
+<p>Bonjour [Nom] — je travaille avec Arvut à Zoug : comptabilité white-label pour les fiduciaires et de nouveaux clients pour elles. Pas de pitch — au plaisir d'échanger entre professionnels. Cordialement, [Prénom]</p>
+</div>
+</div>
+
+<div class="L en"><h3>A2 · Follow-up 1 <em style="font-weight:400;color:var(--muted)">(after acceptance, 1–2 days later)</em></h3>
+<p class="intent">Intent: two beats — production (white-label, real-time) and the demand channel (/best). Closing line is a mirror question, not a &laquo;buy&raquo;. CTA: 20 minutes.</p></div>
+<div class="L ru"><h3>A2 · Follow-up 1 <em style="font-weight:400;color:var(--muted)">(после принятия, через 1–2 дня)</em></h3>
+<p class="intent">Задача: два такта — производство (white-label, real-time) и канал спроса (/best). Финальная строка — вопрос-зеркало, не &laquo;купите&raquo;. CTA: 20 минут.</p></div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">DM · Follow-up 1 · DE</span>
+<p>Danke fürs Vernetzen, Herr/Frau [Name]!</p>
+<p>Kurz, worum es bei Arvut geht — zwei Dinge:</p>
+<p>1. <strong>Produktion:</strong> Unser Team führt die Bücher Ihrer Mandate in Echtzeit — white-label, unter Ihrer Marke. Sie prüfen und unterschreiben; Ihr Team wächst nicht, Ihre Kapazität schon.</p>
+<p>2. <strong>Neue Kunden:</strong> Wir bauen einen öffentlichen Nachfrage-Kanal. Unternehmen, die einen modernen Treuhänder suchen, kommen zu uns — und wir übergeben jede Anfrage einem Treuhänder unseres Netzwerks. So sieht das aus Sicht der Unternehmen aus: <a href="https://arvut.ch/besten" target="_blank" rel="noopener">arvut.ch/besten</a></p>
+<p>Die eigentliche Frage ist nicht «noch eine Software». Sondern: Will Ihre Kanzlei der Treuhänder sein, den diese Unternehmen suchen?</p>
+<p>20 Minuten diese Woche? [Calendly-Link]</p>
+</div>
+<div class="msg M it" hidden><span class="tag">DM · Follow-up 1 · IT</span>
+<p>Grazie per il collegamento, [Nome]!</p>
+<p>In breve, di che cosa si occupa Arvut — due cose:</p>
+<p>1. <strong>Produzione:</strong> il nostro team tiene i libri dei Suoi mandati in tempo reale — white-label, sotto il Suo marchio. Lei verifica e firma; il Suo team non cresce, la Sua capacità sì.</p>
+<p>2. <strong>Nuovi clienti:</strong> stiamo costruendo un canale pubblico di domanda. Le aziende che cercano una fiduciaria moderna arrivano da noi — e passiamo ogni richiesta a una fiduciaria della nostra rete. Ecco come appare dal punto di vista delle aziende: <a href="https://arvut.ch/it/migliori" target="_blank" rel="noopener">arvut.ch/it/migliori</a></p>
+<p>La vera domanda non è «ancora un software». Ma: il Suo studio vuole essere la fiduciaria che queste aziende cercano?</p>
+<p>20 minuti questa settimana? [link Calendly]</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">DM · Follow-up 1 · FR</span>
+<p>Merci pour la mise en relation, [Nom] !</p>
+<p>En bref, ce que fait Arvut — deux choses :</p>
+<p>1. <strong>Production :</strong> notre équipe tient les livres de vos mandats en temps réel — en marque blanche, sous votre marque. Vous contrôlez et signez ; votre équipe ne grandit pas, votre capacité si.</p>
+<p>2. <strong>Nouveaux clients :</strong> nous construisons un canal public de demande. Les entreprises qui cherchent une fiduciaire moderne viennent à nous — et nous transmettons chaque demande à une fiduciaire de notre réseau. Voici ce que cela donne du point de vue des entreprises : <a href="https://arvut.ch/fr/meilleures" target="_blank" rel="noopener">arvut.ch/fr/meilleures</a></p>
+<p>La vraie question n'est pas « encore un logiciel ». Mais : votre cabinet veut-il être la fiduciaire que ces entreprises recherchent ?</p>
+<p>20 minutes cette semaine ? [lien Calendly]</p>
+</div>
+</div>
+
+<div class="L en"><h3>A3 · Follow-up 2 <em style="font-weight:400;color:var(--muted)">(after 7–10 days of silence)</em></h3>
+<p class="intent">Intent: one piece of proof (anonymized — this is a hard rule) + a soft question. No pressure.</p></div>
+<div class="L ru"><h3>A3 · Follow-up 2 <em style="font-weight:400;color:var(--muted)">(после 7–10 дней тишины)</em></h3>
+<p class="intent">Задача: одно доказательство (строго анонимизированное — жёсткое правило) + мягкий вопрос. Без давления.</p></div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">DM · Follow-up 2 · DE</span>
+<p>Guten Tag Herr/Frau [Name] — ein kurzes Beispiel statt Argumenten:</p>
+<p>Für einen Möbelhändler haben wir sämtliche Rechnungen auf den Rappen genau gegen das Altsystem abgestimmt — und dabei eine wesentliche MwSt-Differenz gefunden, die jahrelang niemandem aufgefallen war. Der Treuhänder hat unterschrieben; die Arbeit kam von uns.</p>
+<p>Genau das machen wir für Treuhänder: Präzision in Echtzeit, unter Ihrer Marke — plus neue Kundenanfragen aus unserem Kanal.</p>
+<p>Lohnt sich ein kurzer Blick? 20 Minuten genügen. [Calendly-Link]</p>
+</div>
+<div class="msg M it" hidden><span class="tag">DM · Follow-up 2 · IT</span>
+<p>Buongiorno [Nome] — un breve esempio al posto degli argomenti:</p>
+<p>Per un rivenditore di mobili abbiamo riconciliato tutte le fatture al centesimo contro il vecchio sistema — trovando una differenza IVA sostanziale che per anni nessuno aveva notato. La fiduciaria ha firmato; il lavoro l'abbiamo fatto noi.</p>
+<p>È esattamente ciò che facciamo per le fiduciarie: precisione in tempo reale, sotto il Suo marchio — più nuove richieste di clienti dal nostro canale.</p>
+<p>Vale un breve sguardo? Bastano 20 minuti. [link Calendly]</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">DM · Follow-up 2 · FR</span>
+<p>Bonjour [Nom] — un court exemple plutôt que des arguments :</p>
+<p>Pour un commerçant de meubles, nous avons réconcilié toutes les factures au centime près avec l'ancien système — et trouvé un écart de TVA important passé inaperçu pendant des années. La fiduciaire a signé ; le travail venait de nous.</p>
+<p>C'est exactement ce que nous faisons pour les fiduciaires : la précision en temps réel, sous votre marque — plus de nouvelles demandes de clients via notre canal.</p>
+<p>Un coup d'œil rapide en vaut-il la peine ? 20 minutes suffisent. [lien Calendly]</p>
+</div>
+</div>
+
+<div class="L en"><h3>A4 · Break-up <em style="font-weight:400;color:var(--muted)">(after 3 weeks of silence; closes the cycle, leaves the door open)</em></h3></div>
+<div class="L ru"><h3>A4 · Break-up <em style="font-weight:400;color:var(--muted)">(после 3 недель тишины; закрывает цикл, оставляет дверь открытой)</em></h3></div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">DM · Break-up · DE</span>
+<p>Herr/Frau [Name], ich will Ihr Postfach nicht strapazieren — das ist meine letzte Nachricht dazu. Falls das Thema «Kapazität ohne neue Stellen + neue Kunden» irgendwann aktuell wird: <a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a>. Ich freue mich, wenn wir vernetzt bleiben. Freundliche Grüsse, [Vorname]</p>
+</div>
+<div class="msg M it" hidden><span class="tag">DM · Break-up · IT</span>
+<p>[Nome], non voglio appesantire la Sua casella — questo è il mio ultimo messaggio al riguardo. Se il tema «capacità senza nuove assunzioni + nuovi clienti» diventerà attuale: <a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a>. Sarò lieto di restare in contatto. Cordiali saluti, [Nome]</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">DM · Break-up · FR</span>
+<p>[Nom], je ne veux pas encombrer votre boîte — c'est mon dernier message à ce sujet. Si le thème « de la capacité sans nouveaux postes + de nouveaux clients » devient un jour d'actualité : <a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a>. Au plaisir de rester en contact. Cordialement, [Prénom]</p>
+</div>
+</div>
+
+<div class="rules L en"><strong>Line A rules:</strong> pricing (CHF 500/year, CHF 1.50/booking, pilot CHF 1'000) — <strong>NEVER in writing</strong>, only in the call. The Client Acquisition Fee (CHF 500 per introduced client) — the figure only in the call or in a letter after the call; in a DM the mechanism is fine (&laquo;wir bringen Ihnen neue Kunden&raquo;), the amount is not. DM screenshots live forever.</div>
+<div class="rules L ru"><strong>Правила линии A:</strong> цены (CHF 500/год, CHF 1.50/проводка, пилот CHF 1'000) — <strong>НИКОГДА письменно</strong>, только в звонке. Client Acquisition Fee (CHF 500 за приведённого клиента) — цифра только в звонке или в письме после звонка; в DM механика допустима (&laquo;wir bringen Ihnen neue Kunden&raquo;), сумма — нет. Скриншоты DM живут вечно.</div>
+
+<div class="L en"><h2><span class="no">3</span>Line B — SMEs <em style="font-weight:400;color:var(--muted)">(content posts from team members' profiles · DE original, IT/FR translations)</em></h2>
+<p class="intent">Published from personal profiles; cadence — 1 post per week per person, staggered. The link always carries a personal UTM (see §5).</p></div>
+<div class="L ru"><h2><span class="no">3</span>Линия B — SME <em style="font-weight:400;color:var(--muted)">(контент-посты с личных профилей · DE-оригинал, переводы IT/FR)</em></h2>
+<p class="intent">Публикуются с личных профилей; каденция — 1 пост в неделю на человека, вразнобой. Ссылка всегда с персональным UTM (см. §5).</p></div>
+
+<div class="L en"><h3>Post B1 — the showcase launch <em style="font-weight:400;color:var(--muted)">(week 1)</em></h3></div>
+<div class="L ru"><h3>Пост B1 — запуск витрины <em style="font-weight:400;color:var(--muted)">(неделя 1)</em></h3></div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg post M de"><span class="tag">Post · Week 1 · DE</span>
+<p>Die meisten Unternehmer sehen ihre Zahlen einmal im Quartal — als Bericht über die Vergangenheit.</p>
+<p>Es geht auch anders: Bücher in Echtzeit, jede Zahl auf den Rappen mit den Belegen abgestimmt, Status jederzeit auf dem Handy.</p>
+<p>Wir haben die Kriterien definiert, die einen solchen Treuhänder ausmachen — und ein Netzwerk von Treuhändern aufgebaut, die sie erfüllen: <strong><a href="https://arvut.ch/besten" target="_blank" rel="noopener">arvut.ch/besten</a></strong> [UTM]</p>
+<p>Welcher Treuhänder zu Ihrem Unternehmen passt — nach Kanton, Sprache und Branche — sagen wir Ihnen kostenlos.</p>
+</div>
+<div class="msg post M it" hidden><span class="tag">Post · Settimana 1 · IT</span>
+<p>La maggior parte degli imprenditori vede i propri numeri una volta al trimestre — come un rapporto sul passato.</p>
+<p>Si può fare diversamente: libri in tempo reale, ogni cifra riconciliata al centesimo con i giustificativi, stato consultabile in ogni momento dal telefono.</p>
+<p>Abbiamo definito i criteri che distinguono una fiduciaria così — e costruito una rete di fiduciarie che li soddisfano: <strong><a href="https://arvut.ch/it/migliori" target="_blank" rel="noopener">arvut.ch/it/migliori</a></strong> [UTM]</p>
+<p>Quale fiduciaria si adatta alla Sua azienda — per cantone, lingua e settore — glielo diciamo gratuitamente.</p>
+</div>
+<div class="msg post M fr" hidden><span class="tag">Post · Semaine 1 · FR</span>
+<p>La plupart des entrepreneurs voient leurs chiffres une fois par trimestre — comme un rapport sur le passé.</p>
+<p>Il existe une autre voie : des livres en temps réel, chaque chiffre réconcilié au centime avec les justificatifs, l'état consultable à tout moment sur le téléphone.</p>
+<p>Nous avons défini les critères qui distinguent une telle fiduciaire — et construit un réseau de fiduciaires qui les remplissent : <strong><a href="https://arvut.ch/fr/meilleures" target="_blank" rel="noopener">arvut.ch/fr/meilleures</a></strong> [UTM]</p>
+<p>Quelle fiduciaire convient à votre entreprise — selon le canton, la langue et le secteur — nous vous le disons gratuitement.</p>
+</div>
+</div>
+
+<div class="L en"><h3>Post B2 — a proof story <em style="font-weight:400;color:var(--muted)">(week 2–3)</em></h3></div>
+<div class="L ru"><h3>Пост B2 — история-доказательство <em style="font-weight:400;color:var(--muted)">(неделя 2–3)</em></h3></div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg post M de"><span class="tag">Post · Week 2–3 · DE</span>
+<p>Ein Gastro-Betrieb, Q1-Abschluss. Beim Abgleich mit den Bankauszügen — auf den Rappen — fiel auf: Kartenzahlungen waren doppelt erfasst. Der Umsatz war deutlich überzeichnet; der Inhaber hätte auf dieser Basis Entscheidungen getroffen.</p>
+<p>Das findet man nur, wenn jede Zahl gegen den Beleg geprüft wird. Nicht einmal im Quartal — laufend.</p>
+<p>Treuhänder, die so arbeiten: <a href="https://arvut.ch/besten" target="_blank" rel="noopener">arvut.ch/besten</a> [UTM]</p>
+</div>
+<div class="msg post M it" hidden><span class="tag">Post · Settimana 2–3 · IT</span>
+<p>Un'attività gastronomica, chiusura del Q1. Riconciliando gli estratti conto bancari — al centesimo — è emerso: i pagamenti con carta erano registrati due volte. Il fatturato era nettamente sovrastimato; il titolare avrebbe preso decisioni su quella base.</p>
+<p>Lo si scopre solo verificando ogni cifra contro il giustificativo. Non una volta al trimestre — continuamente.</p>
+<p>Fiduciarie che lavorano così: <a href="https://arvut.ch/it/migliori" target="_blank" rel="noopener">arvut.ch/it/migliori</a> [UTM]</p>
+</div>
+<div class="msg post M fr" hidden><span class="tag">Post · Semaine 2–3 · FR</span>
+<p>Un établissement de restauration, clôture du T1. En réconciliant les relevés bancaires — au centime — un constat : les paiements par carte étaient saisis deux fois. Le chiffre d'affaires était nettement surévalué ; le propriétaire aurait pris des décisions sur cette base.</p>
+<p>On ne le découvre qu'en vérifiant chaque chiffre contre le justificatif. Pas une fois par trimestre — en continu.</p>
+<p>Des fiduciaires qui travaillent ainsi : <a href="https://arvut.ch/fr/meilleures" target="_blank" rel="noopener">arvut.ch/fr/meilleures</a> [UTM]</p>
+</div>
+</div>
+
+<div class="L en"><h3>Post B3 — &laquo;a CFO's view&raquo; <em style="font-weight:400;color:var(--muted)">(week 4)</em></h3></div>
+<div class="L ru"><h3>Пост B3 — &laquo;взгляд CFO&raquo; <em style="font-weight:400;color:var(--muted)">(неделя 4)</em></h3></div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg post M de"><span class="tag">Post · Week 4 · DE</span>
+<p>«Wie liquide sind wir heute? Welche Marge fahren wir wirklich?» — Fragen, die ein CFO beantwortet. Die meisten KMU haben keinen.</p>
+<p>Ein moderner Treuhänder kann diese Rolle übernehmen: Bücher in Echtzeit sind die Grundlage, der Rest ist Beratung auf Augenhöhe.</p>
+<p>Wo es solche Treuhänder gibt: <a href="https://arvut.ch/besten" target="_blank" rel="noopener">arvut.ch/besten</a> [UTM]</p>
+</div>
+<div class="msg post M it" hidden><span class="tag">Post · Settimana 4 · IT</span>
+<p>«Quanta liquidità abbiamo oggi? Che margine facciamo davvero?» — domande a cui risponde un CFO. La maggior parte delle PMI non ce l'ha.</p>
+<p>Una fiduciaria moderna può assumere questo ruolo: i libri in tempo reale sono la base, il resto è consulenza alla pari.</p>
+<p>Dove trovare fiduciarie così: <a href="https://arvut.ch/it/migliori" target="_blank" rel="noopener">arvut.ch/it/migliori</a> [UTM]</p>
+</div>
+<div class="msg post M fr" hidden><span class="tag">Post · Semaine 4 · FR</span>
+<p>« Quelle est notre liquidité aujourd'hui ? Quelle marge faisons-nous vraiment ? » — des questions auxquelles répond un CFO. La plupart des PME n'en ont pas.</p>
+<p>Une fiduciaire moderne peut assumer ce rôle : des livres en temps réel comme base, le reste est du conseil d'égal à égal.</p>
+<p>Où trouver de telles fiduciaires : <a href="https://arvut.ch/fr/meilleures" target="_blank" rel="noopener">arvut.ch/fr/meilleures</a> [UTM]</p>
+</div>
+</div>
+
+<div class="rules L en"><strong>Line B rules:</strong> no pricing, no &laquo;a stream of clients is already flowing&raquo;, no client names (proof points strictly anonymized: &laquo;Möbelhändler&raquo;, &laquo;Gastro-Betrieb&raquo;). Proprietary protocol names are not mentioned anywhere.</div>
+<div class="rules L ru"><strong>Правила линии B:</strong> без цен, без &laquo;поток клиентов уже идёт&raquo;, без имён клиентов (пруфы строго анонимны: &laquo;Möbelhändler&raquo;, &laquo;Gastro-Betrieb&raquo;). Названия проприетарного протокола нигде не упоминаются.</div>
+
+<div class="L en">
+<h2><span class="no">4</span>Objections — cheat sheet <em style="font-weight:400;color:var(--muted)">(the team's answer is a bridge into a call, not a debate; German lines are ready-to-say)</em></h2>
+</div>
+<div class="L ru">
+<h2><span class="no">4</span>Возражения — шпаргалка <em style="font-weight:400;color:var(--muted)">(ответ команды — мост в звонок, не дискуссия; немецкие строки готовы к употреблению)</em></h2>
+</div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">Objection 1 · DE</span>
+<p class="q">«Wir haben schon Abacus/Bexio.»</p>
+<p class="a">«Perfekt — wir ersetzen Ihre Software nicht, wir liefern die Arbeit. Die Bücher führt unser Team, Sie prüfen und unterschreiben. Genau das zeige ich Ihnen gern in 20 Minuten.»</p>
+</div>
+<div class="msg M it" hidden><span class="tag">Obiezione 1 · IT</span>
+<p class="q">«Abbiamo già Abacus/Bexio.»</p>
+<p class="a">«Perfetto — non sostituiamo il Suo software, forniamo il lavoro. I libri li tiene il nostro team, Lei controlla e firma. È proprio quello che Le mostro volentieri in 20 minuti.»</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">Objection 1 · FR</span>
+<p class="q">«Nous avons déjà Abacus/Bexio.»</p>
+<p class="a">«Parfait — nous ne remplaçons pas votre logiciel, nous livrons le travail. Les livres sont tenus par notre équipe, vous contrôlez et vous signez. C’est exactement ce que je vous montre volontiers en 20 minutes.»</p>
+</div>
+</div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">Objection 2 · DE</span>
+<p class="q">«Sie wollen unsere Kunden abwerben.»</p>
+<p class="a">«Im Gegenteil — vertraglich ausgeschlossen (Non-Poaching), und die Bewegung läuft umgekehrt: Anfragen von Unternehmen gehen von uns an die Treuhänder unseres Netzwerks.»</p>
+</div>
+<div class="msg M it" hidden><span class="tag">Obiezione 2 · IT</span>
+<p class="q">«Volete portarci via i clienti.»</p>
+<p class="a">«Al contrario — è escluso per contratto (non-poaching), e il movimento va nella direzione opposta: le richieste delle imprese vanno da noi ai fiduciari della nostra rete.»</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">Objection 2 · FR</span>
+<p class="q">«Vous voulez débaucher nos clients.»</p>
+<p class="a">«Au contraire — c’est exclu par contrat (non-démarchage), et le mouvement va dans l’autre sens : les demandes d’entreprises vont de nous vers les fiduciaires de notre réseau.»</p>
+</div>
+</div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">Objection 3 · DE</span>
+<p class="q">«Was kostet das?»</p>
+<p class="a">«Hängt vom Volumen ab — das Preismodell ist bewusst einfach, und im Gespräch rechnen wir es in fünf Minuten für Ihre Kanzlei durch.»</p>
+</div>
+<div class="msg M it" hidden><span class="tag">Obiezione 3 · IT</span>
+<p class="q">«Quanto costa?»</p>
+<p class="a">«Dipende dal volume — il modello di prezzo è volutamente semplice, e in una chiamata lo calcoliamo in cinque minuti per il Suo studio.»</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">Objection 3 · FR</span>
+<p class="q">«Combien ça coûte ?»</p>
+<p class="a">«Cela dépend du volume — le modèle de prix est volontairement simple, et en entretien nous le calculons en cinq minutes pour votre cabinet.»</p>
+</div>
+</div>
+<p class="intent L en">(Do not name figures in a DM or on the call opener — pricing lives in the conversation.)</p>
+<p class="intent L ru">(Цифры не называть ни в DM, ни в начале звонка — цены живут в разговоре.)</p>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">Objection 4 · DE</span>
+<p class="q">«Wo liegen die Daten? Datenschutz?»</p>
+<p class="a">«Schweizer Hosting, revDSG-konform, 10 Jahre Archiv nach Art. 958f OR. Details gern im Gespräch oder auf <a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a>.»</p>
+</div>
+<div class="msg M it" hidden><span class="tag">Obiezione 4 · IT</span>
+<p class="q">«Dove si trovano i dati? E la protezione dei dati?»</p>
+<p class="a">«Hosting svizzero, conforme alla nLPD, archivio di 10 anni secondo l’art. 958f CO. Dettagli volentieri a voce o su <a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a>.»</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">Objection 4 · FR</span>
+<p class="q">«Où se trouvent les données ? Protection des données ?»</p>
+<p class="a">«Hébergement suisse, conforme à la nLPD, archivage de 10 ans selon l’art. 958f CO. Détails volontiers de vive voix ou sur <a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a>.»</p>
+</div>
+</div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">Objection 5 · DE</span>
+<p class="q">«KI macht Fehler. Wer haftet?»</p>
+<p class="a">«Jede Buchung wird von unseren Buchhaltern geprüft, und die Freigabe bleibt bei Ihnen — Ihre Unterschrift, Ihre Kontrolle. Genau deshalb funktioniert das Modell für Treuhänder.»</p>
+</div>
+<div class="msg M it" hidden><span class="tag">Obiezione 5 · IT</span>
+<p class="q">«L’IA fa errori. Chi risponde?»</p>
+<p class="a">«Ogni registrazione è verificata dai nostri contabili e l’approvazione resta a Lei — la Sua firma, il Suo controllo. È proprio per questo che il modello funziona per i fiduciari.»</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">Objection 5 · FR</span>
+<p class="q">«L’IA fait des erreurs. Qui est responsable ?»</p>
+<p class="a">«Chaque écriture est vérifiée par nos comptables et la validation reste chez vous — votre signature, votre contrôle. C’est précisément pour cela que le modèle fonctionne pour les fiduciaires.»</p>
+</div>
+</div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">Objection 6 · DE</span>
+<p class="q">«Keine Zeit / kein Bedarf.»</p>
+<p class="a">«Verstanden — darf ich in einem Quartal wieder anklopfen? Und falls vorher ein Kapazitätsengpass kommt: <a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a>.»</p>
+</div>
+<div class="msg M it" hidden><span class="tag">Obiezione 6 · IT</span>
+<p class="q">«Non ho tempo / non ci serve.»</p>
+<p class="a">«Capisco — posso ribussare fra un trimestre? E se prima arriva un collo di bottiglia di capacità: <a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a>.»</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">Objection 6 · FR</span>
+<p class="q">«Pas le temps / pas besoin.»</p>
+<p class="a">«Compris — puis-je revenir vers vous dans un trimestre ? Et si un goulot de capacité arrive avant : <a href="https://arvut.ch" target="_blank" rel="noopener">arvut.ch</a>.»</p>
+</div>
+</div>
+<div class="rules L en"><strong>Escalation:</strong> anything deeper than these answers is not answered in writing — it is booked: product/demo questions → call with <strong>Alex</strong>; senior owner, M&amp;A tone, &laquo;I'll only talk to a principal&raquo; → <strong>Heinz</strong>. Suspected competitor, journalist, or unusual technology probing → stop, escalate to <strong>Alex</strong>.</div>
+<div class="rules L ru"><strong>Эскалация:</strong> всё, что глубже этих ответов, письменно не отвечается — назначается: вопросы по продукту/демо → звонок с <strong>Alex</strong>; senior-владелец, тон M&amp;A, &laquo;говорю только с принципалом&raquo; → <strong>Heinz</strong>. Подозрение на конкурента, журналиста или необычное зондирование технологии → стоп, эскалация к <strong>Alex</strong>.</div>
+
+<div class="L en">
+<h3>Formula for the call <em style="font-weight:400;color:var(--muted)">(talk-track — NOT for DMs or posts)</em></h3>
+<div class="msg"><span class="tag">Talk-track · positioning formula · EN</span>
+<p>A traditional fiduciary is the shared accountant of SMEs. A fiduciary in the Arvut network is also their fractional CFO — and not only for small businesses.</p>
+</div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">Talk-track · positioning formula · DE (for the call)</span>
+<p>Der klassische Treuhänder ist der geteilte Buchhalter der KMU. Der Treuhänder im Arvut-Netzwerk ist zusätzlich ihr externer CFO — und nicht nur für kleine Unternehmen.</p>
+<p class="a">Wenn der Treuhänder fragt, was das Netzwerk anders macht — das ist die Antwort in einem Satz.</p>
+</div>
+<div class="msg M it" hidden><span class="tag">Talk-track · formula di posizionamento · IT (per la chiamata)</span>
+<p>Un fiduciario tradizionale è il contabile condiviso delle PMI. Un fiduciario della rete Arvut è anche il loro CFO esterno — e non solo per le piccole imprese.</p>
+<p class="a">Quando il fiduciario chiede che cosa la rete faccia di diverso — questa è la risposta in una frase.</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">Talk-track · formule de positionnement · FR (pour l’appel)</span>
+<p>Un fiduciaire traditionnel est le comptable partagé des PME. Un fiduciaire du réseau Arvut est aussi leur directeur financier externe — et pas seulement pour les petites entreprises.</p>
+<p class="a">Quand le fiduciaire demande ce que le réseau fait différemment — c’est la réponse en une phrase.</p>
+</div>
+</div>
+<p class="intent">When the fiduciary asks what the network does differently — this is the one-sentence answer.</p>
+</div>
+<div class="L ru">
+<h3>Формула для звонка <em style="font-weight:400;color:var(--muted)">(talk-track — НЕ для DM и постов)</em></h3>
+<div class="msg"><span class="tag">Talk-track · позиционная формула · RU</span>
+<p>Традиционная фидуциария — общий бухгалтер для малого и среднего бизнеса. Фидуциария сети Arvut — ещё и внешний финансовый директор, и не только для малого бизнеса.</p>
+</div>
+<div class="msgset">
+<div class="mtabs"><button type="button" data-ml="de" class="on">DE</button><button type="button" data-ml="it">IT</button><button type="button" data-ml="fr">FR</button></div>
+<div class="msg M de"><span class="tag">Talk-track · Positionierungsformel · DE (für den Anruf)</span>
+<p>Der klassische Treuhänder ist der geteilte Buchhalter der KMU. Der Treuhänder im Arvut-Netzwerk ist zusätzlich ihr externer CFO — und nicht nur für kleine Unternehmen.</p>
+<p class="a">Wenn der Treuhänder fragt, was das Netzwerk anders macht — das ist die Antwort in einem Satz.</p>
+</div>
+<div class="msg M it" hidden><span class="tag">Talk-track · formula di posizionamento · IT (per la chiamata)</span>
+<p>Un fiduciario tradizionale è il contabile condiviso delle PMI. Un fiduciario della rete Arvut è anche il loro CFO esterno — e non solo per le piccole imprese.</p>
+<p class="a">Quando il fiduciario chiede che cosa la rete faccia di diverso — questa è la risposta in una frase.</p>
+</div>
+<div class="msg M fr" hidden><span class="tag">Talk-track · formule de positionnement · FR (pour l’appel)</span>
+<p>Un fiduciaire traditionnel est le comptable partagé des PME. Un fiduciaire du réseau Arvut est aussi leur directeur financier externe — et pas seulement pour les petites entreprises.</p>
+<p class="a">Quand le fiduciaire demande ce que le réseau fait différemment — c’est la réponse en une phrase.</p>
+</div>
+</div>
+<p class="intent">Если фидуциария спрашивает, что сеть делает иначе, — это ответ в одном предложении.</p>
+</div>
+
+<div class="L en">
+<h2><span class="no">5</span>Operations</h2>
+<ul>
+<li><strong>Profiles:</strong> team members write from their real LinkedIn profiles (not freshly created ones), with &laquo;Arvut&raquo; added to the headline — an anonymous account kills invitation conversion.</li>
+<li><strong>Limits:</strong> ≤20–25 invitations/day per profile, otherwise LinkedIn restricts the account. List quality beats volume: DE-CH, Treuhand/fiduciary in the company name or role, owner/partner/managing director, 2–20 employees.</li>
+<li><strong>UTM per team member</strong> (the pageUrl infrastructure already captures this):
+<span class="utm">arvut.ch/besten?utm_source=linkedin&amp;utm_medium=[dm|post]&amp;utm_campaign=best_launch&amp;utm_content=[initials]</span>
+→ every lead is attributed to the person and the touch type.</li>
+<li><strong>Calendly:</strong> a working link is required (whose calendar — Heinz? Alex? decide before launch).</li>
+<li><strong>Cadence &amp; reporting:</strong> a touch log (who/date/stage/reply) — a simple Google Sheet shared with Heinz + Alex; a 15-min sync once a week.</li>
+<li><strong>Tone:</strong> Sie-Form always; Swiss standard spelling (Grüsse, not Grüße); no emojis in DMs to fiduciaries; in posts — one at most.</li>
+</ul>
+</div>
+<div class="L ru">
+<h2><span class="no">5</span>Операционка</h2>
+<ul>
+<li><strong>Профили:</strong> команда пишет со своих реальных LinkedIn-профилей (не свежесозданных), добавив &laquo;Arvut&raquo; в заголовок профиля — анонимный аккаунт убивает конверсию приглашений.</li>
+<li><strong>Лимиты:</strong> ≤20–25 приглашений/день на профиль, иначе LinkedIn ограничит аккаунт. Качество списка важнее объёма: DE-CH, Treuhand/fiduciary в названии компании или роли, owner/partner/managing director, 2–20 сотрудников.</li>
+<li><strong>UTM на каждого члена команды</strong> (инфраструктура pageUrl уже это ловит):
+<span class="utm">arvut.ch/besten?utm_source=linkedin&amp;utm_medium=[dm|post]&amp;utm_campaign=best_launch&amp;utm_content=[initials]</span>
+→ каждый лид атрибутируется человеку и типу касания.</li>
+<li><strong>Calendly:</strong> нужна рабочая ссылка (чей календарь — Heinz? Alex? решить до запуска).</li>
+<li><strong>Каденция и отчётность:</strong> лог касаний (кто/дата/этап/ответ) — простой Google Sheet с доступом Heinz + Alex; 15-мин синк раз в неделю.</li>
+<li><strong>Тон:</strong> всегда Sie-Form; швейцарская орфография (Grüsse, не Grüße); в DM фидуциариям без эмодзи; в постах — максимум один.</li>
+</ul>
+</div>
+
+<div class="L en">
+<h2><span class="no">6</span>Pre-launch checklist <em style="font-weight:400;color:var(--muted)">(BEFORE the first message goes out)</em></h2>
+<ul class="check">
+<li class="hot"><strong>Board approval — the campaign is subject to approval at the BoD meeting on 03.07.2026, 10:00.</strong> This covers the campaign as such and the public use of the &laquo;besten&raquo; superlative. No messages, no posts before board sign-off.</li>
+<li>OG warm-up: LinkedIn Post Inspector ×5 languages (otherwise the first posts go out with broken preview cards).</li>
+<li>Search Console submit + Request Indexing ×5.</li>
+<li>Calendly link created and inserted into templates A2/A3.</li>
+<li>The team receives this kit + a 30-min call with Alex: the §0 framing, spoken — the vaccine against sliding back into &laquo;we sell services&raquo;.</li>
+<li>UTM links generated per team member.</li>
+</ul>
+</div>
+<div class="L ru">
+<h2><span class="no">6</span>Чек-лист перед запуском <em style="font-weight:400;color:var(--muted)">(ДО первого отправленного сообщения)</em></h2>
+<ul class="check">
+<li class="hot"><strong>Одобрение борда — кампания подлежит утверждению на заседании BoD 03.07.2026, 10:00.</strong> Это касается кампании как таковой и публичного использования суперлатива &laquo;besten&raquo;. Ни сообщений, ни постов до одобрения борда.</li>
+<li>Прогрев OG: LinkedIn Post Inspector ×5 языков (иначе первые посты уйдут с битыми превью-карточками).</li>
+<li>Search Console submit + Request Indexing ×5.</li>
+<li>Ссылка Calendly создана и вставлена в шаблоны A2/A3.</li>
+<li>Команда получает этот кит + 30-мин звонок с Alex: рамка §0, проговорённая вслух, — прививка от сползания обратно в &laquo;мы продаём услуги&raquo;.</li>
+<li>UTM-ссылки сгенерированы на каждого члена команды.</li>
+</ul>
+</div>
+
+<div class="footer">
+<span>Arvut GmbH · Zug · internal working document</span>
+<span>LinkedIn Kit — /best launch · v2 (2×3) · 2026-07-04</span>
+</div>
+
+</div>
+</div>
+<script src="kit.js"></script>
+</body>
+</html>

@@ -1,0 +1,676 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<!--
+  DOCUMENTO-SORGENTE (rigenerabile). Self-contained A4.  Mode: figemax-sow.
+  Projet SoW Arvut ↔ Figemax SA (FR). Document de travail, en cours de révision juridique.
+  Source: /Users/al/Projects/GoToMarket/Pilot-Contracts/output/figemax/figemax_sow_fr.md
+  Rigenera con: python3 ~/Projects/GoToMarket/Arvut.it/03-partners/render-contract.py figemax-sow
+  PDF: Chrome/headless --print-to-pdf (A4 in @page).
+-->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Projet pour discussion · SoW Arvut ↔ Figemax SA</title>
+<style>
+:root{--cream:#FCFAF4;--ink:#202B28;--body:#3c463f;--muted:#79827C;--teal:#6E255A;--teal-d:#4F1B41;--teal-soft:#F2E8F0;--hair:#ECE6D8;--warn:#9a3b12;--warn-soft:#fbf0e8;--warn-line:#f0d3bf;}
+*{box-sizing:border-box}html{-webkit-text-size-adjust:100%}
+body{margin:0;background:#EAE7DD;color:var(--body);font-family:"Hanken Grotesk",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.55;-webkit-font-smoothing:antialiased}
+.sheet{max-width:820px;margin:0 auto;padding:28px 20px 80px}
+.doc{background:var(--cream);border-radius:6px;box-shadow:0 1px 2px rgba(32,43,40,.05),0 18px 44px -26px rgba(32,43,40,.34);padding:48px 56px 56px}
+h1,h2,h3{color:var(--ink);font-weight:800;line-height:1.13;letter-spacing:-.012em;margin:0;text-wrap:balance}
+h1{font-size:27px;margin:0 0 6px;max-width:30ch}
+h2{font-size:17px;margin:30px 0 9px;padding-top:14px;border-top:1px solid var(--hair)}
+h3{font-size:14.5px;margin:16px 0 5px}
+p{margin:0 0 9px;max-width:76ch}
+strong{color:var(--ink);font-weight:700}em{color:var(--body)}a{color:var(--teal-d)}
+ul{margin:4px 0 10px;padding-left:0;list-style:none}
+ul li{position:relative;padding:4px 0 4px 20px;max-width:76ch}
+ul li::before{content:"";position:absolute;left:3px;top:12px;width:5px;height:5px;border-radius:50%;background:var(--teal)}
+ol{margin:4px 0 10px;padding-left:22px}ol li{padding:3px 0;max-width:76ch}
+blockquote,.banner{background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:8px;padding:14px 16px;margin:0 0 26px;font-size:12.5px;line-height:1.5;color:#6b3411}
+blockquote p{margin:0 0 6px;max-width:none}blockquote p:last-child{margin:0}
+blockquote strong,.banner strong{color:var(--warn)}
+table{border-collapse:collapse;width:100%;margin:8px 0 16px;font-size:12.5px}
+td,th{text-align:left;vertical-align:top;padding:8px 10px}
+table.parties td:first-child{width:38%;color:var(--ink);font-weight:600;background:#fff;border-right:2px solid var(--teal-soft)}
+table.parties tr+tr td{border-top:1px solid var(--hair)}
+table.grid th{color:var(--teal-d);font-weight:800;font-size:11px;letter-spacing:.04em;text-transform:uppercase;border-bottom:1.5px solid var(--teal-soft)}
+table.grid td{border-top:1px solid var(--hair)}
+table.grid td:first-child{font-weight:700;color:var(--ink)}
+.dd{background:#fff6df;color:#7a5a00;font-weight:700;border-radius:3px;padding:0 5px;-webkit-box-decoration-break:clone;box-decoration-break:clone;font-size:.94em}
+.legal{margin-top:40px;background:var(--warn-soft);border:1px solid var(--warn-line);border-radius:10px;padding:26px 28px}
+.legal h2{border-top:none;padding-top:0;color:var(--warn);margin-top:0}
+.legal h2:first-child{margin-top:0}.legal h3{color:#6b3411}
+.legal p,.legal li{max-width:80ch}
+.src{font-size:11.5px;color:var(--muted);font-style:italic}
+hr{border:none;border-top:1px solid var(--hair);margin:26px 0}
+@page{size:A4;margin:16mm 15mm}
+@media print{body{background:#fff}.sheet{max-width:none;margin:0;padding:0}.doc{box-shadow:none;border-radius:0;padding:0}h2{break-after:avoid}blockquote,.banner,.legal{break-inside:avoid}table{break-inside:avoid}a{color:var(--ink);text-decoration:none}}
+</style>
+</head>
+<body>
+<div class="sheet"><div class="doc">
+<h1 id="arvut--sow-statement-of-work-pour-fiduciaire--treuhand">Arvut —
+SoW (Statement of Work) pour Fiduciaire / Treuhand</h1>
+<blockquote>
+<p><strong>Projet pour discussion — Arvut ↔︎ Figemax SA.</strong> Version
+préparée pour Figemax. Le document est en cours de révision juridique ;
+les points encore ouverts sont marqués <span class="dd">[à définir]</span> et seront définis
+ensemble. Observations et commentaires bienvenus.</p>
+</blockquote>
+<table class="parties">
+<tbody>
+<tr>
+<td><strong>Fournisseur (Back-end / Sous-traitant) :</strong></td>
+<td>Arvut GmbH, Zug (« Arvut »)</td>
+</tr>
+<tr>
+<td><strong>Partenaire (Front-end / Fiduciaire) :</strong></td>
+<td>Figemax SA (« la Fiduciaire »)</td>
+</tr>
+<tr>
+<td><strong>Objet :</strong></td>
+<td>Service de comptabilité géré en mode white-label (Accounting as a
+Service) + portail mandant (lecture seule)</td>
+</tr>
+<tr>
+<td><strong>Date de début :</strong></td>
+<td><span class="dd">[à définir]</span></td>
+</tr>
+<tr>
+<td><strong>Durée :</strong></td>
+<td>12 mois</td>
+</tr>
+<tr>
+<td><strong>Renouvellement automatique :</strong></td>
+<td>pour 12 mois supplémentaires, sauf résiliation écrite par l'une des
+parties au moins 90 jours avant l'échéance de la période en cours</td>
+</tr>
+<tr>
+<td><strong>Unité de service :</strong></td>
+<td>1 mandat (client final de la Fiduciaire)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-termes-et-définitions">1) Termes et définitions</h3>
+<p><strong>Mandat :</strong> client final de la Fiduciaire géré par
+Arvut dans le cadre du présent SoW.</p>
+<p><strong>Client final :</strong> personne physique/morale avec
+laquelle la Fiduciaire entretient un rapport de mandat/contrat pour des
+services comptables.</p>
+<p><strong>Document / Justificatif / Source Document :</strong> un
+document ou fichier unique traité comme unité de travail (par ex.
+facture, quittance/ticket, preuve de paiement, relevé de compte/rapport
+bancaire, contrat/document si nécessaire, etc.). <strong>Écriture
+comptable (Buchung) :</strong> une seule écriture au journal. La
+facturation du service s'effectue par écriture comptable (cf. art. 7),
+et non par document.</p>
+<p><strong>White-label :</strong> les prestations d'Arvut sont fournies
+sous le branding de la Fiduciaire, sauf convention écrite contraire.</p>
+<p><strong>Accès en lecture seule (read-only) :</strong> accès
+exclusivement en consultation (sans droits de modification ou de
+saisie).</p>
+<p><strong>Système de la Fiduciaire (Target system) :</strong> système
+comptable utilisé par la Fiduciaire pour la gestion/finalisation et la
+clôture.</p>
+<h3 id="2-modèle-de-collaboration-white-label-front-end--back-end">2)
+Modèle de collaboration (white-label, Front-end / Back-end)</h3>
+<p>Arvut est un service géré de production comptable (back-end
+production) en mode white-label.</p>
+<p><strong>La Fiduciaire (Front-end) est responsable de :</strong></p>
+<ul>
+<li>la relation avec les clients finaux et les contrats ;</li>
+<li>les communications avec les autorités/organismes, y compris les
+dépôts ;</li>
+<li>le décompte TVA (MWST) sur la base du matériel préparé par Arvut
+;</li>
+<li>la clôture annuelle, les écritures de régularisation/clôture, les
+comptes statutaires, la fiscalité.</li>
+</ul>
+<p><strong>Arvut (Back-end) est responsable de :</strong></p>
+<ul>
+<li>le traitement des documents et des données, la comptabilisation/les
+écritures, les rapprochements ;</li>
+<li>la préparation de la base de calcul TVA et des rapports TVA ;</li>
+<li>la préparation des paquets de reporting pour la Fiduciaire selon le
+présent SoW.</li>
+</ul>
+<p><strong>Nature du contrat.</strong> Les parties qualifient le présent
+accord de contrat de services à caractère durable (Dauerschuldverhältnis
+/ rapport de durée) de nature mixte (prestations de service + accès à la
+plateforme arvut.ch), et non de simple mandat au sens des art. 394 ss
+CO. Dans la mesure où l'art. 404 CO trouverait à s'appliquer, les
+parties conviennent que la résiliation ordinaire n'est admise que pour
+la fin de la période contractuelle en cours, moyennant le préavis
+indiqué en en-tête, sous réserve de la résiliation extraordinaire pour
+justes motifs.</p>
+<p><strong>Communication (par défaut) :</strong> les clarifications
+passent par Arvut → Fiduciaire → client final. Le contact direct Arvut ↔︎
+client final n'est admis qu'avec l'autorisation écrite préalable de la
+Fiduciaire.</p>
+<h3 id="3-périmètre-des-prestations-deliverables--par-mandat">3)
+Périmètre des prestations (Deliverables) — par mandat</h3>
+<p>Arvut fournit pour chaque mandat :</p>
+<ul>
+<li><strong>Écritures au niveau de la ligne/du poste (line-item posting)
+:</strong> traitement des documents ; écritures détaillées par
+ligne/poste, non seulement par totaux.</li>
+<li><strong>Postes ouverts et rapprochement des paiements :</strong>
+échéancier/postes ouverts clients et fournisseurs (AR/AP) ; lettrage et
+rapprochement des paiements sur la base des relevés de compte/données
+transactionnelles/confirmations de paiement.</li>
+<li><strong>TVA (MWST) : base de calcul et rapports</strong> prêts pour
+le dépôt par la Fiduciaire.</li>
+<li><strong>Préparation de la clôture annuelle (préparation, et non
+finalisation juridique) :</strong> bilan / compte de résultat, postes
+ouverts, rapports TVA au format PDF ; paquet prêt pour vérification et
+finalisation par la Fiduciaire.</li>
+<li><strong>Archivage intégré (document ↔︎ écriture) :</strong> lien
+traçable document–écriture pour des contrôles rapides et une piste
+d'audit (audit trail).</li>
+</ul>
+<h3 id="4-intrants-et-processus">4) Intrants et processus</h3>
+<p>La Fiduciaire met à disposition pour chaque mandat : documents
+justificatifs, relevés de compte/données transactionnelles, preuves de
+paiement ; si nécessaire, caisse/frais.</p>
+<p>Les délais SLA courent dès la réception du jeu complet pour la
+période de référence.</p>
+<p>En cas de données manquantes, Arvut établit une liste de
+clarifications/exceptions (exception list) pour la Fiduciaire.</p>
+<h3 id="5-sla-et-corrections">5) SLA et corrections</h3>
+<ul>
+<li>traitement standard : jusqu'à 2 semaines à compter de la réception
+du jeu complet ;</li>
+<li>corrections : dans les 2 jours ouvrables suivant le signalement et
+la confirmation de la Fiduciaire.</li>
+</ul>
+<h3 id="6-portail-et-accès-white-label">6) Portail et accès
+white-label</h3>
+<ul>
+<li>la Fiduciaire dispose d'un accès de gestion par mandat ;</li>
+<li>les clients finaux peuvent recevoir un accès en lecture seule sous
+le branding de la Fiduciaire (white-label), si l'accord de la Fiduciaire
+avec le client le prévoit.</li>
+</ul>
+<h3 id="7-prix-et-facturation-par-mandat--an">7) Prix et facturation
+(par mandat / an)</h3>
+<p>Les conditions annuelles suivantes s'appliquent par mandat :</p>
+<ul>
+<li><strong>Abonnement de base :</strong> CHF 500.-- par an et par
+mandat (client final de la Fiduciaire activé dans la solution arvut.ch),
+indépendamment de la taille de l'entreprise.</li>
+<li><strong>Tarif à l'usage :</strong> CHF 1.50 par écriture comptable
+(Buchung). Par écriture comptable, on entend une seule écriture au
+journal ; par exemple, un relevé de compte comportant 100 mouvements
+correspond à 100 écritures. Les contre-passations et rectifications sont
+comptées comme des écritures. Un livre tenu en monnaie parallèle (par
+ex. EUR/CHF) n'est compté qu'une seule fois : le livre dérivé ne double
+pas le décompte.</li>
+<li><strong>Rabais de volume</strong> (sur le volume annuel total
+d'écritures de tous les mandats de la Fiduciaire) : à partir de 5'000
+écritures/an −5 %, à partir de 10'000 écritures/an −10 %. Le rabais
+s'applique uniquement au tarif à l'usage, et non à l'abonnement de base,
+et est reconnu en fin d'année par décompte de régularisation (note de
+crédit).</li>
+<li>L'abonnement de base et les écritures sont facturés périodiquement ;
+aucun forfait minimum ni aucun frais d'implémentation n'est prévu. Tous
+les prix s'entendent TVA non comprise. En cas de retard de paiement, des
+intérêts moratoires de 5 % l'an (art. 104 CO) sont dus dès l'échéance,
+en sus des frais de rappel raisonnables.</li>
+</ul>
+<h3 id="7bis-service-de-numérisation-option">7bis) Service de
+numérisation (option)</h3>
+<p>Sur demande de la Fiduciaire, Arvut numérise les documents papier des
+mandats (« service de numérisation »). Ce service est <strong>inclus
+gratuitement pendant le projet pilote</strong> (sans supplément ni
+limite de volume). Après le pilote, la numérisation est facturée
+séparément ; <strong>tarif indicatif : CHF 0.30 par document numérisé <span class="dd">[à
+confirmer]</span></strong> — le tarif définitif sera fixé après mesure des
+coûts réels de numérisation. Les documents numérisés sont classés et
+liés aux écritures (audit trail) comme tout autre justificatif.</p>
+<h3 id="8-handover--export-vers-le-système-de-la-fiduciaire">8) Handover
+/ export vers le système de la Fiduciaire</h3>
+<p>Sur demande, Arvut fournit des exports structurés (CSV/XLS et/ou
+formats convenus) pour la remise et le rapprochement dans le système
+utilisé par la Fiduciaire (Target system).</p>
+<p>En cas de cessation de la collaboration, Arvut fournit :</p>
+<ul>
+<li>l'export des mouvements/données ;</li>
+<li>l'archive PDF des documents et des principaux rapports ;</li>
+<li>l'assistance au transfert/à l'importation dans le Target system
+(selon un effort raisonnable).</li>
+</ul>
+<h3 id="9-responsabilité-limite">9) Responsabilité (limite)</h3>
+<p>La responsabilité d'Arvut par mandat est limitée au montant des
+rémunérations payées par la Fiduciaire pour ce mandat au cours des 12
+mois précédant l'événement dommageable (rolling 12 mois). Cette
+limitation <strong>ne s'applique pas en cas de dol ou de faute grave
+d'Arvut ou de ses auxiliaires (art. 100 al. 1 et art. 101 CO), ni dans
+les cas où la loi interdit une limitation de la responsabilité</strong>.
+Est en tout état de cause exclue la responsabilité pour dommages
+indirects, manque à gagner et dommages consécutifs, sauf dol ou faute
+grave.</p>
+<h3 id="10-cessation-anticipée-et-indemnité-de-mise-en-place-setup">10)
+Cessation anticipée et indemnité de mise en place (setup)</h3>
+<p>Sous réserve des dispositions de l'art. 2 sur la nature du contrat,
+en cas de cessation anticipée par la Fiduciaire avant l'échéance de la
+période en cours, restent dues les rémunérations échues ainsi qu'une
+indemnité forfaitaire couvrant les coûts d'implémentation et de mise en
+place (setup), égale à <span class="dd">[CHF … — à définir]</span> pour chaque mandat actif.
+L'indemnité a le caractère d'un recouvrement forfaitaire des coûts et
+non d'une peine conventionnelle. Demeure réservée la résiliation
+extraordinaire pour justes motifs imputables à Arvut, auquel cas aucune
+indemnité n'est due.</p>
+<h3 id="11-annexes-mandats-et-modalités-dajout-de-mandats">11) Annexes
+(mandats) et modalités d'ajout de mandats</h3>
+<p>La liste des mandats est gérée au moyen d'annexes au présent SoW.</p>
+<ul>
+<li>L'Annexe 1 contient jusqu'à 10 mandats.</li>
+<li>Pour l'ajout de mandats supplémentaires au-delà de la limite de
+l'Annexe 1, une nouvelle annexe est rédigée : Annexe 2, puis Annexe 3,
+et ainsi de suite.</li>
+<li>Chaque annexe fait partie intégrante du présent SoW.</li>
+<li>L'ajout de mandats au moyen de nouvelles annexes ne modifie pas les
+autres conditions du SoW (SLA, prix, modèle opérationnel), sauf
+indication expresse contraire dans l'annexe pertinente.</li>
+</ul>
+<h3
+id="12-garantie-de--non-soustraction-des-clients--non-circumvention--non-solicitation-et-peine-conventionnelle">12)
+Garantie de « non-soustraction des clients » (non-circumvention /
+non-solicitation) et peine conventionnelle</h3>
+<p>Arvut reconnaît que tous les clients finaux (mandats) gérés dans le
+cadre du présent SoW sont des clients de la Fiduciaire.</p>
+<p><strong>12.1 Interdiction de contournement de la Fiduciaire
+(non-circumvention).</strong> Arvut s'engage, pendant toute la durée du
+SoW et durant 24 mois après sa cessation, à ne pas conclure et à ne pas
+exécuter, directement ou par l'intermédiaire de tiers/sociétés liées, de
+contrats de services comptables ou similaires avec les clients finaux de
+la Fiduciaire qui ont été introduits ou gérés dans le cadre du présent
+SoW. Pour lever toute ambiguïté, Arvut reste libre d'offrir ses services
+à toute autre personne, fiduciaire ou client non géré dans le cadre du
+présent SoW.</p>
+<p><strong>12.2 Interdiction de sollicitation/débauchage
+(non-solicitation).</strong> Arvut s'engage à ne pas effectuer de
+marketing direct, d'offres, de sollicitations ou d'autres actions visant
+à transférer les clients de la Fiduciaire vers un contrat direct avec
+Arvut.</p>
+<p><strong>12.3 Exception (contact spontané du client).</strong> Si un
+client de la Fiduciaire contacte Arvut spontanément et directement,
+Arvut s'engage à : (a) informer la Fiduciaire dans un délai raisonnable
+; et (b) poursuivre l'interaction exclusivement par l'intermédiaire de
+la Fiduciaire ou conclure un contrat direct uniquement avec
+l'autorisation écrite préalable de la Fiduciaire.</p>
+<p><strong>12.4 Peine conventionnelle (clause pénale).</strong> Pour
+chaque violation constatée des points 12.1–12.2, et pour chaque mandat
+concerné, Arvut versera à la Fiduciaire une peine conventionnelle égale
+à la valeur du service sur 24 mois pour le mandat concerné (tarif en
+vigueur au moment de la violation, entendu comme l'abonnement plus la
+moyenne mensuelle des écritures des 12 derniers mois), et en tout état
+de cause non inférieure à CHF 5'000.00 par mandat. Les parties
+conviennent que ce montant représente une estimation raisonnable et de
+bonne foi du préjudice prévisible ; demeure réservée la faculté du juge
+au sens de l'art. 163 al. 3 CO.</p>
+<p>Le paiement de la peine conventionnelle ne porte pas atteinte au
+droit de la Fiduciaire d'exiger la cessation de la violation et la
+réparation d'un dommage prouvé dans la mesure non couverte par la peine
+conventionnelle, dans les limites permises par le droit applicable (art.
+161 al. 2 CO).</p>
+<h3 id="13-confidentialité-et-secret">13) Confidentialité et secret</h3>
+<p>Chaque partie traite comme secret d'affaires (cf. art. 162 CP) toutes
+les informations de l'autre partie et des clients finaux. Ces
+obligations subsistent pendant 5 ans à compter de la cessation du
+présent SoW. À la cessation, et sous réserve des obligations légales de
+conservation, Arvut restitue et/ou détruit les copies résiduelles des
+données sur demande écrite, en le confirmant par écrit. Arvut ne peut
+divulguer à ses auxiliaires/sous-traitants que s'ils sont liés par des
+obligations de confidentialité équivalentes, Arvut en demeurant
+responsable (art. 101 CO). Arvut agit en qualité d'auxiliaire
+(Hilfsperson) de la Fiduciaire et le secret professionnel éventuel de
+cette dernière demeure réservé (y compris l'art. 321 CP lorsqu'il est
+applicable) ; la Fiduciaire garantit les autorisations et consentements
+nécessaires.</p>
+<h3 id="14-dispositions-finales">14) Dispositions finales</h3>
+<ul>
+<li><strong>Forme écrite :</strong> les modifications et compléments ne
+sont valables que s'ils sont convenus par écrit par les deux parties ;
+la présente clause de forme écrite ne peut elle-même être modifiée que
+par écrit.</li>
+<li><strong>Sauvegarde (severability) :</strong> la nullité ou
+l'inefficacité éventuelle d'une clause ne porte pas atteinte aux autres
+; les parties la remplacent par une autre d'effet économique équivalent
+admis par la loi.</li>
+<li><strong>Cession :</strong> aucune partie ne peut céder le contrat
+sans le consentement écrit de l'autre, sauf cession à une société du
+groupe ou réorganisation d'Arvut.</li>
+<li><strong>Compensation :</strong> la Fiduciaire ne peut compenser
+qu'avec des créances incontestées ou constatées par jugement.</li>
+<li><strong>Force majeure :</strong> aucune partie ne répond des
+inexécutions dues à la force majeure (y compris interruptions de réseau
+et événements externes non imputables) ; les SLA sont suspendus pour la
+durée correspondante.</li>
+<li><strong>Communications :</strong> par écrit (lettre recommandée ou
+courriel aux adresses indiquées par les parties).</li>
+<li><strong>Signature électronique :</strong> le présent SoW peut être
+signé électroniquement et en plusieurs exemplaires, chacun valant
+original.</li>
+<li><strong>Survie :</strong> les articles 9 (responsabilité), 10
+(indemnité), 12 (non-circumvention et peine conventionnelle), 13
+(confidentialité), 15 (droit applicable et for) et l'Annexe — Traitement
+des données survivent à la cessation.</li>
+</ul>
+<h3 id="15-droit-applicable-et-for">15) Droit applicable et for</h3>
+<p>Le présent SoW est régi par le droit suisse. Le for exclusif est
+<span class="dd">[Zoug (siège Arvut) / Vaud (siège Figemax) — à définir]</span>, sous réserve de
+dispositions impératives contraires.</p>
+<h3 id="16-prévalence-et-remplacement-des-accords-antérieurs">16)
+Prévalence et remplacement des accords antérieurs</h3>
+<p>Le présent SoW annule et remplace intégralement tout accord, entente,
+correspondance, proposition et annexe antérieurs entre Arvut et la
+Fiduciaire relatifs à l'objet des services comptables back-end en mode
+white-label, sauf indication expresse contraire dans le présent SoW ou
+ses annexes. Les modifications et compléments ne sont valables que s'ils
+sont convenus par écrit par les deux parties.</p>
+<p><strong>Contact</strong></p>
+<p>Heinz Brägger — President, Arvut GmbH <a
+href="mailto:heinz.braegger@arvut.ch">heinz.braegger@arvut.ch</a> · +41
+79 406 56 26 · arvut.ch</p>
+<p><strong>Pour Arvut GmbH</strong></p>
+<p><strong>Heinz Brägger</strong></p>
+<p><strong>Pour la Fiduciaire</strong></p>
+<p><strong>Maxime Bugnon — CEO</strong></p>
+<hr />
+<h2 id="annexe-1--registre-des-mandats-jusquà-10">ANNEXE 1 — REGISTRE
+DES MANDATS (JUSQU'À 10)</h2>
+<table class="grid">
+<thead>
+<tr>
+<th>#</th>
+<th>Mandat</th>
+<th>Raison sociale (entité juridique)</th>
+<th>Statut TVA</th>
+<th>Banque / Sources de données</th>
+<th>Remarques</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>8</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Note : l'Annexe 1 fait partie intégrante du présent SoW. Pour
+plus de 10 mandats, les Annexes 2, 3, etc. sont rédigées.</strong></p>
+<hr />
+<h2
+id="annexe-2--traitement-des-données-personnelles-art-9-nlpd--rs-2351">ANNEXE
+2 — TRAITEMENT DES DONNÉES PERSONNELLES (art. 9 nLPD / RS 235.1)</h2>
+<p><em>Contrat de sous-traitance (Auftragsbearbeitungsvertrag). Partie
+intégrante du SoW. Aucun traitement de données réelles des clients
+finaux n'a lieu avant la signature de la présente Annexe.</em></p>
+<p><strong>1. Rôles et objet</strong></p>
+<ol type="1">
+<li>La Fiduciaire est le responsable du traitement (Verantwortlicher,
+art. 5 let. j nLPD) ; Arvut est le sous-traitant (Auftragsbearbeiter,
+art. 5 let. k et art. 9 nLPD).</li>
+<li>Arvut traite les données exclusivement pour fournir les services du
+SoW et sur instruction documentée de la Fiduciaire.</li>
+<li>La Fiduciaire garantit être responsable du traitement (ou
+sous-traitant autorisé) et disposer de l'autorisation des clients finaux
+pour faire appel à Arvut en qualité de (sous-)traitant (art. 9 al. 3
+nLPD).</li>
+</ol>
+<p><strong>2. Catégories de données et personnes concernées</strong></p>
+<ol type="1">
+<li>Personnes concernées : employés, fournisseurs, clients des
+mandats.</li>
+<li>Catégories : données d'identité, comptables, bancaires, données de
+paie (payroll) (y compris AVS/LPP/impôt à la source) et données
+sensibles éventuelles concernant la santé (par ex. indemnités
+maladie/accident LAA) — art. 5 let. c nLPD.</li>
+</ol>
+<p><strong>3. Instructions et limites</strong></p>
+<ol type="1">
+<li>Traitement uniquement sur instruction ; aucune utilisation à des
+fins propres d'Arvut (art. 9 al. 1 nLPD).</li>
+<li>Arvut n'accomplit que ce que la Fiduciaire est elle-même autorisée à
+accomplir.</li>
+<li>Arvut signale les instructions qu'il estime illicites.</li>
+</ol>
+<p><strong>4. Confidentialité et secret</strong></p>
+<ol type="1">
+<li>Arvut et son personnel sont liés par la confidentialité, y compris
+après la cessation ; Arvut agit en qualité d'auxiliaire (Hilfsperson) de
+la Fiduciaire.</li>
+<li>Le secret professionnel éventuel de la Fiduciaire demeure réservé (y
+compris l'art. 321 CP lorsqu'il est applicable) ; la Fiduciaire garantit
+les autorisations/consentements nécessaires.</li>
+</ol>
+<p><strong>5. Sécurité des données (art. 8 nLPD ; OPDo art. 1–3, RS
+235.11)</strong></p>
+<ol type="1">
+<li>Mesures techniques/organisationnelles adéquates : chiffrement en
+transit et au repos, contrôle des accès, cloisonnement, sauvegarde,
+intégrité, disponibilité, pseudonymisation lorsque cela est
+possible.</li>
+<li>Journalisation (logging) et règlement de traitement lorsqu'ils sont
+requis (OPDo art. 4–5).</li>
+</ol>
+<p><strong>6. Sous-traitants ultérieurs (art. 9 al. 3 nLPD)</strong></p>
+<ol type="1">
+<li>Liste des sous-traitants ultérieurs (hébergement, OCR, services IA)
+à l'Appendice A ; obligation d'engagements contractuels
+équivalents.</li>
+<li>Autorisation générale avec préavis et droit d'opposition de la
+Fiduciaire aux modifications.</li>
+<li><em>Outils d'intelligence artificielle.</em> Arvut recourt à des
+outils fondés sur l'IA (actuellement Anthropic PBC — « Claude Code
+») en qualité de sous-traitant ultérieur pour la production comptable.
+L'option d'utilisation des données pour l'entraînement/l'amélioration
+des modèles est désactivée et, lorsque techniquement disponible, la
+conservation zéro des données (Zero Data Retention) est activée, sans
+examen humain des entrées au-delà du contrôle anti-abus résiduel ; la
+seule désactivation de l'entraînement ne suffit pas (s'appliquent
+cumulativement un DPA avec le fournisseur + la garantie de transfert,
+ch. 7). La sortie de l'IA est toujours soumise à un examen humain (la
+responsabilité demeure chez Arvut). D'éventuels autres fournisseurs d'IA
+ne sont admis qu'aux mêmes conditions. Les données des mandats soumis au
+secret professionnel (art. 321 CP, par ex. révision) ne sont transmises
+aux outils d'IA que sous forme anonymisée.</li>
+</ol>
+<p><strong>7. Transferts transfrontaliers (art. 16–17 nLPD)</strong></p>
+<ol type="1">
+<li>Par défaut, les données de paie/sensibles sont traitées en CH ou
+dans des pays offrant une protection adéquate (liste du Conseil fédéral,
+OPDo Annexe 1).</li>
+<li>Pour les pays sans adéquation : clauses contractuelles types
+reconnues par le PFPDT + analyse d'impact du transfert + mesures
+supplémentaires (chiffrement avec clés en CH).</li>
+</ol>
+<p><strong>8. Violations de la sécurité (art. 24 nLPD)</strong></p>
+<ol type="1">
+<li>Arvut informe la Fiduciaire sans délai de toute violation
+éventuelle, avec les informations utiles afin que la Fiduciaire puisse
+satisfaire à ses obligations envers le PFPDT/les personnes
+concernées.</li>
+</ol>
+<p><strong>9. Assistance au responsable du traitement</strong></p>
+<ol type="1">
+<li>Soutien pour les droits des personnes concernées (accès art. 25,
+rectification, effacement, portabilité art. 28).</li>
+<li>Soutien pour l'analyse d'impact (art. 22) et la consultation du
+PFPDT lorsque cela est nécessaire.</li>
+</ol>
+<p><strong>10. Restitution / effacement</strong></p>
+<ol type="1">
+<li>À la cessation, au choix de la Fiduciaire, Arvut restitue (cf. art.
+8 SoW) ou efface les données et atteste leur effacement, sous réserve
+des obligations légales de conservation (par ex. art. 958f CO, 10 ans) —
+avec indication de qui conserve l'archive.</li>
+</ol>
+<p><strong>11. Contrôle et preuve</strong></p>
+<ol type="1">
+<li>Arvut met à disposition les informations nécessaires pour démontrer
+la conformité et permet des vérifications raisonnables.</li>
+</ol>
+<p><strong>12. Registre des activités de traitement (art. 12
+nLPD)</strong></p>
+<ol type="1">
+<li>Chaque partie tient son propre registre ; l'exemption PME peut ne
+pas s'appliquer en présence de données sensibles traitées à grande
+échelle.</li>
+</ol>
+<p><strong>Appendice A — Liste des sous-traitants ultérieurs</strong>
+(nom, service, siège/pays, garanties de transfert). Comprend notamment :
+hébergement (CH) ; outils d'IA — Anthropic PBC, entraînement désactivé, ZDR lorsque disponible.</p>
+<p><strong>Appendice B — Mesures techniques et organisationnelles
+(MTO)</strong></p>
+<h2 id="annexe-3--services-à-valeur-ajoutée-temps-réel">ANNEXE 3 —
+SERVICES À VALEUR AJOUTÉE (TEMPS RÉEL)</h2>
+<p>Modules optionnels, activés par mandat. État honnête : disponibles,
+configurés par mandat ; certaines intégrations (notamment EBICS) sont en
+cours de consolidation — éprouvées sur un premier mandat et en
+déploiement, à confirmer par mandat avant l'activation. Ils ne sont pas
+compris dans l'abonnement de base (CHF 500 + 1.50/écriture) et sont
+facturés séparément.</p>
+<table class="grid">
+<thead>
+<tr>
+<th>#</th>
+<th>Module</th>
+<th>Description</th>
+<th>État</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td>Acquisition automatique des documents</td>
+<td>Les documents arrivent seuls : e-mail, portail, Telegram,
+caisses/POS (clôtures journalières), banque via EBICS (camt.053)</td>
+<td>Disponible ; POS/EBICS configurés par mandat</td>
+</tr>
+<tr>
+<td>B</td>
+<td>Comptabilité en temps réel</td>
+<td>Livres mis à jour en continu ; chaque montant rapproché à la
+source</td>
+<td>Disponible</td>
+</tr>
+<tr>
+<td>C</td>
+<td>Reporting journalier</td>
+<td>Tableau réel chaque matin, par point de vente, par centres de coûts
+et de profit</td>
+<td>Disponible</td>
+</tr>
+<tr>
+<td>D</td>
+<td>TVA automatique (eCH-0217)</td>
+<td>Décompte TVA généré en fin de période, prêt pour la signature de la
+Fiduciaire</td>
+<td>Disponible (projet pour signature)</td>
+</tr>
+<tr>
+<td>E</td>
+<td>Paiements via EBICS</td>
+<td>Paiements préparés par ABM (pain.001) ; la signature et l'exécution
+restent au client</td>
+<td>En consolidation ; par mandat</td>
+</tr>
+<tr>
+<td>F</td>
+<td>Domaine white-label propre</td>
+<td>Portail du client sur le domaine de la Fiduciaire (p. ex.
+abm.figemax.ch)</td>
+<td>Disponible (1 enregistrement DNS)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Prix et activation.</strong> Modules opt-in par mandat. Le
+prix au client final est déterminé librement par la Fiduciaire ; un
+tarif wholesale par module/mandat est dû à Arvut <span class="dd">[à définir]</span>,
+indépendant du prix au client. L'activation d'un module se perfectionne
+par annotation à l'Annexe 1 ou par avenant. Aucun module n'est dû ni
+facturé s'il n'est pas activé.</p>
+
+</div></div>
+</body>
+</html>

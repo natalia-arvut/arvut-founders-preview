@@ -1,0 +1,72 @@
+<svg class="network-node" viewBox="0 0 620 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="">
+  <style>
+    .nn-star{transform-box:fill-box;transform-origin:center;animation:nnpk 3s ease-in-out infinite}
+    .nn-ring{transform-box:fill-box;transform-origin:center}
+    .nn-p1{animation:nndash 22s linear infinite}
+    @keyframes nnpk{0%,100%{opacity:.75;transform:scale(.9)}50%{opacity:1;transform:scale(1.12)}}
+    @keyframes nndash{to{stroke-dashoffset:-300}}
+    @media (prefers-reduced-motion:reduce){.nn-star{animation:none;opacity:1}.nn-p1{animation:none}}
+  </style>
+  <defs>
+    <filter id="nnglow" x="-140%" y="-140%" width="380%" height="380%">
+      <feGaussianBlur stdDeviation="4.5" result="b"/>
+      <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <radialGradient id="nnhub" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#009B9F" stop-opacity="0.16"/>
+      <stop offset="100%" stop-color="#009B9F" stop-opacity="0"/>
+    </radialGradient>
+    <!-- фирменная 4-конечная звезда (как точки-города на карте), единичная -->
+    <path id="nnStar" d="M0,-1 C0.27,-0.27 0.27,-0.27 1,0 C0.27,0.27 0.27,0.27 0,1 C-0.27,0.27 -0.27,0.27 -1,0 C-0.27,-0.27 -0.27,-0.27 0,-1 Z"/>
+  </defs>
+
+  <!-- мягкое свечение центра -->
+  <circle cx="312" cy="286" r="200" fill="url(#nnhub)"/>
+
+  <!-- концентрические орбиты (тонкие, убывающая насыщенность) -->
+  <g fill="none" stroke="#009B9F">
+    <circle class="nn-ring" cx="312" cy="286" r="86"  stroke-opacity="0.35" stroke-width="1.3"/>
+    <circle class="nn-ring" cx="312" cy="286" r="150" stroke-opacity="0.22" stroke-width="1.2"/>
+    <circle class="nn-ring" cx="312" cy="286" r="216" stroke-opacity="0.12" stroke-width="1.1"/>
+  </g>
+
+  <!-- дальняя пунктирная орбита-«охват» -->
+  <circle class="nn-p1" cx="312" cy="286" r="216" fill="none" stroke="#00787c"
+          stroke-opacity="0.5" stroke-width="1.3" stroke-dasharray="2 12" stroke-linecap="round"/>
+
+  <!-- связи хаба с узлами сети -->
+  <g fill="none" stroke="#00787c" stroke-linecap="round">
+    <path d="M312 286 L452 150" stroke-opacity="0.6"  stroke-width="1.7"/>
+    <path d="M312 286 L404 452" stroke-opacity="0.6"  stroke-width="1.7"/>
+    <path d="M312 286 L108 240" stroke-opacity="0.6"  stroke-width="1.7"/>
+    <path d="M312 286 L510 330" stroke-opacity="0.4"  stroke-width="1.2"/>
+    <path d="M312 286 L156 432" stroke-opacity="0.4"  stroke-width="1.2"/>
+    <path d="M312 286 L236 128" stroke-opacity="0.4"  stroke-width="1.2"/>
+    <!-- связи между узлами (сеть, а не только звезда-хаб) -->
+    <path d="M452 150 L510 330" stroke-opacity="0.28" stroke-width="1"/>
+    <path d="M108 240 L236 128" stroke-opacity="0.28" stroke-width="1"/>
+    <path d="M404 452 L156 432" stroke-opacity="0.2"  stroke-width="1"/>
+  </g>
+
+  <!-- второстепенные узлы: кружок teal с кремовой сердцевиной -->
+  <g>
+    <circle cx="510" cy="330" r="6"  fill="#FBFAF3" stroke="#009B9F" stroke-width="2"/>
+    <circle cx="156" cy="432" r="6"  fill="#FBFAF3" stroke="#009B9F" stroke-width="2"/>
+    <circle cx="236" cy="128" r="6"  fill="#FBFAF3" stroke="#009B9F" stroke-width="2"/>
+  </g>
+
+  <!-- главные узлы сети со свечением (звёзды как на карте) -->
+  <g filter="url(#nnglow)" fill="#009B9F">
+    <use class="nn-star" href="#nnStar" transform="translate(452,150) scale(13)" style="animation-delay:.2s"/>
+    <use class="nn-star" href="#nnStar" transform="translate(404,452) scale(12)" style="animation-delay:1.1s"/>
+    <use class="nn-star" href="#nnStar" transform="translate(108,240) scale(12)" style="animation-delay:1.9s"/>
+  </g>
+
+  <!-- ХАБ: ваша фирма — двойной ореол + узел + звезда -->
+  <circle cx="312" cy="286" r="30" fill="none" stroke="#009B9F" stroke-opacity="0.35" stroke-width="1.4"/>
+  <circle cx="312" cy="286" r="20" fill="none" stroke="#009B9F" stroke-opacity="0.6"  stroke-width="1.6"/>
+  <circle cx="312" cy="286" r="12" fill="#FBFAF3" stroke="#009B9F" stroke-width="2.6"/>
+  <g filter="url(#nnglow)" fill="#009B9F">
+    <use class="nn-star" href="#nnStar" transform="translate(312,286) scale(9)"/>
+  </g>
+</svg>
